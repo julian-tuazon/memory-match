@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  height: 100%;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  margin-bottom: .5rem;
+}
+
+.header-row {
+  height: 20%;
+}
+
+.game-row {
+  height: 80%;
+}
+
+aside, main {
+  height: 100%;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+aside > div {
+  height: 10%;
+  width: 60%;
+}
+
+main > div {
+  height: 25%;
+}
+
+.col-1 {
+  width: 8%;
+}
+
+.col-2 {
+  width: 16%;
+}
+
+.col-3 {
+  width: 24%;
+}
+
+.col-4 {
+  width: 32%;
+}
+
+.col-5 {
+  width: 40%;
+}
+
+.col-6 {
+  width: 48%;
+}
+
+.col-7 {
+  width: 56%;
+}
+
+.col-8 {
+  width: 64%;
+}
+
+.col-9 {
+  width: 72%;
+}
+
+.col-10 {
+  width: 80%;
+}
+
+.col-11 {
+  width: 88%;
+}
+
+.col-12 {
+  width: 96%;
+}
