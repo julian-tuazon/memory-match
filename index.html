@@ -11,13 +11,13 @@
 </head>
 <body>
   <div id="welcome" class="modal">
-    <div>Welcome!</div>
+    <div>Welcome! ようこそ!</div>
     <div class="modal-text">
       <p>Click on the cards to reveal the logos</p>
       <p>Click on two of the same cards to generate a match</p>
       <p>Match all paired logos to win the game</p>
     </div>
-    <div><input type="button" id="start" value="Start Game"></div>
+    <div class="button-container"><input type="button" id="start" value="Start Game"></div>
   </div>
 
   <div class="container">
@@ -26,7 +26,7 @@
     </div>
     <div class="row game-row">
       <aside class="col-2">
-        <div>ありがとう</div>
+        <div id="cheat">ありがとう</div>
         <div>Games Played</div>
         <div id="games-played">0</div>
         <div>Attempts</div>
@@ -114,9 +114,9 @@
   </div>
 
   <div id="end" class="modal hidden">
-    <div>Victory!</div>
+    <div>Victory! おめでとう!</div>
     <div id="final-accuracy"></div>
-    <div><input type="button" id="reset" value="Play Again"></div>
+    <div class="button-container"><input type="button" id="reset" value="Play Again"></div>
   </div>
   <script src="assets/js/script.js"></script>
 </body>
