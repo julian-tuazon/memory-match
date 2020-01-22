@@ -23,7 +23,7 @@ aside > div {
 }
 
 .card {
-  background-image: url(../images/lfz-card.jpg);
+  /* background-image: url(../images/lfz-card.jpg); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@ aside > div {
 .card-front, .card-back {
   height: 100%;
   width: 100%;
-  background-size: cover;
+  background-size: contain; /*changed from cover to contain*/
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -41,42 +41,43 @@ aside > div {
 
 .card-back {
   background-image: url(../images/BetaMon.gif);
+  background-size: cover; /*override the card back as contain to cover the front*/
 }
 
 .css-logo {
-  background-image: url(../images/vaporcube.gif);
+  background-image: url(../images/science/106a_chromosome_blue.png);
 }
 
 .docker-logo {
-  background-image: url(../images/docker-logo.jpg);
+  background-image: url(../images/science/e4_hepatitis_B_virus.png);
 }
 
 .github-logo {
-  background-image: url(../images/gitHub-logo.png);
+  background-image: url(../images/science/he_retrovirus.png);
 }
 
 .html-logo {
-  background-image: url(../images/html-logo.png);
+  background-image: url(../images/science/117aac_sonic_hedgehog.png);
 }
 
 .js-logo {
-  background-image: url(../images/js-logo.png);
+  background-image: url(../images/science/1c_rhinovirus_grey.png);
 }
 
 .mysql-logo {
-  background-image: url(../images/mysql-logo.jpg);
+  background-image: url(../images/science/109h_dGTP.png);
 }
 
 .node-logo {
-  background-image: url(../images/node-logo.png);
+  background-image: url(../images/science/108g_nucleosome_green.png);
 }
 
 .php-logo {
-  background-image: url(../images/php-logo.jpeg);
+  background-image: url(../images/science/115n_alpha_chymotrypsin.png);
 }
 
 .react-logo {
-  background-image: url(../images/react-logo.png);
+  background-image: url(../images/science/109c_guanine_atoms.png);
 }
 
 #modal {
