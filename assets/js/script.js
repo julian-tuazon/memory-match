@@ -7,6 +7,10 @@ let matches = 0;
 let attempts = 0;
 let gamesPlayed = 0;
 
+// switches background after each game ends
+// let backgroundIndex = 1;
+// const backgrounds = ["url('./assets/images/DNA.gif')", "url('./assets/images/Singleton.gif')", "url('./assets/images/Goo.gif')"];
+
 const gameCards = document.getElementById("game-cards");
 const modal = document.getElementById("modal");
 const resetButton = document.getElementById("reset");
@@ -24,18 +28,27 @@ function handleClick(event) {
   }
   if (!firstCardClicked) {
     firstCardClicked = event.target;
-    event.target.className += " hidden";
-    firstCardClasses = event.target.previousElementSibling.className;
+    firstCardClicked.className += " hidden";
+    firstCardClicked.previousElementSibling.classList.add("current");
+    firstCardClasses = firstCardClicked.previousElementSibling.className;
   } else {
     secondCardClicked = event.target;
-    event.target.className += " hidden";
-    secondCardClasses = event.target.previousElementSibling.className;
+    secondCardClicked.className += " hidden";
+    secondCardClicked.previousElementSibling.classList.add("current");
+    secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses === secondCardClasses) {
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
+      firstCardClicked.previousElementSibling.classList.remove("current");
+      secondCardClicked.previousElementSibling.classList.remove("current");
+      gameCards.classList.add("correct");
+      setTimeout(function() {
+        gameCards.classList.remove("correct");
+      }, 1000);
       if (matches === maxMatches) {
+        document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
         document.getElementById("modal").classList.remove("hidden");
       }
       firstCardClicked = null;
@@ -44,13 +57,17 @@ function handleClick(event) {
     } else {
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
-      setTimeout(function () {
+      firstCardClicked.previousElementSibling.classList.remove("current");
+      secondCardClicked.previousElementSibling.classList.remove("current");
+      gameCards.classList.add("incorrect");
+      setTimeout(function() {
         firstCardClicked.classList.remove("hidden");
         secondCardClicked.classList.remove("hidden");
         firstCardClicked = null;
         secondCardClicked = null;
+        gameCards.classList.remove("incorrect");
         gameCards.addEventListener('click', handleClick);
-      }, 1500);
+      }, 1000);
     }
   }
 }
@@ -68,4 +85,8 @@ function resetGame() {
     cardBacks[i].classList.remove("hidden");
   }
   modal.classList.add("hidden");
+  // backgroundIndex++;
+  // console.log("backgroundIndex:", backgroundIndex);
+  // console.log("backgroundIndex % length:", backgroundIndex % backgrounds.length);
+  // document.body.style.backgroundImage = backgrounds[backgroundIndex % backgrounds.length];
 }

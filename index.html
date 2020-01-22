@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/grid.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
   <div class="container">
     <div class="row header-row">
-      <header>LFZ Memory Match</header>
+      <header>m e m o r y . e x e</header>
     </div>
     <div class="row game-row">
       <aside class="col-2">
-        <div>S T A T S</div>
+        <div>STATS</div>
         <div>Games Played</div>
         <div id="games-played">0</div>
         <div>Attempts</div>
@@ -102,8 +103,10 @@
     </div>
   </div>
   <div id="modal" class="hidden">
-    <div>Congratulations! You have won!</div>
-    <div><button type="button" id="reset">Play Again</button></div>
+    <div>Victory!</div>
+    <div id="final-accuracy"></div>
+    <div class="img-container"><img src="./assets/images/extra/2b_hi_res.png" alt="2b"></div>
+    <div><input type="button" id="reset" value="Play Again"></div>
   </div>
   <script src="assets/js/script.js"></script>
 </body>

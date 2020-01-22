@@ -1,5 +1,5 @@
 .container {
-  width: 100%;
+  width: 80%;
   max-width: 1500px;
   margin: auto;
   height: 100%;
@@ -12,11 +12,11 @@
 }
 
 .header-row {
-  height: 20%;
+  height: 10%;
 }
 
 .game-row {
-  height: 80%;
+  height: 90%;
 }
 
 aside, main {
@@ -33,6 +33,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
 }
 
 aside > div {
