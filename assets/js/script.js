@@ -12,7 +12,9 @@ let gamesPlayed = 0;
 // const backgrounds = ["url('./assets/images/DNA.gif')", "url('./assets/images/Singleton.gif')", "url('./assets/images/Goo.gif')"];
 
 const gameCards = document.getElementById("game-cards");
-const modal = document.getElementById("modal");
+const welcome = document.getElementById("welcome");
+const startButton = document.getElementById("start");
+const end = document.getElementById("end");
 const resetButton = document.getElementById("reset");
 const gamesPlayedDisplay = document.getElementById("games-played");
 const attemptsDisplay = document.getElementById("attempts");
@@ -20,7 +22,12 @@ const matchesDisplay = document.getElementById("matches");
 const accuracyDisplay = document.getElementById("accuracy");
 
 gameCards.addEventListener('click', handleClick);
+startButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
+
+function startGame() {
+  welcome.classList.add("hidden");
+}
 
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) {
@@ -49,7 +56,7 @@ function handleClick(event) {
       }, 1000);
       if (matches === maxMatches) {
         document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-        document.getElementById("modal").classList.remove("hidden");
+        end.classList.remove("hidden");
       }
       firstCardClicked = null;
       secondCardClicked = null;
@@ -84,7 +91,7 @@ function resetGame() {
   for (let i = 0; i < cardBacks.length; i++) {
     cardBacks[i].classList.remove("hidden");
   }
-  modal.classList.add("hidden");
+  end.classList.add("hidden");
   // backgroundIndex++;
   // console.log("backgroundIndex:", backgroundIndex);
   // console.log("backgroundIndex % length:", backgroundIndex % backgrounds.length);

@@ -1,19 +1,12 @@
 body {
   height: 95vh;
   background-image: url(../images/geo/diamond.jpg);
-  /* background-position: left; changed from top to center */
-  /* background-size: 115%; changed from auto to cover */
-
-
   background-repeat: repeat;
-  /* background-size: 120%; */
-  /* background-size: cover; */
-  background-size: 30%;
-  background-position: right center;
+  background-size: 120%;
+  background-position: center;
   background-color: white;
   font-family: 'Orbitron', sans-serif;
-  /* font-weight: bold; */
-
+  overflow: hidden;
 }
 
 header {
@@ -64,6 +57,7 @@ aside div:first-child {
                      url(../images/geo/earth.gif);
   background-position: center;
   background-size: 300%;
+  font-weight: bold;
 }
 
 #game-cards {
@@ -112,7 +106,6 @@ aside div:first-child {
 .correct {
   box-shadow: 0px 0px 15px 10px lime;
   border-radius: 15px;
-  /* transform: scale(1.01); */
 }
 
 .incorrect {
@@ -157,17 +150,18 @@ aside div:first-child {
   background-image: url(../images/wipeout_logos/triakis.jpg);
 }
 
-#modal {
+.modal {
   font-size: 3vmax;
   width: 100vw;
   height: 100vh;
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   text-align: center;
   background: linear-gradient(
-                     rgba(20,20,20, .6),
-                     rgba(20,20,20, .6)),
+                     rgba(20,20,20, .5),
+                     rgba(20,20,20, .5)),
                      url(../images/geo/geometry3.gif);
   background-position: center;
   background-repeat: no-repeat;
@@ -175,26 +169,26 @@ aside div:first-child {
   color: white;
 }
 
-#modal > div {
-  padding: 5%;
+.modal > div {
+  padding: 2%;
 }
 
-#modal > #final-accuracy {
-  font-size: 2.5vmax;
+.modal > div:not(:first-child) {
+  font-size: 2vmax;
 }
 
-#modal > .img-container {
-  width: 50vmax;
+.modal > .img-container {
+  width: 30vmax;
   position: absolute;
-  top: 30%;
-  right: -10vw;
+  top: 30vmax;
+  right: 5%;
 }
 
 .img-container > img {
   width: 100%;
 }
 
-#reset {
+input {
   padding: 20px;
   width: 20vw;
   background: linear-gradient(
@@ -210,7 +204,7 @@ aside div:first-child {
   color: white;
 }
 
-#reset:hover {
+input:hover {
   cursor: pointer;
   box-shadow: 0px 0px 10px 2px cyan;
   transform: scale(1.01);

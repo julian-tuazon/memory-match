@@ -10,13 +10,23 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+  <div id="welcome" class="modal">
+    <div>Welcome!</div>
+    <div class="modal-text">
+      <p>Click on the cards to reveal the logos</p>
+      <p>Click on two of the same cards to generate a match</p>
+      <p>Match all paired logos to win the game</p>
+    </div>
+    <div><input type="button" id="start" value="Start Game"></div>
+  </div>
+
   <div class="container">
     <div class="row header-row">
       <header>m e m o r y . e x e</header>
     </div>
     <div class="row game-row">
       <aside class="col-2">
-        <div>STATS</div>
+        <div>ありがとう</div>
         <div>Games Played</div>
         <div id="games-played">0</div>
         <div>Attempts</div>
@@ -102,10 +112,10 @@
       </main>
     </div>
   </div>
-  <div id="modal" class="hidden">
+
+  <div id="end" class="modal hidden">
     <div>Victory!</div>
     <div id="final-accuracy"></div>
-    <div class="img-container"><img src="./assets/images/extra/2b_hi_res.png" alt="2b"></div>
     <div><input type="button" id="reset" value="Play Again"></div>
   </div>
   <script src="assets/js/script.js"></script>
