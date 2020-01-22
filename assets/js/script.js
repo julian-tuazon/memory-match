@@ -2,6 +2,8 @@ let firstCardClicked;
 let secondCardClicked;
 let firstCardClasses;
 let secondCardClasses;
+let maxMatches = 9;
+let matches = 0;
 
 document.getElementById("gameCards").addEventListener('click', handleClick);
 
@@ -13,20 +15,20 @@ function handleClick(event) {
     firstCardClicked = event.target;
     event.target.className += " hidden";
     firstCardClasses = event.target.previousElementSibling.className;
-    console.log("first:", firstCardClasses);
   } else {
       secondCardClicked = event.target;
       event.target.className += " hidden";
       secondCardClasses = event.target.previousElementSibling.className;
       document.getElementById("gameCards").removeEventListener('click', handleClick);
-      console.log("second:", secondCardClasses);
       if (firstCardClasses === secondCardClasses) {
-        console.log("The images match");
+        matches++;
+        if (matches === maxMatches) {
+          document.getElementById("modal").classList.remove("hidden");
+        }
         firstCardClicked = null;
         secondCardClicked = null;
         document.getElementById("gameCards").addEventListener('click', handleClick);
       } else {
-          console.log("The images do not match");
           setTimeout(function(){
           firstCardClicked.classList.remove("hidden");
           secondCardClicked.classList.remove("hidden");

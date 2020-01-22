@@ -79,6 +79,19 @@ aside > div {
   background-image: url(../images/react-logo.png);
 }
 
+#modal {
+  font-size: 3rem;
+  position: fixed;
+  width: 100vw;
+  top: 50%;
+  text-align: center;
+}
+
+#modal > div {
+  background-color: palegreen;
+  display: inline-block;
+}
+
 .hidden {
   display: none;
 }
