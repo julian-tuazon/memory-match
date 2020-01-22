@@ -8,12 +8,15 @@ let attempts = 0;
 let gamesPlayed = 0;
 
 const gameCards = document.getElementById("game-cards");
+const modal = document.getElementById("modal");
+const resetButton = document.getElementById("reset");
 const gamesPlayedDisplay = document.getElementById("games-played");
 const attemptsDisplay = document.getElementById("attempts");
 const matchesDisplay = document.getElementById("matches");
 const accuracyDisplay = document.getElementById("accuracy");
 
 gameCards.addEventListener('click', handleClick);
+resetButton.addEventListener('click', resetGame);
 
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) {
@@ -50,4 +53,19 @@ function handleClick(event) {
       }, 1500);
     }
   }
+}
+
+function resetGame() {
+  matches = 0;
+  attempts = 0;
+  accuracy = 0;
+  matchesDisplay.textContent = matches;
+  attemptsDisplay.textContent = attempts;
+  accuracyDisplay.textContent = accuracy;
+  gamesPlayedDisplay.textContent = ++gamesPlayed;
+  let cardBacks = document.getElementsByClassName("card-back");
+  for (let i = 0; i < cardBacks.length; i++) {
+    cardBacks[i].classList.remove("hidden");
+  }
+  modal.classList.add("hidden");
 }
