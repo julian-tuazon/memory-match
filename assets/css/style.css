@@ -1,29 +1,75 @@
 body {
   height: 95vh;
-  background-image: url(../images/DNA.gif);
-  background-position: top;
-  background-size: auto;
+  background-image: url(../images/geo/diamond.jpg);
   background-repeat: repeat;
+  background-size: 120%;
+  background-position: center;
+  background-color: white;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
 }
 
 header {
-  font-size: 3rem;
+  font-size: 2.5vmax;
   font-weight: bold;
   text-align: center;
   margin: auto;
+  height: 50%;
 }
 
 aside > div {
-  background-color: #87CEEB;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1vmax;
+  color: white;
+
+  background-image: url(../images/extra/gear.gif);
+  background-position: 30%;
+  background-size: 200%;
+
+/* background with earth */
+
+  /* background-image: url(../images/geo/earth.gif);
+  background-position: center;
+  background-size: 300%; */
+
   margin: 2% auto;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
+aside > div:nth-child(odd) {
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/bounce.gif);
+  background-position: bottom 75%;
+  background-size: cover;
+  /* background-position: 50% 60%; */
+}
+
+aside div:first-child {
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/geo/earth.gif);
+  background-position: center;
+  background-size: 300%;
+  font-weight: bold;
+}
+
+#cheat:hover {
+  cursor: pointer;
+}
+
+#game-cards {
+  transition: all ease-in-out 0.2s;
+}
+
 .card {
-  background-image: url(../images/lfz-card.jpg);
+  /* background-image: url(../images/lfz-card.jpg); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,62 +79,154 @@ aside > div {
 .card-front, .card-back {
   height: 100%;
   width: 100%;
-  background-size: cover;
+  background-size: cover; /*changed from cover to contain*/
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 15px;
   position: absolute;
+  transition: all ease-in-out 0.2s;
 }
 
 .card-back {
-  background-image: url(../images/BetaMon.gif);
+  background-image: url(../images/geo/glitch.gif);
+  background-size: cover; /*override the card back as contain to cover the front*/
+  background-position: center;
+  border-radius: 15px;
+  /* transition: all ease-in-out 0.2s; */
+}
+
+.card-back:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 2px red;
+  transform: scale(1.01);
+  background-image: url(../images/extra/BetaMon.gif);
+}
+
+.current {
+  box-shadow: 0px 0px 10px 2px cyan;
+  transform: scale(1.01);
+}
+
+.correct {
+  box-shadow: 0px 0px 15px 10px lime;
+  border-radius: 15px;
+}
+
+.incorrect {
+  box-shadow: 0px 0px 15px 10px red;
+  border-radius: 15px;
+  transform: scale(1.01);
 }
 
 .css-logo {
-  background-image: url(../images/css-logo.png);
+  background-image: url(../images/wipeout_logos/ag.jpg);
 }
 
 .docker-logo {
-  background-image: url(../images/docker-logo.jpg);
+  background-image: url(../images/wipeout_logos/assegai.jpg);
 }
 
 .github-logo {
-  background-image: url(../images/gitHub-logo.png);
+  background-image: url(../images/wipeout_logos/goteki.jpg);
 }
 
 .html-logo {
-  background-image: url(../images/html-logo.png);
+  background-image: url(../images/wipeout_logos/auricom.jpg);
 }
 
 .js-logo {
-  background-image: url(../images/js-logo.png);
+  background-image: url(../images/wipeout_logos/icarus.jpg);
 }
 
 .mysql-logo {
-  background-image: url(../images/mysql-logo.jpg);
+  background-image: url(../images/wipeout_logos/piranha.jpg);
 }
 
 .node-logo {
-  background-image: url(../images/node-logo.png);
+  background-image: url(../images/wipeout_logos/harimau.jpg);
 }
 
 .php-logo {
-  background-image: url(../images/php-logo.jpeg);
+  background-image: url(../images/wipeout_logos/qirex.jpg);
 }
 
 .react-logo {
-  background-image: url(../images/react-logo.png);
+  background-image: url(../images/wipeout_logos/triakis.jpg);
 }
 
-#modal {
-  font-size: 3rem;
-  position: fixed;
+.modal {
+  font-size: 3vmax;
+  font-weight: bold;
   width: 100vw;
-  top: 50%;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background: linear-gradient(
+                     rgba(20,20,20, .5),
+                     rgba(20,20,20, .5)),
+                     url(../images/geo/geometry3.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.modal > div {
+  padding: 2%;
+}
+
+.modal > div:not(:first-child) {
+  font-size: 2vmax;
+  font-weight: normal;
+}
+
+.modal > .img-container {
+  width: 30vmax;
+  position: absolute;
+  top: 30vmax;
+  right: 5%;
+}
+
+.img-container > img {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
-#modal > div {
-  background-color: palegreen;
+input {
+  padding: 20px 0;
+  width: 20vw;
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/ai.gif);
+  background-position: center;
+  background-size: cover;
+  border: none;
+  border-radius: 15px;
+  font-size: 2vmax;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: white;
+}
+
+input:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 2px cyan;
+  transform: scale(1.01);
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/geo/earth.gif);
+  background-position: center;
+  background-size: 350%;
 }
 
 .hidden {
