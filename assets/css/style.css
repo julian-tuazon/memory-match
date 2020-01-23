@@ -60,8 +60,10 @@ aside div:first-child {
   font-weight: bold;
 }
 
-#cheat:hover {
+.clickable:hover {
   cursor: pointer;
+  box-shadow: 0px 0px 10px 2px cyan;
+  transform: scale(1.01);
 }
 
 #game-cards {
@@ -69,7 +71,6 @@ aside div:first-child {
 }
 
 .card {
-  /* background-image: url(../images/lfz-card.jpg); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -79,7 +80,7 @@ aside div:first-child {
 .card-front, .card-back {
   height: 100%;
   width: 100%;
-  background-size: cover; /*changed from cover to contain*/
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 15px;
@@ -89,10 +90,9 @@ aside div:first-child {
 
 .card-back {
   background-image: url(../images/geo/glitch.gif);
-  background-size: cover; /*override the card back as contain to cover the front*/
+  background-size: cover;
   background-position: center;
   border-radius: 15px;
-  /* transition: all ease-in-out 0.2s; */
 }
 
 .card-back:hover {
@@ -118,39 +118,39 @@ aside div:first-child {
   transform: scale(1.01);
 }
 
-.css-logo {
+.ag-logo {
   background-image: url(../images/wipeout_logos/ag.jpg);
 }
 
-.docker-logo {
+.assegai-logo {
   background-image: url(../images/wipeout_logos/assegai.jpg);
 }
 
-.github-logo {
+.goteki-logo {
   background-image: url(../images/wipeout_logos/goteki.jpg);
 }
 
-.html-logo {
+.auricom-logo {
   background-image: url(../images/wipeout_logos/auricom.jpg);
 }
 
-.js-logo {
+.icarus-logo {
   background-image: url(../images/wipeout_logos/icarus.jpg);
 }
 
-.mysql-logo {
+.piranha-logo {
   background-image: url(../images/wipeout_logos/piranha.jpg);
 }
 
-.node-logo {
+.harimau-logo {
   background-image: url(../images/wipeout_logos/harimau.jpg);
 }
 
-.php-logo {
+.qirex-logo {
   background-image: url(../images/wipeout_logos/qirex.jpg);
 }
 
-.react-logo {
+.triakis-logo {
   background-image: url(../images/wipeout_logos/triakis.jpg);
 }
 

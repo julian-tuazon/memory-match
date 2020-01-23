@@ -26,11 +26,11 @@
     </div>
     <div class="row game-row">
       <aside class="col-2">
-        <div id="cheat">ありがとう</div>
+        <div id="cheat" class="clickable">ありがとう</div>
         <div>Games Played</div>
-        <div id="games-played">0</div>
+        <div id="games-played" class="clickable">0</div>
         <div>Attempts</div>
-        <div id="attempts">0</div>
+        <div id="attempts" class="clickable">0</div>
         <div>Matches</div>
         <div id="matches">0</div>
         <div>Accuracy</div>
@@ -38,75 +38,75 @@
       </aside>
       <main class="col-10" id="game-cards">
         <div class="col-2 card">
-          <div class="card-front css-logo"></div>
+          <div class="card-front ag-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front docker-logo"></div>
+          <div class="card-front assegai-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front github-logo"></div>
+          <div class="card-front goteki-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front html-logo"></div>
+          <div class="card-front auricom-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front js-logo"></div>
+          <div class="card-front icarus-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front mysql-logo"></div>
+          <div class="card-front piranha-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front node-logo"></div>
+          <div class="card-front harimau-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front php-logo"></div>
+          <div class="card-front qirex-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front react-logo"></div>
+          <div class="card-front triakis-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front css-logo"></div>
+          <div class="card-front ag-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front docker-logo"></div>
+          <div class="card-front assegai-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front github-logo"></div>
+          <div class="card-front goteki-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front html-logo"></div>
+          <div class="card-front auricom-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front js-logo"></div>
+          <div class="card-front icarus-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front mysql-logo"></div>
+          <div class="card-front piranha-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front node-logo"></div>
+          <div class="card-front harimau-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front php-logo"></div>
+          <div class="card-front qirex-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front react-logo"></div>
+          <div class="card-front triakis-logo"></div>
           <div class="card-back"></div>
         </div>
       </main>
@@ -115,9 +115,21 @@
 
   <div id="end" class="modal hidden">
     <div>Victory! おめでとう!</div>
-    <div id="final-accuracy"></div>
+    <div id="final-accuracy">Hax, bruh</div>
     <div class="button-container"><input type="button" id="reset" value="Play Again"></div>
   </div>
+
+  <audio src="assets/audio/jenova.mp3" id="bgm"></audio>
+  <audio src="assets/audio/start.wav" id="start-sound"></audio>
+  <audio src="assets/audio/end.wav" id="end-sound"></audio>
+  <audio src="assets/audio/flip.wav" id="flip-sound"></audio>
+  <audio src="assets/audio/correct.wav" id="correct-sound"></audio>
+  <audio src="assets/audio/incorrect.wav" id="incorrect-sound"></audio>
+  <audio src="assets/audio/on.wav" id="on-sound"></audio>
+  <audio src="assets/audio/off.wav" id="off-sound"></audio>
+  <audio src="assets/audio/reset.wav" id="reset-sound"></audio>
+  <audio src="assets/audio/cheat.wav" id="cheat-sound"></audio>
+
   <script src="assets/js/script.js"></script>
 </body>
 </html>

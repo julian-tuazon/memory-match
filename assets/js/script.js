@@ -8,7 +8,7 @@ let attempts = 0;
 let gamesPlayed = 0;
 let shuffleArray = [];
 
-// Functionality for switching background after each game ends
+// Currently unused functionality for switching background after each game ends
 
 // let backgroundIndex = 1;
 // const backgrounds = ["url('./assets/images/DNA.gif')", "url('./assets/images/Singleton.gif')", "url('./assets/images/Goo.gif')"];
@@ -29,10 +29,78 @@ startButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 cheatButton.addEventListener('click', cheatCodes);
 
+// Audio functionality
+
+// Assigning variables to the audio HTML elements
+const music = document.getElementById("bgm");
+const startSound = document.getElementById("start-sound");
+const endSound = document.getElementById("end-sound");
+const flipSound = document.getElementById("flip-sound");
+const correctSound = document.getElementById("correct-sound");
+const incorrectSound = document.getElementById("incorrect-sound");
+const onSound = document.getElementById("on-sound");
+const offSound = document.getElementById("off-sound");
+const resetSound = document.getElementById("reset-sound");
+const cheatSound = document.getElementById("cheat-sound");
+const soundEffectsArray = [
+  startSound,
+  endSound,
+  flipSound,
+  correctSound,
+  incorrectSound,
+  onSound,
+  offSound,
+  resetSound,
+  cheatSound,
+];
+
+//Closure for the toggleMusic functionality attached to the musicButton/gamesPlayedDisplay
+let toggleMusic = (function() {
+  let toggle = true;
+  return function() {
+    if (toggle) {
+      onSound.play();
+      music.play();
+      toggle = false;
+    } else {
+      offSound.play();
+      music.pause();
+      toggle = true;
+    }
+  }
+})();
+
+// Making another reference to the variable gamesPlayedDisplay to explicitly show its music button functionality
+const musicButton = gamesPlayedDisplay;
+musicButton.addEventListener('click', toggleMusic);
+
+//Closure for the toggleSoundEffects functionality attached to the soundEffectsButton/attemptsDisplay
+let toggleSoundEffects = (function() {
+  let toggle = false;
+  return function() {
+    if (toggle) {
+      onSound.play();
+      toggle = false;
+    } else {
+      offSound.play();
+      toggle = true;
+    }
+    for (let m = 0; m < soundEffectsArray.length; m++) {
+      soundEffectsArray[m].muted = toggle;
+    }
+  }
+})();
+
+// Making another reference to the variable attemptsDisplay to explicitly show its sound effects button functionality
+const soundEffectsButton = attemptsDisplay;
+soundEffectsButton.addEventListener('click', toggleSoundEffects);
+
+// General events
+
 function startGame() {
+  startSound.play();
   welcome.classList.add("hidden");
   shuffleCards();
-  console.log("done shuffling");
 }
 
 function handleClick(event) {
@@ -40,17 +108,20 @@ function handleClick(event) {
     return;
   }
   if (!firstCardClicked) {
+    flipSound.play();
     firstCardClicked = event.target;
     firstCardClicked.className += " hidden";
     firstCardClicked.previousElementSibling.classList.add("current");
     firstCardClasses = firstCardClicked.previousElementSibling.className;
   } else {
+    flipSound.play();
     secondCardClicked = event.target;
     secondCardClicked.className += " hidden";
     secondCardClicked.previousElementSibling.classList.add("current");
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses === secondCardClasses) {
+      correctSound.play();
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
@@ -62,12 +133,14 @@ function handleClick(event) {
         secondCardClicked = null;
         gameCards.classList.remove("correct");
         gameCards.addEventListener('click', handleClick);
-      }, 500);
+      }, 750);
       if (matches === maxMatches) {
+        endSound.play();
         document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
         end.classList.remove("hidden");
       }
     } else {
+      incorrectSound.play();
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("incorrect");
@@ -80,36 +153,27 @@ function handleClick(event) {
         secondCardClicked = null;
         gameCards.classList.remove("incorrect");
         gameCards.addEventListener('click', handleClick);
-      }, 1000);
+      }, 1250);
     }
   }
 }
 
 function shuffleCards() {
-  // can use appendChild to sort on the DOM?
+  // Can use appendChild to sort on the DOM?
   while (gameCards.firstElementChild) {
     shuffleArray.push(gameCards.firstElementChild.firstElementChild.classList[1]);
-    console.log("the cardChild:", gameCards.firstElementChild);
-    console.log("the frontChild:", gameCards.firstElementChild.firstElementChild);
-    console.log("the frontChild picture class:", gameCards.firstElementChild.firstElementChild.classList[1]);
     gameCards.removeChild(gameCards.firstElementChild);
   }
   let counter = shuffleArray.length;
-  console.log("shuffleArray:", shuffleArray);
-  console.log("shuffleArray length / counter:", counter);
   for (let k = 0; k < counter; k++) {
-    console.log("k index:", k);
     let randomIndex = Math.floor(Math.random() * shuffleArray.length);
-    console.log("randomIndex:", randomIndex);
     let cardChild = document.createElement("div");
     let frontChild = document.createElement("div");
     let backChild = document.createElement("div");
     cardChild.classList.add("col-2", "card");
     frontChild.classList.add("card-front", `${shuffleArray[randomIndex]}`);
-    console.log("className value:", shuffleArray[randomIndex]);
-    console.log("frontChild classList:", frontChild.classList);
     backChild.classList.add("card-back");
-    shuffleArray.splice(randomIndex, 1); //removes element from shuffleArray - no extra randomization
+    shuffleArray.splice(randomIndex, 1); // Removes element from shuffleArray - no extra randomization
     cardChild.appendChild(frontChild);
     cardChild.appendChild(backChild);
     gameCards.appendChild(cardChild);
@@ -117,6 +181,7 @@ function shuffleCards() {
 }
 
 function resetGame() {
+  resetSound.play();
   matches = 0;
   attempts = 0;
   accuracy = 0;
@@ -129,6 +194,16 @@ function resetGame() {
 }
 
 function cheatCodes() {
+  cheatSound.play();
+  matches = 0;
+  attempts = 0;
+  accuracy = 0;
+  gamesPlayed = -1;
+  matchesDisplay.textContent = matches;
+  attemptsDisplay.textContent = attempts;
+  gamesPlayedDisplay.textContent = gamesPlayed;
+  accuracyDisplay.textContent = accuracy;
+  document.getElementById("final-accuracy").textContent = "Hax, bruh";
   end.classList.remove("hidden");
   welcome.classList.remove("hidden");
 }
