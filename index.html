@@ -12,7 +12,8 @@
 </head>
 <body>
   <div id="welcome" class="modal">
-    <div>m e m o r y . e x e</div>
+    <div id="welcome-message">m e m o r y . e x e</div>
+    <div id="welcome-message2">//</div>
     <!-- <div class="modal-text"> ようこそ!
       <p>Click on the cards to reveal the logos</p>
       <p>Click on two of the same cards to generate a match</p>
@@ -30,7 +31,7 @@
         <div class="two-b"></div>
       </div>
     </div>
-    <div class="button-container"><input type="button" id="start" value="Start Game"></div>
+    <div class="button-container"><input type="button" id="start" value="Start Game" class="clickable"></div>
   </div>
 
 
@@ -142,9 +143,11 @@
   </div>
 
   <div id="end" class="modal hidden">
-    <div id="end-message">Victory! おめでとう!</div>
+    <div id="end-message">V I C T O R Y</div>
+    <!-- おめでとう -->
     <div id="final-accuracy">Hax, bruh</div>
-    <div class="button-container"><input type="button" id="reset" value="Play Again"></div>
+    <div>“So man is an individual only because of his intangible memory.<br>But memory cannot be defined, but it defines mankind.”</div>
+    <div class="button-container"><input type="button" id="reset" value="Play Again" class="clickable"></div>
   </div>
 
   <audio src="assets/audio/jenova.mp3" id="bgm"></audio>
@@ -157,6 +160,7 @@
   <audio src="assets/audio/off.wav" id="off-sound"></audio>
   <audio src="assets/audio/reset.wav" id="reset-sound"></audio>
   <audio src="assets/audio/cheat.wav" id="cheat-sound"></audio>
+  <audio src="assets/audio/hover.ogg" id="hover-sound"></audio>
 
   <audio src="assets/audio/qirex.wav" id="qirex"></audio>
   <audio src="assets/audio/ag.wav" id="ag"></audio>

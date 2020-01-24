@@ -187,7 +187,15 @@ aside div:first-child {
   font-weight: normal;
 }
 
-.modal > .img-container {
+#welcome-message, #welcome-message2 {
+  transition: all ease-in-out 2.5s;
+}
+
+#welcome-message2 {
+  padding-top: 0;
+}
+
+/* .modal > .img-container {
   width: 35vmax;
   position: fixed;
   top: 30vmax;
@@ -208,7 +216,7 @@ aside div:first-child {
 
 .img-container > img {
   width: 100%;
-}
+} */
 
 .flex {
   width: 90vw;
@@ -219,50 +227,58 @@ aside div:first-child {
 }
 
 .flex > div {
-  width: 20%;
-  height: 25vmax;
+  width: 15%; /* Originally 20% */
+  height: 17vmax; /* Originally 25vmax */
   margin-right: 25px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-color: lightgray;
-  border-radius: 15px;
+  border: 3px solid white;
+  /* border-radius: 15px; */
   transition: all ease-in-out 0.2s;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .flex > div:hover {
   transform: scale(1.05);
+  transform: translateY(-2%);
 }
 
 .flex > div > div {
-  width: 70%;
+  width: 100%;
   height: 70%;
   background-size: contain;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.nine-s {
+.flex > div > div.nine-s {
   background-image: url(../images/extra/9s.png);
+  background-size: 137%;
+  background-position: 40% 1%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
                      url(../images/extra/9s.png); */
 }
 
-.two-b {
+.flex > div > div.two-b {
   background-image: url(../images/extra/2b_hi_res.png);
+  background-size: 300%;
+  background-position: 75% -1%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
                      url(../images/extra/2b_hi_res.png); */
 }
 
-.a-two {
+.flex > div > div.a-two {
   background-image: url(../images/extra/a2.png);
+  background-size: 250%;
+  background-position: 60% 17%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
@@ -285,8 +301,8 @@ input {
                      url(../images/extra/ai.gif);
   background-position: center;
   background-size: cover;
-  border: none;
   border-radius: 15px;
+  border: none;
   font-size: 2vmax;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
   text-align: center;
