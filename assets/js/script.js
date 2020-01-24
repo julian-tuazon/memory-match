@@ -224,7 +224,7 @@ nine_s.addEventListener('click', function () {
     }
     easy = true;
     currentBottom = "YoRHa No. 9 Type S";
-    currentTop = "e a s y";
+    currentTop = "E A S Y";
     setTimeout(function() {
       nine_s.parentElement.classList.remove("selected-animation");
     }, 750);
@@ -264,7 +264,7 @@ a_two.addEventListener('click', function () {
     }
     medium = true;
     currentBottom = "YoRHa No. 2 Type A";
-    currentTop = "m e d i u m";
+    currentTop = "M E D I U M";
     setTimeout(function () {
       a_two.parentElement.classList.remove("selected-animation");
     }, 750);
@@ -304,7 +304,7 @@ two_b.addEventListener('click', function () {
     }
     hard = true;
     currentBottom = "YoRHa No. 2 Type B";
-    currentTop = "h a r d";
+    currentTop = "H A R D";
     setTimeout(function () {
       two_b.parentElement.classList.remove("selected-animation");
     }, 750);
