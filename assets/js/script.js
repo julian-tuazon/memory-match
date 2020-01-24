@@ -321,12 +321,20 @@ function startGame() {
       music.play();
       firstGame = false;
     }
+    if (easy) {
+      nine_s.classList.add("clickable");
+    } else if (medium){
+      a_two.classList.add("clickable");
+    } else if (hard) {
+      two_b.classList.add("clickable");
+    }
+    // Set initial bgm volume
+    music.volume = 0.4;
     startSound.play();
     welcome.classList.add("hidden");
     shuffleCards();
   }
 }
-
 
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) {
