@@ -285,6 +285,16 @@ aside div:first-child {
                      url(../images/extra/a2.png); */
 }
 
+.selected {
+  box-shadow: 0px 0px 10px 2px magenta;
+  /* transform: scale(1.05); */
+  /* transform: translateY(-2%); */
+}
+
+.selected-animation {
+  box-shadow: 0px 0px 10px 10px magenta;
+  /* transform: scale(1.1); */
+}
 
 .button-container {
   display: flex;
@@ -322,6 +332,10 @@ input:hover {
 
 .hidden {
   display: none;
+}
+
+.col-3 {
+ transition: all 1.5s ease-in-out;
 }
 
 /* Backup input + input:hover */

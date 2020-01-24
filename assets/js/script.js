@@ -11,7 +11,11 @@ let shuffleArray = [];
 let timeLeft = 10;
 let timer;
 let difficulty;
-
+// Choosing NieR character / difficulty
+let selected = false;
+let easy = false;
+let medium = false;
+let hard = false;
 
 // Currently unused functionality for switching background after each game ends
 
@@ -135,6 +139,9 @@ const voiceButton = matchesDisplay;
 voiceButton.addEventListener('click', toggleVoice);
 
 // Adding hover effects to cards and other desired elements
+// WORK IN PROGRESS - clean code and render functional hover sounds for cards
+
+
 // let toggleHover = (function() {
 //   let toggle = false;
 //   for (let i = 0; i < hoverableList.length; i++) {
@@ -167,7 +174,9 @@ for (let x = 0; x < clickableList.length; x++) {
     hoverSound.play();
   })
 }
+
 // Does not work
+
 for (let y = 0; y < hoverableList.length; y++) {
   hoverableList[y].addEventListener('mouseover', function () {
     console.log("mouseenter clickable");
@@ -175,64 +184,149 @@ for (let y = 0; y < hoverableList.length; y++) {
   })
 }
 
+// -----
+// NieR object variables
+let nine_s = document.getElementsByClassName("nine-s")[0];
+let a_two = document.getElementsByClassName("a-two")[0];
+let two_b = document.getElementsByClassName("two-b")[0];
+let currentTop = "m e m o r y . e x e";
+let currentBottom = "//";
 
-document.getElementsByClassName("nine-s")[0].addEventListener('mouseover', function() {
+// NieR modal sound effects / text changes / difficulty selector
+nine_s.addEventListener('mouseover', function() {
   console.log('mouseover 9S');
   document.getElementById("welcome-message2").textContent = "YoRHa No. 9 Type S";
   document.getElementById("welcome-message").textContent = "E A S Y";
   hoverSound.play();
 });
 
-document.getElementsByClassName("nine-s")[0].addEventListener('mouseleave', function () {
+nine_s.addEventListener('mouseleave', function () {
   console.log('mouseexit 9S');
-  document.getElementById("welcome-message2").textContent = "//";
-  document.getElementById("welcome-message").textContent = "m e m o r y . e x e";
+  document.getElementById("welcome-message2").textContent = `${currentBottom}`;
+  document.getElementById("welcome-message").textContent = `${currentTop}`;
 });
 
-document.getElementsByClassName("nine-s")[0].addEventListener('click', function () {
+nine_s.addEventListener('click', function () {
   console.log('click 9S');
-
-  hoverSound.play();
+  if (!easy) {
+    nine_s.parentElement.classList.add("selected");
+    nine_s.parentElement.classList.add("selected-animation");
+    nine_s.parentElement.classList.remove("clickable");
+    if (hard) {
+      two_b.parentElement.classList.remove("selected");
+      two_b.parentElement.classList.add("clickable");
+      hard = false;
+    }
+    if (medium) {
+      a_two.parentElement.classList.remove("selected");
+      a_two.parentElement.classList.add("clickable");
+      medium = false;
+    }
+    easy = true;
+    currentBottom = "YoRHa No. 9 Type S";
+    currentTop = "e a s y";
+    setTimeout(function() {
+      nine_s.parentElement.classList.remove("selected-animation");
+    }, 750);
+    document.getElementById("select").play();
+    document.getElementById("9s").play();
+  }
 });
 
-document.getElementsByClassName("a-two")[0].addEventListener('mouseover', function () {
+a_two.addEventListener('mouseover', function () {
   console.log('mouseover 9S');
   document.getElementById("welcome-message2").textContent = "YoRHa No. 2 Type A";
   document.getElementById("welcome-message").textContent = "M E D I U M";
   hoverSound.play();
 });
 
-document.getElementsByClassName("a-two")[0].addEventListener('mouseleave', function () {
+a_two.addEventListener('mouseleave', function () {
   console.log('mouseleave a2');
-  document.getElementById("welcome-message2").textContent = "//";
-  document.getElementById("welcome-message").textContent = "m e m o r y . e x e";
+  document.getElementById("welcome-message2").textContent = `${currentBottom}`;
+  document.getElementById("welcome-message").textContent = `${currentTop}`;
 });
 
-document.getElementsByClassName("two-b")[0].addEventListener('mouseover', function () {
+a_two.addEventListener('click', function () {
+  console.log('click A2');
+  if (!medium) {
+    a_two.parentElement.classList.add("selected");
+    a_two.parentElement.classList.add("selected-animation");
+    a_two.parentElement.classList.remove("clickable");
+    if (easy) {
+      nine_s.parentElement.classList.remove("selected");
+      nine_s.parentElement.classList.add("clickable");
+      easy = false;
+    }
+    if (hard) {
+      two_b.parentElement.classList.remove("selected");
+      two_b.parentElement.classList.add("clickable");
+      hard = false;
+    }
+    medium = true;
+    currentBottom = "YoRHa No. 2 Type A";
+    currentTop = "m e d i u m";
+    setTimeout(function () {
+      a_two.parentElement.classList.remove("selected-animation");
+    }, 750);
+    document.getElementById("select").play();
+    document.getElementById("a2").play();
+  }
+});
+
+two_b.addEventListener('mouseover', function () {
   console.log('mouseover 9S');
   document.getElementById("welcome-message2").textContent = "YoRHa No. 2 Type B";
   document.getElementById("welcome-message").textContent = "H A R D";
   hoverSound.play();
 });
 
-document.getElementsByClassName("two-b")[0].addEventListener('mouseleave', function () {
+two_b.addEventListener('mouseleave', function () {
   console.log('mouseleave 2b');
-  document.getElementById("welcome-message2").textContent = "//";
-  document.getElementById("welcome-message").textContent = "m e m o r y . e x e";
+  document.getElementById("welcome-message2").textContent = `${currentBottom}`;
+  document.getElementById("welcome-message").textContent = `${currentTop}`;
 });
 
+two_b.addEventListener('click', function () {
+  console.log('click 2B');
+  if (!hard) {
+    two_b.parentElement.classList.add("selected");
+    two_b.parentElement.classList.add("selected-animation");
+    two_b.parentElement.classList.remove("clickable");
+    if (easy) {
+      nine_s.parentElement.classList.remove("selected");
+      nine_s.parentElement.classList.add("clickable");
+      easy = false;
+    }
+    if (medium) {
+      a_two.parentElement.classList.remove("selected");
+      a_two.parentElement.classList.add("clickable");
+      medium = false;
+    }
+    hard = true;
+    currentBottom = "YoRHa No. 2 Type B";
+    currentTop = "h a r d";
+    setTimeout(function () {
+      two_b.parentElement.classList.remove("selected-animation");
+    }, 750);
+    document.getElementById("select").play();
+    document.getElementById("2b").play();
+  }
+});
 
 // General events
 
 function startGame() {
-  if (firstGame) {
-    music.play();
-    firstGame = false;
+  if (easy || medium || hard) {
+    if (firstGame) {
+      music.play();
+      firstGame = false;
+    }
+    startSound.play();
+    welcome.classList.add("hidden");
+    shuffleCards();
   }
-  startSound.play();
-  welcome.classList.add("hidden");
-  shuffleCards();
 }
+
 
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) {
@@ -328,9 +422,18 @@ function resetGame() {
   accuracyDisplay.textContent = accuracy;
   gamesPlayedDisplay.textContent = ++gamesPlayed;
   shuffleCards();
+
+  // Resets our selected character/difficulty/modal text
+  document.getElementsByClassName("selected")[0].classList.remove("selected");
+  currentTop = "m e m o r y . e x e";
+  currentBottom = "//";
+  easy = false;
+  medium = false;
+  hard = false;
   end.classList.add("hidden");
 }
 
+// Did not implement timer yet
 function countdown() {
   if (timeLeft <= 0) {
     document.getElementById("end-message").textContent = "Defeat! ごめんなさい!";
