@@ -286,13 +286,13 @@ aside div:first-child {
 }
 
 .selected {
-  box-shadow: 0px 0px 10px 2px orangered;
+  box-shadow: 0px 0px 10px 2px orange;
   /* transform: scale(1.05); */
   /* transform: translateY(-2%); */
 }
 
 .selected-animation {
-  box-shadow: 0px 0px 10px 10px orangered;
+  box-shadow: 0px 0px 10px 10px orange;
   /* transform: scale(1.1); */
 }
 

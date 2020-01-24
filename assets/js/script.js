@@ -1,4 +1,4 @@
-let firstGame = false; // Turned music auto-start for now
+let firstGame = true;
 let firstCardClicked;
 let secondCardClicked;
 let firstCardClasses;
@@ -12,7 +12,7 @@ let timeLeft = 10;
 let timer;
 let difficulty;
 // Choosing NieR character / difficulty
-let selected = false;
+
 let easy = false;
 let medium = false;
 let hard = false;
@@ -186,11 +186,11 @@ for (let y = 0; y < hoverableList.length; y++) {
 
 // -----
 // NieR object variables
-let nine_s = document.getElementsByClassName("nine-s")[0];
-let a_two = document.getElementsByClassName("a-two")[0];
-let two_b = document.getElementsByClassName("two-b")[0];
+let nine_s = document.getElementsByClassName("nine-s")[0].parentElement;
+let a_two = document.getElementsByClassName("a-two")[0].parentElement;
+let two_b = document.getElementsByClassName("two-b")[0].parentElement;
 let currentTop = "m e m o r y . e x e";
-let currentBottom = "//";
+let currentBottom = "Select Difficulty";
 
 // NieR modal sound effects / text changes / difficulty selector
 nine_s.addEventListener('mouseover', function() {
@@ -209,24 +209,24 @@ nine_s.addEventListener('mouseleave', function () {
 nine_s.addEventListener('click', function () {
   console.log('click 9S');
   if (!easy) {
-    nine_s.parentElement.classList.add("selected");
-    nine_s.parentElement.classList.add("selected-animation");
-    nine_s.parentElement.classList.remove("clickable");
+    nine_s.classList.add("selected");
+    nine_s.classList.add("selected-animation");
+    nine_s.classList.remove("clickable");
     if (hard) {
-      two_b.parentElement.classList.remove("selected");
-      two_b.parentElement.classList.add("clickable");
+      two_b.classList.remove("selected");
+      two_b.classList.add("clickable");
       hard = false;
     }
     if (medium) {
-      a_two.parentElement.classList.remove("selected");
-      a_two.parentElement.classList.add("clickable");
+      a_two.classList.remove("selected");
+      a_two.classList.add("clickable");
       medium = false;
     }
     easy = true;
     currentBottom = "YoRHa No. 9 Type S";
     currentTop = "E A S Y";
     setTimeout(function() {
-      nine_s.parentElement.classList.remove("selected-animation");
+      nine_s.classList.remove("selected-animation");
     }, 750);
     document.getElementById("select").play();
     document.getElementById("9s").play();
@@ -249,24 +249,24 @@ a_two.addEventListener('mouseleave', function () {
 a_two.addEventListener('click', function () {
   console.log('click A2');
   if (!medium) {
-    a_two.parentElement.classList.add("selected");
-    a_two.parentElement.classList.add("selected-animation");
-    a_two.parentElement.classList.remove("clickable");
+    a_two.classList.add("selected");
+    a_two.classList.add("selected-animation");
+    a_two.classList.remove("clickable");
     if (easy) {
-      nine_s.parentElement.classList.remove("selected");
-      nine_s.parentElement.classList.add("clickable");
+      nine_s.classList.remove("selected");
+      nine_s.classList.add("clickable");
       easy = false;
     }
     if (hard) {
-      two_b.parentElement.classList.remove("selected");
-      two_b.parentElement.classList.add("clickable");
+      two_b.classList.remove("selected");
+      two_b.classList.add("clickable");
       hard = false;
     }
     medium = true;
     currentBottom = "YoRHa No. 2 Type A";
     currentTop = "M E D I U M";
     setTimeout(function () {
-      a_two.parentElement.classList.remove("selected-animation");
+      a_two.classList.remove("selected-animation");
     }, 750);
     document.getElementById("select").play();
     document.getElementById("a2").play();
@@ -289,24 +289,24 @@ two_b.addEventListener('mouseleave', function () {
 two_b.addEventListener('click', function () {
   console.log('click 2B');
   if (!hard) {
-    two_b.parentElement.classList.add("selected");
-    two_b.parentElement.classList.add("selected-animation");
-    two_b.parentElement.classList.remove("clickable");
+    two_b.classList.add("selected");
+    two_b.classList.add("selected-animation");
+    two_b.classList.remove("clickable");
     if (easy) {
-      nine_s.parentElement.classList.remove("selected");
-      nine_s.parentElement.classList.add("clickable");
+      nine_s.classList.remove("selected");
+      nine_s.classList.add("clickable");
       easy = false;
     }
     if (medium) {
-      a_two.parentElement.classList.remove("selected");
-      a_two.parentElement.classList.add("clickable");
+      a_two.classList.remove("selected");
+      a_two.classList.add("clickable");
       medium = false;
     }
     hard = true;
     currentBottom = "YoRHa No. 2 Type B";
     currentTop = "H A R D";
     setTimeout(function () {
-      two_b.parentElement.classList.remove("selected-animation");
+      two_b.classList.remove("selected-animation");
     }, 750);
     document.getElementById("select").play();
     document.getElementById("2b").play();
@@ -426,7 +426,7 @@ function resetGame() {
   // Resets our selected character/difficulty/modal text
   document.getElementsByClassName("selected")[0].classList.remove("selected");
   currentTop = "m e m o r y . e x e";
-  currentBottom = "//";
+  currentBottom = "Select Difficulty";
   easy = false;
   medium = false;
   hard = false;
