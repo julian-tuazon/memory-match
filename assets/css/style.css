@@ -10,12 +10,13 @@ body {
 }
 
 header {
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
   font-size: 2.5vmax;
   font-weight: bold;
   text-align: center;
   margin: auto;
-  height: 50%;
+  height: 80%;
+  width: 100%;
 }
 
 aside > div {
@@ -39,7 +40,7 @@ aside > div {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.1s;
 }
 
 aside > div:nth-child(odd) {
@@ -136,8 +137,8 @@ aside div:first-child {
   background-image: url(../images/wipeout_logos/auricom.jpg);
 }
 
-.icarus-logo {
-  background-image: url(../images/wipeout_logos/icarus.jpg);
+.icaras-logo {
+  background-image: url(../images/wipeout_logos/icaras.jpg);
 }
 
 .piranha-logo {
@@ -225,34 +226,47 @@ aside div:first-child {
   background-repeat: no-repeat;
   background-position: center;
   background-color: lightgray;
-  /* border: lightgray 2px solid; */
   border-radius: 15px;
   transition: all ease-in-out 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex > div:hover {
   transform: scale(1.05);
 }
 
+.flex > div > div {
+  width: 70%;
+  height: 70%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .nine-s {
-  background: linear-gradient(
+  background-image: url(../images/extra/9s.png);
+  /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/9s.png);
+                     url(../images/extra/9s.png); */
 }
 
 .two-b {
-  background: linear-gradient(
+  background-image: url(../images/extra/2b_hi_res.png);
+  /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/2b_hi_res.png);
+                     url(../images/extra/2b_hi_res.png); */
 }
 
 .a-two {
-  background: linear-gradient(
+  background-image: url(../images/extra/a2.png);
+  /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/a2.png);
+                     url(../images/extra/a2.png); */
 }
 
 

@@ -12,17 +12,23 @@
 </head>
 <body>
   <div id="welcome" class="modal">
-    <div>Welcome! ようこそ!</div>
-    <!-- <div class="modal-text">
+    <div>m e m o r y . e x e</div>
+    <!-- <div class="modal-text"> ようこそ!
       <p>Click on the cards to reveal the logos</p>
       <p>Click on two of the same cards to generate a match</p>
       <p>Match all paired logos to win the game</p>
     </div> -->
     <!-- <div>Choose your character</div> -->
     <div class="flex">
-      <div class="col-3 nine-s clickable"></div>
-      <div class="col-3 a-two clickable"></div>
-      <div class="col-3 two-b clickable"></div>
+      <div class="col-3 clickable">
+        <div class="nine-s"></div>
+      </div>
+      <div class="col-3 clickable">
+        <div class="a-two"></div>
+      </div>
+      <div class="col-3 clickable">
+        <div class="two-b"></div>
+      </div>
     </div>
     <div class="button-container"><input type="button" id="start" value="Start Game"></div>
   </div>
@@ -40,7 +46,11 @@
 
   <div class="container">
     <div class="row header-row">
-      <header>m e m o r y . e x e</header>
+      <header>
+        <div class="col-3">Time</div>
+        <div id="time" class="col-3"></div>
+        <div class="col-3 clickable">Options</div>
+      </header>
     </div>
     <div class="row game-row">
       <aside class="col-2">
@@ -50,7 +60,7 @@
         <div>Attempts</div>
         <div id="attempts" class="clickable">0</div>
         <div>Matches</div>
-        <div id="matches">0</div>
+        <div id="matches" class="clickable">0</div>
         <div>Accuracy</div>
         <div id="accuracy">0</div>
       </aside>
@@ -72,7 +82,7 @@
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front icarus-logo"></div>
+          <div class="card-front icaras-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
@@ -108,7 +118,7 @@
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
-          <div class="card-front icarus-logo"></div>
+          <div class="card-front icaras-logo"></div>
           <div class="card-back"></div>
         </div>
         <div class="col-2 card">
@@ -132,7 +142,7 @@
   </div>
 
   <div id="end" class="modal hidden">
-    <div>Victory! おめでとう!</div>
+    <div id="end-message">Victory! おめでとう!</div>
     <div id="final-accuracy">Hax, bruh</div>
     <div class="button-container"><input type="button" id="reset" value="Play Again"></div>
   </div>
@@ -147,6 +157,16 @@
   <audio src="assets/audio/off.wav" id="off-sound"></audio>
   <audio src="assets/audio/reset.wav" id="reset-sound"></audio>
   <audio src="assets/audio/cheat.wav" id="cheat-sound"></audio>
+
+  <audio src="assets/audio/qirex.wav" id="qirex"></audio>
+  <audio src="assets/audio/ag.wav" id="ag"></audio>
+  <audio src="assets/audio/assegai.wav" id="assegai"></audio>
+  <audio src="assets/audio/goteki.wav" id="goteki"></audio>
+  <audio src="assets/audio/auricom.wav" id="auricom"></audio>
+  <audio src="assets/audio/icaras.wav" id="icaras"></audio>
+  <audio src="assets/audio/piranha.wav" id="piranha"></audio>
+  <audio src="assets/audio/harimau.wav" id="harimau"></audio>
+  <audio src="assets/audio/triakis.wav" id="triakis"></audio>
 
   <script src="assets/js/script.js"></script>
 </body>

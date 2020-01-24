@@ -1,3 +1,4 @@
+let firstGame = true;
 let firstCardClicked;
 let secondCardClicked;
 let firstCardClasses;
@@ -7,6 +8,9 @@ let matches = 0;
 let attempts = 0;
 let gamesPlayed = 0;
 let shuffleArray = [];
+let timeLeft = 10;
+let difficulty;
+
 
 // Currently unused functionality for switching background after each game ends
 
@@ -52,11 +56,23 @@ const soundEffectsArray = [
   offSound,
   resetSound,
   cheatSound,
+  qirex,
+];
+const voiceArray = [
+  "ag",
+  "assegai",
+  "goteki",
+  "auricom",
+  "icaras",
+  "piranha",
+  "harimau",
+  "qirex",
+  "triakis",
 ];
 
-//Closure for the toggleMusic functionality attached to the musicButton/gamesPlayedDisplay
+// Closure for the toggleMusic functionality attached to the musicButton/gamesPlayedDisplay
 let toggleMusic = (function() {
-  let toggle = true;
+  let toggle = false;
   return function() {
     if (toggle) {
       onSound.play();
@@ -74,7 +90,7 @@ let toggleMusic = (function() {
 const musicButton = gamesPlayedDisplay;
 musicButton.addEventListener('click', toggleMusic);
 
-//Closure for the toggleSoundEffects functionality attached to the soundEffectsButton/attemptsDisplay
+// Closure for the toggleSoundEffects functionality attached to the soundEffectsButton/attemptsDisplay
 let toggleSoundEffects = (function() {
   let toggle = false;
   return function() {
@@ -95,9 +111,34 @@ let toggleSoundEffects = (function() {
 const soundEffectsButton = attemptsDisplay;
 soundEffectsButton.addEventListener('click', toggleSoundEffects);
 
+// Closure for the toggleVoice functionality attached to the voiceButton/matchesDisplay
+let toggleVoice = (function() {
+  let toggle = false;
+  return function () {
+    if (toggle) {
+      onSound.play();
+      toggle = false;
+    } else {
+      offSound.play();
+      toggle = true;
+    }
+    for (let p = 0; p < voiceArray.length; p++) {
+      document.getElementById(`${voiceArray[p]}`).muted = toggle;
+    }
+  }
+})();
+
+// Making another reference to the variable matchesDisplay to explicitly show its voice button functionality
+const voiceButton = matchesDisplay;
+voiceButton.addEventListener('click', toggleVoice);
+
 // General events
 
 function startGame() {
+  if (firstGame) {
+    music.play();
+    firstGame = false;
+  }
   startSound.play();
   welcome.classList.add("hidden");
   shuffleCards();
@@ -113,6 +154,7 @@ function handleClick(event) {
     firstCardClicked.className += " hidden";
     firstCardClicked.previousElementSibling.classList.add("current");
     firstCardClasses = firstCardClicked.previousElementSibling.className;
+    console.log("firstCardClasses", firstCardClasses);
   } else {
     flipSound.play();
     secondCardClicked = event.target;
@@ -120,8 +162,13 @@ function handleClick(event) {
     secondCardClicked.previousElementSibling.classList.add("current");
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
-    if (firstCardClasses === secondCardClasses) {
+    if (firstCardClasses == secondCardClasses) {
       correctSound.play();
+      // Gets the logo name of card class and plays audio with associated id
+      // let endIndex = secondCardClasses.indexOf("-");
+      let logoName = secondCardClasses.slice(11, secondCardClasses.indexOf("-logo"));
+      document.getElementById(`${logoName}`).play();
+      //
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
@@ -191,6 +238,15 @@ function resetGame() {
   gamesPlayedDisplay.textContent = ++gamesPlayed;
   shuffleCards();
   end.classList.add("hidden");
+}
+
+function timer() {
+  if (timeLeft <= 0) {
+    document.getElementById("end-message").textContent = "Defeat! ごめんなさい!";
+    end.classList.remove("hidden");
+    end.classList.remove("hidden");
+  }
+  timeLeft -= 0.1;
 }
 
 function cheatCodes() {

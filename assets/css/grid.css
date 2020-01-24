@@ -12,15 +12,20 @@
 }
 
 .header-row {
-  height: 10%;
+  height: 20%;
 }
 
 .game-row {
-  height: 90%;
+  height: 80%;
 }
 
 aside, main {
   height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
 }
 
 aside {
@@ -34,6 +39,11 @@ main {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+header > div {
+  height: 100%;
+  width: 100%;
 }
 
 aside > div {
