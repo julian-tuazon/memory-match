@@ -9,6 +9,7 @@ let attempts = 0;
 let gamesPlayed = 0;
 let shuffleArray = [];
 let timeLeft = 10;
+let timeValue = 10;
 let timer;
 let difficulty;
 // Choosing NieR character / difficulty
@@ -32,6 +33,7 @@ const gamesPlayedDisplay = document.getElementById("games-played");
 const attemptsDisplay = document.getElementById("attempts");
 const matchesDisplay = document.getElementById("matches");
 const accuracyDisplay = document.getElementById("accuracy");
+const timeDisplay = document.getElementById("time");
 
 gameCards.addEventListener('click', handleClick);
 startButton.addEventListener('click', startGame);
@@ -316,17 +318,27 @@ two_b.addEventListener('click', function () {
 // General events
 
 function startGame() {
+  // Game can only start when difficulty is selected
   if (easy || medium || hard) {
     if (firstGame) {
       music.play();
       firstGame = false;
     }
+    if (easy) {
+      nine_s.classList.add("clickable");
+    } else if (medium){
+      a_two.classList.add("clickable");
+    } else if (hard) {
+      two_b.classList.add("clickable");
+    }
+    // Set initial bgm volume, start timer
+    music.volume = 0.2;
+    timer = setInterval(countdown, 100);
     startSound.play();
     welcome.classList.add("hidden");
     shuffleCards();
   }
 }
-
 
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) {
@@ -367,6 +379,7 @@ function handleClick(event) {
       }, 750); //previous: 750
       if (matches === maxMatches) {
         endSound.play();
+        clearInterval(timer);
         document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
         end.classList.remove("hidden");
         welcome.classList.remove("hidden");
@@ -417,9 +430,11 @@ function resetGame() {
   matches = 0;
   attempts = 0;
   accuracy = 0;
+  timeLeft = timeValue;
   matchesDisplay.textContent = matches;
   attemptsDisplay.textContent = attempts;
   accuracyDisplay.textContent = accuracy;
+  timeDisplay.textContent = timeLeft;
   gamesPlayedDisplay.textContent = ++gamesPlayed;
   shuffleCards();
 
@@ -436,14 +451,20 @@ function resetGame() {
 // Did not implement timer yet
 function countdown() {
   if (timeLeft <= 0) {
-    document.getElementById("end-message").textContent = "Defeat! ごめんなさい!";
+    console.log("out of time, now in ending phase", timeLeft);
+    clearInterval(timer);
+    document.getElementById("end-message").textContent = "D E F E A T";
+    document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
     end.classList.remove("hidden");
     welcome.classList.remove("hidden");
   }
+  timeDisplay.textContent = timeLeft.toFixed(1);
   timeLeft -= 0.1;
+  console.log("interval timer at 100ms; timeLeft:", timeLeft);
 }
 
 function cheatCodes() {
+  clearInterval(timer);
   cheatSound.play();
   matches = 0;
   attempts = 0;
@@ -453,7 +474,9 @@ function cheatCodes() {
   attemptsDisplay.textContent = attempts;
   gamesPlayedDisplay.textContent = gamesPlayed;
   accuracyDisplay.textContent = accuracy;
-  document.getElementById("final-accuracy").textContent = "Hax, bruh";
+  document.getElementById("end-message").textContent = "V I C T O R Y";
+  document.getElementById("final-accuracy").textContent = "admin.system-bypass //";
+  document.getElementById("final-time").textContent = "System.resolve //";
   end.classList.remove("hidden");
   welcome.classList.remove("hidden");
 }
