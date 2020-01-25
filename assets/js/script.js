@@ -8,10 +8,10 @@ let matches = 0;
 let attempts = 0;
 let gamesPlayed = 0;
 let shuffleArray = [];
-let timeLeft = 10;
+let timeLeft;
 let timeValue = 10;
 let timer;
-let difficulty;
+let difficulty; //Is this necessary?
 // Choosing NieR character / difficulty
 
 let easy = false;
@@ -237,7 +237,7 @@ nine_s.addEventListener('click', function () {
 
 a_two.addEventListener('mouseover', function () {
   console.log('mouseover 9S');
-  document.getElementById("welcome-message2").textContent = "YoRHa No. 2 Type A";
+  document.getElementById("welcome-message2").textContent = "YoRHa Type A No. 2";
   document.getElementById("welcome-message").textContent = "M E D I U M";
   hoverSound.play();
 });
@@ -265,7 +265,7 @@ a_two.addEventListener('click', function () {
       hard = false;
     }
     medium = true;
-    currentBottom = "YoRHa No. 2 Type A";
+    currentBottom = "YoRHa Type A No. 2";
     currentTop = "M E D I U M";
     setTimeout(function () {
       a_two.classList.remove("selected-animation");
@@ -326,13 +326,17 @@ function startGame() {
     }
     if (easy) {
       nine_s.classList.add("clickable");
+      timeValue = 90;
     } else if (medium){
       a_two.classList.add("clickable");
+      timeValue = 60;
     } else if (hard) {
       two_b.classList.add("clickable");
+      timeValue = 30;
     }
     // Set initial bgm volume, start timer
-    music.volume = 0.2;
+    music.volume = 0.15;
+    timeLeft = timeValue;
     timer = setInterval(countdown, 100);
     startSound.play();
     welcome.classList.add("hidden");
@@ -376,11 +380,13 @@ function handleClick(event) {
         secondCardClicked = null;
         gameCards.classList.remove("correct");
         gameCards.addEventListener('click', handleClick);
-      }, 750); //previous: 750
+      }, 500); //previous: 750
       if (matches === maxMatches) {
         endSound.play();
         clearInterval(timer);
+        document.getElementById("end-message").textContent = "V I C T O R Y";
         document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+        document.getElementById("final-time").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
         end.classList.remove("hidden");
         welcome.classList.remove("hidden");
       }
@@ -398,7 +404,7 @@ function handleClick(event) {
         secondCardClicked = null;
         gameCards.classList.remove("incorrect");
         gameCards.addEventListener('click', handleClick);
-      }, 1250); //previous 1250
+      }, 1000); //previous 1250
     }
   }
 }
@@ -436,8 +442,13 @@ function resetGame() {
   accuracyDisplay.textContent = accuracy;
   timeDisplay.textContent = timeLeft;
   gamesPlayedDisplay.textContent = ++gamesPlayed;
-  shuffleCards();
 
+  // Fixes bug in which a reset game still had red or green border glow and possibly could not click on cards
+  gameCards.classList.remove("correct");
+  gameCards.classList.remove("incorrect");
+  gameCards.addEventListener('click', handleClick);
+  //
+  shuffleCards();
   // Resets our selected character/difficulty/modal text
   document.getElementsByClassName("selected")[0].classList.remove("selected");
   currentTop = "m e m o r y . e x e";
@@ -448,13 +459,16 @@ function resetGame() {
   end.classList.add("hidden");
 }
 
-// Did not implement timer yet
 function countdown() {
   if (timeLeft <= 0) {
     console.log("out of time, now in ending phase", timeLeft);
+    endSound.play();
     clearInterval(timer);
+    firstCardClicked = null;
+    secondCardClicked = null;
     document.getElementById("end-message").textContent = "D E F E A T";
     document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+    document.getElementById("final-time").textContent = "System.timeout.error //";
     end.classList.remove("hidden");
     welcome.classList.remove("hidden");
   }
@@ -468,14 +482,14 @@ function cheatCodes() {
   cheatSound.play();
   matches = 0;
   attempts = 0;
-  accuracy = 0;
+  accuracy = "0.0%";
   gamesPlayed = -1;
   matchesDisplay.textContent = matches;
   attemptsDisplay.textContent = attempts;
   gamesPlayedDisplay.textContent = gamesPlayed;
   accuracyDisplay.textContent = accuracy;
   document.getElementById("end-message").textContent = "V I C T O R Y";
-  document.getElementById("final-accuracy").textContent = "admin.system-bypass //";
+  document.getElementById("final-accuracy").textContent = "admin.System.bypass //";
   document.getElementById("final-time").textContent = "System.resolve //";
   end.classList.remove("hidden");
   welcome.classList.remove("hidden");

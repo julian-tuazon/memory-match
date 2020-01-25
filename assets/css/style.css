@@ -1,12 +1,12 @@
 body {
   height: 95vh;
-  background-image: url(../images/geo/diamond.jpg);
-  background-repeat: repeat;
-  background-size: 120%;
+  background-image: url(../images/extra/na_forest.jpg);
+  background-repeat: no-repeat; /* repeat */
+  background-size: cover; /* 120% original */
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 header {
@@ -188,7 +188,7 @@ aside div:first-child {
 }
 
 #welcome-message, #welcome-message2 {
-  transition: all ease-in-out 2.5s;
+  /* transition: all ease-in-out 0.1s; */
 }
 
 #welcome-message2 {
@@ -229,7 +229,7 @@ aside div:first-child {
 .flex > div {
   width: 15%; /* Originally 20% */
   height: 17vmax; /* Originally 25vmax */
-  margin-right: 25px;
+  margin: 0 15px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -335,7 +335,7 @@ input:hover {
 }
 
 .col-3 {
- transition: all 1.5s ease-in-out;
+ transition: all 0.8s ease-in-out;
 }
 
 /* Backup input + input:hover */
@@ -371,3 +371,9 @@ input:hover {
   background-position: center;
   background-size: 350%;
 } */
+
+/*
+
+CSS Glow Trick
+
+*/

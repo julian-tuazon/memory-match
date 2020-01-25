@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+
   <div id="welcome" class="modal">
     <div id="welcome-message">m e m o r y . e x e</div>
     <div id="welcome-message2">Select Difficulty</div>
@@ -65,7 +66,7 @@
         <div>Matches</div>
         <div id="matches" class="clickable">0</div>
         <div>Accuracy</div>
-        <div id="accuracy">0</div>
+        <div id="accuracy">0.0%</div>
       </aside>
       <main class="col-10" id="game-cards">
         <div class="col-2 card">
@@ -145,15 +146,15 @@
   </div>
 
   <div id="end" class="modal hidden">
-    <div id="end-message">V I C T O R Y</div>
+    <div id="end-message"></div>
     <!-- おめでとう -->
     <div id="final-accuracy"></div>
-    <div id="final-time">System.timeout.error //</div>
+    <div id="final-time"></div>
     <div>“So man is an individual only because of his intangible memory.<br>Memory cannot be defined, yet it defines mankind.”</div>
     <div class="button-container"><input type="button" id="reset" value="Play Again" class="clickable"></div>
   </div>
 
-  <audio src="assets/audio/alien_manifestation_vocals.mp3" id="bgm" volume="0.05"></audio>
+  <audio src="assets/audio/alien_manifestation_vocals.mp3" id="bgm"></audio>
   <audio src="assets/audio/start.wav" id="start-sound"></audio>
   <audio src="assets/audio/end.wav" id="end-sound"></audio>
   <audio src="assets/audio/flip.wav" id="flip-sound"></audio>
@@ -175,9 +176,9 @@
   <audio src="assets/audio/harimau.wav" id="harimau"></audio>
   <audio src="assets/audio/triakis.wav" id="triakis"></audio>
 
-  <audio src="assets/audio/2b.ogg" id="2b"></audio>
-  <audio src="assets/audio/9s.ogg" id="9s"></audio>
-  <audio src="assets/audio/a2.ogg" id="a2"></audio>
+  <audio src="assets/audio/2b_boosted_15.wav" id="2b"></audio>
+  <audio src="assets/audio/9s_boosted_15.wav" id="9s"></audio>
+  <audio src="assets/audio/a2_boosted_15.wav" id="a2"></audio>
   <audio src="assets/audio/select.ogg" id="select"></audio>
 
   <script src="assets/js/script.js"></script>
