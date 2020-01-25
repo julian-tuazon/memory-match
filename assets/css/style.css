@@ -19,6 +19,26 @@ header {
   width: 100%;
 }
 
+header > div {
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/geo/earth.gif);
+  background-position: center;
+  background-size: 300%;
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white;
+
+  margin: 0 2%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all ease-in-out 0.1s;
+}
+
 aside > div {
   /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 1.1vmax;
@@ -195,6 +215,10 @@ aside div:first-child {
   padding-top: 0;
 }
 
+#mode-message-two {
+  padding-top: 0;
+}
+
 /* .modal > .img-container {
   width: 35vmax;
   position: fixed;
@@ -255,6 +279,30 @@ aside div:first-child {
   background-repeat: no-repeat;
 }
 
+/* Mode modal pod styling */
+
+.flex > div > div.pod-one {
+  background-image: url(../images/extra/pod3.png);
+  background-size: 80%;
+  background-position: 52% 0%;
+  /* background: linear-gradient(
+                     rgba(175, 175, 175, 0.2),
+                     rgba(175, 175, 175, 0.2)),
+                     url(../images/extra/9s.png); */
+}
+
+.flex > div > div.pod-two {
+  background-image: url(../images/extra/pod4.png);
+  background-size: 60%;
+  background-position: 55% 0%;
+  /* background: linear-gradient(
+                     rgba(175, 175, 175, 0.2),
+                     rgba(175, 175, 175, 0.2)),
+                     url(../images/extra/2b_hi_res.png); */
+}
+
+/* Difficulty modal character styling */
+
 .flex > div > div.nine-s {
   background-image: url(../images/extra/9s.png);
   background-size: 137%;
@@ -291,7 +339,7 @@ aside div:first-child {
   /* transform: translateY(-2%); */
 }
 
-.selected-animation {
+.flex > .selected-animation {
   box-shadow: 0px 0px 10px 10px orange;
   /* transform: scale(1.1); */
 }
@@ -334,9 +382,6 @@ input:hover {
   display: none;
 }
 
-.col-3 {
- transition: all 0.8s ease-in-out;
-}
 
 /* Backup input + input:hover */
 

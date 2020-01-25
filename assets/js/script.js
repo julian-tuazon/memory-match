@@ -25,6 +25,8 @@ let hard = false;
 
 const gameCards = document.getElementById("game-cards");
 const welcome = document.getElementById("welcome");
+const mode = document.getElementById("mode"); // Mode select modal
+const modeButton = document.getElementById("mode-button"); // Mode select modal button that transitions to difficulty select modal
 const startButton = document.getElementById("start");
 const end = document.getElementById("end");
 const resetButton = document.getElementById("reset");
@@ -36,6 +38,10 @@ const accuracyDisplay = document.getElementById("accuracy");
 const timeDisplay = document.getElementById("time");
 
 gameCards.addEventListener('click', handleClick);
+modeButton.addEventListener('click', function(){
+  mode.classList.add("hidden");
+  welcome.classList.remove("hidden");
+});
 startButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 cheatButton.addEventListener('click', cheatCodes);
@@ -326,7 +332,7 @@ function startGame() {
     }
     if (easy) {
       nine_s.classList.add("clickable");
-      timeValue = 90;
+      timeValue = 1000;
     } else if (medium){
       a_two.classList.add("clickable");
       timeValue = 60;
@@ -472,7 +478,7 @@ function countdown() {
     end.classList.remove("hidden");
     welcome.classList.remove("hidden");
   }
-  timeDisplay.textContent = timeLeft.toFixed(1);
+  timeDisplay.textContent = `Time: ${timeLeft.toFixed(1)}`;
   timeLeft -= 0.1;
   console.log("interval timer at 100ms; timeLeft:", timeLeft);
 }
