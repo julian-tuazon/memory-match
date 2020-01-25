@@ -329,7 +329,7 @@ function startGame() {
       two_b.classList.add("clickable");
     }
     // Set initial bgm volume
-    music.volume = 0.4;
+    music.volume = 0.2;
     startSound.play();
     welcome.classList.add("hidden");
     shuffleCards();
@@ -461,7 +461,7 @@ function cheatCodes() {
   attemptsDisplay.textContent = attempts;
   gamesPlayedDisplay.textContent = gamesPlayed;
   accuracyDisplay.textContent = accuracy;
-  document.getElementById("final-accuracy").textContent = "Hax, bruh";
+  document.getElementById("final-accuracy").textContent = "admin.system-bypass //";
   end.classList.remove("hidden");
   welcome.classList.remove("hidden");
 }
