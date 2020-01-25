@@ -364,7 +364,7 @@ function handleClick(event) {
         secondCardClicked = null;
         gameCards.classList.remove("correct");
         gameCards.addEventListener('click', handleClick);
-      }, 100); //previous: 750
+      }, 750); //previous: 750
       if (matches === maxMatches) {
         endSound.play();
         document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
@@ -385,7 +385,7 @@ function handleClick(event) {
         secondCardClicked = null;
         gameCards.classList.remove("incorrect");
         gameCards.addEventListener('click', handleClick);
-      }, 100); //previous 1250
+      }, 1250); //previous 1250
     }
   }
 }
