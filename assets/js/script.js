@@ -9,6 +9,7 @@ let attempts = 0;
 let gamesPlayed = 0;
 let shuffleArray = [];
 let timeLeft;
+let livesLeft;
 let timeValue = 10;
 let timer;
 let difficulty; //Is this necessary?
@@ -40,28 +41,6 @@ const matchesDisplay = document.getElementById("matches");
 const accuracyDisplay = document.getElementById("accuracy");
 const timeDisplay = document.getElementById("time");
 
-gameCards.addEventListener('click', handleClick);
-beginButton.addEventListener('click', function() {
-  begin.classList.add("hidden");
-  mode.classList.remove("hidden");
-});
-modeButton.addEventListener('click', function() {
-  if (timeAttack || survival) {
-    mode.classList.add("hidden");
-    currentTop = "m e m o r y . e x e";
-    currentBottom = "Select Difficulty";
-    podOne.classList.remove("selected", "selected-animation");
-    podOne.classList.add("clickable");
-    podTwo.classList.remove("selected", "selected-animation");
-    podTwo.classList.add("clickable");
-    modeButton.classList.add("hidden");
-    welcome.classList.remove("hidden");
-  }
-});
-startButton.addEventListener('click', startGame);
-resetButton.addEventListener('click', resetGame);
-cheatButton.addEventListener('click', cheatCodes);
-
 // Audio functionality
 
 // Assigning variables to the audio HTML elements
@@ -76,6 +55,7 @@ const offSound = document.getElementById("off-sound");
 const resetSound = document.getElementById("reset-sound");
 const cheatSound = document.getElementById("cheat-sound");
 const hoverSound = document.getElementById("hover-sound");
+const selectSound = document.getElementById("select-sound");
 const soundEffectsArray = [
   startSound,
   endSound,
@@ -87,6 +67,7 @@ const soundEffectsArray = [
   resetSound,
   cheatSound,
   hoverSound,
+  selectSound,
 ];
 const voiceArray = [
   "ag",
@@ -203,6 +184,7 @@ var clickableList = document.getElementsByClassName("clickable");
 for (let x = 0; x < clickableList.length; x++) {
   clickableList[x].addEventListener('mouseover', function() {
     console.log("mouseenter clickable");
+    // hoverSound.currentTime = 0;
     hoverSound.play();
   })
 }
@@ -211,10 +193,39 @@ function addHoverSounds() {
   for (let y = 0; y < hoverableList.length; y++) {
     hoverableList[y].addEventListener('mouseover', function () {
       console.log("mouseenter clickable");
+      // hoverSound.currentTime = 0;
       hoverSound.play();
     })
   }
 }
+
+// Event listeners
+
+gameCards.addEventListener('click', handleClick);
+beginButton.addEventListener('click', function () {
+  begin.classList.add("hidden");
+  mode.classList.remove("hidden");
+  flipSound.play();
+});
+modeButton.addEventListener('click', function () {
+  if (timeAttack || survival) {
+    mode.classList.add("hidden");
+    currentTop = "m e m o r y . e x e";
+    currentBottom = "Select Difficulty";
+    podOne.classList.remove("selected", "selected-animation");
+    podOne.classList.add("clickable");
+    podTwo.classList.remove("selected", "selected-animation");
+    podTwo.classList.add("clickable");
+    modeButton.classList.add("hidden");
+    welcome.classList.remove("hidden");
+    flipSound.play();
+  }
+});
+startButton.addEventListener('click', startGame);
+resetButton.addEventListener('click', resetGame);
+cheatButton.addEventListener('click', cheatCodes);
+
+
 
 // Mode modal object variables
 let podOne = document.getElementsByClassName("pod-one")[0].parentElement;
@@ -228,7 +239,8 @@ let currentBottom = "Select Mode";
 podOne.addEventListener('mouseover', function () {
   document.getElementById("mode-message").textContent = "S U R V I V A L";
   document.getElementById("mode-message-two").textContent = "Pod X-042";
-  hoverSound.play();
+  // hoverSound.currentTime = 0;
+  // hoverSound.play();
 });
 
 podOne.addEventListener('mouseleave', function () {
@@ -252,7 +264,8 @@ podOne.addEventListener('click', function () {
     setTimeout(function () {
       podOne.classList.remove("selected-animation");
     }, 700);
-    document.getElementById("select").play();
+    selectSound.currentTime = 0;
+    selectSound.play();
     document.getElementById("pod-one").play();
     modeButton.classList.remove("hidden");
   }
@@ -261,7 +274,8 @@ podOne.addEventListener('click', function () {
 podTwo.addEventListener('mouseover', function () {
   document.getElementById("mode-message").textContent = "T I M E - A T T A C K";
   document.getElementById("mode-message-two").textContent = "Pod Y-153 ";
-  hoverSound.play();
+  // hoverSound.currentTime = 0;
+  // hoverSound.play();
 });
 
 podTwo.addEventListener('mouseleave', function () {
@@ -285,7 +299,8 @@ podTwo.addEventListener('click', function () {
     setTimeout(function () {
       podTwo.classList.remove("selected-animation");
     }, 700);
-    document.getElementById("select").play();
+    selectSound.currentTime = 0;
+    selectSound.play();
     document.getElementById("pod-two").play();
     modeButton.classList.remove("hidden");
   }
@@ -332,7 +347,7 @@ nine_s.addEventListener('click', function () {
     setTimeout(function() {
       nine_s.classList.remove("selected-animation");
     }, 700);
-    document.getElementById("select").play();
+    selectSound.play();
     document.getElementById("9s").play();
     startButton.classList.remove("hidden");
   }
@@ -373,7 +388,7 @@ a_two.addEventListener('click', function () {
     setTimeout(function () {
       a_two.classList.remove("selected-animation");
     }, 700);
-    document.getElementById("select").play();
+    selectSound.play();
     document.getElementById("a2").play();
     startButton.classList.remove("hidden");
   }
@@ -414,7 +429,7 @@ two_b.addEventListener('click', function () {
     setTimeout(function () {
       two_b.classList.remove("selected-animation");
     }, 700);
-    document.getElementById("select").play();
+    selectSound.play();
     document.getElementById("2b").play();
     startButton.classList.remove("hidden");
   }
@@ -429,6 +444,18 @@ function startGame() {
       music.play();
       firstGame = false;
     }
+    // if (survival) {
+    //   if (easy) {
+    //     livesLeft = 50;
+    //     timeValue = 1000;
+    //   } else if (medium) {
+    //     livesLeft = 40;
+    //     timeValue = 60;
+    //   } else if (hard) {
+    //     livesLeft = 30;
+    //     timeValue = 30;
+    //   }
+    // }
     if (easy) {
       nine_s.classList.add("clickable");
       nine_s.classList.remove("selected");
@@ -447,6 +474,7 @@ function startGame() {
     timeLeft = timeValue;
     timer = setInterval(countdown, 100);
     startSound.play();
+    flipSound.play();
     startButton.classList.add("hidden");
     welcome.classList.add("hidden");
     shuffleCards();
@@ -542,6 +570,7 @@ function shuffleCards() {
 
 function resetGame() {
   resetSound.play();
+  flipSound.play();
   matches = 0;
   attempts = 0;
   timeLeft = timeValue;
@@ -593,6 +622,7 @@ function countdown() {
 
 function cheatCodes() {
   clearInterval(timer);
+  flipSound.play();
   cheatSound.play();
   matches = 0;
   attempts = 0;
