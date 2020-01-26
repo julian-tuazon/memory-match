@@ -1,12 +1,12 @@
 body {
   height: 95vh;
-  background-image: url(../images/extra/na_forest.jpg);
+  background-image: url(../images/geo/gray.jpg);
   background-repeat: no-repeat; /* repeat */
-  background-size: cover; /* 120% original */
+  background-size: auto; /* 120% original */
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 header {
@@ -115,7 +115,7 @@ aside div:first-child {
   background-image: url(../images/geo/glitch.gif);
   background-size: cover;
   background-position: center;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 
 .card-back:hover {
