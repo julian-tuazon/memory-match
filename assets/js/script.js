@@ -183,22 +183,96 @@ for (let x = 0; x < clickableList.length; x++) {
   })
 }
 
-// Does not work
-
-for (let y = 0; y < hoverableList.length; y++) {
-  hoverableList[y].addEventListener('mouseover', function () {
-    console.log("mouseenter clickable");
-    hoverSound.play();
-  })
+// Does not work yet
+function addHoverSounds() {
+  for (let y = 0; y < hoverableList.length; y++) {
+    hoverableList[y].addEventListener('mouseover', function () {
+      console.log("mouseenter clickable");
+      hoverSound.play();
+    })
+  }
 }
-
 // -----
+
+// Mode modal object variables
+let podOne = document.getElementsByClassName("pod-one")[0].parentElement;
+let podTwo = document.getElementsByClassName("pod-two")[0].parentElement;
+let survival = false;
+let timeAttack = false;
+let currentTop = "m e m o r y . e x e";
+let currentBottom = "Select Mode";
+
+// Mode modal sound effects / text changes / mode selector
+podOne.addEventListener('mouseover', function () {
+  document.getElementById("mode-message").textContent = "S U R V I V A L";
+  document.getElementById("mode-message-two").textContent = "Pod X-042";
+  hoverSound.play();
+});
+
+podOne.addEventListener('mouseleave', function () {
+  document.getElementById("mode-message").textContent = `${currentTop}`;
+  document.getElementById("mode-message-two").textContent = `${currentBottom}`;
+});
+
+podOne.addEventListener('click', function () {
+  if (!survival) {
+    podOne.classList.add("selected");
+    podOne.classList.add("selected-animation");
+    podOne.classList.remove("clickable");
+    if (timeAttack) {
+      podTwo.classList.remove("selected");
+      podTwo.classList.add("clickable");
+      timeAttack = false;
+    }
+    survival = true;
+    currentTop = "S U R V I V A L";
+    currentBottom = "Pod X-042";
+    setTimeout(function () {
+      podOne.classList.remove("selected-animation");
+    }, 700);
+    document.getElementById("select").play();
+    document.getElementById("pod-one").play();
+  }
+});
+
+podTwo.addEventListener('mouseover', function () {
+  document.getElementById("mode-message").textContent = "T I M E - A T T A C K";
+  document.getElementById("mode-message-two").textContent = "Pod Y-153 ";
+  hoverSound.play();
+});
+
+podTwo.addEventListener('mouseleave', function () {
+  document.getElementById("mode-message").textContent = `${currentTop}`;
+  document.getElementById("mode-message-two").textContent = `${currentBottom}`;
+});
+
+podTwo.addEventListener('click', function () {
+  if (!timeAttack) {
+    podTwo.classList.add("selected");
+    podTwo.classList.add("selected-animation");
+    podTwo.classList.remove("clickable");
+    if (survival) {
+      podOne.classList.remove("selected");
+      podOne.classList.add("clickable");
+      survival = false;
+    }
+    timeAttack = true;
+    currentTop = "T I M E - A T T A C K";
+    currentBottom = "Pod Y-153";
+    setTimeout(function () {
+      podTwo.classList.remove("selected-animation");
+    }, 700);
+    document.getElementById("select").play();
+    document.getElementById("pod-two").play();
+  }
+});
+
 // NieR object variables
 let nine_s = document.getElementsByClassName("nine-s")[0].parentElement;
 let a_two = document.getElementsByClassName("a-two")[0].parentElement;
 let two_b = document.getElementsByClassName("two-b")[0].parentElement;
-let currentTop = "m e m o r y . e x e";
-let currentBottom = "Select Difficulty";
+// let currentTop = "m e m o r y . e x e";
+// let currentBottom = "Select Difficulty";
 
 // NieR modal sound effects / text changes / difficulty selector
 nine_s.addEventListener('mouseover', function() {
@@ -235,7 +309,7 @@ nine_s.addEventListener('click', function () {
     currentTop = "E A S Y";
     setTimeout(function() {
       nine_s.classList.remove("selected-animation");
-    }, 750);
+    }, 700);
     document.getElementById("select").play();
     document.getElementById("9s").play();
   }
@@ -275,7 +349,7 @@ a_two.addEventListener('click', function () {
     currentTop = "M E D I U M";
     setTimeout(function () {
       a_two.classList.remove("selected-animation");
-    }, 750);
+    }, 700);
     document.getElementById("select").play();
     document.getElementById("a2").play();
   }
@@ -315,7 +389,7 @@ two_b.addEventListener('click', function () {
     currentTop = "H A R D";
     setTimeout(function () {
       two_b.classList.remove("selected-animation");
-    }, 750);
+    }, 700);
     document.getElementById("select").play();
     document.getElementById("2b").play();
   }
@@ -347,6 +421,7 @@ function startGame() {
     startSound.play();
     welcome.classList.add("hidden");
     shuffleCards();
+    addHoverSounds();
   }
 }
 

@@ -219,29 +219,6 @@ aside div:first-child {
   padding-top: 0;
 }
 
-/* .modal > .img-container {
-  width: 35vmax;
-  position: fixed;
-  top: 30vmax;
-  right: 5%;
-}
-
-.modal > .ic2 {
-  width: 15vmax;
-  left: 12%;
-}
-
-.modal > .ic3 {
-  width: 25vmax;
-  top: 20vmax;
-  left: 20%;
-  z-index: 1;
-}
-
-.img-container > img {
-  width: 100%;
-} */
-
 .flex {
   width: 90vw;
   display: flex;
@@ -341,7 +318,6 @@ aside div:first-child {
 
 .flex > .selected-animation {
   box-shadow: 0px 0px 10px 10px orange;
-  /* transform: scale(1.1); */
 }
 
 .button-container {
