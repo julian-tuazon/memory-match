@@ -10,7 +10,7 @@ let gamesPlayed = 0;
 let shuffleArray = [];
 let timeLeft;
 let livesLeft;
-let timeValue = 10;
+let timeValue;
 let timer;
 let difficulty; //Is this necessary?
 
@@ -205,6 +205,7 @@ gameCards.addEventListener('click', handleClick);
 beginButton.addEventListener('click', function () {
   begin.classList.add("hidden");
   mode.classList.remove("hidden");
+  flipSound.currentTime = 0;
   flipSound.play();
 });
 modeButton.addEventListener('click', function () {
@@ -218,6 +219,7 @@ modeButton.addEventListener('click', function () {
     podTwo.classList.add("clickable");
     modeButton.classList.add("hidden");
     welcome.classList.remove("hidden");
+    flipSound.currentTime = 0;
     flipSound.play();
   }
 });
@@ -266,6 +268,7 @@ podOne.addEventListener('click', function () {
     }, 700);
     selectSound.currentTime = 0;
     selectSound.play();
+    document.getElementById("pod-one").currentTime = 0;
     document.getElementById("pod-one").play();
     modeButton.classList.remove("hidden");
   }
@@ -274,8 +277,6 @@ podOne.addEventListener('click', function () {
 podTwo.addEventListener('mouseover', function () {
   document.getElementById("mode-message").textContent = "T I M E - A T T A C K";
   document.getElementById("mode-message-two").textContent = "Pod Y-153 ";
-  // hoverSound.currentTime = 0;
-  // hoverSound.play();
 });
 
 podTwo.addEventListener('mouseleave', function () {
@@ -301,6 +302,7 @@ podTwo.addEventListener('click', function () {
     }, 700);
     selectSound.currentTime = 0;
     selectSound.play();
+    document.getElementById("pod-two").currentTime = 0;
     document.getElementById("pod-two").play();
     modeButton.classList.remove("hidden");
   }
@@ -316,7 +318,6 @@ nine_s.addEventListener('mouseover', function() {
   console.log('mouseover 9S');
   document.getElementById("welcome-message2").textContent = "YoRHa No. 9 Type S";
   document.getElementById("welcome-message").textContent = "E A S Y";
-  hoverSound.play();
 });
 
 nine_s.addEventListener('mouseleave', function () {
@@ -347,7 +348,9 @@ nine_s.addEventListener('click', function () {
     setTimeout(function() {
       nine_s.classList.remove("selected-animation");
     }, 700);
+    selectSound.currentTime = 0;
     selectSound.play();
+    document.getElementById("9s").currentTime = 0;
     document.getElementById("9s").play();
     startButton.classList.remove("hidden");
   }
@@ -357,7 +360,6 @@ a_two.addEventListener('mouseover', function () {
   console.log('mouseover 9S');
   document.getElementById("welcome-message2").textContent = "YoRHa Type A No. 2";
   document.getElementById("welcome-message").textContent = "M E D I U M";
-  hoverSound.play();
 });
 
 a_two.addEventListener('mouseleave', function () {
@@ -388,7 +390,9 @@ a_two.addEventListener('click', function () {
     setTimeout(function () {
       a_two.classList.remove("selected-animation");
     }, 700);
+    selectSound.currentTime = 0;
     selectSound.play();
+    document.getElementById("a2").currentTime = 0;
     document.getElementById("a2").play();
     startButton.classList.remove("hidden");
   }
@@ -398,7 +402,6 @@ two_b.addEventListener('mouseover', function () {
   console.log('mouseover 9S');
   document.getElementById("welcome-message2").textContent = "YoRHa No. 2 Type B";
   document.getElementById("welcome-message").textContent = "H A R D";
-  hoverSound.play();
 });
 
 two_b.addEventListener('mouseleave', function () {
@@ -429,7 +432,9 @@ two_b.addEventListener('click', function () {
     setTimeout(function () {
       two_b.classList.remove("selected-animation");
     }, 700);
+    selectSound.currentTime = 0;
     selectSound.play();
+    document.getElementById("2b").currentTime = 0;
     document.getElementById("2b").play();
     startButton.classList.remove("hidden");
   }
@@ -444,36 +449,38 @@ function startGame() {
       music.play();
       firstGame = false;
     }
-    // if (survival) {
-    //   if (easy) {
-    //     livesLeft = 50;
-    //     timeValue = 1000;
-    //   } else if (medium) {
-    //     livesLeft = 40;
-    //     timeValue = 60;
-    //   } else if (hard) {
-    //     livesLeft = 30;
-    //     timeValue = 30;
-    //   }
-    // }
     if (easy) {
-      nine_s.classList.add("clickable");
-      nine_s.classList.remove("selected");
+      livesLeft = 60;
       timeValue = 1000;
-    } else if (medium){
-      a_two.classList.add("clickable");
-      a_two.classList.remove("selected");
+    } else if (medium) {
+      livesLeft = 40;
       timeValue = 60;
     } else if (hard) {
-      two_b.classList.add("clickable");
-      two_b.classList.remove("selected");
-      timeValue = 30;
+      livesLeft = 2;
+      timeValue = 10;
     }
+
+    // Resetting classes for difficulty selector modal
+    nine_s.classList.add("clickable");
+    nine_s.classList.remove("selected");
+
+    a_two.classList.add("clickable");
+    a_two.classList.remove("selected");
+
+    two_b.classList.add("clickable");
+    two_b.classList.remove("selected");
+
     // Set initial bgm volume, start timer
     music.volume = 0.15;
     timeLeft = timeValue;
-    timer = setInterval(countdown, 100);
+    if (timeAttack) {
+      timer = setInterval(countdown, 100);
+    } else if (survival) {
+      timeDisplay.textContent = `Lives | ${livesLeft}`;
+    }
+    startSound.currentTime = 0;
     startSound.play();
+    flipSound.currentTime = 0;
     flipSound.play();
     startButton.classList.add("hidden");
     welcome.classList.add("hidden");
@@ -487,6 +494,7 @@ function handleClick(event) {
     return;
   }
   if (!firstCardClicked) {
+    flipSound.currentTime = 0;
     flipSound.play();
     firstCardClicked = event.target;
     firstCardClicked.className += " hidden";
@@ -494,6 +502,7 @@ function handleClick(event) {
     firstCardClasses = firstCardClicked.previousElementSibling.className;
     console.log("firstCardClasses", firstCardClasses);
   } else {
+    flipSound.currentTime = 0;
     flipSound.play();
     secondCardClicked = event.target;
     secondCardClicked.className += " hidden";
@@ -501,10 +510,12 @@ function handleClick(event) {
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses == secondCardClasses) {
+      correctSound.currentTime = 0;
       correctSound.play();
       // Gets the logo name of card class and plays audio element with associated id
       // let endIndex = secondCardClasses.indexOf("-");
       let logoName = secondCardClasses.slice(11, secondCardClasses.indexOf("-logo"));
+      document.getElementById(`${logoName}`).currentTime = 0;
       document.getElementById(`${logoName}`).play();
       //
       matchesDisplay.textContent = ++matches;
@@ -520,18 +531,37 @@ function handleClick(event) {
         gameCards.addEventListener('click', handleClick);
       }, 500); //previous: 750
       if (matches === maxMatches) {
+        endSound.currentTime = 0;
         endSound.play();
         clearInterval(timer);
+        if (timeAttack) {
+          document.getElementById("final-time").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
+        } else if (survival) {
+          document.getElementById("final-time").textContent = `Lives Remaining: ${livesLeft}`;
+
+        }
         document.getElementById("end-message").textContent = "V I C T O R Y";
         document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-        document.getElementById("final-time").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
         end.classList.remove("hidden");
       }
     } else {
+      incorrectSound.currentTime = 0;
       incorrectSound.play();
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("incorrect");
+      if (survival) {
+        livesLeft--;
+        timeDisplay.textContent = `Lives | ${livesLeft}`
+        if (livesLeft === 0) {
+          endSound.currentTime = 0;
+          endSound.play();
+          document.getElementById("end-message").textContent = "D E F E A T";
+          document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+          document.getElementById("final-time").textContent = "System.null_lives.error //";
+          end.classList.remove("hidden");
+        }
+      }
       setTimeout(function() {
         firstCardClicked.previousElementSibling.classList.remove("current");
         secondCardClicked.previousElementSibling.classList.remove("current");
@@ -569,15 +599,18 @@ function shuffleCards() {
 }
 
 function resetGame() {
+  resetSound.currentTime = 0;
   resetSound.play();
+  flipSound.currentTime = 0;
   flipSound.play();
   matches = 0;
   attempts = 0;
-  timeLeft = timeValue;
+  timeLeft = 0;
+  livesLeft = 0;
   matchesDisplay.textContent = matches;
   attemptsDisplay.textContent = attempts;
   accuracyDisplay.textContent = "0.0%";
-  timeDisplay.textContent = timeLeft;
+  timeDisplay.textContent = "-";
   gamesPlayedDisplay.textContent = ++gamesPlayed;
 
   // Fixes bug in which a reset game still had red or green border glow and possibly could not click on cards
