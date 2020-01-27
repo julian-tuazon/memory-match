@@ -1,8 +1,8 @@
 body {
   height: 95vh;
-  background-image: url(../images/geo/gray.jpg);
+  background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
   background-repeat: no-repeat; /* repeat */
-  background-size: auto; /* 120% original */
+  background-size: cover; /* 120% original */
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
@@ -17,10 +17,22 @@ header {
   margin: auto;
   height: 80%;
   width: 100%;
+
+  /* Makes whole header bar a gif */
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/globe-optimize.gif);
+  background-position: center;
+  background-size: 50%; /* Original: 300% */
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white;
+  border-radius: 15px;
 }
 
 header > div {
-  background: linear-gradient(
+  /* background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
                      url(../images/geo/earth.gif);
@@ -28,7 +40,7 @@ header > div {
   background-size: 300%;
   font-size: 1.5vmax;
   font-weight: normal;
-  color: white;
+  color: white; */
 
   margin: 0 2%;
   border-radius: 15px;
@@ -39,20 +51,27 @@ header > div {
   transition: all ease-in-out 0.1s;
 }
 
+/* header > #title {
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/Goo.gif);
+  background-size: 100%;
+  background-position: 50%;
+} */
+
 aside > div {
   /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 1.1vmax;
   color: white;
 
+
+
+/* background with gear */
+
   background-image: url(../images/extra/gear.gif);
   background-position: 30%;
   background-size: 200%;
-
-/* background with earth */
-
-  /* background-image: url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 300%; */
 
   margin: 2% auto;
   border-radius: 15px;
@@ -81,6 +100,29 @@ aside div:first-child {
   background-position: center;
   background-size: 300%;
   font-weight: bold;
+}
+
+aside#controls {
+  display: flex;
+  justify-content: center;
+}
+
+aside#controls > div:nth-child(even):not(:first-child) {
+  background: linear-gradient(
+                     rgba(20,20,20, .6),
+                     rgba(20,20,20, .6)),
+                     url(../images/extra/ai.gif);
+  background-position: center;
+  background-size: 180%;
+  margin: 2% auto;
+}
+
+aside#controls div.clickable:not(:first-child):hover {
+  /* cursor: pointer; */
+  /* box-shadow: 0px 0px 10px 2px cyan; */
+  /* transform: scale(1.03); */
+  background-image: url(../images/extra/gear.gif);
+  background-size: 200%;
 }
 
 .clickable:hover {
@@ -177,6 +219,63 @@ aside div:first-child {
   background-image: url(../images/wipeout_logos/triakis.jpg);
 }
 
+.footer-row {
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  font-size: 2.5vmax;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  height: 80%;
+  width: 100%;
+
+  /* Makes whole header bar a gif */
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/gear.gif);
+  background-position: center;
+  background-size: 50%; /* Original: 300% */
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+footer > div {
+  /* background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/geo/earth.gif);
+  background-position: center;
+  background-size: 300%;
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white; */
+
+  margin: 0 2%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all ease-in-out 0.1s;
+}
+
+.progress {
+  box-shadow: 0px 0px 10px 2px orange;
+  /* transform: scale(1.05); */
+  /* transform: translateY(-2%); */
+}
+
+.progress-animation {
+  box-shadow: 0px 0px 10px 10px orange;
+}
+
 .modal {
   font-size: 3vmax;
   font-weight: bold;
@@ -196,13 +295,21 @@ aside div:first-child {
   background-repeat: no-repeat;
   background-size: cover;
   color: black;
+  /* Added modal container to center modal content vertically */
+  display: flex;
+  align-items: center;
 }
 
-.modal > div {
+.modal-container {
+  width: 100%;
+}
+
+/* Adding modal container makes rules nested in another div */
+.modal > div > div {
   padding: 2%;
 }
 
-.modal > div:not(:first-child) {
+.modal > div > div:not(:first-child) {
   font-size: 2vmax;
   font-weight: normal;
 }
@@ -225,6 +332,10 @@ aside div:first-child {
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }
 
 .flex > div {
@@ -254,6 +365,28 @@ aside div:first-child {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Location / background modal */
+.flex > div#pic-one {
+  background-size: cover;
+  background-image: url(../images/geo/gray.jpg);
+}
+.flex > div#pic-two {
+  background-size: cover;
+  background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
+}
+.flex > div#pic-three {
+  background-size: cover;
+  background-image: url(../images/geo/diamond.jpg);
+}
+.flex > div#pic-four {
+  background-size: cover;
+  background-image: url(../images/extra/na_cityruins.png);
+}
+.flex > div#pic-five {
+  background-size: cover;
+  background-image: url(../images/extra/na_forest.jpg);
 }
 
 /* Mode modal pod styling */
@@ -356,6 +489,10 @@ input:hover {
 
 .hidden {
   display: none;
+}
+
+.temp-hidden {
+  visibility: hidden;
 }
 
 

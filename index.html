@@ -12,42 +12,66 @@
 </head>
 <body>
 
+  <div id="location" class="modal hidden">
+    <div id="location-header">m e m o r y . e x e</div>
+    <div class="flex wrap">
+      <div class="col-3 clickable" id="pic-one">
+      </div>
+      <div class="col-3 clickable" id="pic-two">
+      </div>
+      <div class="col-3 clickable" id="pic-three">
+      </div>
+      <div class="col-3 clickable" id="pic-four">
+      </div>
+      <div class="col-3 clickable" id="pic-five">
+      </div>
+    </div>
+    <div class="button-container"><input type="button" id="location-button" value="E N T E R" class="clickable"></div>
+  </div>
+
   <div id="begin" class="modal">
-    <div id="begin-header">m e m o r y . e x e</div>
-    <div id="begin-message">“So man is an individual only because of his intangible memory.<br>Memory cannot be defined, yet it defines mankind.”</div>
-    <div class="button-container"><input type="button" id="begin-button" value="E N T E R" class="clickable"></div>
+    <div class="modal-container">
+      <div id="begin-header">m e m o r y . e x e</div>
+      <div id="begin-message">“So man is an individual only because of his intangible memory.<br>Memory cannot be defined,
+        yet it defines mankind.”</div>
+      <div class="button-container"><input type="button" id="begin-button" value="E N T E R" class="clickable"></div>
+    </div>
   </div>
 
   <div id="mode" class="modal hidden">
-    <div id="mode-message">m e m o r y . e x e</div>
-    <div id="mode-message-two">Select Mode</div>
-    <div class="flex">
-      <div class="col-3 clickable">
-        <div class="pod-one"></div>
+    <div class="modal-container">
+      <div id="mode-message">m e m o r y . e x e</div>
+      <div id="mode-message-two">Select Mode</div>
+      <div class="flex">
+        <div class="col-3 clickable">
+          <div class="pod-one"></div>
+        </div>
+        <div class="col-3 clickable">
+          <div class="pod-two"></div>
+        </div>
       </div>
-      <div class="col-3 clickable">
-        <div class="pod-two"></div>
-      </div>
+      <div class="button-container"><input type="button" id="mode-button" value="N E X T" class="clickable temp-hidden"></div>
     </div>
-    <div class="button-container"><input type="button" id="mode-button" value="N E X T" class="clickable hidden"></div>
   </div>
 
   <div id="welcome" class="modal hidden">
-    <div id="welcome-message">m e m o r y . e x e</div>
-    <div id="welcome-message2">Select Difficulty</div>
-
-    <div class="flex">
-      <div class="col-3 clickable">
-        <div class="nine-s"></div>
+    <div class="modal-container">
+      <div id="welcome-message">m e m o r y . e x e</div>
+      <div id="welcome-message2">Select Difficulty</div>
+      <div class="flex">
+        <div class="col-3 clickable">
+          <div class="nine-s"></div>
+        </div>
+        <div class="col-3 clickable">
+          <div class="a-two"></div>
+        </div>
+        <div class="col-3 clickable">
+          <div class="two-b"></div>
+        </div>
       </div>
-      <div class="col-3 clickable">
-        <div class="a-two"></div>
-      </div>
-      <div class="col-3 clickable">
-        <div class="two-b"></div>
-      </div>
+      <div class="button-container"><input type="button" id="start" value="P L A Y" class="clickable temp-hidden"></div>
     </div>
-    <div class="button-container"><input type="button" id="start" value="P L A Y" class="clickable hidden"></div>
+
   </div>
 
 
@@ -64,9 +88,9 @@
   <div class="container">
     <div class="row header-row">
       <header>
-        <div class="col-3">m e m o r y . e x e</div>
+        <div id="title" class="col-3">m e m o r y . e x e</div i>
         <div id="time" class="col-3">-</div>
-        <div class="col-3 clickable">Options</div>
+        <div class="col-3 clickable">Hard | Time-Attack</div>
         <!-- m e m o r y . e x e -->
         <!-- temporary placeholder text -->
       </header>
@@ -83,7 +107,7 @@
         <div>Accuracy</div>
         <div id="accuracy">0.0%</div>
       </aside>
-      <main class="col-10" id="game-cards">
+      <main class="col-9" id="game-cards">
         <div class="col-2 card">
           <div class="card-front ag-logo"></div>
           <div class="card-back"></div>
@@ -157,20 +181,38 @@
           <div class="card-back"></div>
         </div>
       </main>
+      <aside id="controls" class="col-2">
+        <div id="cheat-two" class="clickable">ありがとう</div>
+        <div id="music-toggle" class="clickable">Music | OFF</div>
+        <div>Track X</div>
+        <div id="sound-toggle" class="clickable">SFX | OFF</div>
+        <div>-</div>
+        <div id="voice-toggle" class="clickable">Voice | OFF</div>
+        <div>-</div>
+        <div id="background-toggle" class="clickable">Scene</div>
+        <div>-</div>
+      </aside>
+    </div>
+    <div class="footer-row">
+      <footer>
+        <div>Medium | Time-Attack</div>
+      </footer>
     </div>
   </div>
 
   <div id="end" class="modal hidden">
-    <div id="end-message"></div>
-    <!-- おめでとう -->
-    <div id="final-accuracy"></div>
-    <div id="final-time"></div>
-    <div><strong>さようなら</strong></div>
-    <div class="button-container"><input type="button" id="reset" value="R E S E T" class="clickable"></div>
+    <div class="modal-container">
+      <div id="end-message"></div>
+      <!-- おめでとう -->
+      <div id="final-accuracy"></div>
+      <div id="final-time"></div>
+      <div><strong>さようなら</strong></div>
+      <div class="button-container"><input type="button" id="reset" value="R E S E T" class="clickable"></div>
+    </div>
   </div>
 
   <div class="audio">
-    <audio src="assets/audio/alien_manifestation_vocals.mp3" id="bgm"></audio>
+    <audio src="assets/audio/jenova.mp3" id="bgm"></audio>
     <audio src="assets/audio/start.wav" id="start-sound"></audio>
     <audio src="assets/audio/end.wav" id="end-sound"></audio>
     <audio src="assets/audio/flip.wav" id="flip-sound"></audio>

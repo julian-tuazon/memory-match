@@ -10,7 +10,7 @@ let gamesPlayed = 0;
 let shuffleArray = [];
 let timeLeft;
 let livesLeft;
-let timeValue;
+let timeValue; // Is this necessary?
 let timer;
 let difficulty; //Is this necessary?
 
@@ -217,7 +217,7 @@ modeButton.addEventListener('click', function () {
     podOne.classList.add("clickable");
     podTwo.classList.remove("selected", "selected-animation");
     podTwo.classList.add("clickable");
-    modeButton.classList.add("hidden");
+    modeButton.classList.add("temp-hidden");
     welcome.classList.remove("hidden");
     flipSound.currentTime = 0;
     flipSound.play();
@@ -270,7 +270,7 @@ podOne.addEventListener('click', function () {
     selectSound.play();
     document.getElementById("pod-one").currentTime = 0;
     document.getElementById("pod-one").play();
-    modeButton.classList.remove("hidden");
+    modeButton.classList.remove("temp-hidden");
   }
 });
 
@@ -304,7 +304,7 @@ podTwo.addEventListener('click', function () {
     selectSound.play();
     document.getElementById("pod-two").currentTime = 0;
     document.getElementById("pod-two").play();
-    modeButton.classList.remove("hidden");
+    modeButton.classList.remove("temp-hidden");
   }
 });
 
@@ -352,7 +352,7 @@ nine_s.addEventListener('click', function () {
     selectSound.play();
     document.getElementById("9s").currentTime = 0;
     document.getElementById("9s").play();
-    startButton.classList.remove("hidden");
+    startButton.classList.remove("temp-hidden");
   }
 });
 
@@ -394,7 +394,7 @@ a_two.addEventListener('click', function () {
     selectSound.play();
     document.getElementById("a2").currentTime = 0;
     document.getElementById("a2").play();
-    startButton.classList.remove("hidden");
+    startButton.classList.remove("temp-hidden");
   }
 });
 
@@ -436,7 +436,7 @@ two_b.addEventListener('click', function () {
     selectSound.play();
     document.getElementById("2b").currentTime = 0;
     document.getElementById("2b").play();
-    startButton.classList.remove("hidden");
+    startButton.classList.remove("temp-hidden");
   }
 });
 
@@ -482,7 +482,7 @@ function startGame() {
     startSound.play();
     flipSound.currentTime = 0;
     flipSound.play();
-    startButton.classList.add("hidden");
+    startButton.classList.add("temp-hidden");
     welcome.classList.add("hidden");
     shuffleCards();
     addHoverSounds();
@@ -558,7 +558,7 @@ function handleClick(event) {
           endSound.play();
           document.getElementById("end-message").textContent = "D E F E A T";
           document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-          document.getElementById("final-time").textContent = "System.null_lives.error //";
+          document.getElementById("final-time").textContent = "System.lives.nullError //";
           end.classList.remove("hidden");
         }
       }
@@ -645,7 +645,7 @@ function countdown() {
     secondCardClicked = null;
     document.getElementById("end-message").textContent = "D E F E A T";
     document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-    document.getElementById("final-time").textContent = "System.timeout.error //";
+    document.getElementById("final-time").textContent = "System.time.nullError //";
     end.classList.remove("hidden");
   }
   timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;

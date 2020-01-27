@@ -16,7 +16,11 @@
 }
 
 .game-row {
-  height: 90%;
+  height: 80%;
+}
+
+.footer-row {
+  height: 10%;
 }
 
 aside, main {
@@ -41,6 +45,11 @@ main {
   align-items: center;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+}
+
 header > div {
   height: 100%;
   width: 100%;
@@ -49,6 +58,11 @@ header > div {
 aside > div {
   height: 10%;
   width: 60%;
+}
+
+footer > div {
+  height: 100%;
+  width: 100%;
 }
 
 .card {
