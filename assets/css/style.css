@@ -1,6 +1,6 @@
 body {
   height: 95vh;
-  background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
+  background-image: url(../images/geo/gray.jpg);
   background-repeat: no-repeat; /* repeat */
   background-size: cover; /* 120% original */
   background-position: center;
@@ -125,6 +125,10 @@ aside#controls div.clickable:not(:first-child):hover {
   background-size: 200%;
 }
 
+aside#controls div:first-child {
+  font-weight: normal;
+}
+
 .clickable:hover {
   cursor: pointer;
   box-shadow: 0px 0px 10px 2px cyan;
@@ -219,6 +223,8 @@ aside#controls div.clickable:not(:first-child):hover {
   background-image: url(../images/wipeout_logos/triakis.jpg);
 }
 
+/* Footer -------------------------------- */
+
 .footer-row {
   display: flex;
   align-items: center;
@@ -275,6 +281,8 @@ footer > div {
 .progress-animation {
   box-shadow: 0px 0px 10px 10px orange;
 }
+
+/* Modal -------------------------------- */
 
 .modal {
   font-size: 3vmax;
