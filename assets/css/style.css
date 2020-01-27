@@ -104,7 +104,7 @@ aside div:first-child {
 
 aside#controls {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 aside#controls > div:nth-child(even):not(:first-child) {
