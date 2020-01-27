@@ -79,6 +79,11 @@ const voiceArray = [
   "harimau",
   "qirex",
   "triakis",
+  "2b",
+  "9s",
+  "a2",
+  "pod-one",
+  "pod-two",
 ];
 // const modalObjects = [
 //   podOne,
@@ -89,36 +94,45 @@ const voiceArray = [
 // ];
 let hoverableList = document.getElementsByClassName("card-back");
 
-// Closure for the toggleMusic functionality attached to the musicButton/gamesPlayedDisplay
+// Closure for the toggleMusic functionality attached to the musicButton
 let toggleMusic = (function() {
   let toggle = false;
   return function() {
     if (toggle) {
+      onSound.currentTime = 0;
       onSound.play();
       music.play();
       toggle = false;
+      musicButton.textContent = "Music | ON";
     } else {
+      offSound.currentTime = 0;
       offSound.play();
       music.pause();
       toggle = true;
+      musicButton.textContent = "Music | OFF";
     }
   }
 })();
 
-// Making another reference to the variable gamesPlayedDisplay to explicitly show its music button functionality
-const musicButton = gamesPlayedDisplay;
+// Making music toggle button
+const musicButton = document.getElementById("music-toggle");
 musicButton.addEventListener('click', toggleMusic);
 
-// Closure for the toggleSoundEffects functionality attached to the soundEffectsButton/attemptsDisplay
+// Closure for the toggleSoundEffects functionality attached to the soundEffectsButton
 let toggleSoundEffects = (function() {
   let toggle = false;
   return function() {
     if (toggle) {
+      onSound.currentTime = 0;
       onSound.play();
       toggle = false;
+      soundEffectsButton.textContent = "SFX | ON";
     } else {
+      // Current bug - offSound will not play because sounds will be muted
+      offSound.currentTime = 0;
       offSound.play();
       toggle = true;
+      soundEffectsButton.textContent = "SFX | OFF";
     }
     for (let m = 0; m < soundEffectsArray.length; m++) {
       soundEffectsArray[m].muted = toggle;
@@ -126,20 +140,24 @@ let toggleSoundEffects = (function() {
   }
 })();
 
-// Making another reference to the variable attemptsDisplay to explicitly show its sound effects button functionality
-const soundEffectsButton = attemptsDisplay;
+// Making sound effects button
+const soundEffectsButton = document.getElementById("sound-toggle");
 soundEffectsButton.addEventListener('click', toggleSoundEffects);
 
-// Closure for the toggleVoice functionality attached to the voiceButton/matchesDisplay
+// Closure for the toggleVoice functionality attached to the voiceButton
 let toggleVoice = (function() {
   let toggle = false;
   return function () {
     if (toggle) {
+      onSound.currentTime = 0;
       onSound.play();
       toggle = false;
+      voiceButton.textContent = "Voice | ON";
     } else {
+      offSound.currentTime = 0;
       offSound.play();
       toggle = true;
+      voiceButton.textContent = "Voice | OFF";
     }
     for (let p = 0; p < voiceArray.length; p++) {
       document.getElementById(`${voiceArray[p]}`).muted = toggle;
@@ -147,8 +165,8 @@ let toggleVoice = (function() {
   }
 })();
 
-// Making another reference to the variable matchesDisplay to explicitly show its voice button functionality
-const voiceButton = matchesDisplay;
+// Making voice button
+const voiceButton = document.getElementById("voice-toggle");
 voiceButton.addEventListener('click', toggleVoice);
 
 // Adding hover effects to cards and other desired elements
