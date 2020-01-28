@@ -12,7 +12,24 @@ let timeLeft;
 let livesLeft;
 let timeValue; // Is this necessary?
 let timer;
-let difficulty; //Is this necessary?
+let difficulty;
+let gameMode;
+
+// Code refactoring?
+
+// let difficulty = {
+//   "easy": { "time": 90, "lives": 50, "modalText": "E A S Y", "headerText": "Easy" },
+//   "medium": { "time": 60, "lives": 35, "modalText": "M E D I U M", "headerText": "Medium" },
+//   "hard": { "time": 30, "lives": 20, "modalText": "H A R D", "headerText": "Hard" },
+// };
+// let gameMode = {
+//   "survival": { "modalText": "S U R V I V A L", "headerText": "Survival" },
+//   "timeAttack": { "modalText": "T I M E - A T T A C K", "headerText": "Time-Attack" },
+// };
+// Current mode / difficulty has reference to the corresponding modal select object
+// Makes that object have the selected / selected-animation classes and removes the clickable class
+// Removes those classes and adds those classes to the other, non-selected modal select objects
+
 
 // Choosing NieR character / difficulty
 
@@ -40,6 +57,7 @@ const attemptsDisplay = document.getElementById("attempts");
 const matchesDisplay = document.getElementById("matches");
 const accuracyDisplay = document.getElementById("accuracy");
 const timeDisplay = document.getElementById("time");
+const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
 
 // Audio functionality
 
@@ -99,14 +117,12 @@ let toggleMusic = (function() {
   let toggle = false;
   return function() {
     if (toggle) {
-      onSound.currentTime = 0;
-      onSound.play();
+      playSound(onSound);
       music.play();
       toggle = false;
       musicButton.textContent = "Music | ON";
     } else {
-      offSound.currentTime = 0;
-      offSound.play();
+      playSound(offSound);
       music.pause();
       toggle = true;
       musicButton.textContent = "Music | OFF";
@@ -123,14 +139,12 @@ let toggleSoundEffects = (function() {
   let toggle = false;
   return function() {
     if (toggle) {
-      onSound.currentTime = 0;
-      onSound.play();
+      playSound(onSound);
       toggle = false;
       soundEffectsButton.textContent = "SFX | ON";
     } else {
       // Current bug - offSound will not play because sounds will be muted
-      offSound.currentTime = 0;
-      offSound.play();
+      playSound(offSound);
       toggle = true;
       soundEffectsButton.textContent = "SFX | OFF";
     }
@@ -149,13 +163,11 @@ let toggleVoice = (function() {
   let toggle = false;
   return function () {
     if (toggle) {
-      onSound.currentTime = 0;
-      onSound.play();
+      playSound(onSound);
       toggle = false;
       voiceButton.textContent = "Voice | ON";
     } else {
-      offSound.currentTime = 0;
-      offSound.play();
+      playSound(offSound);
       toggle = true;
       voiceButton.textContent = "Voice | OFF";
     }
@@ -169,34 +181,9 @@ let toggleVoice = (function() {
 const voiceButton = document.getElementById("voice-toggle");
 voiceButton.addEventListener('click', toggleVoice);
 
-// Adding hover effects to cards and other desired elements
-// WORK IN PROGRESS - clean code and render functional hover sounds for cards
 
 
-// let toggleHover = (function() {
-//   let toggle = false;
-//   for (let i = 0; i < hoverableList.length; i++) {
-//     hoverableList[i].addEventListener('mouseenter', function(){
-//       hoverSound.play();
-//     });
-//   }
-//   return function () {
-//     if (toggle) {
-//       onSound.play();
-//       toggle = false;
-//     } else {
-//       offSound.play();
-//       toggle = true;
-//     }
-//     hoverSound.muted = toggle;
-//   }
-// })();
-
-// for (let i = 0; i < hoverableList.length; i++) {
-//   hoverableList[i].addEventListener('mouseenter', function () {
-//     hoverSound.play();
-//   })
-// }
+// Event listeners
 
 var clickableList = document.getElementsByClassName("clickable");
 for (let x = 0; x < clickableList.length; x++) {
@@ -217,28 +204,30 @@ function addHoverSounds() {
   }
 }
 
-// Event listeners
-
 gameCards.addEventListener('click', handleClick);
 beginButton.addEventListener('click', function () {
   begin.classList.add("hidden");
   mode.classList.remove("hidden");
-  flipSound.currentTime = 0;
-  flipSound.play();
+  playSound(flipSound);
+  if (firstGame) {
+    music.volume = 0.15;
+    music.play();
+    firstGame = false;
+  }
 });
+
 modeButton.addEventListener('click', function () {
   if (timeAttack || survival) {
     mode.classList.add("hidden");
-    currentTop = "m e m o r y . e x e";
-    currentBottom = "Select Difficulty";
+    currentTop = "D I F F I C U L T Y";
+    currentBottom = "Deploy YoRHa Unit";
     podOne.classList.remove("selected", "selected-animation");
     podOne.classList.add("clickable");
     podTwo.classList.remove("selected", "selected-animation");
     podTwo.classList.add("clickable");
     modeButton.classList.add("temp-hidden");
     welcome.classList.remove("hidden");
-    flipSound.currentTime = 0;
-    flipSound.play();
+    playSound(flipSound);
   }
 });
 startButton.addEventListener('click', startGame);
@@ -252,15 +241,13 @@ let podOne = document.getElementsByClassName("pod-one")[0].parentElement;
 let podTwo = document.getElementsByClassName("pod-two")[0].parentElement;
 let survival = false;
 let timeAttack = false;
-let currentTop = "m e m o r y . e x e";
-let currentBottom = "Select Mode";
+let currentTop = "M O D E";
+let currentBottom = "Deploy Pod";
 
 // Mode modal sound effects / text changes / mode selector
 podOne.addEventListener('mouseover', function () {
   document.getElementById("mode-message").textContent = "S U R V I V A L";
   document.getElementById("mode-message-two").textContent = "Pod X-042";
-  // hoverSound.currentTime = 0;
-  // hoverSound.play();
 });
 
 podOne.addEventListener('mouseleave', function () {
@@ -284,10 +271,8 @@ podOne.addEventListener('click', function () {
     setTimeout(function () {
       podOne.classList.remove("selected-animation");
     }, 700);
-    selectSound.currentTime = 0;
-    selectSound.play();
-    document.getElementById("pod-one").currentTime = 0;
-    document.getElementById("pod-one").play();
+    playSound(selectSound);
+    playSound(document.getElementById("pod-one"));
     modeButton.classList.remove("temp-hidden");
   }
 });
@@ -318,10 +303,8 @@ podTwo.addEventListener('click', function () {
     setTimeout(function () {
       podTwo.classList.remove("selected-animation");
     }, 700);
-    selectSound.currentTime = 0;
-    selectSound.play();
-    document.getElementById("pod-two").currentTime = 0;
-    document.getElementById("pod-two").play();
+    playSound(selectSound);
+    playSound(document.getElementById("pod-two"));
     modeButton.classList.remove("temp-hidden");
   }
 });
@@ -366,10 +349,8 @@ nine_s.addEventListener('click', function () {
     setTimeout(function() {
       nine_s.classList.remove("selected-animation");
     }, 700);
-    selectSound.currentTime = 0;
-    selectSound.play();
-    document.getElementById("9s").currentTime = 0;
-    document.getElementById("9s").play();
+    playSound(selectSound);
+    playSound(document.getElementById("9s"));
     startButton.classList.remove("temp-hidden");
   }
 });
@@ -408,10 +389,8 @@ a_two.addEventListener('click', function () {
     setTimeout(function () {
       a_two.classList.remove("selected-animation");
     }, 700);
-    selectSound.currentTime = 0;
-    selectSound.play();
-    document.getElementById("a2").currentTime = 0;
-    document.getElementById("a2").play();
+    playSound(selectSound);
+    playSound(document.getElementById("a2"));
     startButton.classList.remove("temp-hidden");
   }
 });
@@ -450,10 +429,8 @@ two_b.addEventListener('click', function () {
     setTimeout(function () {
       two_b.classList.remove("selected-animation");
     }, 700);
-    selectSound.currentTime = 0;
-    selectSound.play();
-    document.getElementById("2b").currentTime = 0;
-    document.getElementById("2b").play();
+    playSound(selectSound);
+    playSound(document.getElementById("2b"));
     startButton.classList.remove("temp-hidden");
   }
 });
@@ -462,49 +439,46 @@ two_b.addEventListener('click', function () {
 
 function startGame() {
   // Game can only start when difficulty is selected
-  if (easy || medium || hard) {
-    if (firstGame) {
-      music.play();
-      firstGame = false;
-    }
-    if (easy) {
-      livesLeft = 60;
-      timeValue = 1000;
-    } else if (medium) {
-      livesLeft = 40;
-      timeValue = 60;
-    } else if (hard) {
-      livesLeft = 2;
-      timeValue = 10;
-    }
-
-    // Resetting classes for difficulty selector modal
-    nine_s.classList.add("clickable");
-    nine_s.classList.remove("selected");
-
-    a_two.classList.add("clickable");
-    a_two.classList.remove("selected");
-
-    two_b.classList.add("clickable");
-    two_b.classList.remove("selected");
-
-    // Set initial bgm volume, start timer
-    music.volume = 0.15;
-    timeLeft = timeValue;
-    if (timeAttack) {
-      timer = setInterval(countdown, 100);
-    } else if (survival) {
-      timeDisplay.textContent = `Lives | ${livesLeft}`;
-    }
-    startSound.currentTime = 0;
-    startSound.play();
-    flipSound.currentTime = 0;
-    flipSound.play();
-    startButton.classList.add("temp-hidden");
-    welcome.classList.add("hidden");
-    shuffleCards();
-    addHoverSounds();
+  if (easy) {
+    livesLeft = 60;
+    timeValue = 1000;
+    difficulty = "Easy";
+  } else if (medium) {
+    livesLeft = 40;
+    timeValue = 60;
+    difficulty = "Medium";
+  } else if (hard) {
+    livesLeft = 2;
+    timeValue = 10;
+    difficulty = "Hard";
   }
+
+  // Resetting classes for difficulty selector modal
+  nine_s.classList.add("clickable");
+  nine_s.classList.remove("selected");
+
+  a_two.classList.add("clickable");
+  a_two.classList.remove("selected");
+
+  two_b.classList.add("clickable");
+  two_b.classList.remove("selected");
+
+  // Set initial bgm volume, start timer
+  timeLeft = timeValue;
+  if (timeAttack) {
+    timer = setInterval(countdown, 100);
+    gameMode = "Time-Attack";
+  } else if (survival) {
+    timeDisplay.textContent = `Lives | ${livesLeft}`;
+    gameMode = "Survival";
+  }
+  difficultyModeDisplay.textContent = `${difficulty} | ${gameMode}`;
+  playSound(startSound);
+  playSound(flipSound);
+  startButton.classList.add("temp-hidden");
+  welcome.classList.add("hidden");
+  shuffleCards();
+  addHoverSounds(); // Adds hover sounds to newly created card-back elements
 }
 
 function handleClick(event) {
@@ -512,29 +486,25 @@ function handleClick(event) {
     return;
   }
   if (!firstCardClicked) {
-    flipSound.currentTime = 0;
-    flipSound.play();
+    playSound(flipSound);
     firstCardClicked = event.target;
     firstCardClicked.className += " hidden";
     firstCardClicked.previousElementSibling.classList.add("current");
     firstCardClasses = firstCardClicked.previousElementSibling.className;
     console.log("firstCardClasses", firstCardClasses);
   } else {
-    flipSound.currentTime = 0;
-    flipSound.play();
+    playSound(flipSound);
     secondCardClicked = event.target;
     secondCardClicked.className += " hidden";
     secondCardClicked.previousElementSibling.classList.add("current");
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses == secondCardClasses) {
-      correctSound.currentTime = 0;
-      correctSound.play();
+      playSound(correctSound);
       // Gets the logo name of card class and plays audio element with associated id
       // let endIndex = secondCardClasses.indexOf("-");
       let logoName = secondCardClasses.slice(11, secondCardClasses.indexOf("-logo"));
-      document.getElementById(`${logoName}`).currentTime = 0;
-      document.getElementById(`${logoName}`).play();
+      playSound(document.getElementById(`${logoName}`));
       //
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
@@ -549,8 +519,7 @@ function handleClick(event) {
         gameCards.addEventListener('click', handleClick);
       }, 500); //previous: 750
       if (matches === maxMatches) {
-        endSound.currentTime = 0;
-        endSound.play();
+        playSound(endSound);
         clearInterval(timer);
         if (timeAttack) {
           document.getElementById("final-time").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
@@ -563,8 +532,7 @@ function handleClick(event) {
         end.classList.remove("hidden");
       }
     } else {
-      incorrectSound.currentTime = 0;
-      incorrectSound.play();
+      playSound(incorrectSound);
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("incorrect");
@@ -572,8 +540,7 @@ function handleClick(event) {
         livesLeft--;
         timeDisplay.textContent = `Lives | ${livesLeft}`
         if (livesLeft === 0) {
-          endSound.currentTime = 0;
-          endSound.play();
+          playSound(endSound);
           document.getElementById("end-message").textContent = "D E F E A T";
           document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
           document.getElementById("final-time").textContent = "System.lives.nullError //";
@@ -617,10 +584,8 @@ function shuffleCards() {
 }
 
 function resetGame() {
-  resetSound.currentTime = 0;
-  resetSound.play();
-  flipSound.currentTime = 0;
-  flipSound.play();
+  playSound(resetSound);
+  playSound(flipSound);
   matches = 0;
   attempts = 0;
   timeLeft = 0;
@@ -639,8 +604,8 @@ function resetGame() {
   shuffleCards();
   // Resets our selected character/difficulty/modal text
   // document.getElementsByClassName("selected")[0].classList.remove("selected");
-  currentTop = "m e m o r y . e x e";
-  currentBottom = "Select Mode";
+  currentTop = "M O D E";
+  currentBottom = "Deploy Pod";
   easy = false;
   medium = false;
   hard = false;
@@ -657,7 +622,7 @@ function resetGame() {
 function countdown() {
   if (timeLeft <= 0) {
     console.log("out of time, now in ending phase", timeLeft);
-    endSound.play();
+    playSound(endSound);
     clearInterval(timer);
     firstCardClicked = null;
     secondCardClicked = null;
@@ -673,8 +638,8 @@ function countdown() {
 
 function cheatCodes() {
   clearInterval(timer);
-  flipSound.play();
-  cheatSound.play();
+  playSound(flipSound);
+  playSound(cheatSound);
   matches = 0;
   attempts = 0;
   accuracy = "0.0%";
@@ -687,6 +652,11 @@ function cheatCodes() {
   document.getElementById("final-accuracy").textContent = "admin.System.bypass //";
   document.getElementById("final-time").textContent = "System.resolve //";
   end.classList.remove("hidden");
+}
+
+function playSound(sound) {
+  sound.currentTime = 0;
+  sound.play();
 }
   //Old functionality for flipping flipped cards back after the win
 

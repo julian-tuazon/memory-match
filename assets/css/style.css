@@ -1,7 +1,7 @@
 body {
   height: 95vh;
-  background-image: url(../images/geo/gray.jpg);
-  background-repeat: no-repeat; /* repeat */
+  background-image: url(../images/backgrounds/Citadel-1.jpg);
+  background-repeat: repeat; /* repeat */
   background-size: cover; /* 120% original */
   background-position: center;
   background-color: white;
@@ -48,7 +48,7 @@ header > div {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.2s;
 }
 
 /* header > #title {
@@ -79,7 +79,7 @@ aside > div {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.2s;
 }
 
 aside > div:nth-child(odd) {
@@ -105,6 +105,10 @@ aside div:first-child {
 aside#controls {
   display: flex;
   justify-content: flex-start;
+}
+
+aside#controls > div:not(:first-child) {
+  height: 25%;
 }
 
 aside#controls > div:nth-child(even):not(:first-child) {
@@ -269,7 +273,7 @@ footer > div {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.2s;
 }
 
 .progress {
@@ -306,6 +310,7 @@ footer > div {
   /* Added modal container to center modal content vertically */
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .modal-container {
@@ -332,6 +337,14 @@ footer > div {
 
 #mode-message-two {
   padding-top: 0;
+}
+
+#mode-title, #welcome-title {
+  padding-bottom: 0;
+}
+
+#welcome-message, #mode-message {
+  font-weight: bold;
 }
 
 .flex {
@@ -503,10 +516,24 @@ input:hover {
   visibility: hidden;
 }
 
+/*_____________________________________________*/
+
+/* Animated keyframe for glowing */
+
+/* @keyframes glowing {
+  0% { box-shadow: 0 0 10px 2px orange; }
+  40% { box-shadow: 0 0 10px 10px orange; }
+  60% { box-shadow: 0 0 10px 10px orange; }
+  100% { box-shadow: 0 0 10px 2px orange; }
+} */
+
+/* .button-glow {
+  animation: glowing 2000ms infinite;
+} */
+
+/*_____________________________________________*/
 
 /* Backup input + input:hover */
-
-
 
 /* input {
   padding: 20px 0;
