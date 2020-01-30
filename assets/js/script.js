@@ -43,12 +43,12 @@ let hard = false;
 // const backgrounds = ["url('./assets/images/DNA.gif')", "url('./assets/images/Singleton.gif')", "url('./assets/images/Goo.gif')"];
 
 const gameCards = document.getElementById("game-cards");
-const welcome = document.getElementById("welcome");
-const begin = document.getElementById("begin"); // Opening modal
-const beginButton = document.getElementById("begin-button"); // Opening modal button to transition to mode select modal
-const mode = document.getElementById("mode"); // Mode select modal
+const difficultyModal = document.getElementById("difficulty-modal");
+const welcomeModal = document.getElementById("welcome-modal"); // Opening modal
+const welcomeButton = document.getElementById("welcome-button"); // Opening modal button to transition to mode select modal
+const modeModal = document.getElementById("mode-modal"); // Mode select modal
 const modeButton = document.getElementById("mode-button"); // Mode select modal button that transitions to difficulty select modal
-const startButton = document.getElementById("start");
+const difficultyButton = document.getElementById("difficulty-button");
 const end = document.getElementById("end");
 const resetButton = document.getElementById("reset");
 const cheatButton = document.getElementById("cheat");
@@ -181,8 +181,6 @@ let toggleVoice = (function() {
 const voiceButton = document.getElementById("voice-toggle");
 voiceButton.addEventListener('click', toggleVoice);
 
-
-
 // Event listeners
 
 var clickableList = document.getElementsByClassName("clickable");
@@ -205,9 +203,9 @@ function addHoverSounds() {
 }
 
 gameCards.addEventListener('click', handleClick);
-beginButton.addEventListener('click', function () {
-  begin.classList.add("hidden");
-  mode.classList.remove("hidden");
+welcomeButton.addEventListener('click', function () {
+  welcomeModal.classList.add("hidden");
+  modeModal.classList.remove("hidden");
   playSound(flipSound);
   if (firstGame) {
     music.volume = 0.15;
@@ -218,7 +216,7 @@ beginButton.addEventListener('click', function () {
 
 modeButton.addEventListener('click', function () {
   if (timeAttack || survival) {
-    mode.classList.add("hidden");
+    modeModal.classList.add("hidden");
     currentTop = "D I F F I C U L T Y";
     currentBottom = "Deploy YoRHa Unit";
     podOne.classList.remove("selected", "selected-animation");
@@ -226,11 +224,11 @@ modeButton.addEventListener('click', function () {
     podTwo.classList.remove("selected", "selected-animation");
     podTwo.classList.add("clickable");
     modeButton.classList.add("temp-hidden");
-    welcome.classList.remove("hidden");
+    difficultyModal.classList.remove("hidden");
     playSound(flipSound);
   }
 });
-startButton.addEventListener('click', startGame);
+difficultyButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 cheatButton.addEventListener('click', cheatCodes);
 
@@ -246,13 +244,13 @@ let currentBottom = "Deploy Pod";
 
 // Mode modal sound effects / text changes / mode selector
 podOne.addEventListener('mouseover', function () {
-  document.getElementById("mode-message").textContent = "S U R V I V A L";
-  document.getElementById("mode-message-two").textContent = "Pod X-042";
+  document.getElementById("mode-title").textContent = "S U R V I V A L";
+  document.getElementById("mode-message").textContent = "Pod X-042";
 });
 
 podOne.addEventListener('mouseleave', function () {
-  document.getElementById("mode-message").textContent = `${currentTop}`;
-  document.getElementById("mode-message-two").textContent = `${currentBottom}`;
+  document.getElementById("mode-title").textContent = `${currentTop}`;
+  document.getElementById("mode-message").textContent = `${currentBottom}`;
 });
 
 podOne.addEventListener('click', function () {
@@ -278,13 +276,13 @@ podOne.addEventListener('click', function () {
 });
 
 podTwo.addEventListener('mouseover', function () {
-  document.getElementById("mode-message").textContent = "T I M E - A T T A C K";
-  document.getElementById("mode-message-two").textContent = "Pod Y-153 ";
+  document.getElementById("mode-title").textContent = "T I M E - A T T A C K";
+  document.getElementById("mode-message").textContent = "Pod Y-153 ";
 });
 
 podTwo.addEventListener('mouseleave', function () {
-  document.getElementById("mode-message").textContent = `${currentTop}`;
-  document.getElementById("mode-message-two").textContent = `${currentBottom}`;
+  document.getElementById("mode-title").textContent = `${currentTop}`;
+  document.getElementById("mode-message").textContent = `${currentBottom}`;
 });
 
 podTwo.addEventListener('click', function () {
@@ -317,14 +315,14 @@ let two_b = document.getElementsByClassName("two-b")[0].parentElement;
 // NieR modal sound effects / text changes / difficulty selector
 nine_s.addEventListener('mouseover', function() {
   console.log('mouseover 9S');
-  document.getElementById("welcome-message2").textContent = "YoRHa No. 9 Type S";
-  document.getElementById("welcome-message").textContent = "E A S Y";
+  document.getElementById("difficulty-title").textContent = "E A S Y";
+  document.getElementById("difficulty-message").textContent = "YoRHa No. 9 Type S";
 });
 
 nine_s.addEventListener('mouseleave', function () {
   console.log('mouseexit 9S');
-  document.getElementById("welcome-message2").textContent = `${currentBottom}`;
-  document.getElementById("welcome-message").textContent = `${currentTop}`;
+  document.getElementById("difficulty-title").textContent = `${currentTop}`;
+  document.getElementById("difficulty-message").textContent = `${currentBottom}`;
 });
 
 nine_s.addEventListener('click', function () {
@@ -351,20 +349,20 @@ nine_s.addEventListener('click', function () {
     }, 700);
     playSound(selectSound);
     playSound(document.getElementById("9s"));
-    startButton.classList.remove("temp-hidden");
+    difficultyButton.classList.remove("temp-hidden");
   }
 });
 
 a_two.addEventListener('mouseover', function () {
   console.log('mouseover 9S');
-  document.getElementById("welcome-message2").textContent = "YoRHa Type A No. 2";
-  document.getElementById("welcome-message").textContent = "M E D I U M";
+  document.getElementById("difficulty-message").textContent = "YoRHa Type A No. 2";
+  document.getElementById("difficulty-title").textContent = "M E D I U M";
 });
 
 a_two.addEventListener('mouseleave', function () {
   console.log('mouseleave a2');
-  document.getElementById("welcome-message2").textContent = `${currentBottom}`;
-  document.getElementById("welcome-message").textContent = `${currentTop}`;
+  document.getElementById("difficulty-message").textContent = `${currentBottom}`;
+  document.getElementById("difficulty-title").textContent = `${currentTop}`;
 });
 
 a_two.addEventListener('click', function () {
@@ -391,20 +389,20 @@ a_two.addEventListener('click', function () {
     }, 700);
     playSound(selectSound);
     playSound(document.getElementById("a2"));
-    startButton.classList.remove("temp-hidden");
+    difficultyButton.classList.remove("temp-hidden");
   }
 });
 
 two_b.addEventListener('mouseover', function () {
   console.log('mouseover 9S');
-  document.getElementById("welcome-message2").textContent = "YoRHa No. 2 Type B";
-  document.getElementById("welcome-message").textContent = "H A R D";
+  document.getElementById("difficulty-title").textContent = "H A R D";
+  document.getElementById("difficulty-message").textContent = "YoRHa No. 2 Type B";
 });
 
 two_b.addEventListener('mouseleave', function () {
   console.log('mouseleave 2b');
-  document.getElementById("welcome-message2").textContent = `${currentBottom}`;
-  document.getElementById("welcome-message").textContent = `${currentTop}`;
+  document.getElementById("difficulty-title").textContent = `${currentTop}`;
+  document.getElementById("difficulty-message").textContent = `${currentBottom}`;
 });
 
 two_b.addEventListener('click', function () {
@@ -431,7 +429,7 @@ two_b.addEventListener('click', function () {
     }, 700);
     playSound(selectSound);
     playSound(document.getElementById("2b"));
-    startButton.classList.remove("temp-hidden");
+    difficultyButton.classList.remove("temp-hidden");
   }
 });
 
@@ -475,8 +473,8 @@ function startGame() {
   difficultyModeDisplay.textContent = `${difficulty} | ${gameMode}`;
   playSound(startSound);
   playSound(flipSound);
-  startButton.classList.add("temp-hidden");
-  welcome.classList.add("hidden");
+  difficultyButton.classList.add("temp-hidden");
+  difficultyModal.classList.add("hidden");
   shuffleCards();
   addHoverSounds(); // Adds hover sounds to newly created card-back elements
 }
@@ -616,7 +614,7 @@ function resetGame() {
   //   item.classList.remove("selected", "selected-animation");
   // }
   end.classList.add("hidden");
-  begin.classList.remove("hidden");
+  welcomeModal.classList.remove("hidden");
 }
 
 function countdown() {

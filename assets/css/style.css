@@ -327,24 +327,16 @@ footer > div {
   font-weight: normal;
 }
 
-#welcome-message, #welcome-message2 {
-  /* transition: all ease-in-out 0.1s; */
-}
+/* #welcome-message, #welcome-message2 {
+  transition: all ease-in-out 0.1s;
+} */
 
-#welcome-message2 {
+/* #welcome-message2 {
   padding-top: 0;
-}
+} */
 
-#mode-message-two {
-  padding-top: 0;
-}
-
-#mode-title, #welcome-title {
-  padding-bottom: 0;
-}
-
-#welcome-message, #mode-message {
-  font-weight: bold;
+#mode-title, #difficulty-title {
+  padding: 0;
 }
 
 .flex {
