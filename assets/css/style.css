@@ -1,8 +1,8 @@
 body {
   height: 95vh;
-  background-image: url(../images/geo/diamond.jpg);
-  background-repeat: repeat;
-  background-size: 120%;
+  background-image: url(../images/geo/gray.jpg);
+  background-repeat: repeat; /* repeat */
+  background-size: cover; /* 120% original */
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
@@ -17,22 +17,61 @@ header {
   margin: auto;
   height: 80%;
   width: 100%;
+
+  /* Makes whole header bar a gif */
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/globe-optimize.gif);
+  background-position: center;
+  background-size: 50%; /* Original: 300% */
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white;
+  border-radius: 15px;
 }
+
+header > div {
+  /* background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/geo/earth.gif);
+  background-position: center;
+  background-size: 300%;
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white; */
+
+  margin: 0 2%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all ease-in-out 0.2s;
+}
+
+/* header > #title {
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/Goo.gif);
+  background-size: 100%;
+  background-position: 50%;
+} */
 
 aside > div {
   /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 1.1vmax;
   color: white;
 
+
+
+/* background with gear */
+
   background-image: url(../images/extra/gear.gif);
   background-position: 30%;
   background-size: 200%;
-
-/* background with earth */
-
-  /* background-image: url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 300%; */
 
   margin: 2% auto;
   border-radius: 15px;
@@ -40,7 +79,7 @@ aside > div {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.2s;
 }
 
 aside > div:nth-child(odd) {
@@ -61,6 +100,37 @@ aside div:first-child {
   background-position: center;
   background-size: 300%;
   font-weight: bold;
+}
+
+aside#controls {
+  display: flex;
+  justify-content: flex-start;
+}
+
+aside#controls > div:not(:first-child) {
+  height: 25%;
+}
+
+aside#controls > div:nth-child(even):not(:first-child) {
+  background: linear-gradient(
+                     rgba(20,20,20, .6),
+                     rgba(20,20,20, .6)),
+                     url(../images/extra/ai.gif);
+  background-position: center;
+  background-size: 180%;
+  margin: 2% auto;
+}
+
+aside#controls div.clickable:not(:first-child):hover {
+  /* cursor: pointer; */
+  /* box-shadow: 0px 0px 10px 2px cyan; */
+  /* transform: scale(1.03); */
+  background-image: url(../images/extra/gear.gif);
+  background-size: 200%;
+}
+
+aside#controls div:first-child {
+  font-weight: normal;
 }
 
 .clickable:hover {
@@ -95,7 +165,7 @@ aside div:first-child {
   background-image: url(../images/geo/glitch.gif);
   background-size: cover;
   background-position: center;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 
 .card-back:hover {
@@ -157,6 +227,67 @@ aside div:first-child {
   background-image: url(../images/wipeout_logos/triakis.jpg);
 }
 
+/* Footer -------------------------------- */
+
+.footer-row {
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  font-size: 2.5vmax;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  height: 80%;
+  width: 100%;
+
+  /* Makes whole header bar a gif */
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/gear.gif);
+  background-position: center;
+  background-size: 50%; /* Original: 300% */
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+footer > div {
+  /* background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/geo/earth.gif);
+  background-position: center;
+  background-size: 300%;
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white; */
+
+  margin: 0 2%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all ease-in-out 0.2s;
+}
+
+.progress {
+  box-shadow: 0px 0px 10px 2px orange;
+  /* transform: scale(1.05); */
+  /* transform: translateY(-2%); */
+}
+
+.progress-animation {
+  box-shadow: 0px 0px 10px 10px orange;
+}
+
+/* Modal -------------------------------- */
+
 .modal {
   font-size: 3vmax;
   font-weight: bold;
@@ -176,47 +307,37 @@ aside div:first-child {
   background-repeat: no-repeat;
   background-size: cover;
   color: black;
+  /* Added modal container to center modal content vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.modal > div {
+.modal-container {
+  width: 100%;
+}
+
+/* Adding modal container makes rules nested in another div */
+.modal > div > div {
   padding: 2%;
 }
 
-.modal > div:not(:first-child) {
+.modal > div > div:not(:first-child) {
   font-size: 2vmax;
   font-weight: normal;
 }
 
-#welcome-message, #welcome-message2 {
-  transition: all ease-in-out 2.5s;
-}
-
-#welcome-message2 {
-  padding-top: 0;
-}
-
-/* .modal > .img-container {
-  width: 35vmax;
-  position: fixed;
-  top: 30vmax;
-  right: 5%;
-}
-
-.modal > .ic2 {
-  width: 15vmax;
-  left: 12%;
-}
-
-.modal > .ic3 {
-  width: 25vmax;
-  top: 20vmax;
-  left: 20%;
-  z-index: 1;
-}
-
-.img-container > img {
-  width: 100%;
+/* #welcome-message, #welcome-message2 {
+  transition: all ease-in-out 0.1s;
 } */
+
+/* #welcome-message2 {
+  padding-top: 0;
+} */
+
+#mode-title, #difficulty-title {
+  padding: 0;
+}
 
 .flex {
   width: 90vw;
@@ -226,10 +347,14 @@ aside div:first-child {
   margin: auto;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
 .flex > div {
   width: 15%; /* Originally 20% */
   height: 17vmax; /* Originally 25vmax */
-  margin-right: 25px;
+  margin: 0 15px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -254,6 +379,52 @@ aside div:first-child {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* Location / background modal */
+.flex > div#pic-one {
+  background-size: cover;
+  background-image: url(../images/geo/gray.jpg);
+}
+.flex > div#pic-two {
+  background-size: cover;
+  background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
+}
+.flex > div#pic-three {
+  background-size: cover;
+  background-image: url(../images/geo/diamond.jpg);
+}
+.flex > div#pic-four {
+  background-size: cover;
+  background-image: url(../images/extra/na_cityruins.png);
+}
+.flex > div#pic-five {
+  background-size: cover;
+  background-image: url(../images/extra/na_forest.jpg);
+}
+
+/* Mode modal pod styling */
+
+.flex > div > div.pod-one {
+  background-image: url(../images/extra/pod3.png);
+  background-size: 80%;
+  background-position: 52% 0%;
+  /* background: linear-gradient(
+                     rgba(175, 175, 175, 0.2),
+                     rgba(175, 175, 175, 0.2)),
+                     url(../images/extra/9s.png); */
+}
+
+.flex > div > div.pod-two {
+  background-image: url(../images/extra/pod4.png);
+  background-size: 60%;
+  background-position: 55% 0%;
+  /* background: linear-gradient(
+                     rgba(175, 175, 175, 0.2),
+                     rgba(175, 175, 175, 0.2)),
+                     url(../images/extra/2b_hi_res.png); */
+}
+
+/* Difficulty modal character styling */
 
 .flex > div > div.nine-s {
   background-image: url(../images/extra/9s.png);
@@ -291,9 +462,8 @@ aside div:first-child {
   /* transform: translateY(-2%); */
 }
 
-.selected-animation {
+.flex > .selected-animation {
   box-shadow: 0px 0px 10px 10px orange;
-  /* transform: scale(1.1); */
 }
 
 .button-container {
@@ -334,13 +504,28 @@ input:hover {
   display: none;
 }
 
-.col-3 {
- transition: all 1.5s ease-in-out;
+.temp-hidden {
+  visibility: hidden;
 }
 
+/*_____________________________________________*/
+
+/* Animated keyframe for glowing */
+
+/* @keyframes glowing {
+  0% { box-shadow: 0 0 10px 2px orange; }
+  40% { box-shadow: 0 0 10px 10px orange; }
+  60% { box-shadow: 0 0 10px 10px orange; }
+  100% { box-shadow: 0 0 10px 2px orange; }
+} */
+
+/* .button-glow {
+  animation: glowing 2000ms infinite;
+} */
+
+/*_____________________________________________*/
+
 /* Backup input + input:hover */
-
-
 
 /* input {
   padding: 20px 0;
@@ -371,3 +556,9 @@ input:hover {
   background-position: center;
   background-size: 350%;
 } */
+
+/*
+
+CSS Glow Trick
+
+*/

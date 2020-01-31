@@ -11,27 +11,67 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-  <div id="welcome" class="modal">
-    <div id="welcome-message">m e m o r y . e x e</div>
-    <div id="welcome-message2">Select Difficulty</div>
-    <!-- <div class="modal-text"> ようこそ!
-      <p>Click on the cards to reveal the logos</p>
-      <p>Click on two of the same cards to generate a match</p>
-      <p>Match all paired logos to win the game</p>
-    </div> -->
-    <!-- <div>Choose your character</div> -->
-    <div class="flex">
-      <div class="col-3 clickable">
-        <div class="nine-s"></div>
+
+  <div id="location" class="modal hidden">
+    <div id="location-header">m e m o r y . e x e</div>
+    <div class="flex wrap">
+      <div class="col-3 clickable" id="pic-one">
       </div>
-      <div class="col-3 clickable">
-        <div class="a-two"></div>
+      <div class="col-3 clickable" id="pic-two">
       </div>
-      <div class="col-3 clickable">
-        <div class="two-b"></div>
+      <div class="col-3 clickable" id="pic-three">
+      </div>
+      <div class="col-3 clickable" id="pic-four">
+      </div>
+      <div class="col-3 clickable" id="pic-five">
       </div>
     </div>
-    <div class="button-container"><input type="button" id="start" value="Start Game" class="clickable"></div>
+    <div class="button-container"><input type="button" id="location-button" value="E N T E R" class="clickable"></div>
+  </div>
+
+  <div id="welcome-modal" class="modal">
+    <div class="modal-container">
+      <div id="welcome-header">m e m o r y . e x e</div>
+      <div id="welcome-message">“So man is an individual only because of his intangible memory.<br>Memory cannot be defined,
+        yet it defines mankind.”</div>
+      <div class="button-container"><input type="button" id="welcome-button" value="E N T E R" class="clickable"></div>
+    </div>
+  </div>
+
+  <div id="mode-modal" class="modal hidden">
+    <div class="modal-container">
+      <div id="mode-title">M O D E</div>
+      <div id="mode-message">Deploy Pod</div>
+      <div class="flex">
+        <div class="col-3 clickable">
+          <div class="pod-one"></div>
+        </div>
+        <div class="col-3 clickable">
+          <div class="pod-two"></div>
+        </div>
+      </div>
+      <div class="button-container"><input type="button" id="mode-button" value="N E X T" class="clickable temp-hidden"></div>
+    </div>
+  </div>
+
+  <div id="difficulty-modal" class="modal hidden">
+    <div class="modal-container">
+      <div id="difficulty-title">D I F F I C U L T Y</div>
+      <div id="difficulty-message">Deploy YoRHa Unit</div>
+      <div class="flex">
+        <div class="col-3 clickable">
+          <div class="nine-s"></div>
+        </div>
+        <div class="col-3 clickable">
+          <div class="a-two"></div>
+        </div>
+        <div class="col-3 clickable">
+          <div class="two-b"></div>
+        </div>
+      </div>
+      <div class="button-container"><input type="button" id="difficulty-button" value="P L A Y" class="clickable temp-hidden"></div>
+    </div>
+
   </div>
 
 
@@ -48,26 +88,24 @@
   <div class="container">
     <div class="row header-row">
       <header>
-        <div class="col-3">Time</div>
+        <div id="title" class="col-3">m e m o r y . e x e</div>
         <div id="time" class="col-3">-</div>
-        <div class="col-3 clickable">Options</div>
-        <!-- m e m o r y . e x e -->
-        <!-- temporary placeholder text -->
+        <div id="difficulty-mode-display" class="col-3">Difficulty | Mode</div>
       </header>
     </div>
     <div class="row game-row">
       <aside class="col-2">
         <div id="cheat" class="clickable">ありがとう</div>
         <div>Games Played</div>
-        <div id="games-played" class="clickable">0</div>
+        <div id="games-played">0</div>
         <div>Attempts</div>
-        <div id="attempts" class="clickable">0</div>
+        <div id="attempts">0</div>
         <div>Matches</div>
-        <div id="matches" class="clickable">0</div>
+        <div id="matches">0</div>
         <div>Accuracy</div>
-        <div id="accuracy">0</div>
+        <div id="accuracy">0.0%</div>
       </aside>
-      <main class="col-10" id="game-cards">
+      <main class="col-9" id="game-cards">
         <div class="col-2 card">
           <div class="card-front ag-logo"></div>
           <div class="card-back"></div>
@@ -141,45 +179,76 @@
           <div class="card-back"></div>
         </div>
       </main>
+      <aside id="controls" class="col-2">
+        <div id="cheat-two">c o n t r o l _</div>
+        <div id="music-toggle" class="clickable">Music | ON</div>
+        <!-- <div>Track X</div> -->
+        <div id="sound-toggle" class="clickable">SFX | ON</div>
+        <!-- <div>-</div> -->
+        <div id="voice-toggle" class="clickable">Voice | ON</div>
+        <!-- <div>-</div> -->
+        <!-- <div id="background-toggle" class="clickable">Scene</div> -->
+        <!-- <div>-</div> -->
+      </aside>
     </div>
+    <!-- <div class="footer-row">
+      <footer>
+        <div>Medium | Time-Attack</div>
+      </footer>
+    </div> -->
   </div>
 
   <div id="end" class="modal hidden">
-    <div id="end-message">V I C T O R Y</div>
-    <!-- おめでとう -->
-    <div id="final-accuracy"></div>
-    <div id="final-time">System.timeout.error //</div>
-    <div>“So man is an individual only because of his intangible memory.<br>Memory cannot be defined, yet it defines mankind.”</div>
-    <div class="button-container"><input type="button" id="reset" value="Play Again" class="clickable"></div>
+    <div class="modal-container">
+      <div id="end-message"></div>
+      <!-- おめでとう -->
+      <div id="final-accuracy"></div>
+      <div id="final-time"></div>
+      <div><strong>さようなら</strong></div>
+      <div class="button-container"><input type="button" id="reset" value="R E S E T" class="clickable"></div>
+    </div>
   </div>
 
-  <audio src="assets/audio/alien_manifestation_vocals.mp3" id="bgm" volume="0.05"></audio>
-  <audio src="assets/audio/start.wav" id="start-sound"></audio>
-  <audio src="assets/audio/end.wav" id="end-sound"></audio>
-  <audio src="assets/audio/flip.wav" id="flip-sound"></audio>
-  <audio src="assets/audio/correct.wav" id="correct-sound"></audio>
-  <audio src="assets/audio/incorrect.wav" id="incorrect-sound"></audio>
-  <audio src="assets/audio/on.wav" id="on-sound"></audio>
-  <audio src="assets/audio/off.wav" id="off-sound"></audio>
-  <audio src="assets/audio/reset.wav" id="reset-sound"></audio>
-  <audio src="assets/audio/cheat.wav" id="cheat-sound"></audio>
-  <audio src="assets/audio/hover.ogg" id="hover-sound"></audio>
+  <div class="audio">
+    <audio src="assets/audio/alien_manifestation_vocals.mp3" id="bgm" loop></audio>
 
-  <audio src="assets/audio/qirex.wav" id="qirex"></audio>
-  <audio src="assets/audio/ag.wav" id="ag"></audio>
-  <audio src="assets/audio/assegai.wav" id="assegai"></audio>
-  <audio src="assets/audio/goteki.wav" id="goteki"></audio>
-  <audio src="assets/audio/auricom.wav" id="auricom"></audio>
-  <audio src="assets/audio/icaras.wav" id="icaras"></audio>
-  <audio src="assets/audio/piranha.wav" id="piranha"></audio>
-  <audio src="assets/audio/harimau.wav" id="harimau"></audio>
-  <audio src="assets/audio/triakis.wav" id="triakis"></audio>
+    <audio src="assets/audio/start.wav" id="start-sound"></audio>
+    <audio src="assets/audio/end.wav" id="end-sound"></audio>
+    <audio src="assets/audio/flip.wav" id="flip-sound"></audio>
+    <audio src="assets/audio/correct.wav" id="correct-sound"></audio>
+    <audio src="assets/audio/incorrect.wav" id="incorrect-sound"></audio>
+    <audio src="assets/audio/on.wav" id="on-sound"></audio>
+    <audio src="assets/audio/off.wav" id="off-sound"></audio>
+    <audio src="assets/audio/reset.wav" id="reset-sound"></audio>
+    <audio src="assets/audio/cheat.wav" id="cheat-sound"></audio>
+    <audio src="assets/audio/hover_12.wav" id="hover-sound"></audio>
+    <audio src="assets/audio/select_12.wav" id="select-sound"></audio>
 
-  <audio src="assets/audio/2b.ogg" id="2b"></audio>
-  <audio src="assets/audio/9s.ogg" id="9s"></audio>
-  <audio src="assets/audio/a2.ogg" id="a2"></audio>
-  <audio src="assets/audio/select.ogg" id="select"></audio>
+    <audio src="assets/audio/qirex.wav" id="qirex"></audio>
+    <audio src="assets/audio/ag.wav" id="ag"></audio>
+    <audio src="assets/audio/assegai.wav" id="assegai"></audio>
+    <audio src="assets/audio/goteki.wav" id="goteki"></audio>
+    <audio src="assets/audio/auricom.wav" id="auricom"></audio>
+    <audio src="assets/audio/icaras.wav" id="icaras"></audio>
+    <audio src="assets/audio/piranha.wav" id="piranha"></audio>
+    <audio src="assets/audio/harimau.wav" id="harimau"></audio>
+    <audio src="assets/audio/triakis.wav" id="triakis"></audio>
+
+    <audio src="assets/audio/2b_boosted_15.wav" id="2b"></audio>
+    <audio src="assets/audio/9s_boosted_15.wav" id="9s"></audio>
+    <audio src="assets/audio/a2_boosted_15.wav" id="a2"></audio>
+    <audio src="assets/audio/pod-x_15.wav" id="pod-one"></audio>
+    <audio src="assets/audio/pod-y_15.wav" id="pod-two"></audio>
+
+  </div>
 
   <script src="assets/js/script.js"></script>
 </body>
 </html>
+
+      <!-- <div class="modal-text"> ようこそ!
+            <p>Click on the cards to reveal the logos</p>
+            <p>Click on two of the same cards to generate a match</p>
+            <p>Match all paired logos to win the game</p>
+          </div> -->
+      <!-- <div>Choose your character</div> -->
