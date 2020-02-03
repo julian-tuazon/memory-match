@@ -109,7 +109,6 @@ aside#controls {
 
 aside#controls > div:not(:first-child) {
   height: 25%;
-  border: 0.5px white solid;
 }
 
 aside#controls > div:nth-child(even):not(:first-child) {
@@ -132,7 +131,6 @@ aside#controls div.clickable:not(:first-child):hover {
 
 aside#controls div:first-child {
   font-weight: normal;
-  border: 0.5px white solid;
 }
 
 .clickable:hover {
@@ -156,7 +154,8 @@ aside#controls div:first-child {
 .card-front, .card-back {
   height: 100%;
   width: 100%;
-  background-size: cover;
+  background-size: 135%;
+  background-color: white;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 15px;
@@ -467,7 +466,7 @@ footer > div {
 }
 
 .flex > .selected-animation {
-  box-shadow: 0px 0px 10px 10px orange;
+  box-shadow: 0px 0px 10px 0.5rem orange;
 }
 
 .button-container {
@@ -595,12 +594,20 @@ input:hover {
     height: 90%;
    }
 
+   #welcome-message {
+     font-size: 1.5vmax;
+   }
+
   .flex > div {
     margin: 0 2%;
     height: 20vh;
     max-height: 125px;
     width: 25%;
     border: 1.5px solid white;
+  }
+
+  .flex > .selected-animation {
+  box-shadow: 0px 0px 10px 0.3rem orange;
   }
 
   input {
