@@ -512,6 +512,105 @@ input:hover {
   visibility: hidden;
 }
 
+@media only screen and (max-width: 450px) {
+
+  body {
+    background-size: 400%;
+    height: 98.1vh;
+  }
+
+  .header-row {
+    height: 7%;
+  }
+
+  header {
+    font-size: 1.4vmax;
+    border-radius: 7px;
+  }
+
+  #title, #difficulty-mode-display {
+    width: 32%;
+  }
+
+  .game-row {
+    flex-direction: column;
+    height: 93%;
+  }
+
+  aside.col-2 {
+    height: 5%;
+    width: 100%;
+    margin: 0 auto 0.5rem;
+    flex-direction: row;
+  }
+
+  aside > div {
+    height: 90%;
+    width: 20%;
+    background-position: center;
+    margin: 0 1px;
+    border-radius: 7px;
+    font-size: 0.8vmax;
+  }
+
+  aside > div:first-child {
+    font-size: 0.7vmax;
+    background-size: 600%;
+  }
+
+  #game-cards {
+    height: 90%;
+    width: 60vw;
+    margin: 0 auto 0.5rem;
+  }
+
+  .card {
+    height: 15%;
+    width: 30%;
+    margin: 1%;
+  }
+
+  .card-front, .card-back {
+    border: 0.5px white solid;
+    border-radius: 10px;
+    background-size: 100%; /* can use this for regular sized game too */
+    background-color: white;
+  }
+
+  .card-back {
+    background-size: cover;
+    border-radius: 10px;
+  }
+
+  aside#controls {
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+
+  aside#controls > div:first-child {
+    font-size: 1vmax;
+  }
+
+   aside#controls > div:not(:first-child) {
+    height: 90%;
+   }
+
+  .flex > div {
+    margin: 0 2%;
+    height: 20vh;
+    max-height: 125px;
+    width: 25%;
+    border: 1.5px solid white;
+  }
+
+  input {
+    width: 30vw;
+    height: 6vh;
+    padding: 0;
+    border-radius: 10px;
+  }
+}
+
 
 
 /*_____________________________________________*/
