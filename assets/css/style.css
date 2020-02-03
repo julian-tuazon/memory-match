@@ -1,6 +1,6 @@
 body {
   height: 95vh;
-  background-image: url(../images/geo/gray.jpg);
+  background-image: url(../images/backgrounds/wallhaven-732202.jpg);
   background-repeat: repeat; /* repeat */
   background-size: cover; /* 120% original */
   background-position: center;
@@ -109,6 +109,7 @@ aside#controls {
 
 aside#controls > div:not(:first-child) {
   height: 25%;
+  border: 0.5px white solid;
 }
 
 aside#controls > div:nth-child(even):not(:first-child) {
@@ -131,6 +132,7 @@ aside#controls div.clickable:not(:first-child):hover {
 
 aside#controls div:first-child {
   font-weight: normal;
+  border: 0.5px white solid;
 }
 
 .clickable:hover {
@@ -141,6 +143,7 @@ aside#controls div:first-child {
 
 #game-cards {
   transition: all ease-in-out 0.2s;
+  align-items: center;
 }
 
 .card {
@@ -157,6 +160,7 @@ aside#controls div:first-child {
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 15px;
+  border: 0.5px white solid;
   position: absolute;
   transition: all ease-in-out 0.2s;
 }
@@ -507,6 +511,8 @@ input:hover {
 .temp-hidden {
   visibility: hidden;
 }
+
+
 
 /*_____________________________________________*/
 
