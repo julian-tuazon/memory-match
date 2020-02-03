@@ -1,6 +1,6 @@
 body {
   height: 95vh;
-  background-image: url(../images/backgrounds/wallhaven-732202.jpg);
+  background-image: url(../images/geo/gray.jpg);
   background-repeat: repeat; /* repeat */
   background-size: cover; /* 120% original */
   background-position: center;
@@ -362,7 +362,7 @@ footer > div {
   background-repeat: no-repeat;
   background-position: center;
   background-color: lightgray;
-  border: 3px solid white;
+  border: 0.2vmax solid white;
   /* border-radius: 15px; */
   transition: all ease-in-out 0.2s;
   display: flex;
