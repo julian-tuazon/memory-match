@@ -559,14 +559,14 @@ input:hover {
 
   #game-cards {
     height: 90%;
-    width: 60vw;
+    width: 100%;
     margin: 0 auto 0.5rem;
   }
 
   .card {
     height: 15%;
     width: 30%;
-    margin: 1%;
+    /* margin: 1%; */
   }
 
   .card-front, .card-back {
