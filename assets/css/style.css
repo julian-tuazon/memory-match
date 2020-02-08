@@ -526,8 +526,21 @@ input:hover {
   .container {
     width: 90%;
   }
+
   .game-row {
     height: 50%;
+  }
+
+  .modal > div > div {
+    padding: 5%;
+  }
+
+  .flex > div {
+    margin: 0 2%;
+    height: 22vh;
+    max-height: 500px;
+    width: 25%;
+    border: 1.5px solid white;
   }
 }
 
