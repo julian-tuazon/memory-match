@@ -27,7 +27,7 @@ header {
   font-size: 1.5vmax;
   font-weight: normal;
   color: white;
-  border-radius: 15px;
+  border-radius: 0.8rem;
 }
 
 header > div {
