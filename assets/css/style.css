@@ -1,8 +1,7 @@
 body {
   height: 95vh;
-  background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
+  background-image: url(../images/backgrounds/futuristic-city-wallpaper-6.jpg);
   background-repeat: repeat; /* repeat */
-  background-size: cover; /* 120% original */
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
@@ -514,7 +513,6 @@ input:hover {
 @media only screen and (max-width: 480px) {
 
   body {
-    background-size: 400%;
     height: 98.1vh;
   }
 
