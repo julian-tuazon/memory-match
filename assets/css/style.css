@@ -511,7 +511,7 @@ input:hover {
   visibility: hidden;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
 
   body {
     background-size: 400%;
