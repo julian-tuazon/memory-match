@@ -117,7 +117,6 @@ aside#controls > div:nth-child(even):not(:first-child) {
                      url(../images/extra/ai.gif);
   background-position: center;
   background-size: 180%;
-  margin: 2% auto;
 }
 
 aside#controls div.clickable:not(:first-child):hover {
