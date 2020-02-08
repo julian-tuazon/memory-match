@@ -98,7 +98,7 @@ aside div:first-child {
                      rgba(20,20,20, .4)),
                      url(../images/geo/earth.gif);
   background-position: center;
-  background-size: 300%;
+  background-size: 500%;
   font-weight: bold;
   font-size: 1vw;
 }
