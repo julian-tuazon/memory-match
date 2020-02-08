@@ -511,6 +511,26 @@ input:hover {
   visibility: hidden;
 }
 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) /* iPad portrait and landscape */ {
+
+  body {
+    background-size: 300%;
+  }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+  /* aside#controls > div:not(:first-child) {
+    height: 15%;
+  } */
+  .container {
+    width: 90%;
+  }
+  .game-row {
+    height: 50%;
+  }
+}
+
 @media only screen and (max-width: 480px) {
 
   body {
