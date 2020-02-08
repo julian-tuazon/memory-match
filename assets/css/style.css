@@ -552,9 +552,9 @@ input:hover {
     font-size: 0.8vmax;
   }
 
-  aside > div:first-child {
-    background-size: 600%;
-  }
+  /* aside > div:first-child {
+    background-size: 500%;
+  } */
 
   #game-cards {
     height: 90%;
