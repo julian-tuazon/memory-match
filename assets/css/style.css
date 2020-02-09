@@ -847,7 +847,7 @@ input {
   }
 
   .modal-container > :first-child {
-    font-weight: normal;
+    font-weight: bold;
     font-family: 'Avenir Medium';
   }
 }
