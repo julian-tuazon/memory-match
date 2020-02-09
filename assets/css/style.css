@@ -121,22 +121,8 @@ aside#controls > div:nth-child(even):not(:first-child) {
   background-size: 180%;
 }
 
-aside#controls div.clickable:not(:first-child):hover {
-  /* cursor: pointer; */
-  /* box-shadow: 0px 0px 10px 2px cyan; */
-  /* transform: scale(1.03); */
-  background-image: url(../images/extra/gear.gif);
-  background-size: 200%;
-}
-
 aside#controls div:first-child {
   font-weight: normal;
-}
-
-.clickable:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 10px 2px cyan;
-  transform: scale(1.01);
 }
 
 #game-cards {
@@ -169,13 +155,6 @@ aside#controls div:first-child {
   background-size: cover;
   background-position: center;
   /* border-radius: 15px; */
-}
-
-.card-back:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 10px 2px red;
-  transform: scale(1.01);
-  background-image: url(../images/extra/BetaMon.gif);
 }
 
 .current {
@@ -370,11 +349,6 @@ footer > div {
   align-items: flex-end;
 }
 
-.flex > div:hover {
-  transform: scale(1.05);
-  transform: translateY(-2%);
-}
-
 .flex > div > div {
   width: 100%;
   height: 70%;
@@ -493,15 +467,7 @@ input {
   transition: all ease-in-out 0.2s;
 }
 
-input:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 10px 2px cyan;
-  transform: scale(1.03);
-  background-image: url(../images/extra/gear.gif);
-  background-position: center;
-  background-size: cover;
-  color: white;
-}
+
 
 .hidden {
   display: none;
@@ -509,6 +475,46 @@ input:hover {
 
 .temp-hidden {
   visibility: hidden;
+}
+
+@media(hover: hover) and (pointer: fine) { /* Keeps hover effects only on non-touch screen devices */
+
+
+  aside#controls div.clickable:not(:first-child):hover {
+    /* cursor: pointer; */
+    /* box-shadow: 0px 0px 10px 2px cyan; */
+    /* transform: scale(1.03); */
+    background-image: url(../images/extra/gear.gif);
+    background-size: 200%;
+  }
+
+  .clickable:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 2px cyan;
+    transform: scale(1.01);
+  }
+
+  .card-back:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 2px red;
+    transform: scale(1.01);
+    background-image: url(../images/extra/BetaMon.gif);
+  }
+
+  input:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 2px cyan;
+    transform: scale(1.03);
+    background-image: url(../images/extra/gear.gif);
+    background-position: center;
+    background-size: cover;
+    color: white;
+  }
+
+  .flex > div:hover {
+    transform: scale(1.05);
+    transform: translateY(-2%);
+  }
 }
 
 @media only screen and (max-width: 1280px) {
@@ -688,9 +694,6 @@ input:hover {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 
-  /* aside#controls > div:not(:first-child) {
-    height: 15%;
-  } */
   .container {
     width: 95%;
   }
