@@ -735,7 +735,7 @@ input:hover {
   }
 }
 
-@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) and (max-device-height: 850px) and (orientation: portrait) {
 
   body {
     height: 98.1vh;
