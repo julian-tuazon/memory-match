@@ -467,8 +467,6 @@ input {
   transition: all ease-in-out 0.2s;
 }
 
-
-
 .hidden {
   display: none;
 }
@@ -822,7 +820,7 @@ input {
    }
 
    #welcome-message {
-     font-size: 1.5vmax;
+     font-size: 1.4vmax;
    }
 
    .modal > div > div {
