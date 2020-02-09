@@ -14,13 +14,3 @@
        url('Avenir.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('Avenir.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
-
-@font-face {
-  font-family: 'Avenir Medium';
-  src: local('Avenir Medium'), local('Avenir-Medium'),
-       url('../fonts/Avenir-Medium.woff2') format('woff2'),
-       url('../fonts/Avenir-Medium.woff') format('woff'),
-       url('../fonts/Avenir-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
