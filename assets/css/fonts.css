@@ -9,8 +9,8 @@
   font-family: 'Avenir';
   src: url('Avenir.eot'); /* IE9 Compat Modes */
   src: url('Avenir.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('Avenir.woff2') format('woff2'), /* Super Modern Browsers */
-       url('Avenir.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/Avenir.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/Avenir.woff') format('woff'), /* Pretty Modern Browsers */
        url('Avenir.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('Avenir.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
