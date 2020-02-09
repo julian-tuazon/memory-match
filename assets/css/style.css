@@ -527,8 +527,13 @@ input:hover {
   .game-row {
     height: 70%;
   }
+
   .modal > div > div {
     padding: 3%;
+  }
+
+  .flex > div {
+    margin: 0 1.5%;
   }
 }
 
@@ -571,6 +576,10 @@ input:hover {
 
   header, aside > div {
     border-radius: 7px;
+  }
+
+  .flex > div {
+    margin: 0 1.5%;
   }
 
   input {
