@@ -715,7 +715,7 @@ input:hover {
   }
 }
 
-@media only screen and (max-width: 850px) and (max-height: 480px) and (orientation: landscape) {
+@media only screen and (max-device-width: 850px) and (max-device-height: 480px) and (orientation: landscape) {
 
   body {
     background-size: 175%;
@@ -735,7 +735,7 @@ input:hover {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
 
   body {
     height: 98.1vh;
