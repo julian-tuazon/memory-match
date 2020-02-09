@@ -518,25 +518,6 @@ input:hover {
   }
 }
 
-/* @media only screen and (max-width: 1540px) and (max-height: 580px) {
-
-  .container {
-    width: 70%;
-  }
-
-  .game-row {
-    height: 90%;
-  }
-
-  header {
-    border-radius: 0.5rem;
-  }
-
-  aside > div {
-    border-radius: 10px;
-  }
-} */
-
 @media only screen and (min-width: 980px) and (max-width: 1540px) and (max-height: 620px) {
 
   .container {
@@ -577,6 +558,27 @@ input:hover {
 	  width: 10vw;
 	  border-radius: 7px;
 	  font-size: 1vmax;
+  }
+}
+
+@media only screen and (max-width: 980px) and (max-height: 620px) {
+
+  input {
+    padding: 10px 0;
+    border-radius: 7px;
+  }
+}
+
+@media only screen and (max-width: 680px) and (min-height: 600px) {
+
+  input {
+    padding: 10px 0;
+    width: 25vw;
+    border-radius: 7px;
+  }
+
+  .flex > div {
+    max-height: 90px;
   }
 }
 
