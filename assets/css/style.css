@@ -272,7 +272,7 @@ footer > div {
 
 .modal {
   font-size: 3vmax;
-  font-weight: bold;
+  font-weight: normal;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -511,6 +511,10 @@ input {
   .flex > div:hover {
     transform: scale(1.05);
     transform: translateY(-2%);
+  }
+
+  .modal-container > :first-child {
+    font-weight: bold;
   }
 }
 
@@ -844,11 +848,6 @@ input {
     height: 6vh;
     padding: 0;
     border-radius: 10px;
-  }
-
-  .modal-container > :first-child {
-    font-weight: bold;
-    font-family: 'Avenir Medium';
   }
 }
 
