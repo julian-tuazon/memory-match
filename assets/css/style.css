@@ -511,14 +511,14 @@ input:hover {
   visibility: hidden;
 }
 
-@media only screen and (max-device-width : 1280px) {
+@media only screen and (max-width : 1280px) {
 
   body {
     background-size: 130%;
   }
 }
 
-@media only screen and (max-device-width: 980px) {
+@media only screen and (max-width: 980px) {
 
   body {
     background-size: 140%;
@@ -533,7 +533,7 @@ input:hover {
   }
 }
 
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) {
 
   .game-row {
     height: 55%;
