@@ -1,8 +1,8 @@
 body {
   height: 95vh;
-  background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
+  background-image: url(../images/geo/gray.jpg);
+  background-size: cover;
   background-repeat: repeat; /* repeat */
-  background-size: cover; /* 120% original */
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
@@ -28,7 +28,7 @@ header {
   font-size: 1.5vmax;
   font-weight: normal;
   color: white;
-  border-radius: 15px;
+  border-radius: 0.8rem;
 }
 
 header > div {
@@ -98,8 +98,9 @@ aside div:first-child {
                      rgba(20,20,20, .4)),
                      url(../images/geo/earth.gif);
   background-position: center;
-  background-size: 300%;
+  background-size: 500%;
   font-weight: bold;
+  font-size: 1vw;
 }
 
 aside#controls {
@@ -118,7 +119,6 @@ aside#controls > div:nth-child(even):not(:first-child) {
                      url(../images/extra/ai.gif);
   background-position: center;
   background-size: 180%;
-  margin: 2% auto;
 }
 
 aside#controls div.clickable:not(:first-child):hover {
@@ -511,11 +511,88 @@ input:hover {
   visibility: hidden;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1366px) /* iPad/iPad Pro portrait and landscape */ {
 
   body {
-    background-size: 400%;
+    background-size: 300%;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) {
+
+  .container {
+    width: 90%;
+  }
+
+  .game-row {
+    height: 70%;
+  }
+
+  .modal > div > div {
+    padding: 3%;
+  }
+
+  .flex > div {
+    margin: 0 1.5%;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+
+  /* aside#controls > div:not(:first-child) {
+    height: 15%;
+  } */
+  .container {
+    width: 95%;
+  }
+
+  .game-row {
+    height: 45%;
+  }
+
+  .modal > div > div {
+    padding: 5%;
+  }
+
+  .flex > div {
+    margin: 0 2%;
+    height: 22vh;
+    max-height: 500px;
+    width: 25%;
+    border: 1.5px solid white;
+  }
+
+  input {
+    padding: 25px 0;
+    width: 25vw;
+  }
+}
+
+@media only screen and (max-width: 850px) and (orientation: landscape) {
+
+  body {
+    background-size: 110%;
+  }
+
+  header, aside > div {
+    border-radius: 7px;
+  }
+
+  .flex > div {
+    margin: 0 1.5%;
+  }
+
+  input {
+    padding: 14px 0;
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  body {
     height: 98.1vh;
+    background-size: 400%;
   }
 
   .header-row {
@@ -552,10 +629,9 @@ input:hover {
     font-size: 0.8vmax;
   }
 
-  aside > div:first-child {
-    font-size: 0.7vmax;
-    background-size: 600%;
-  }
+  /* aside > div:first-child {
+    background-size: 500%;
+  } */
 
   #game-cards {
     height: 90%;
