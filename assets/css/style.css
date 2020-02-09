@@ -518,7 +518,7 @@ input:hover {
   }
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 
   /* aside#controls > div:not(:first-child) {
     height: 15%;
@@ -541,6 +541,27 @@ input:hover {
     max-height: 500px;
     width: 25%;
     border: 1.5px solid white;
+  }
+
+  input {
+    padding: 25px 0;
+    width: 25vw;
+  }
+}
+
+@media only screen and (max-width: 850px) and (orientation: landscape) {
+
+  body {
+    background-size: 110%;
+  }
+
+  header, aside > div {
+    border-radius: 7px;
+  }
+
+  input {
+    padding: 14px 0;
+    border-radius: 10px;
   }
 }
 
