@@ -209,7 +209,7 @@ welcomeButton.addEventListener('click', function () {
   playSound(flipSound);
   if (firstGame) {
     music.volume = 0.15;
-    music.play();
+    // music.play();
     firstGame = false;
   }
 });
