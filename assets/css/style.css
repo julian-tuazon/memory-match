@@ -543,11 +543,11 @@ input:hover {
     height: 15%;
   } */
   .container {
-    width: 90%;
+    width: 95%;
   }
 
   .game-row {
-    height: 50%;
+    height: 45%;
   }
 
   .modal > div > div {
