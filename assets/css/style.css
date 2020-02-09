@@ -536,11 +536,15 @@ input:hover {
 @media only screen and (max-width: 768px) {
 
   body {
-    background-size: 200%;
+    background-size: 210%;
   }
 
   .game-row {
     height: 50%;
+  }
+
+  aside > div {
+    border-radius: 10px;
   }
 }
 
