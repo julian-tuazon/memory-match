@@ -521,7 +521,7 @@ input:hover {
 @media only screen and (max-width: 980px) {
 
   body {
-    background-size: 140%;
+    background-size: 160%;
   }
 
   .container {
@@ -535,8 +535,23 @@ input:hover {
 
 @media only screen and (max-width: 768px) {
 
+  body {
+    background-size: 200%;
+  }
+
   .game-row {
-    height: 55%;
+    height: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  body {
+    background-size: 250%;
+  }
+
+  .game-row {
+    height: 45%;
   }
 }
 
