@@ -2,5 +2,6 @@
   font-family: 'Avenir';
   font-style: normal;
   font-weight: 500;
-  src: url('Avenir.woff2') format('woff2');
+  src: url('avenir.woff2') format('woff2'),
+       url('avenir.woff') format('woff');
 }
