@@ -477,8 +477,7 @@ input {
   visibility: hidden;
 }
 
-@media(hover: hover) and (pointer: fine) { /* Keeps hover effects only on non-touch screen devices */
-
+@media (hover: hover) and (pointer: fine) { /* Keeps hover effects only on non-touch screen devices */
 
   aside#controls div.clickable:not(:first-child):hover {
     /* cursor: pointer; */
