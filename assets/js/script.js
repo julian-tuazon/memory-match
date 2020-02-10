@@ -714,7 +714,7 @@ function resetGame() {
   document.getElementById("mode-message").textContent = "Deploy Pod";
   document.getElementById("difficulty-title").textContent = "D I F F I C U L T Y";
   document.getElementById("difficulty-message").textContent = "Deploy YoRHa Unit";
-  document.getElementById("location-message").textContent = "Select Location";
+  document.getElementById("location-message").textContent = locations.defaultMessage;
 
 
   end.classList.add("hidden");
