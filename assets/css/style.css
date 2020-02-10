@@ -592,7 +592,7 @@ input {
 @media only screen and (max-width: 980px) {
 
   body {
-    background-size: 175%;
+    background-size: 190%;
   }
 
   .container {
@@ -622,7 +622,7 @@ input {
 @media only screen and (max-width: 768px) {
 
   body {
-    background-size: 210%;
+    background-size: 230%;
   }
 
   .game-row {
