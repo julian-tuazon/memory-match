@@ -563,8 +563,8 @@ function startGame() {
   difficultyModeDisplay.textContent = `${difficulty} | ${gameMode}`;
   playSound(startSound);
   playSound(flipSound);
-  difficultyButton.classList.add("temp-hidden");
-  difficultyModal.classList.add("hidden");
+  locationButton.classList.add("temp-hidden");
+  locationModal.classList.add("hidden");
   shuffleCards();
   addHoverSounds(); // Adds hover sounds to newly created card-back elements
 }
