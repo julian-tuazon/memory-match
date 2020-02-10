@@ -357,29 +357,27 @@ footer > div {
   background-repeat: no-repeat;
 }
 
+#location-modal .flex > div {
+  background-size: cover;
+}
+
 /* Location / background modal */
 .flex > div#sol2 {
-  background-size: cover;
   background-image: url(../images/geo/gray.jpg);
 }
 .flex > div#chenghou-project {
-  background-size: cover;
   background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
 }
 .flex > div#vineta-k {
-  background-size: cover;
   background-image: url(../images/backgrounds/311328.jpg);
 }
 .flex > div#tech-de-ra {
-  background-size: cover;
   background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
 }
 .flex > div#metropia {
-  background-size: cover;
   background-image: url(../images/backgrounds/wallpaper-660072.jpg);
 }
 .flex > div#anulpha-pass {
-  background-size: cover;
   background-image: url(../images/backgrounds/wallhaven-732202.jpg);
 }
 
