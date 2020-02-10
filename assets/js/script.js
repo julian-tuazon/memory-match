@@ -562,11 +562,7 @@ function startGame() {
   two_b.classList.add("clickable");
   two_b.classList.remove("selected");
 
-  // Resetting locations object
-  locations.currentMessage = locations.defaultMessage;
-  document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
-  document.querySelector(`.flex > .${locations.current}`).classList.remove("selected", "selected-animation");
-  locations.current = "null";
+
 
   // Set initial bgm volume, start timer
   timeLeft = timeValue;
@@ -728,6 +724,14 @@ function resetGame() {
   document.getElementById("difficulty-message").textContent = "Deploy YoRHa Unit";
   document.getElementById("location-message").textContent = locations.defaultMessage;
 
+  // Resetting locations object
+  locations.currentMessage = locations.defaultMessage;
+  document.body.classList.remove(`${locations.current}`);
+  document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
+  document.querySelector(`.flex > .${locations.current}`).classList.remove("selected", "selected-animation");
+  locations.current = "null";
+
+  // Unhide welcome and hide end modals
 
   end.classList.add("hidden");
   welcomeModal.classList.remove("hidden");

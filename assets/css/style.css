@@ -1,6 +1,6 @@
 body {
   height: 95vh;
-  background-image: url(../images/backgrounds/alien_planet-1920x1080.jpg);
+  /* background-image: url(../images/backgrounds/alien_planet-1920x1080.jpg); */
   background-size: 110%;
   background-repeat: repeat; /* repeat */
   background-position: center;
