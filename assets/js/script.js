@@ -487,7 +487,6 @@ function addEventListeners() {
 function handleMouseOver(event) {
   console.log(event.target.classList[0]);
   document.getElementById("location-message").textContent = locations[event.target.classList[0]].locationMessage;
-  hoverSound.play();
 }
 
 function handleMouseLeave() {
