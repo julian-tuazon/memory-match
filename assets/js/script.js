@@ -49,6 +49,8 @@ const welcomeButton = document.getElementById("welcome-button"); // Opening moda
 const modeModal = document.getElementById("mode-modal"); // Mode select modal
 const modeButton = document.getElementById("mode-button"); // Mode select modal button that transitions to difficulty select modal
 const difficultyButton = document.getElementById("difficulty-button");
+const locationModal = document.getElementById("location-modal");
+const locationButton = document.getElementById("location-button");
 const end = document.getElementById("end");
 const resetButton = document.getElementById("reset");
 const cheatButton = document.getElementById("cheat");
@@ -102,6 +104,12 @@ const voiceArray = [
   "a2",
   "pod-one",
   "pod-two",
+  "sol-2",
+  "moa-therma",
+  "vineta-k",
+  "tech-de-ra",
+  "metropia",
+  "anulpha-pass",
 ];
 // const modalObjects = [
 //   podOne,
@@ -228,7 +236,13 @@ modeButton.addEventListener('click', function () {
     playSound(flipSound);
   }
 });
-difficultyButton.addEventListener('click', startGame);
+difficultyButton.addEventListener('click', function() {
+  difficultyModal.classList.add("hidden");
+  difficultyButton.classList.add("temp-hidden");
+  locationModal.classList.remove("hidden");
+  playSound(flipSound);
+});
+locationButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 cheatButton.addEventListener('click', cheatCodes);
 
@@ -433,6 +447,93 @@ two_b.addEventListener('click', function () {
   }
 });
 
+// Location select
+const locations = {
+  "current": "null",
+  "defaultMessage": "Select Location",
+  "currentMessage": "Select Location",
+  "locationList": [
+    "sol-2",
+    "moa-therma",
+    "vineta-k",
+    "tech-de-ra",
+    "metropia",
+    "anulpha-pass",
+  ],
+  "sol-2": {
+    "locationMessage": "Sol 2",
+    "sound": document.getElementById("sol-2"),
+  },
+  "moa-therma": {
+    "locationMessage": "Moa Therma",
+    "sound": document.getElementById("moa-therma"),
+  },
+  "vineta-k": {
+    "locationMessage": "Vineta K",
+    "sound": document.getElementById("vineta-k"),
+  },
+  "tech-de-ra": {
+    "locationMessage": "Tech De Ra",
+    "sound": document.getElementById("tech-de-ra"),
+  },
+  "metropia": {
+    "locationMessage": "Metropia",
+    "sound": document.getElementById("metropia"),
+  },
+  "anulpha-pass": {
+    "locationMessage": "Anulpha Pass",
+    "sound": document.getElementById("anulpha-pass"),
+  },
+};
+
+function addEventListeners() {
+  for (let i = 0; i < locations.locationList.length; i++) {
+    let currentElement = document.querySelector(`.flex > .${locations.locationList[i]}`);
+    currentElement.addEventListener('mouseover', handleMouseOver);
+    currentElement.addEventListener('mouseleave', handleMouseLeave);
+    currentElement.addEventListener('click', function(event) {
+      console.log("clicked", event.target.classList[0]);
+      handleClickLocation(event);
+    });
+  }
+  console.log("Added mouseover, mouseleave, click");
+}
+
+function handleMouseOver(event) {
+  console.log(event.target.classList[0]);
+  document.getElementById("location-message").textContent = locations[event.target.classList[0]].locationMessage;
+}
+
+function handleMouseLeave() {
+  console.log(event.target.classList[0]);
+  document.getElementById("location-message").textContent = locations.currentMessage;
+}
+
+function handleClickLocation(event) {
+  console.log("we made it");
+  // let currentElement = document.querySelector(`.flex > .${event.target.classList[0]}`);
+  if (locations.current !== event.target.classList[0]){
+    event.target.classList.add("selected", "selected-animation");
+    event.target.classList.remove("clickable");
+    if (locations.current !== "null") {
+      document.body.classList.remove(locations.current);
+      document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
+      document.querySelector(`.flex > .${locations.current}`).classList.remove("selected");
+    }
+    locations.current = event.target.classList[0];
+    document.body.classList.add(locations.current);
+    locations.currentMessage = locations[locations.current].locationMessage;
+    setTimeout(function () {
+      event.target.classList.remove("selected-animation");
+    }, 700);
+    playSound(selectSound);
+    playSound(locations[locations.current].sound);
+    locationButton.classList.remove("temp-hidden");
+  }
+}
+
+addEventListeners();
+
 // General events
 
 function startGame() {
@@ -461,6 +562,8 @@ function startGame() {
   two_b.classList.add("clickable");
   two_b.classList.remove("selected");
 
+
+
   // Set initial bgm volume, start timer
   timeLeft = timeValue;
   if (timeAttack) {
@@ -473,8 +576,8 @@ function startGame() {
   difficultyModeDisplay.textContent = `${difficulty} | ${gameMode}`;
   playSound(startSound);
   playSound(flipSound);
-  difficultyButton.classList.add("temp-hidden");
-  difficultyModal.classList.add("hidden");
+  locationButton.classList.add("temp-hidden");
+  locationModal.classList.add("hidden");
   shuffleCards();
   addHoverSounds(); // Adds hover sounds to newly created card-back elements
 }
@@ -613,6 +716,23 @@ function resetGame() {
   //   item.classList.add("clickable");
   //   item.classList.remove("selected", "selected-animation");
   // }
+
+  // Resets modal text:
+  document.getElementById("mode-title").textContent = "M O D E";
+  document.getElementById("mode-message").textContent = "Deploy Pod";
+  document.getElementById("difficulty-title").textContent = "D I F F I C U L T Y";
+  document.getElementById("difficulty-message").textContent = "Deploy YoRHa Unit";
+  document.getElementById("location-message").textContent = locations.defaultMessage;
+
+  // Resetting locations object
+  locations.currentMessage = locations.defaultMessage;
+  document.body.classList.remove(`${locations.current}`);
+  document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
+  document.querySelector(`.flex > .${locations.current}`).classList.remove("selected", "selected-animation");
+  locations.current = "null";
+
+  // Unhide welcome and hide end modals
+
   end.classList.add("hidden");
   welcomeModal.classList.remove("hidden");
 }

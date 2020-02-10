@@ -1,7 +1,7 @@
 body {
   height: 95vh;
-  background-image: url(../images/geo/gray.jpg);
-  background-size: cover;
+  /* background-image: url(../images/backgrounds/alien_planet-1920x1080.jpg); */
+  background-size: 110%;
   background-repeat: repeat; /* repeat */
   background-position: center;
   background-color: white;
@@ -357,26 +357,28 @@ footer > div {
   background-repeat: no-repeat;
 }
 
-/* Location / background modal */
-.flex > div#pic-one {
+#location-modal .flex > div {
   background-size: cover;
+}
+
+/* Location / background modal */
+.sol-2 {
   background-image: url(../images/geo/gray.jpg);
 }
-.flex > div#pic-two {
-  background-size: cover;
+.moa-therma {
+  background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
+}
+.vineta-k {
+  background-image: url(../images/backgrounds/311328.jpg);
+}
+.tech-de-ra {
   background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
 }
-.flex > div#pic-three {
-  background-size: cover;
-  background-image: url(../images/geo/diamond.jpg);
+.metropia {
+  background-image: url(../images/backgrounds/wallpaper-660072.jpg);
 }
-.flex > div#pic-four {
-  background-size: cover;
-  background-image: url(../images/extra/na_cityruins.png);
-}
-.flex > div#pic-five {
-  background-size: cover;
-  background-image: url(../images/extra/na_forest.jpg);
+.anulpha-pass {
+  background-image: url(../images/backgrounds/wallhaven-732202.jpg);
 }
 
 /* Mode modal pod styling */
@@ -564,7 +566,7 @@ input {
 @media only screen and (max-width: 1280px) {
 
   body {
-    background-size: 130%;
+    background-size: 145%;
   }
 }
 
@@ -592,7 +594,7 @@ input {
 @media only screen and (max-width: 980px) {
 
   body {
-    background-size: 160%;
+    background-size: 190%;
   }
 
   .container {
@@ -622,7 +624,7 @@ input {
 @media only screen and (max-width: 768px) {
 
   body {
-    background-size: 210%;
+    background-size: 230%;
   }
 
   .game-row {
@@ -648,7 +650,7 @@ input {
 @media only screen and (max-width: 600px) {
 
   body {
-    background-size: 250%;
+    background-size: 300%;
   }
 
   .game-row {
