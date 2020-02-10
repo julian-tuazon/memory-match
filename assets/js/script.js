@@ -477,9 +477,14 @@ function addEventListeners() {
   console.log("Add mouseover, mouseleave, click");
 }
 
-function handleMouseEnter(event) {
+function handleMouseOver(event) {
   console.log(event.target.classList[0]);
-  event.target.classList[0].
+  document.getElementById("location-message").textContent = locations[event.target.classList[0]].location - message;
+}
+
+function handleMouseLeave() {
+  console.log(event.target.classList[0]);
+  document.getElementById("location-message").textContent = locations.default-message;
 }
 
 
