@@ -230,7 +230,10 @@ modeButton.addEventListener('click', function () {
     playSound(flipSound);
   }
 });
-difficultyButton.addEventListener('click', startGame);
+difficultyButton.addEventListener('click', function() {
+  difficultyModal.classList.add("hidden");
+});
+locationButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 cheatButton.addEventListener('click', cheatCodes);
 
