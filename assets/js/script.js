@@ -473,6 +473,16 @@ const locations = {
   },
 };
 
+function addEventListeners() {
+  console.log("Add mouseover, mouseleave, click");
+}
+
+function handleMouseEnter(event) {
+  console.log(event.target.classList[0]);
+  event.target.classList[0].
+}
+
+
 // General events
 
 function startGame() {
