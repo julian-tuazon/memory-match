@@ -527,7 +527,7 @@ function handleClickLocation(event) {
       event.target.classList.remove("selected-animation");
     }, 700);
     playSound(selectSound);
-    // playSound(locations[current].sound);
+    playSound(locations[locations.current].sound);
     locationButton.classList.remove("temp-hidden");
   }
 }
