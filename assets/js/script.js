@@ -232,6 +232,7 @@ modeButton.addEventListener('click', function () {
 });
 difficultyButton.addEventListener('click', function() {
   difficultyModal.classList.add("hidden");
+  locationModal.classList.remove("hidden");
 });
 locationButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
