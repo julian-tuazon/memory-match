@@ -556,6 +556,12 @@ function startGame() {
   two_b.classList.add("clickable");
   two_b.classList.remove("selected");
 
+  // Resetting locations object
+  locations.currentMessage = locations.defaultMessage;
+  document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
+  document.querySelector(`.flex > .${locations.current}`).classList.remove("selected", "selected-animation");
+  locations.current = "null";
+
   // Set initial bgm volume, start timer
   timeLeft = timeValue;
   if (timeAttack) {
