@@ -482,7 +482,10 @@ function addEventListeners() {
     let currentElement = document.querySelector(`.flex > .${locations.locationList[i]}`);
     currentElement.addEventListener('mouseover', handleMouseOver);
     currentElement.addEventListener('mouseleave', handleMouseLeave);
-    currentElement.addEventListener('click', handleClick);
+    currentElement.addEventListener('click', function(event) {
+      console.log("clicked", event.target.classList[0]);
+      handleClickLocation(event);
+    });
   }
   console.log("Added mouseover, mouseleave, click");
 }
@@ -497,8 +500,8 @@ function handleMouseLeave() {
   document.getElementById("location-message").textContent = locations.currentMessage;
 }
 
-function handleClick() {
-  console.log(event.target.classList[0]);
+function handleClickLocation(event) {
+  console.log("we made it");
   // let currentElement = document.querySelector(`.flex > .${event.target.classList[0]}`);
   event.target.classList.add("selected", "selected-animation");
   event.target.classList.remove("clickable");
@@ -509,12 +512,12 @@ function handleClick() {
   }
   locations.current = event.target.classList[0];
   document.body.classList.add(locations.current);
-  locations.currentMessage = locations[current].locationMessage;
+  locations.currentMessage = locations["current"].locationMessage;
   setTimeout(function () {
     event.target.classList.remove("selected-animation");
   }, 700);
   playSound(selectSound);
-  playSound(locations[current].sound);
+  // playSound(locations[current].sound);
   locationButton.classList.remove("temp-hidden");
 }
 
