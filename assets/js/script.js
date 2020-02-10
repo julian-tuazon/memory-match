@@ -504,22 +504,24 @@ function handleMouseLeave() {
 function handleClickLocation(event) {
   console.log("we made it");
   // let currentElement = document.querySelector(`.flex > .${event.target.classList[0]}`);
-  event.target.classList.add("selected", "selected-animation");
-  event.target.classList.remove("clickable");
-  if (locations.current !== "null") {
-    document.body.classList.remove(locations.current);
-    document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
-    document.querySelector(`.flex > .${locations.current}`).classList.remove("selected");
+  if (locations.current !== event.target.classList[0]){
+    event.target.classList.add("selected", "selected-animation");
+    event.target.classList.remove("clickable");
+    if (locations.current !== "null") {
+      document.body.classList.remove(locations.current);
+      document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
+      document.querySelector(`.flex > .${locations.current}`).classList.remove("selected");
+    }
+    locations.current = event.target.classList[0];
+    document.body.classList.add(locations.current);
+    locations.currentMessage = locations[locations.current].locationMessage;
+    setTimeout(function () {
+      event.target.classList.remove("selected-animation");
+    }, 700);
+    playSound(selectSound);
+    // playSound(locations[current].sound);
+    locationButton.classList.remove("temp-hidden");
   }
-  locations.current = event.target.classList[0];
-  document.body.classList.add(locations.current);
-  locations.currentMessage = locations[locations.current].locationMessage;
-  setTimeout(function () {
-    event.target.classList.remove("selected-animation");
-  }, 700);
-  playSound(selectSound);
-  // playSound(locations[current].sound);
-  locationButton.classList.remove("temp-hidden");
 }
 
 addEventListeners();
