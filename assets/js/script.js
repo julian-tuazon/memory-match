@@ -104,6 +104,12 @@ const voiceArray = [
   "a2",
   "pod-one",
   "pod-two",
+  "sol-2",
+  "chenghou-project",
+  "vineta-k",
+  "tech-de-ra",
+  "metropia",
+  "anulpha-pass",
 ];
 // const modalObjects = [
 //   podOne,
