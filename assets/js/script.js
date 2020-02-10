@@ -105,7 +105,7 @@ const voiceArray = [
   "pod-one",
   "pod-two",
   "sol-2",
-  "chenghou-project",
+  "moa-therma",
   "vineta-k",
   "tech-de-ra",
   "metropia",
@@ -454,7 +454,7 @@ const locations = {
   "currentMessage": "Select Location",
   "locationList": [
     "sol-2",
-    "chenghou-project",
+    "moa-therma",
     "vineta-k",
     "tech-de-ra",
     "metropia",
@@ -464,9 +464,9 @@ const locations = {
     "locationMessage": "Sol 2",
     "sound": document.getElementById("sol-2"),
   },
-  "chenghou-project": {
-    "locationMessage": "Chenghou Project",
-    "sound": document.getElementById("chenghou-project"),
+  "moa-therma": {
+    "locationMessage": "Moa Therma",
+    "sound": document.getElementById("moa-therma"),
   },
   "vineta-k": {
     "locationMessage": "Vineta K",
