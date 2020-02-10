@@ -515,6 +515,7 @@ function handleClick() {
   locationButton.classList.remove("temp-hidden");
 }
 
+addEventListeners();
 
 // General events
 
