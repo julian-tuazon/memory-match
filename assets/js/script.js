@@ -708,6 +708,15 @@ function resetGame() {
   //   item.classList.add("clickable");
   //   item.classList.remove("selected", "selected-animation");
   // }
+
+  // Resets modal text:
+  document.getElementById("mode-title").textContent = "M O D E";
+  document.getElementById("mode-message").textContent = "Deploy Pod";
+  document.getElementById("difficulty-title").textContent = "D I F F I C U L T Y";
+  document.getElementById("difficulty-message").textContent = "Deploy YoRHa Unit";
+  document.getElementById("location-message").textContent = "Select Location";
+
+
   end.classList.add("hidden");
   welcomeModal.classList.remove("hidden");
 }
