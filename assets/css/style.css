@@ -364,7 +364,7 @@ footer > div {
 }
 .flex > div#pic-two {
   background-size: cover;
-  background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
+  background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
 }
 .flex > div#pic-three {
   background-size: cover;
@@ -377,6 +377,10 @@ footer > div {
 .flex > div#pic-five {
   background-size: cover;
   background-image: url(../images/backgrounds/wallpaper-660072.jpg);
+}
+.flex > div#pic-six {
+  background-size: cover;
+  background-image: url(../images/backgrounds/wallhaven-732202.jpg);
 }
 
 /* Mode modal pod styling */
