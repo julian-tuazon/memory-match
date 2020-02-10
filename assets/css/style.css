@@ -368,15 +368,15 @@ footer > div {
 }
 .flex > div#pic-three {
   background-size: cover;
-  background-image: url(../images/geo/diamond.jpg);
+  background-image: url(../images/backgrounds/311328.jpg);
 }
 .flex > div#pic-four {
   background-size: cover;
-  background-image: url(../images/extra/na_cityruins.png);
+  background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
 }
 .flex > div#pic-five {
   background-size: cover;
-  background-image: url(../images/extra/na_forest.jpg);
+  background-image: url(../images/backgrounds/wallpaper-660072.jpg);
 }
 
 /* Mode modal pod styling */
