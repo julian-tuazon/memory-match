@@ -436,7 +436,33 @@ two_b.addEventListener('click', function () {
 });
 
 // Location select
-
+const locations = {
+  current: "null",
+  "sol2": {
+    "location-message": "Sol 2",
+    "sound": document.getElementById("sol-2"),
+  },
+  "chenghou-project": {
+    "location-message": "Chenghou Project",
+    "sound": document.getElementById("chenghou-project"),
+  },
+  "vineta-k": {
+    "location-message": "Vineta K",
+    "sound": document.getElementById("vineta-k"),
+  },
+  "tech-de-ra": {
+    "location-message": "Tech De Ra",
+    "sound": document.getElementById("tech-de-ra"),
+  },
+  "metropia": {
+    "location-message": "Metropia",
+    "sound": document.getElementById("metropia"),
+  },
+  "anulpha-pass": {
+    "location-message": "Anulpha Pass",
+    "sound": document.getElementById("anulpha-pass"),
+  },
+};
 
 // General events
 
