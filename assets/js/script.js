@@ -475,7 +475,13 @@ const locations = {
 };
 
 function addEventListeners() {
-  console.log("Add mouseover, mouseleave, click");
+  for (let i = 0; i < locations.locationList.length; i++) {
+    let currentElement = document.querySelector(`.flex > .${locations.locationList[i]}`);
+    currentElement.addEventListener('mouseover', handleMouseOver);
+    currentElement.addEventListener('mouseleave', handleMouseLeave);
+    currentElement.addEventListener('click', handleClick);
+  }
+  console.log("Added mouseover, mouseleave, click");
 }
 
 function handleMouseOver(event) {
