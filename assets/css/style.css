@@ -362,22 +362,22 @@ footer > div {
 }
 
 /* Location / background modal */
-.flex > div#sol2 {
+.sol2 {
   background-image: url(../images/geo/gray.jpg);
 }
-.flex > div#chenghou-project {
+.chenghou-project {
   background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
 }
-.flex > div#vineta-k {
+.vineta-k {
   background-image: url(../images/backgrounds/311328.jpg);
 }
-.flex > div#tech-de-ra {
+.tech-de-ra {
   background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
 }
-.flex > div#metropia {
+.metropia {
   background-image: url(../images/backgrounds/wallpaper-660072.jpg);
 }
-.flex > div#anulpha-pass {
+.anulpha-pass {
   background-image: url(../images/backgrounds/wallhaven-732202.jpg);
 }
 
