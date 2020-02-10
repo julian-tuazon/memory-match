@@ -438,8 +438,9 @@ two_b.addEventListener('click', function () {
 // Location select
 const locations = {
   "current": "null",
-  "default-message": "Select Location",
-  "location-list": [
+  "defaultMessage": "Select Location",
+  "currentMessage": "Select Location",
+  "locationList": [
     "sol-2",
     "chenghou-project",
     "vineta-k",
@@ -448,27 +449,27 @@ const locations = {
     "anulpha-pass",
   ],
   "sol-2": {
-    "location-message": "Sol 2",
+    "locationMessage": "Sol 2",
     "sound": document.getElementById("sol-2"),
   },
   "chenghou-project": {
-    "location-message": "Chenghou Project",
+    "locationMessage": "Chenghou Project",
     "sound": document.getElementById("chenghou-project"),
   },
   "vineta-k": {
-    "location-message": "Vineta K",
+    "locationMessage": "Vineta K",
     "sound": document.getElementById("vineta-k"),
   },
   "tech-de-ra": {
-    "location-message": "Tech De Ra",
+    "locationMessage": "Tech De Ra",
     "sound": document.getElementById("tech-de-ra"),
   },
   "metropia": {
-    "location-message": "Metropia",
+    "locationMessage": "Metropia",
     "sound": document.getElementById("metropia"),
   },
   "anulpha-pass": {
-    "location-message": "Anulpha Pass",
+    "locationMessage": "Anulpha Pass",
     "sound": document.getElementById("anulpha-pass"),
   },
 };
@@ -479,12 +480,31 @@ function addEventListeners() {
 
 function handleMouseOver(event) {
   console.log(event.target.classList[0]);
-  document.getElementById("location-message").textContent = locations[event.target.classList[0]].location - message;
+  document.getElementById("location-message").textContent = locations[event.target.classList[0]].locationMessage;
 }
 
 function handleMouseLeave() {
   console.log(event.target.classList[0]);
-  document.getElementById("location-message").textContent = locations.default-message;
+  document.getElementById("location-message").textContent = locations.currentMessage;
+}
+
+function handleClick() {
+  console.log(event.target.classList[0]);
+  // let currentElement = document.querySelector(`.flex > .${event.target.classList[0]}`);
+  event.target.classList.add("selected", "selected-animation");
+  event.target.classList.remove("clickable");
+  if (locations.current !== "null") {
+    document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
+    document.querySelector(`.flex > .${locations.current}`).classList.remove("selected");
+  }
+  locations.current = event.target.classList[0];
+  locations.currentMessage = locations[current].locationMessage;
+  setTimeout(function () {
+    event.target.classList.remove("selected-animation");
+  }, 700);
+  playSound(selectSound);
+  playSound(locations[current].sound);
+  locationButton.classList.remove("temp-hidden");
 }
 
 
