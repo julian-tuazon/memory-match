@@ -564,7 +564,7 @@ input {
 @media only screen and (max-width: 1280px) {
 
   body {
-    background-size: 130%;
+    background-size: 145%;
   }
 }
 
@@ -592,7 +592,7 @@ input {
 @media only screen and (max-width: 980px) {
 
   body {
-    background-size: 160%;
+    background-size: 175%;
   }
 
   .container {
