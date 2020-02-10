@@ -435,6 +435,9 @@ two_b.addEventListener('click', function () {
   }
 });
 
+// Location select
+
+
 // General events
 
 function startGame() {
