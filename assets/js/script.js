@@ -512,7 +512,7 @@ function handleClickLocation(event) {
   }
   locations.current = event.target.classList[0];
   document.body.classList.add(locations.current);
-  locations.currentMessage = locations.current.locationMessage;
+  locations.currentMessage = locations[locations.current].locationMessage;
   setTimeout(function () {
     event.target.classList.remove("selected-animation");
   }, 700);
