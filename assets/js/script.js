@@ -438,6 +438,7 @@ two_b.addEventListener('click', function () {
 // Location select
 const locations = {
   "current": "null",
+  "default-message": "Select Location",
   "location-list": [
     "sol-2",
     "chenghou-project",
@@ -445,7 +446,7 @@ const locations = {
     "tech-de-ra",
     "metropia",
     "anulpha-pass",
-  ];
+  ],
   "sol-2": {
     "location-message": "Sol 2",
     "sound": document.getElementById("sol-2"),
