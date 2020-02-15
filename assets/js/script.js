@@ -128,11 +128,14 @@ let toggleMusic = (function() {
   return function() {
     if (toggle) {
       playSound(onSound);
+      music.volume = 0.1;
+      music.muted = false;
       music.play();
       toggle = false;
       musicButton.textContent = "Music | ON";
     } else {
       playSound(offSound);
+      music.muted = true;
       music.pause();
       toggle = true;
       musicButton.textContent = "Music | OFF";
@@ -218,8 +221,8 @@ welcomeButton.addEventListener('click', function () {
   modeModal.classList.remove("hidden");
   playSound(flipSound);
   if (firstGame) {
-    music.volume = 0.1;
-    music.play();
+    // music.volume = 0.1;
+    // music.play();
     firstGame = false;
   }
 });
@@ -542,6 +545,7 @@ document.getElementById("sound-on-button").addEventListener('click', function ()
   toggleMusic();
   toggleVoice();
   toggleSoundEffects();
+  // playSound(flipSound);
   soundModal.classList.add("hidden");
   welcomeModal.classList.remove("hidden");
 });
