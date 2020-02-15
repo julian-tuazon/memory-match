@@ -124,7 +124,7 @@ let hoverableList = document.getElementsByClassName("card-back");
 
 // Closure for the toggleMusic functionality attached to the musicButton
 let toggleMusic = (function() {
-  let toggle = false;
+  let toggle = true;
   return function() {
     if (toggle) {
       playSound(onSound);
@@ -146,7 +146,7 @@ musicButton.addEventListener('click', toggleMusic);
 
 // Closure for the toggleSoundEffects functionality attached to the soundEffectsButton
 let toggleSoundEffects = (function() {
-  let toggle = false;
+  let toggle = true;
   return function() {
     if (toggle) {
       playSound(onSound);
@@ -170,7 +170,7 @@ soundEffectsButton.addEventListener('click', toggleSoundEffects);
 
 // Closure for the toggleVoice functionality attached to the voiceButton
 let toggleVoice = (function() {
-  let toggle = false;
+  let toggle = true;
   return function () {
     if (toggle) {
       playSound(onSound);
