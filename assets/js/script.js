@@ -45,7 +45,7 @@ let hard = false;
 const gameCards = document.getElementById("game-cards");
 const difficultyModal = document.getElementById("difficulty-modal");
 const soundModal = document.getElementById("sound-modal");
-const soundButton = document.getElementById("sound-modal");
+// const soundButton = document.getElementById("sound-button");
 const welcomeModal = document.getElementById("welcome-modal"); // Opening modal
 const welcomeButton = document.getElementById("welcome-button"); // Opening modal button to transition to mode select modal
 const modeModal = document.getElementById("mode-modal"); // Mode select modal
@@ -124,15 +124,18 @@ let hoverableList = document.getElementsByClassName("card-back");
 
 // Closure for the toggleMusic functionality attached to the musicButton
 let toggleMusic = (function() {
-  let toggle = false;
+  let toggle = true;
   return function() {
     if (toggle) {
       playSound(onSound);
+      music.volume = 0.1;
+      music.muted = false;
       music.play();
       toggle = false;
       musicButton.textContent = "Music | ON";
     } else {
       playSound(offSound);
+      music.muted = true;
       music.pause();
       toggle = true;
       musicButton.textContent = "Music | OFF";
@@ -146,7 +149,7 @@ musicButton.addEventListener('click', toggleMusic);
 
 // Closure for the toggleSoundEffects functionality attached to the soundEffectsButton
 let toggleSoundEffects = (function() {
-  let toggle = false;
+  let toggle = true;
   return function() {
     if (toggle) {
       playSound(onSound);
@@ -170,7 +173,7 @@ soundEffectsButton.addEventListener('click', toggleSoundEffects);
 
 // Closure for the toggleVoice functionality attached to the voiceButton
 let toggleVoice = (function() {
-  let toggle = false;
+  let toggle = true;
   return function () {
     if (toggle) {
       playSound(onSound);
@@ -218,8 +221,8 @@ welcomeButton.addEventListener('click', function () {
   modeModal.classList.remove("hidden");
   playSound(flipSound);
   if (firstGame) {
-    music.volume = 0.1;
-    music.play();
+    // music.volume = 0.1;
+    // music.play();
     firstGame = false;
   }
 });
@@ -537,6 +540,20 @@ function handleClickLocation(event) {
 addEventListeners();
 
 // General events
+
+document.getElementById("sound-on-button").addEventListener('click', function () {
+  toggleMusic();
+  toggleVoice();
+  toggleSoundEffects();
+  // playSound(flipSound);
+  soundModal.classList.add("hidden");
+  welcomeModal.classList.remove("hidden");
+});
+
+document.getElementById("sound-off-button").addEventListener('click', function () {
+  soundModal.classList.add("hidden");
+  welcomeModal.classList.remove("hidden");
+});
 
 function startGame() {
   // Game can only start when difficulty is selected

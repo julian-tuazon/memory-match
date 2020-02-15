@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <div id="sound-modal" class="modal hidden">
+  <div id="sound-modal" class="modal">
     <div class="modal-container">
       <div id="sound-header">Enable sound?</div>
       <div id="sound-message"></div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div id="welcome-modal" class="modal">
+  <div id="welcome-modal" class="modal hidden">
     <div class="modal-container">
       <div id="welcome-header">m e m o r y . e x e</div>
       <div id="welcome-message">“So man is an individual only because of his intangible memory.<br>Memory cannot be defined,
@@ -190,11 +190,11 @@
       </main>
       <aside id="controls" class="col-2">
         <div id="cheat-two">c o n t r o l _</div>
-        <div id="music-toggle" class="clickable">Music | ON</div>
+        <div id="music-toggle" class="clickable">Music | OFF</div>
         <!-- <div>Track X</div> -->
-        <div id="sound-toggle" class="clickable">SFX | ON</div>
+        <div id="sound-toggle" class="clickable">SFX | OFF</div>
         <!-- <div>-</div> -->
-        <div id="voice-toggle" class="clickable">Voice | ON</div>
+        <div id="voice-toggle" class="clickable">Voice | OFF</div>
         <!-- <div>-</div> -->
         <!-- <div id="background-toggle" class="clickable">Scene</div> -->
         <!-- <div>-</div> -->
@@ -219,41 +219,41 @@
   </div>
 
   <div class="audio">
-    <audio src="assets/audio/alien_manifestation_vocals.mp3" id="bgm" loop></audio>
+    <audio src="assets/audio/alien_manifestation_vocals.mp3" id="bgm" loop muted></audio>
 
-    <audio src="assets/audio/start.wav" id="start-sound"></audio>
-    <audio src="assets/audio/end.wav" id="end-sound"></audio>
-    <audio src="assets/audio/flip.wav" id="flip-sound"></audio>
-    <audio src="assets/audio/correct.wav" id="correct-sound"></audio>
-    <audio src="assets/audio/incorrect.wav" id="incorrect-sound"></audio>
-    <audio src="assets/audio/on.wav" id="on-sound"></audio>
-    <audio src="assets/audio/off.wav" id="off-sound"></audio>
-    <audio src="assets/audio/reset.wav" id="reset-sound"></audio>
-    <audio src="assets/audio/cheat.wav" id="cheat-sound"></audio>
-    <audio src="assets/audio/hover_12.wav" id="hover-sound"></audio>
-    <audio src="assets/audio/select_12.wav" id="select-sound"></audio>
+    <audio src="assets/audio/start.wav" id="start-sound" muted></audio>
+    <audio src="assets/audio/end.wav" id="end-sound" muted></audio>
+    <audio src="assets/audio/flip.wav" id="flip-sound" muted></audio>
+    <audio src="assets/audio/correct.wav" id="correct-sound" muted></audio>
+    <audio src="assets/audio/incorrect.wav" id="incorrect-sound" muted></audio>
+    <audio src="assets/audio/on.wav" id="on-sound" muted></audio>
+    <audio src="assets/audio/off.wav" id="off-sound" muted></audio>
+    <audio src="assets/audio/reset.wav" id="reset-sound" muted></audio>
+    <audio src="assets/audio/cheat.wav" id="cheat-sound" muted></audio>
+    <audio src="assets/audio/hover_12.wav" id="hover-sound" muted></audio>
+    <audio src="assets/audio/select_12.wav" id="select-sound" muted></audio>
 
-    <audio src="assets/audio/qirex.wav" id="qirex"></audio>
-    <audio src="assets/audio/ag.wav" id="ag"></audio>
-    <audio src="assets/audio/assegai.wav" id="assegai"></audio>
-    <audio src="assets/audio/goteki.wav" id="goteki"></audio>
-    <audio src="assets/audio/auricom.wav" id="auricom"></audio>
-    <audio src="assets/audio/icaras.wav" id="icaras"></audio>
-    <audio src="assets/audio/piranha.wav" id="piranha"></audio>
-    <audio src="assets/audio/harimau.wav" id="harimau"></audio>
-    <audio src="assets/audio/triakis.wav" id="triakis"></audio>
+    <audio src="assets/audio/qirex.wav" id="qirex" muted></audio>
+    <audio src="assets/audio/ag.wav" id="ag" muted></audio>
+    <audio src="assets/audio/assegai.wav" id="assegai" muted></audio>
+    <audio src="assets/audio/goteki.wav" id="goteki" muted></audio>
+    <audio src="assets/audio/auricom.wav" id="auricom" muted></audio>
+    <audio src="assets/audio/icaras.wav" id="icaras" muted></audio>
+    <audio src="assets/audio/piranha.wav" id="piranha" muted></audio>
+    <audio src="assets/audio/harimau.wav" id="harimau" muted></audio>
+    <audio src="assets/audio/triakis.wav" id="triakis" muted></audio>
 
-    <audio src="assets/audio/2b_boosted_15.wav" id="2b"></audio>
-    <audio src="assets/audio/9s_boosted_15.wav" id="9s"></audio>
-    <audio src="assets/audio/a2_boosted_15.wav" id="a2"></audio>
-    <audio src="assets/audio/pod-x_15.wav" id="pod-one"></audio>
-    <audio src="assets/audio/pod-y_15.wav" id="pod-two"></audio>
-    <audio src="assets/audio/sol_2.wav" id="sol-2"></audio>
-    <audio src="assets/audio/moa_therma.wav" id="moa-therma"></audio>
-    <audio src="assets/audio/vineta_k.wav" id="vineta-k"></audio>
-    <audio src="assets/audio/tech_de_ra.wav" id="tech-de-ra"></audio>
-    <audio src="assets/audio/metropia.wav" id="metropia"></audio>
-    <audio src="assets/audio/anulpha_pass.wav" id="anulpha-pass"></audio>
+    <audio src="assets/audio/2b_boosted_15.wav" id="2b" muted></audio>
+    <audio src="assets/audio/9s_boosted_15.wav" id="9s" muted></audio>
+    <audio src="assets/audio/a2_boosted_15.wav" id="a2" muted></audio>
+    <audio src="assets/audio/pod-x_15.wav" id="pod-one" muted></audio>
+    <audio src="assets/audio/pod-y_15.wav" id="pod-two" muted></audio>
+    <audio src="assets/audio/sol_2.wav" id="sol-2" muted></audio>
+    <audio src="assets/audio/moa_therma.wav" id="moa-therma" muted></audio>
+    <audio src="assets/audio/vineta_k.wav" id="vineta-k" muted></audio>
+    <audio src="assets/audio/tech_de_ra.wav" id="tech-de-ra" muted></audio>
+    <audio src="assets/audio/metropia.wav" id="metropia" muted></audio>
+    <audio src="assets/audio/anulpha_pass.wav" id="anulpha-pass" muted></audio>
 
   </div>
 
