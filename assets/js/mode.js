@@ -1,15 +1,15 @@
-class Modal {
+class Mode {
   constructor() {
 
   }
 }
 
-const locations = {
+const mode = {
   "current": "null",
-  "defaultHeader": "L O C A T I O N",
-  "currentHeader": "L O C A T I O N",
-  "defaultMessage": "Select Location",
-  "currentMessage": "Select Location",
+  "defaultHeader": "M O D E",
+  "currentHeader": mode.defaultHeader,
+  "defaultMessage": "Deploy Pod",
+  "currentMessage": "Deploy Pod",
   "locationList": [
     "sol-2",
     "moa-therma",
