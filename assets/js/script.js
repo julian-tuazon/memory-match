@@ -45,7 +45,7 @@ let hard = false;
 const gameCards = document.getElementById("game-cards");
 const difficultyModal = document.getElementById("difficulty-modal");
 const soundModal = document.getElementById("sound-modal");
-const soundButton = document.getElementById("sound-button");
+// const soundButton = document.getElementById("sound-button");
 const welcomeModal = document.getElementById("welcome-modal"); // Opening modal
 const welcomeButton = document.getElementById("welcome-button"); // Opening modal button to transition to mode select modal
 const modeModal = document.getElementById("mode-modal"); // Mode select modal
@@ -537,6 +537,19 @@ function handleClickLocation(event) {
 addEventListeners();
 
 // General events
+
+document.getElementById("sound-on-button").addEventListener('click', function () {
+  toggleMusic();
+  toggleVoice();
+  toggleSoundEffects();
+  soundModal.classList.add("hidden");
+  welcomeModal.classList.remove("hidden");
+});
+
+document.getElementById("sound-off-button").addEventListener('click', function () {
+  soundModal.classList.add("hidden");
+  welcomeModal.classList.remove("hidden");
+});
 
 function startGame() {
   // Game can only start when difficulty is selected
