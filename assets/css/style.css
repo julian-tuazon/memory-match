@@ -451,6 +451,10 @@ footer > div {
   align-items: center;
 }
 
+#sound-button-container > div {
+  margin: 0 1vw;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
