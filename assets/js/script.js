@@ -251,10 +251,10 @@ cheatButton.addEventListener('click', cheatCodes);
 // Mode modal object variables
 // let podOne = document.getElementsByClassName("pod-one")[0].parentElement;
 // let podTwo = document.getElementsByClassName("pod-two")[0].parentElement;
-let survival = false;
-let timeAttack = false;
-let currentTop = "M O D E";
-let currentBottom = "Deploy Pod";
+// let survival = false;
+// let timeAttack = false;
+// let currentTop = "M O D E";
+// let currentBottom = "Deploy Pod";
 
 // Mode modal sound effects / text changes / mode selector
 // podOne.addEventListener('mouseover', function () {
@@ -392,9 +392,9 @@ addEventListenersMode();
 // let nine_s = document.getElementsByClassName("nine-s")[0].parentElement;
 // let a_two = document.getElementsByClassName("a-two")[0].parentElement;
 // let two_b = document.getElementsByClassName("two-b")[0].parentElement;
-let nine_s = document.getElementById("easy");
-let a_two = document.getElementById("medium");
-let two_b = document.getElementById("hard");
+// let nine_s = document.getElementById("easy");
+// let a_two = document.getElementById("medium");
+// let two_b = document.getElementById("hard");
 
 // NieR modal sound effects / text changes / difficulty selector
 // nine_s.addEventListener('mouseover', function() {
