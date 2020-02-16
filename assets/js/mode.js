@@ -19,49 +19,47 @@ const mode = {
     "modeMessage": "Pod X-042",
     "sound": document.getElementById("pod-one"),
   },
-  "timeAttack": {
+  "time-attack": {
     "modeHeader": "T I M E - A T T A C K",
     "modeMessage": "Pod Y-153",
     "sound": document.getElementById("pod-two"),
   },
 };
 
-function addEventListeners() {
+function addEventListenersMode() {
   for (let i = 0; i < mode.modeList.length; i++) {
-    let currentElement = document.querySelector(`.flex > .${mode.modeList[i]}`);
-    currentElement.addEventListener('mouseover', handleMouseOver);
-    currentElement.addEventListener('mouseleave', handleMouseLeave);
+    let currentElement = document.getElementById(`${mode.modeList[i]}`);
+    currentElement.addEventListener('mouseover', handleMouseOverMode);
+    currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
     currentElement.addEventListener('click', function (event) {
-      console.log("clicked", event.target.classList[0]);
+      console.log("clicked", event.target.id]);
       handleClickLocation(event);
     });
   }
   console.log("Added mouseover, mouseleave, click");
 }
 
-function handleMouseOver(event) {
-  console.log(event.target.classList[0]);
-  document.getElementById("mode-message").textContent = mode[event.target.classList[0]].modeMessage;
+function handleMouseOverMode(event) {
+  console.log(event.target.id);
+  document.getElementById("mode-header").textContent = mode[event.target.id]].modeHeader;
+  document.getElementById("mode-message").textContent = mode[event.target.id]].modeMessage;
 }
 
-function handleMouseLeave() {
-  console.log(event.target.classList[0]);
+function handleMouseLeaveMode() {
+  console.log(event.target.id);
   document.getElementById("mode-message").textContent = mode.currentMessage;
 }
 
-function handleClickLocation(event) {
+function handleClickMode(event) {
   console.log("we made it");
-  // let currentElement = document.querySelector(`.flex > .${event.target.classList[0]}`);
-  if (mode.current !== event.target.classList[0]) {
+  if (mode.current !== event.target.id) {
     event.target.classList.add("selected", "selected-animation");
     event.target.classList.remove("clickable");
     if (mode.current !== "null") {
-      document.body.classList.remove(mode.current);
-      document.querySelector(`.flex > .${mode.current}`).classList.add("clickable");
-      document.querySelector(`.flex > .${mode.current}`).classList.remove("selected");
+      document.getElementById(`${mode.current}`).classList.add("clickable");
+      document.getElementById(`${mode.current}`).classList.remove("selected");
     }
-    mode.current = event.target.classList[0];
-    document.body.classList.add(mode.current);
+    mode.current = event.target.id;
     mode.currentMessage = mode[mode.current].modeMessage;
     setTimeout(function () {
       event.target.classList.remove("selected-animation");
@@ -71,3 +69,5 @@ function handleClickLocation(event) {
     modeButton.classList.remove("temp-hidden");
   }
 }
+
+addEventListenersMode();
