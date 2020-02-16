@@ -364,27 +364,19 @@ footer > div {
 #easy {
   background-image: url(../images/extra/9s.png);
   background-size: 137%;
-  background-position: 40% 1%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/9s.png); */
+  background-position: 40% -10%;
 }
 
 #medium {
-  background-image: url(../images/extra/2b_hi_res.png);
-  background-size: 300%;
-  background-position: 75% -1%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/2b_hi_res.png); */
+  background-image: url(../images/extra/a2.png);
+  background-size: 250%;
+  background-position: 60% 6.5%;
 }
 
 #hard {
-  background-image: url(../images/extra/a2.png);
-  background-size: 250%;
-  background-position: 60% 17%;
+  background-image: url(../images/extra/2b_hi_res.png);
+  background-size: 300%;
+  background-position: 75% -14%;
 }
 
 .flex > div > div {
@@ -883,8 +875,8 @@ input {
 
   .flex > div {
     margin: 0 2%;
-    height: 20vh;
-    max-height: 125px;
+    height: 16vh; /* 20vh */
+    max-height: 110px; /* 125px */
     width: 25%;
     border: 1.5px solid white;
   }

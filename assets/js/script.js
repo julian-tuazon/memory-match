@@ -401,9 +401,12 @@ function handleClickMode(event) {
 addEventListenersMode();
 
 // NieR object variables
-let nine_s = document.getElementsByClassName("nine-s")[0].parentElement;
-let a_two = document.getElementsByClassName("a-two")[0].parentElement;
-let two_b = document.getElementsByClassName("two-b")[0].parentElement;
+// let nine_s = document.getElementsByClassName("nine-s")[0].parentElement;
+// let a_two = document.getElementsByClassName("a-two")[0].parentElement;
+// let two_b = document.getElementsByClassName("two-b")[0].parentElement;
+let nine_s = document.getElementById("easy");
+let a_two = document.getElementById("medium");
+let two_b = document.getElementById("hard");
 
 // NieR modal sound effects / text changes / difficulty selector
 nine_s.addEventListener('mouseover', function() {
