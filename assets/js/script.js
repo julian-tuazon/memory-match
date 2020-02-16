@@ -12,7 +12,7 @@ let timeLeft;
 let livesLeft;
 let timeValue; // Is this necessary?
 let timer;
-let difficulty;
+// let difficulty;
 let gameMode;
 
 // Code refactoring?
@@ -730,16 +730,14 @@ function startGame() {
   two_b.classList.add("clickable");
   two_b.classList.remove("selected");
 
-
-
   // Set initial bgm volume, start timer
   timeLeft = timeValue;
   if (mode.current === "time-attack") {
     timer = setInterval(countdown, 100);
-    gameMode = "Time-Attack";
+    // gameMode = "Time-Attack";
   } else if (mode.current === "survival") {
     timeDisplay.textContent = `Lives | ${livesLeft}`;
-    gameMode = "Survival";
+    // gameMode = "Survival";
   }
   difficultyModeDisplay.textContent = `${difficulty} | ${gameMode}`;
   playSound(startSound);
@@ -886,10 +884,10 @@ function resetGame() {
   // }
 
   // Resets modal text:
-  document.getElementById("mode-title").textContent = "M O D E";
-  document.getElementById("mode-message").textContent = "Deploy Pod";
-  document.getElementById("difficulty-title").textContent = "D I F F I C U L T Y";
-  document.getElementById("difficulty-message").textContent = "Deploy YoRHa Unit";
+  document.getElementById("mode-title").textContent = mode.defaultTitle;
+  document.getElementById("mode-message").textContent = mode.defaultMessage;
+  document.getElementById("difficulty-title").textContent = difficulty.defaultTitle;
+  document.getElementById("difficulty-message").textContent = difficulty.defaultMessage;
   document.getElementById("location-message").textContent = locations.defaultMessage;
 
   // Resetting mode object
@@ -898,6 +896,14 @@ function resetGame() {
   document.getElementById(`${mode.current}`).classList.add("clickable");
   document.getElementById(`${mode.current}`).classList.remove("selected", "selected-animation");
   mode.current = "null";
+
+  // Resetting difficulty object
+  difficulty.currentTitle = difficulty.defaultTitle;
+  difficulty.currentMessage = difficulty.defaultMessage;
+  document.getElementById(`${difficulty.current}`).classList.add("clickable");
+  document.getElementById(`${difficulty.current}`).classList.remove("selected", "selected-animation");
+  difficulty.current = "null";
+
 
   // Resetting locations object
   locations.currentMessage = locations.defaultMessage;
