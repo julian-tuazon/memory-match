@@ -328,7 +328,7 @@ let currentBottom = "Deploy Pod";
 const mode = {
   "current": "null",
   "defaultHeader": "M O D E",
-  "currentHeader": mode.defaultHeader,
+  "currentHeader": "M O D E",
   "defaultMessage": "Deploy Pod",
   "currentMessage": "Deploy Pod",
   "modeList": [
@@ -353,7 +353,7 @@ function addEventListenersMode() {
     currentElement.addEventListener('mouseover', handleMouseOverMode);
     currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
     currentElement.addEventListener('click', function (event) {
-      console.log("clicked", event.target.id]);
+      console.log("clicked", event.target.id);
       handleClickLocation(event);
     });
   }
@@ -362,8 +362,8 @@ function addEventListenersMode() {
 
 function handleMouseOverMode(event) {
   console.log(event.target.id);
-  document.getElementById("mode-header").textContent = mode[event.target.id]].modeHeader;
-  document.getElementById("mode-message").textContent = mode[event.target.id]].modeMessage;
+  document.getElementById("mode-header").textContent = mode[event.target.id].modeHeader;
+  document.getElementById("mode-message").textContent = mode[event.target.id].modeMessage;
 }
 
 function handleMouseLeaveMode() {
@@ -816,7 +816,6 @@ function resetGame() {
   document.getElementById(`${mode.current}`).classList.add("clickable");
   document.getElementById(`${mode.current}`).classList.remove("selected", "selected-animation");
   mode.current = "null";
-
 
   // Resetting locations object
   locations.currentMessage = locations.defaultMessage;
