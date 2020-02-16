@@ -353,7 +353,7 @@ function addEventListenersMode() {
     currentElement.addEventListener('mouseover', handleMouseOverMode);
     currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
     currentElement.addEventListener('click', function (event) {
-      console.log("clicked", event.target.id);
+      console.log("clicked", event.currentTarget.id);
       handleClickLocation(event);
     });
   }
@@ -361,29 +361,29 @@ function addEventListenersMode() {
 }
 
 function handleMouseOverMode(event) {
-  console.log(event.target.id);
-  document.getElementById("mode-header").textContent = mode[event.target.id].modeHeader;
-  document.getElementById("mode-message").textContent = mode[event.target.id].modeMessage;
+  console.log(event.currentTarget.id);
+  document.getElementById("mode-header").textContent = mode[event.currentTarget.id].modeHeader;
+  document.getElementById("mode-message").textContent = mode[event.currentTarget.id].modeMessage;
 }
 
 function handleMouseLeaveMode() {
-  console.log(event.target.id);
+  console.log(event.currentTarget.id);
   document.getElementById("mode-message").textContent = mode.currentMessage;
 }
 
 function handleClickMode(event) {
   console.log("we made it");
-  if (mode.current !== event.target.id) {
-    event.target.classList.add("selected", "selected-animation");
-    event.target.classList.remove("clickable");
+  if (mode.current !== event.currentTarget.id) {
+    event.currentTarget.classList.add("selected", "selected-animation");
+    event.currentTarget.classList.remove("clickable");
     if (mode.current !== "null") {
       document.getElementById(`${mode.current}`).classList.add("clickable");
       document.getElementById(`${mode.current}`).classList.remove("selected");
     }
-    mode.current = event.target.id;
+    mode.current = event.currentTarget.id;
     mode.currentMessage = mode[mode.current].modeMessage;
     setTimeout(function () {
-      event.target.classList.remove("selected-animation");
+      event.currentTarget.classList.remove("selected-animation");
     }, 700);
     playSound(selectSound);
     playSound(mode[mode.current].sound);
