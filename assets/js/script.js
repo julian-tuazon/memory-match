@@ -361,13 +361,13 @@ function addEventListenersMode() {
 }
 
 function handleMouseOverMode(event) {
-  console.log(event.currentTarget.id);
-  document.getElementById("mode-title").textContent = mode[event.currentTarget.id].modeTitle;
-  document.getElementById("mode-message").textContent = mode[event.currentTarget.id].modeMessage;
+  console.log(event.target.id);
+  document.getElementById("mode-title").textContent = mode[event.target.id].modeTitle;
+  document.getElementById("mode-message").textContent = mode[event.target.id].modeMessage;
 }
 
 function handleMouseLeaveMode() {
-  console.log(event.currentTarget.id);
+  console.log(event.target.id);
   document.getElementById("mode-title").textContent = mode.currentTitle;
   document.getElementById("mode-message").textContent = mode.currentMessage;
 }
@@ -375,24 +375,23 @@ function handleMouseLeaveMode() {
 function handleClickMode(event) {
   console.log("we made it");
   console.log("mode.current", mode.current);
-  console.log("event.currentTarget.id", event.currentTarget.id);
-  const currentTarget = event.currentTarget;
-  if (mode.current !== currentTarget.id) {
-    currentTarget.classList.add("selected", "selected-animation");
-    currentTarget.classList.remove("clickable");
+  console.log("event.target.id", event.target.id);
+  // const currentTarget = event.currentTarget;
+  if (mode.current !== event.target.id) {
+    event.target.classList.add("selected", "selected-animation");
+    event.target.classList.remove("clickable");
     setTimeout(function () {
       console.log('within the setTimeout');
-      currentTarget.classList.remove("selected-animation");
+      event.target.classList.remove("selected-animation");
     }, 700);
     console.log('added and removed css classes');
     if (mode.current !== "null") {
       document.getElementById(`${mode.current}`).classList.add("clickable");
       document.getElementById(`${mode.current}`).classList.remove("selected");
     }
-    mode.current = currentTarget.id;
+    mode.current = event.target.id;
     mode.currentTitle = mode[mode.current].modeTitle;
     mode.currentMessage = mode[mode.current].modeMessage;
-
     playSound(selectSound);
     playSound(mode[mode.current].sound);
     modeButton.classList.remove("temp-hidden");
