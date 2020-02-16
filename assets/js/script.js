@@ -296,7 +296,7 @@ podOne.addEventListener('click', function () {
 
 podTwo.addEventListener('mouseover', function () {
   document.getElementById("mode-title").textContent = "T I M E - A T T A C K";
-  document.getElementById("mode-message").textContent = "Pod Y-153 ";
+  document.getElementById("mode-message").textContent = "Pod Y-153";
 });
 
 podTwo.addEventListener('mouseleave', function () {
