@@ -638,11 +638,11 @@ const locations = {
 
 function addEventListeners() {
   for (let i = 0; i < locations.locationList.length; i++) {
-    let currentElement = document.querySelector(`.flex > .${locations.locationList[i]}`);
+    let currentElement = document.getElementById(`${locations.locationList[i]}`);
     currentElement.addEventListener('mouseover', handleMouseOver);
     currentElement.addEventListener('mouseleave', handleMouseLeave);
     currentElement.addEventListener('click', function(event) {
-      console.log("clicked", event.target.classList[0]);
+      console.log("clicked", event.target.id);
       handleClickLocation(event);
     });
   }
@@ -650,8 +650,8 @@ function addEventListeners() {
 }
 
 function handleMouseOver(event) {
-  console.log(event.target.classList[0]);
-  document.getElementById("location-message").textContent = locations[event.target.classList[0]].locationMessage;
+  console.log(event.target.id);
+  document.getElementById("location-message").textContent = locations[event.target.id].locationMessage;
 }
 
 function handleMouseLeave() {
@@ -660,18 +660,16 @@ function handleMouseLeave() {
 }
 
 function handleClickLocation(event) {
-  console.log("we made it");
-  // let currentElement = document.querySelector(`.flex > .${event.target.classList[0]}`);
-  if (locations.current !== event.target.classList[0]){
+  if (locations.current !== event.target.id){
     event.target.classList.add("selected", "selected-animation");
     event.target.classList.remove("clickable");
     if (locations.current !== "null") {
-      document.body.classList.remove(locations.current);
-      document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
-      document.querySelector(`.flex > .${locations.current}`).classList.remove("selected");
+      document.body.classList.remove(locations.current); // add body class manipulation to startGame
+      document.getElementById(`${locations.current}`).classList.add("clickable");
+      document.getElementById(`${locations.current}`).classList.remove("selected");
     }
-    locations.current = event.target.classList[0];
-    document.body.classList.add(locations.current);
+    locations.current = event.target.id;
+    document.body.classList.add(locations.current); // add body class manipulation to startGame
     locations.currentMessage = locations[locations.current].locationMessage;
     setTimeout(function () {
       event.target.classList.remove("selected-animation");
