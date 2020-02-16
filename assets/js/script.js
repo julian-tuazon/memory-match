@@ -376,19 +376,21 @@ function handleClickMode(event) {
   console.log("we made it");
   console.log("mode.current", mode.current);
   console.log("event.currentTarget.id", event.currentTarget.id);
-  if (mode.current !== event.currentTarget.id) {
-    event.currentTarget.classList.add("selected", "selected-animation");
-    event.currentTarget.classList.remove("clickable");
+  const currentTarget = event.currentTarget;
+  if (mode.current !== currentTarget.id) {
+    currentTarget.classList.add("selected", "selected-animation");
+    currentTarget.classList.remove("clickable");
     setTimeout(function () {
       console.log('within the setTimeout');
-      event.currentTarget.classList.remove("selected-animation");
+      currentTarget.classList.remove("selected-animation");
     }, 700);
     console.log('added and removed css classes');
     if (mode.current !== "null") {
       document.getElementById(`${mode.current}`).classList.add("clickable");
       document.getElementById(`${mode.current}`).classList.remove("selected");
     }
-    mode.current = event.currentTarget.id;
+    mode.current = currentTarget.id;
+    mode.currentTitle = mode[mode.current].modeTitle;
     mode.currentMessage = mode[mode.current].modeMessage;
 
     playSound(selectSound);
