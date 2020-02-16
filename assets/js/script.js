@@ -715,9 +715,9 @@ function handleClick(event) {
       if (matches === maxMatches) {
         playSound(endSound);
         clearInterval(timer);
-        if (timeAttack) {
+        if (mode.current === "time-attack") {
           document.getElementById("final-time").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
-        } else if (survival) {
+        } else if (mode.current === "survival") {
           document.getElementById("final-time").textContent = `Lives Remaining: ${livesLeft}`;
 
         }
@@ -730,7 +730,7 @@ function handleClick(event) {
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("incorrect");
-      if (survival) {
+      if (mode.current === "survival") {
         livesLeft--;
         timeDisplay.textContent = `Lives | ${livesLeft}`
         if (livesLeft === 0) {
