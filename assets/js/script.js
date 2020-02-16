@@ -612,27 +612,27 @@ const locations = {
   ],
   "sol-2": {
     "locationMessage": "Sol 2",
-    "sound": document.getElementById("sol-2"),
+    "sound": document.getElementById("sol-2-voice"),
   },
   "moa-therma": {
     "locationMessage": "Moa Therma",
-    "sound": document.getElementById("moa-therma"),
+    "sound": document.getElementById("moa-therma-voice"),
   },
   "vineta-k": {
     "locationMessage": "Vineta K",
-    "sound": document.getElementById("vineta-k"),
+    "sound": document.getElementById("vineta-k-voice"),
   },
   "tech-de-ra": {
     "locationMessage": "Tech De Ra",
-    "sound": document.getElementById("tech-de-ra"),
+    "sound": document.getElementById("tech-de-ra-voice"),
   },
   "metropia": {
     "locationMessage": "Metropia",
-    "sound": document.getElementById("metropia"),
+    "sound": document.getElementById("metropia-voice"),
   },
   "anulpha-pass": {
     "locationMessage": "Anulpha Pass",
-    "sound": document.getElementById("anulpha-pass"),
+    "sound": document.getElementById("anulpha-pass-voice"),
   },
 };
 
