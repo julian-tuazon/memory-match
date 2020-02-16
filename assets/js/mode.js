@@ -17,11 +17,13 @@ const mode = {
   "survival": {
     "modeTitle": "S U R V I V A L",
     "modeMessage": "Pod X-042",
+    "display": "Survival",
     "sound": document.getElementById("pod-one"),
   },
   "time-attack": {
     "modeTitle": "T I M E - A T T A C K",
     "modeMessage": "Pod Y-153",
+    "display": "Time-Attack",
     "sound": document.getElementById("pod-two"),
   },
 };
