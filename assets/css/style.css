@@ -349,6 +349,18 @@ footer > div {
   align-items: flex-end;
 }
 
+#survival {
+  background-image: url(../images/extra/pod3.png);
+  background-size: 80%;
+  background-position: 52% 80%;
+}
+
+#time-attack {
+  background-image: url(../images/extra/pod4.png);
+  background-size: 60%;
+  background-position: 55% 80%;
+}
+
 .flex > div > div {
   width: 100%;
   height: 70%;
