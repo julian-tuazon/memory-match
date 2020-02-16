@@ -10,10 +10,10 @@ let gamesPlayed = 0;
 let shuffleArray = [];
 let timeLeft;
 let livesLeft;
-let timeValue; // Is this necessary?
+// let timeValue;
 let timer;
 // let difficulty;
-let gameMode;
+// let gameMode;
 
 // Code refactoring?
 
@@ -33,9 +33,9 @@ let gameMode;
 
 // Choosing NieR character / difficulty
 
-let easy = false;
-let medium = false;
-let hard = false;
+// let easy = false;
+// let medium = false;
+// let hard = false;
 
 // Currently unused functionality for switching background after each game ends
 
@@ -248,8 +248,6 @@ difficultyButton.addEventListener('click', function() {
 locationButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 cheatButton.addEventListener('click', cheatCodes);
-
-
 
 // Mode modal object variables
 // let podOne = document.getElementsByClassName("pod-one")[0].parentElement;
@@ -599,8 +597,6 @@ function handleClickDifficulty(event) {
 }
 
 addEventListenersDifficulty();
-
-
 
 // Location select
 const locations = {
