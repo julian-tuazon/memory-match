@@ -6,8 +6,8 @@ class Mode {
 
 const mode = {
   "current": "null",
-  "defaultHeader": "M O D E",
-  "currentHeader": mode.defaultHeader,
+  "defaultTitle": "M O D E",
+  "currentTitle": mode.defaultHeader,
   "defaultMessage": "Deploy Pod",
   "currentMessage": "Deploy Pod",
   "modeList": [
@@ -15,7 +15,7 @@ const mode = {
     "time-attack",
   ],
   "survival": {
-    "modeHeader": "S U R V I V A L",
+    "modeTitle": "S U R V I V A L",
     "modeMessage": "Pod X-042",
     "sound": document.getElementById("pod-one"),
   },
@@ -41,7 +41,7 @@ function addEventListenersMode() {
 
 function handleMouseOverMode(event) {
   console.log(event.target.id);
-  document.getElementById("mode-header").textContent = mode[event.target.id]].modeHeader;
+  document.getElementById("mode-title").textContent = mode[event.target.id]].modeTitle;
   document.getElementById("mode-message").textContent = mode[event.target.id]].modeMessage;
 }
 

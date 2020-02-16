@@ -252,8 +252,8 @@ cheatButton.addEventListener('click', cheatCodes);
 
 
 // Mode modal object variables
-let podOne = document.getElementsByClassName("pod-one")[0].parentElement;
-let podTwo = document.getElementsByClassName("pod-two")[0].parentElement;
+// let podOne = document.getElementsByClassName("pod-one")[0].parentElement;
+// let podTwo = document.getElementsByClassName("pod-two")[0].parentElement;
 let survival = false;
 let timeAttack = false;
 let currentTop = "M O D E";
@@ -327,8 +327,8 @@ let currentBottom = "Deploy Pod";
 
 const mode = {
   "current": "null",
-  "defaultHeader": "M O D E",
-  "currentHeader": "M O D E",
+  "defaultTitle": "M O D E",
+  "currentTitle": "M O D E",
   "defaultMessage": "Deploy Pod",
   "currentMessage": "Deploy Pod",
   "modeList": [
@@ -336,12 +336,12 @@ const mode = {
     "time-attack",
   ],
   "survival": {
-    "modeHeader": "S U R V I V A L",
+    "modeTitle": "S U R V I V A L",
     "modeMessage": "Pod X-042",
     "sound": document.getElementById("pod-one"),
   },
   "time-attack": {
-    "modeHeader": "T I M E - A T T A C K",
+    "modeTitle": "T I M E - A T T A C K",
     "modeMessage": "Pod Y-153",
     "sound": document.getElementById("pod-two"),
   },
@@ -354,7 +354,7 @@ function addEventListenersMode() {
     currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
     currentElement.addEventListener('click', function (event) {
       console.log("clicked", event.currentTarget.id);
-      handleClickLocation(event);
+      handleClickMode(event);
     });
   }
   console.log("Added mouseover, mouseleave, click");
@@ -362,29 +362,35 @@ function addEventListenersMode() {
 
 function handleMouseOverMode(event) {
   console.log(event.currentTarget.id);
-  document.getElementById("mode-header").textContent = mode[event.currentTarget.id].modeHeader;
+  document.getElementById("mode-title").textContent = mode[event.currentTarget.id].modeTitle;
   document.getElementById("mode-message").textContent = mode[event.currentTarget.id].modeMessage;
 }
 
 function handleMouseLeaveMode() {
   console.log(event.currentTarget.id);
+  document.getElementById("mode-title").textContent = mode.currentTitle;
   document.getElementById("mode-message").textContent = mode.currentMessage;
 }
 
 function handleClickMode(event) {
   console.log("we made it");
+  console.log("mode.current", mode.current);
+  console.log("event.currentTarget.id", event.currentTarget.id);
   if (mode.current !== event.currentTarget.id) {
     event.currentTarget.classList.add("selected", "selected-animation");
     event.currentTarget.classList.remove("clickable");
+    setTimeout(function () {
+      console.log('within the setTimeout');
+      event.currentTarget.classList.remove("selected-animation");
+    }, 700);
+    console.log('added and removed css classes');
     if (mode.current !== "null") {
       document.getElementById(`${mode.current}`).classList.add("clickable");
       document.getElementById(`${mode.current}`).classList.remove("selected");
     }
     mode.current = event.currentTarget.id;
     mode.currentMessage = mode[mode.current].modeMessage;
-    setTimeout(function () {
-      event.currentTarget.classList.remove("selected-animation");
-    }, 700);
+
     playSound(selectSound);
     playSound(mode[mode.current].sound);
     modeButton.classList.remove("temp-hidden");
@@ -811,7 +817,7 @@ function resetGame() {
   document.getElementById("location-message").textContent = locations.defaultMessage;
 
   // Resetting mode object
-  mode.currentHeader = mode.defaultHeader;
+  mode.currentTitle = mode.defaultTitle;
   mode.currentMessage = mode.defaultMessage;
   document.getElementById(`${mode.current}`).classList.add("clickable");
   document.getElementById(`${mode.current}`).classList.remove("selected", "selected-animation");
