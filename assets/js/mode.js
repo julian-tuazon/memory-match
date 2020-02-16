@@ -7,7 +7,7 @@ class Mode {
 const mode = {
   "current": "null",
   "defaultTitle": "M O D E",
-  "currentTitle": mode.defaultHeader,
+  "currentTitle": "M O D E",
   "defaultMessage": "Deploy Pod",
   "currentMessage": "Deploy Pod",
   "modeList": [
@@ -20,7 +20,7 @@ const mode = {
     "sound": document.getElementById("pod-one"),
   },
   "time-attack": {
-    "modeHeader": "T I M E - A T T A C K",
+    "modeTitle": "T I M E - A T T A C K",
     "modeMessage": "Pod Y-153",
     "sound": document.getElementById("pod-two"),
   },
@@ -32,38 +32,35 @@ function addEventListenersMode() {
     currentElement.addEventListener('mouseover', handleMouseOverMode);
     currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
     currentElement.addEventListener('click', function (event) {
-      console.log("clicked", event.target.id]);
-      handleClickLocation(event);
+      handleClickMode(event);
     });
   }
-  console.log("Added mouseover, mouseleave, click");
 }
 
 function handleMouseOverMode(event) {
-  console.log(event.target.id);
-  document.getElementById("mode-title").textContent = mode[event.target.id]].modeTitle;
-  document.getElementById("mode-message").textContent = mode[event.target.id]].modeMessage;
+  document.getElementById("mode-title").textContent = mode[event.target.id].modeTitle;
+  document.getElementById("mode-message").textContent = mode[event.target.id].modeMessage;
 }
 
 function handleMouseLeaveMode() {
-  console.log(event.target.id);
+  document.getElementById("mode-title").textContent = mode.currentTitle;
   document.getElementById("mode-message").textContent = mode.currentMessage;
 }
 
 function handleClickMode(event) {
-  console.log("we made it");
   if (mode.current !== event.target.id) {
     event.target.classList.add("selected", "selected-animation");
     event.target.classList.remove("clickable");
+    setTimeout(function () {
+      event.target.classList.remove("selected-animation");
+    }, 700);
     if (mode.current !== "null") {
       document.getElementById(`${mode.current}`).classList.add("clickable");
       document.getElementById(`${mode.current}`).classList.remove("selected");
     }
     mode.current = event.target.id;
+    mode.currentTitle = mode[mode.current].modeTitle;
     mode.currentMessage = mode[mode.current].modeMessage;
-    setTimeout(function () {
-      event.target.classList.remove("selected-animation");
-    }, 700);
     playSound(selectSound);
     playSound(mode[mode.current].sound);
     modeButton.classList.remove("temp-hidden");
