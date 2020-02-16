@@ -398,125 +398,208 @@ let a_two = document.getElementById("medium");
 let two_b = document.getElementById("hard");
 
 // NieR modal sound effects / text changes / difficulty selector
-nine_s.addEventListener('mouseover', function() {
-  console.log('mouseover 9S');
-  document.getElementById("difficulty-title").textContent = "E A S Y";
-  document.getElementById("difficulty-message").textContent = "YoRHa No. 9 Type S";
-});
+// nine_s.addEventListener('mouseover', function() {
+//   console.log('mouseover 9S');
+//   document.getElementById("difficulty-title").textContent = "E A S Y";
+//   document.getElementById("difficulty-message").textContent = "YoRHa No. 9 Type S";
+// });
 
-nine_s.addEventListener('mouseleave', function () {
-  console.log('mouseexit 9S');
-  document.getElementById("difficulty-title").textContent = `${currentTop}`;
-  document.getElementById("difficulty-message").textContent = `${currentBottom}`;
-});
+// nine_s.addEventListener('mouseleave', function () {
+//   console.log('mouseexit 9S');
+//   document.getElementById("difficulty-title").textContent = `${currentTop}`;
+//   document.getElementById("difficulty-message").textContent = `${currentBottom}`;
+// });
 
-nine_s.addEventListener('click', function () {
-  console.log('click 9S');
-  if (!easy) {
-    nine_s.classList.add("selected");
-    nine_s.classList.add("selected-animation");
-    nine_s.classList.remove("clickable");
-    if (hard) {
-      two_b.classList.remove("selected");
-      two_b.classList.add("clickable");
-      hard = false;
-    }
-    if (medium) {
-      a_two.classList.remove("selected");
-      a_two.classList.add("clickable");
-      medium = false;
-    }
-    easy = true;
-    currentBottom = "YoRHa No. 9 Type S";
-    currentTop = "E A S Y";
-    setTimeout(function() {
-      nine_s.classList.remove("selected-animation");
-    }, 700);
-    playSound(selectSound);
-    playSound(document.getElementById("9s"));
-    difficultyButton.classList.remove("temp-hidden");
+// nine_s.addEventListener('click', function () {
+//   console.log('click 9S');
+//   if (!easy) {
+//     nine_s.classList.add("selected");
+//     nine_s.classList.add("selected-animation");
+//     nine_s.classList.remove("clickable");
+//     if (hard) {
+//       two_b.classList.remove("selected");
+//       two_b.classList.add("clickable");
+//       hard = false;
+//     }
+//     if (medium) {
+//       a_two.classList.remove("selected");
+//       a_two.classList.add("clickable");
+//       medium = false;
+//     }
+//     easy = true;
+//     currentBottom = "YoRHa No. 9 Type S";
+//     currentTop = "E A S Y";
+//     setTimeout(function() {
+//       nine_s.classList.remove("selected-animation");
+//     }, 700);
+//     playSound(selectSound);
+//     playSound(document.getElementById("9s"));
+//     difficultyButton.classList.remove("temp-hidden");
+//   }
+// });
+
+// a_two.addEventListener('mouseover', function () {
+//   console.log('mouseover 9S');
+//   document.getElementById("difficulty-message").textContent = "YoRHa Type A No. 2";
+//   document.getElementById("difficulty-title").textContent = "M E D I U M";
+// });
+
+// a_two.addEventListener('mouseleave', function () {
+//   console.log('mouseleave a2');
+//   document.getElementById("difficulty-message").textContent = `${currentBottom}`;
+//   document.getElementById("difficulty-title").textContent = `${currentTop}`;
+// });
+
+// a_two.addEventListener('click', function () {
+//   console.log('click A2');
+//   if (!medium) {
+//     a_two.classList.add("selected");
+//     a_two.classList.add("selected-animation");
+//     a_two.classList.remove("clickable");
+//     if (easy) {
+//       nine_s.classList.remove("selected");
+//       nine_s.classList.add("clickable");
+//       easy = false;
+//     }
+//     if (hard) {
+//       two_b.classList.remove("selected");
+//       two_b.classList.add("clickable");
+//       hard = false;
+//     }
+//     medium = true;
+//     currentBottom = "YoRHa Type A No. 2";
+//     currentTop = "M E D I U M";
+//     setTimeout(function () {
+//       a_two.classList.remove("selected-animation");
+//     }, 700);
+//     playSound(selectSound);
+//     playSound(document.getElementById("a2"));
+//     difficultyButton.classList.remove("temp-hidden");
+//   }
+// });
+
+// two_b.addEventListener('mouseover', function () {
+//   console.log('mouseover 9S');
+//   document.getElementById("difficulty-title").textContent = "H A R D";
+//   document.getElementById("difficulty-message").textContent = "YoRHa No. 2 Type B";
+// });
+
+// two_b.addEventListener('mouseleave', function () {
+//   console.log('mouseleave 2b');
+//   document.getElementById("difficulty-title").textContent = `${currentTop}`;
+//   document.getElementById("difficulty-message").textContent = `${currentBottom}`;
+// });
+
+// two_b.addEventListener('click', function () {
+//   console.log('click 2B');
+//   if (!hard) {
+//     two_b.classList.add("selected");
+//     two_b.classList.add("selected-animation");
+//     two_b.classList.remove("clickable");
+//     if (easy) {
+//       nine_s.classList.remove("selected");
+//       nine_s.classList.add("clickable");
+//       easy = false;
+//     }
+//     if (medium) {
+//       a_two.classList.remove("selected");
+//       a_two.classList.add("clickable");
+//       medium = false;
+//     }
+//     hard = true;
+//     currentBottom = "YoRHa No. 2 Type B";
+//     currentTop = "H A R D";
+//     setTimeout(function () {
+//       two_b.classList.remove("selected-animation");
+//     }, 700);
+//     playSound(selectSound);
+//     playSound(document.getElementById("2b"));
+//     difficultyButton.classList.remove("temp-hidden");
+//   }
+// });
+
+
+const difficulty = {
+  "current": "null",
+  "defaultTitle": "D I F F I C U L T Y",
+  "currentTitle": "D I F F I C U L T Y",
+  "defaultMessage": "Deploy YoRHa Unit",
+  "currentMessage": "Deploy YoRHa Unit",
+  "difficultyList": [
+    "easy",
+    "medium",
+    "hard",
+  ],
+  "easy": {
+    "difficultyTitle": "E A S Y",
+    "difficultyMessage": "YoRHa No. 9 Type S",
+    "time": 99,
+    "lives": 50,
+    "display": "Easy",
+    "sound": document.getElementById("9s"),
+  },
+  "medium": {
+    "difficultyTitle": "M E D I U M",
+    "difficultyMessage": "YoRHa Type A No. 2",
+    "time": 60,
+    "lives": 35,
+    "display": "Medium",
+    "sound": document.getElementById("a2"),
+  },
+  "hard": {
+    "difficultyTitle": "H A R D",
+    "difficultyMessage": "YoRHa No. 2 Type B",
+    "time": 30,
+    "lives": 20,
+    "display": "Hard",
+    "sound": document.getElementById("2b"),
+  },
+};
+
+function addEventListenersDifficulty() {
+  for (let i = 0; i < difficulty.difficultyList.length; i++) {
+    let currentElement = document.getElementById(`${difficulty.difficultyList[i]}`);
+    currentElement.addEventListener('mouseover', handleMouseOverDifficulty);
+    currentElement.addEventListener('mouseleave', handleMouseLeaveDifficulty);
+    currentElement.addEventListener('click', function (event) {
+      handleClickDifficulty(event);
+    });
   }
-});
+}
 
-a_two.addEventListener('mouseover', function () {
-  console.log('mouseover 9S');
-  document.getElementById("difficulty-message").textContent = "YoRHa Type A No. 2";
-  document.getElementById("difficulty-title").textContent = "M E D I U M";
-});
+function handleMouseOverDifficulty(event) {
+  document.getElementById("difficulty-title").textContent = difficulty[event.target.id].difficultyTitle;
+  document.getElementById("difficulty-message").textContent = difficulty[event.target.id].difficultyMessage;
+}
 
-a_two.addEventListener('mouseleave', function () {
-  console.log('mouseleave a2');
-  document.getElementById("difficulty-message").textContent = `${currentBottom}`;
-  document.getElementById("difficulty-title").textContent = `${currentTop}`;
-});
+function handleMouseLeaveDifficulty() {
+  document.getElementById("difficulty-title").textContent = difficulty.currentTitle;
+  document.getElementById("difficulty-message").textContent = difficulty.currentMessage;
+}
 
-a_two.addEventListener('click', function () {
-  console.log('click A2');
-  if (!medium) {
-    a_two.classList.add("selected");
-    a_two.classList.add("selected-animation");
-    a_two.classList.remove("clickable");
-    if (easy) {
-      nine_s.classList.remove("selected");
-      nine_s.classList.add("clickable");
-      easy = false;
-    }
-    if (hard) {
-      two_b.classList.remove("selected");
-      two_b.classList.add("clickable");
-      hard = false;
-    }
-    medium = true;
-    currentBottom = "YoRHa Type A No. 2";
-    currentTop = "M E D I U M";
+function handleClickDifficulty(event) {
+  if (difficulty.current !== event.target.id) {
+    event.target.classList.add("selected", "selected-animation");
+    event.target.classList.remove("clickable");
     setTimeout(function () {
-      a_two.classList.remove("selected-animation");
+      event.target.classList.remove("selected-animation");
     }, 700);
+    if (difficulty.current !== "null") {
+      document.getElementById(`${difficulty.current}`).classList.add("clickable");
+      document.getElementById(`${difficulty.current}`).classList.remove("selected");
+    }
+    difficulty.current = event.target.id;
+    difficulty.currentTitle = difficulty[difficulty.current].difficultyTitle;
+    difficulty.currentMessage = difficulty[difficulty.current].difficultyMessage;
     playSound(selectSound);
-    playSound(document.getElementById("a2"));
+    playSound(difficulty[difficulty.current].sound);
     difficultyButton.classList.remove("temp-hidden");
   }
-});
+}
 
-two_b.addEventListener('mouseover', function () {
-  console.log('mouseover 9S');
-  document.getElementById("difficulty-title").textContent = "H A R D";
-  document.getElementById("difficulty-message").textContent = "YoRHa No. 2 Type B";
-});
+addEventListenersDifficulty();
 
-two_b.addEventListener('mouseleave', function () {
-  console.log('mouseleave 2b');
-  document.getElementById("difficulty-title").textContent = `${currentTop}`;
-  document.getElementById("difficulty-message").textContent = `${currentBottom}`;
-});
 
-two_b.addEventListener('click', function () {
-  console.log('click 2B');
-  if (!hard) {
-    two_b.classList.add("selected");
-    two_b.classList.add("selected-animation");
-    two_b.classList.remove("clickable");
-    if (easy) {
-      nine_s.classList.remove("selected");
-      nine_s.classList.add("clickable");
-      easy = false;
-    }
-    if (medium) {
-      a_two.classList.remove("selected");
-      a_two.classList.add("clickable");
-      medium = false;
-    }
-    hard = true;
-    currentBottom = "YoRHa No. 2 Type B";
-    currentTop = "H A R D";
-    setTimeout(function () {
-      two_b.classList.remove("selected-animation");
-    }, 700);
-    playSound(selectSound);
-    playSound(document.getElementById("2b"));
-    difficultyButton.classList.remove("temp-hidden");
-  }
-});
 
 // Location select
 const locations = {
