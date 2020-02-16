@@ -228,18 +228,16 @@ welcomeButton.addEventListener('click', function () {
 });
 
 modeButton.addEventListener('click', function () {
-  if (timeAttack || survival) {
     modeModal.classList.add("hidden");
     currentTop = "D I F F I C U L T Y";
     currentBottom = "Deploy YoRHa Unit";
-    podOne.classList.remove("selected", "selected-animation");
-    podOne.classList.add("clickable");
-    podTwo.classList.remove("selected", "selected-animation");
-    podTwo.classList.add("clickable");
+    // podOne.classList.remove("selected", "selected-animation");
+    // podOne.classList.add("clickable");
+    // podTwo.classList.remove("selected", "selected-animation");
+    // podTwo.classList.add("clickable");
     modeButton.classList.add("temp-hidden");
     difficultyModal.classList.remove("hidden");
     playSound(flipSound);
-  }
 });
 difficultyButton.addEventListener('click', function() {
   difficultyModal.classList.add("hidden");
@@ -654,10 +652,10 @@ function startGame() {
 
   // Set initial bgm volume, start timer
   timeLeft = timeValue;
-  if (timeAttack) {
+  if (mode.current === "time-attack") {
     timer = setInterval(countdown, 100);
     gameMode = "Time-Attack";
-  } else if (survival) {
+  } else if (mode.current === "survival") {
     timeDisplay.textContent = `Lives | ${livesLeft}`;
     gameMode = "Survival";
   }
