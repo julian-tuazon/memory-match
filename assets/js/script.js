@@ -262,69 +262,138 @@ let currentTop = "M O D E";
 let currentBottom = "Deploy Pod";
 
 // Mode modal sound effects / text changes / mode selector
-podOne.addEventListener('mouseover', function () {
-  document.getElementById("mode-title").textContent = "S U R V I V A L";
-  document.getElementById("mode-message").textContent = "Pod X-042";
-});
+// podOne.addEventListener('mouseover', function () {
+//   document.getElementById("mode-title").textContent = "S U R V I V A L";
+//   document.getElementById("mode-message").textContent = "Pod X-042";
+// });
 
-podOne.addEventListener('mouseleave', function () {
-  document.getElementById("mode-title").textContent = `${currentTop}`;
-  document.getElementById("mode-message").textContent = `${currentBottom}`;
-});
+// podOne.addEventListener('mouseleave', function () {
+//   document.getElementById("mode-title").textContent = `${currentTop}`;
+//   document.getElementById("mode-message").textContent = `${currentBottom}`;
+// });
 
-podOne.addEventListener('click', function () {
-  if (!survival) {
-    podOne.classList.add("selected");
-    podOne.classList.add("selected-animation");
-    podOne.classList.remove("clickable");
-    if (timeAttack) {
-      podTwo.classList.remove("selected");
-      podTwo.classList.add("clickable");
-      timeAttack = false;
+// podOne.addEventListener('click', function () {
+//   if (!survival) {
+//     podOne.classList.add("selected");
+//     podOne.classList.add("selected-animation");
+//     podOne.classList.remove("clickable");
+//     if (timeAttack) {
+//       podTwo.classList.remove("selected");
+//       podTwo.classList.add("clickable");
+//       timeAttack = false;
+//     }
+//     survival = true;
+//     currentTop = "S U R V I V A L";
+//     currentBottom = "Pod X-042";
+//     setTimeout(function () {
+//       podOne.classList.remove("selected-animation");
+//     }, 700);
+//     playSound(selectSound);
+//     playSound(document.getElementById("pod-one"));
+//     modeButton.classList.remove("temp-hidden");
+//   }
+// });
+
+// podTwo.addEventListener('mouseover', function () {
+//   document.getElementById("mode-title").textContent = "T I M E - A T T A C K";
+//   document.getElementById("mode-message").textContent = "Pod Y-153";
+// });
+
+// podTwo.addEventListener('mouseleave', function () {
+//   document.getElementById("mode-title").textContent = `${currentTop}`;
+//   document.getElementById("mode-message").textContent = `${currentBottom}`;
+// });
+
+// podTwo.addEventListener('click', function () {
+//   if (!timeAttack) {
+//     podTwo.classList.add("selected");
+//     podTwo.classList.add("selected-animation");
+//     podTwo.classList.remove("clickable");
+//     if (survival) {
+//       podOne.classList.remove("selected");
+//       podOne.classList.add("clickable");
+//       survival = false;
+//     }
+//     timeAttack = true;
+//     currentTop = "T I M E - A T T A C K";
+//     currentBottom = "Pod Y-153";
+//     setTimeout(function () {
+//       podTwo.classList.remove("selected-animation");
+//     }, 700);
+//     playSound(selectSound);
+//     playSound(document.getElementById("pod-two"));
+//     modeButton.classList.remove("temp-hidden");
+//   }
+// });
+
+
+const mode = {
+  "current": "null",
+  "defaultHeader": "M O D E",
+  "currentHeader": mode.defaultHeader,
+  "defaultMessage": "Deploy Pod",
+  "currentMessage": "Deploy Pod",
+  "modeList": [
+    "survival",
+    "time-attack",
+  ],
+  "survival": {
+    "modeHeader": "S U R V I V A L",
+    "modeMessage": "Pod X-042",
+    "sound": document.getElementById("pod-one"),
+  },
+  "time-attack": {
+    "modeHeader": "T I M E - A T T A C K",
+    "modeMessage": "Pod Y-153",
+    "sound": document.getElementById("pod-two"),
+  },
+};
+
+function addEventListenersMode() {
+  for (let i = 0; i < mode.modeList.length; i++) {
+    let currentElement = document.getElementById(`${mode.modeList[i]}`);
+    currentElement.addEventListener('mouseover', handleMouseOverMode);
+    currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
+    currentElement.addEventListener('click', function (event) {
+      console.log("clicked", event.target.id]);
+      handleClickLocation(event);
+    });
+  }
+  console.log("Added mouseover, mouseleave, click");
+}
+
+function handleMouseOverMode(event) {
+  console.log(event.target.id);
+  document.getElementById("mode-header").textContent = mode[event.target.id]].modeHeader;
+  document.getElementById("mode-message").textContent = mode[event.target.id]].modeMessage;
+}
+
+function handleMouseLeaveMode() {
+  console.log(event.target.id);
+  document.getElementById("mode-message").textContent = mode.currentMessage;
+}
+
+function handleClickMode(event) {
+  console.log("we made it");
+  if (mode.current !== event.target.id) {
+    event.target.classList.add("selected", "selected-animation");
+    event.target.classList.remove("clickable");
+    if (mode.current !== "null") {
+      document.getElementById(`${mode.current}`).classList.add("clickable");
+      document.getElementById(`${mode.current}`).classList.remove("selected");
     }
-    survival = true;
-    currentTop = "S U R V I V A L";
-    currentBottom = "Pod X-042";
+    mode.current = event.target.id;
+    mode.currentMessage = mode[mode.current].modeMessage;
     setTimeout(function () {
-      podOne.classList.remove("selected-animation");
+      event.target.classList.remove("selected-animation");
     }, 700);
     playSound(selectSound);
-    playSound(document.getElementById("pod-one"));
+    playSound(mode[mode.current].sound);
     modeButton.classList.remove("temp-hidden");
   }
-});
+}
 
-podTwo.addEventListener('mouseover', function () {
-  document.getElementById("mode-title").textContent = "T I M E - A T T A C K";
-  document.getElementById("mode-message").textContent = "Pod Y-153";
-});
-
-podTwo.addEventListener('mouseleave', function () {
-  document.getElementById("mode-title").textContent = `${currentTop}`;
-  document.getElementById("mode-message").textContent = `${currentBottom}`;
-});
-
-podTwo.addEventListener('click', function () {
-  if (!timeAttack) {
-    podTwo.classList.add("selected");
-    podTwo.classList.add("selected-animation");
-    podTwo.classList.remove("clickable");
-    if (survival) {
-      podOne.classList.remove("selected");
-      podOne.classList.add("clickable");
-      survival = false;
-    }
-    timeAttack = true;
-    currentTop = "T I M E - A T T A C K";
-    currentBottom = "Pod Y-153";
-    setTimeout(function () {
-      podTwo.classList.remove("selected-animation");
-    }, 700);
-    playSound(selectSound);
-    playSound(document.getElementById("pod-two"));
-    modeButton.classList.remove("temp-hidden");
-  }
-});
+addEventListenersMode();
 
 // NieR object variables
 let nine_s = document.getElementsByClassName("nine-s")[0].parentElement;
