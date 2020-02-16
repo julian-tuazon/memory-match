@@ -810,6 +810,14 @@ function resetGame() {
   document.getElementById("difficulty-message").textContent = "Deploy YoRHa Unit";
   document.getElementById("location-message").textContent = locations.defaultMessage;
 
+  // Resetting mode object
+  mode.currentHeader = mode.defaultHeader;
+  mode.currentMessage = mode.defaultMessage;
+  document.getElementById(`${mode.current}`).classList.add("clickable");
+  document.getElementById(`${mode.current}`).classList.remove("selected", "selected-animation");
+  mode.current = "null";
+
+
   // Resetting locations object
   locations.currentMessage = locations.defaultMessage;
   document.body.classList.remove(`${locations.current}`);
