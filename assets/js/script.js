@@ -518,7 +518,6 @@ let two_b = document.getElementById("hard");
 //   }
 // });
 
-
 const difficulty = {
   "current": "null",
   "defaultTitle": "D I F F I C U L T Y",
@@ -706,32 +705,35 @@ document.getElementById("sound-off-button").addEventListener('click', function (
 
 function startGame() {
   // Game can only start when difficulty is selected
-  if (easy) {
-    livesLeft = 60;
-    timeValue = 1000;
-    difficulty = "Easy";
-  } else if (medium) {
-    livesLeft = 40;
-    timeValue = 60;
-    difficulty = "Medium";
-  } else if (hard) {
-    livesLeft = 2;
-    timeValue = 10;
-    difficulty = "Hard";
-  }
+  // if (easy) {
+  //   livesLeft = 60;
+  //   timeValue = 1000;
+  //   difficulty = "Easy";
+  // } else if (medium) {
+  //   livesLeft = 40;
+  //   timeValue = 60;
+  //   difficulty = "Medium";
+  // } else if (hard) {
+  //   livesLeft = 2;
+  //   timeValue = 10;
+  //   difficulty = "Hard";
+  // }
+
+  livesLeft = difficulty[difficulty.current].lives;
+  timeLeft = difficulty[difficulty.current].time;
 
   // Resetting classes for difficulty selector modal
-  nine_s.classList.add("clickable");
-  nine_s.classList.remove("selected");
+  // nine_s.classList.add("clickable");
+  // nine_s.classList.remove("selected");
 
-  a_two.classList.add("clickable");
-  a_two.classList.remove("selected");
+  // a_two.classList.add("clickable");
+  // a_two.classList.remove("selected");
 
-  two_b.classList.add("clickable");
-  two_b.classList.remove("selected");
+  // two_b.classList.add("clickable");
+  // two_b.classList.remove("selected");
 
   // Set initial bgm volume, start timer
-  timeLeft = timeValue;
+  // timeLeft = timeValue;
   if (mode.current === "time-attack") {
     timer = setInterval(countdown, 100);
     // gameMode = "Time-Attack";
@@ -739,7 +741,7 @@ function startGame() {
     timeDisplay.textContent = `Lives | ${livesLeft}`;
     // gameMode = "Survival";
   }
-  difficultyModeDisplay.textContent = `${difficulty} | ${gameMode}`;
+  difficultyModeDisplay.textContent = `${difficulty.current} | ${mode.current}`;
   playSound(startSound);
   playSound(flipSound);
   locationButton.classList.add("temp-hidden");
@@ -792,7 +794,6 @@ function handleClick(event) {
           document.getElementById("final-time").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
         } else if (mode.current === "survival") {
           document.getElementById("final-time").textContent = `Lives Remaining: ${livesLeft}`;
-
         }
         document.getElementById("end-message").textContent = "V I C T O R Y";
         document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
@@ -920,7 +921,7 @@ function resetGame() {
 
 function countdown() {
   if (timeLeft <= 0) {
-    console.log("out of time, now in ending phase", timeLeft);
+    // console.log("out of time, now in ending phase", timeLeft);
     playSound(endSound);
     clearInterval(timer);
     firstCardClicked = null;
@@ -932,7 +933,7 @@ function countdown() {
   }
   timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
   timeLeft -= 0.1;
-  console.log("interval timer at 100ms; timeLeft:", timeLeft);
+  // console.log("interval timer at 100ms; timeLeft:", timeLeft);
 }
 
 function cheatCodes() {
