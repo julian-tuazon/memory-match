@@ -1,3 +1,4 @@
+
 let firstGame = true;
 let firstCardClicked;
 let secondCardClicked;
@@ -683,6 +684,10 @@ cheatButton.addEventListener('click', cheatCodes);
 const modal = new Modal();
 modal.initializeModal();
 
+let mode = modal.mode;
+let difficulty = modal.difficulty;
+let locations = modal.location;
+
 // General events
 
 document.getElementById("sound-on-button").addEventListener('click', function () {
@@ -714,11 +719,9 @@ function startGame() {
   //   timeValue = 10;
   //   difficulty = "Hard";
   // }
-  let mode = modal.mode;
-  let difficulty = modal.difficulty;
-  let location = modal.location;
 
-  document.body.classList.add(location.current); // add body class manipulation to startGame
+
+  document.body.classList.add(locations.current); // add body class manipulation to startGame
   livesLeft = difficulty[difficulty.current].lives;
   timeLeft = difficulty[difficulty.current].time;
 
