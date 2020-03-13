@@ -664,12 +664,12 @@ function handleClickLocation(event) {
     event.target.classList.add("selected", "selected-animation");
     event.target.classList.remove("clickable");
     if (locations.current !== "null") {
-      document.body.classList.remove(locations.current); // add body class manipulation to startGame
+      // document.body.classList.remove(locations.current);
       document.getElementById(`${locations.current}`).classList.add("clickable");
       document.getElementById(`${locations.current}`).classList.remove("selected");
     }
     locations.current = event.target.id;
-    document.body.classList.add(locations.current); // add body class manipulation to startGame
+    // document.body.classList.add(locations.current);
     locations.currentMessage = locations[locations.current].locationMessage;
     setTimeout(function () {
       event.target.classList.remove("selected-animation");
@@ -713,7 +713,7 @@ function startGame() {
   //   timeValue = 10;
   //   difficulty = "Hard";
   // }
-
+  document.body.classList.add(locations.current); // add body class manipulation to startGame
   livesLeft = difficulty[difficulty.current].lives;
   timeLeft = difficulty[difficulty.current].time;
 
