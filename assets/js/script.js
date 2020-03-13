@@ -321,72 +321,72 @@ cheatButton.addEventListener('click', cheatCodes);
 //   }
 // });
 
-const mode = {
-  "current": "null",
-  "defaultTitle": "M O D E",
-  "currentTitle": "M O D E",
-  "defaultMessage": "Deploy Pod",
-  "currentMessage": "Deploy Pod",
-  "modeList": [
-    "survival",
-    "time-attack",
-  ],
-  "survival": {
-    "modeTitle": "S U R V I V A L",
-    "modeMessage": "Pod X-042",
-    "display": "Survival",
-    "sound": document.getElementById("pod-one"),
-  },
-  "time-attack": {
-    "modeTitle": "T I M E - A T T A C K",
-    "modeMessage": "Pod Y-153",
-    "display": "Time-Attack",
-    "sound": document.getElementById("pod-two"),
-  },
-};
+// const mode = {
+//   "current": "null",
+//   "defaultTitle": "M O D E",
+//   "currentTitle": "M O D E",
+//   "defaultMessage": "Deploy Pod",
+//   "currentMessage": "Deploy Pod",
+//   "modeList": [
+//     "survival",
+//     "time-attack",
+//   ],
+//   "survival": {
+//     "modeTitle": "S U R V I V A L",
+//     "modeMessage": "Pod X-042",
+//     "display": "Survival",
+//     "sound": document.getElementById("pod-one"),
+//   },
+//   "time-attack": {
+//     "modeTitle": "T I M E - A T T A C K",
+//     "modeMessage": "Pod Y-153",
+//     "display": "Time-Attack",
+//     "sound": document.getElementById("pod-two"),
+//   },
+// };
 
-function addEventListenersMode() {
-  for (let i = 0; i < mode.modeList.length; i++) {
-    let currentElement = document.getElementById(`${mode.modeList[i]}`);
-    currentElement.addEventListener('mouseover', handleMouseOverMode);
-    currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
-    currentElement.addEventListener('click', function (event) {
-      handleClickMode(event);
-    });
-  }
-}
+// function addEventListenersMode() {
+//   for (let i = 0; i < mode.modeList.length; i++) {
+//     let currentElement = document.getElementById(`${mode.modeList[i]}`);
+//     currentElement.addEventListener('mouseover', handleMouseOverMode);
+//     currentElement.addEventListener('mouseleave', handleMouseLeaveMode);
+//     currentElement.addEventListener('click', function (event) {
+//       handleClickMode(event);
+//     });
+//   }
+// }
 
-function handleMouseOverMode(event) {
-  document.getElementById("mode-title").textContent = mode[event.target.id].modeTitle;
-  document.getElementById("mode-message").textContent = mode[event.target.id].modeMessage;
-}
+// function handleMouseOverMode(event) {
+//   document.getElementById("mode-title").textContent = mode[event.target.id].modeTitle;
+//   document.getElementById("mode-message").textContent = mode[event.target.id].modeMessage;
+// }
 
-function handleMouseLeaveMode() {
-  document.getElementById("mode-title").textContent = mode.currentTitle;
-  document.getElementById("mode-message").textContent = mode.currentMessage;
-}
+// function handleMouseLeaveMode() {
+//   document.getElementById("mode-title").textContent = mode.currentTitle;
+//   document.getElementById("mode-message").textContent = mode.currentMessage;
+// }
 
-function handleClickMode(event) {
-  if (mode.current !== event.target.id) {
-    event.target.classList.add("selected", "selected-animation");
-    event.target.classList.remove("clickable");
-    setTimeout(function () {
-      event.target.classList.remove("selected-animation");
-    }, 700);
-    if (mode.current !== "null") {
-      document.getElementById(`${mode.current}`).classList.add("clickable");
-      document.getElementById(`${mode.current}`).classList.remove("selected");
-    }
-    mode.current = event.target.id;
-    mode.currentTitle = mode[mode.current].modeTitle;
-    mode.currentMessage = mode[mode.current].modeMessage;
-    playSound(selectSound);
-    playSound(mode[mode.current].sound);
-    modeButton.classList.remove("temp-hidden");
-  }
-}
+// function handleClickMode(event) {
+//   if (mode.current !== event.target.id) {
+//     event.target.classList.add("selected", "selected-animation");
+//     event.target.classList.remove("clickable");
+//     setTimeout(function () {
+//       event.target.classList.remove("selected-animation");
+//     }, 700);
+//     if (mode.current !== "null") {
+//       document.getElementById(`${mode.current}`).classList.add("clickable");
+//       document.getElementById(`${mode.current}`).classList.remove("selected");
+//     }
+//     mode.current = event.target.id;
+//     mode.currentTitle = mode[mode.current].modeTitle;
+//     mode.currentMessage = mode[mode.current].modeMessage;
+//     playSound(selectSound);
+//     playSound(mode[mode.current].sound);
+//     modeButton.classList.remove("temp-hidden");
+//   }
+// }
 
-addEventListenersMode();
+// addEventListenersMode();
 
 // NieR object variables
 // let nine_s = document.getElementsByClassName("nine-s")[0].parentElement;
@@ -517,170 +517,171 @@ addEventListenersMode();
 //   }
 // });
 
-const difficulty = {
-  "current": "null",
-  "defaultTitle": "D I F F I C U L T Y",
-  "currentTitle": "D I F F I C U L T Y",
-  "defaultMessage": "Deploy YoRHa Unit",
-  "currentMessage": "Deploy YoRHa Unit",
-  "difficultyList": [
-    "easy",
-    "medium",
-    "hard",
-  ],
-  "easy": {
-    "difficultyTitle": "E A S Y",
-    "difficultyMessage": "YoRHa No. 9 Type S",
-    "time": 99,
-    "lives": 50,
-    "display": "Easy",
-    "sound": document.getElementById("9s"),
-  },
-  "medium": {
-    "difficultyTitle": "M E D I U M",
-    "difficultyMessage": "YoRHa Type A No. 2",
-    "time": 60,
-    "lives": 35,
-    "display": "Medium",
-    "sound": document.getElementById("a2"),
-  },
-  "hard": {
-    "difficultyTitle": "H A R D",
-    "difficultyMessage": "YoRHa No. 2 Type B",
-    "time": 30,
-    "lives": 20,
-    "display": "Hard",
-    "sound": document.getElementById("2b"),
-  },
-};
+// const difficulty = {
+//   "current": "null",
+//   "defaultTitle": "D I F F I C U L T Y",
+//   "currentTitle": "D I F F I C U L T Y",
+//   "defaultMessage": "Deploy YoRHa Unit",
+//   "currentMessage": "Deploy YoRHa Unit",
+//   "difficultyList": [
+//     "easy",
+//     "medium",
+//     "hard",
+//   ],
+//   "easy": {
+//     "difficultyTitle": "E A S Y",
+//     "difficultyMessage": "YoRHa No. 9 Type S",
+//     "time": 99,
+//     "lives": 50,
+//     "display": "Easy",
+//     "sound": document.getElementById("9s"),
+//   },
+//   "medium": {
+//     "difficultyTitle": "M E D I U M",
+//     "difficultyMessage": "YoRHa Type A No. 2",
+//     "time": 60,
+//     "lives": 35,
+//     "display": "Medium",
+//     "sound": document.getElementById("a2"),
+//   },
+//   "hard": {
+//     "difficultyTitle": "H A R D",
+//     "difficultyMessage": "YoRHa No. 2 Type B",
+//     "time": 30,
+//     "lives": 20,
+//     "display": "Hard",
+//     "sound": document.getElementById("2b"),
+//   },
+// };
 
-function addEventListenersDifficulty() {
-  for (let i = 0; i < difficulty.difficultyList.length; i++) {
-    let currentElement = document.getElementById(`${difficulty.difficultyList[i]}`);
-    currentElement.addEventListener('mouseover', handleMouseOverDifficulty);
-    currentElement.addEventListener('mouseleave', handleMouseLeaveDifficulty);
-    currentElement.addEventListener('click', function (event) {
-      handleClickDifficulty(event);
-    });
-  }
-}
+// function addEventListenersDifficulty() {
+//   for (let i = 0; i < difficulty.difficultyList.length; i++) {
+//     let currentElement = document.getElementById(`${difficulty.difficultyList[i]}`);
+//     currentElement.addEventListener('mouseover', handleMouseOverDifficulty);
+//     currentElement.addEventListener('mouseleave', handleMouseLeaveDifficulty);
+//     currentElement.addEventListener('click', function (event) {
+//       handleClickDifficulty(event);
+//     });
+//   }
+// }
 
-function handleMouseOverDifficulty(event) {
-  document.getElementById("difficulty-title").textContent = difficulty[event.target.id].difficultyTitle;
-  document.getElementById("difficulty-message").textContent = difficulty[event.target.id].difficultyMessage;
-}
+// function handleMouseOverDifficulty(event) {
+//   document.getElementById("difficulty-title").textContent = difficulty[event.target.id].difficultyTitle;
+//   document.getElementById("difficulty-message").textContent = difficulty[event.target.id].difficultyMessage;
+// }
 
-function handleMouseLeaveDifficulty() {
-  document.getElementById("difficulty-title").textContent = difficulty.currentTitle;
-  document.getElementById("difficulty-message").textContent = difficulty.currentMessage;
-}
+// function handleMouseLeaveDifficulty() {
+//   document.getElementById("difficulty-title").textContent = difficulty.currentTitle;
+//   document.getElementById("difficulty-message").textContent = difficulty.currentMessage;
+// }
 
-function handleClickDifficulty(event) {
-  if (difficulty.current !== event.target.id) {
-    event.target.classList.add("selected", "selected-animation");
-    event.target.classList.remove("clickable");
-    setTimeout(function () {
-      event.target.classList.remove("selected-animation");
-    }, 700);
-    if (difficulty.current !== "null") {
-      document.getElementById(`${difficulty.current}`).classList.add("clickable");
-      document.getElementById(`${difficulty.current}`).classList.remove("selected");
-    }
-    difficulty.current = event.target.id;
-    difficulty.currentTitle = difficulty[difficulty.current].difficultyTitle;
-    difficulty.currentMessage = difficulty[difficulty.current].difficultyMessage;
-    playSound(selectSound);
-    playSound(difficulty[difficulty.current].sound);
-    difficultyButton.classList.remove("temp-hidden");
-  }
-}
+// function handleClickDifficulty(event) {
+//   if (difficulty.current !== event.target.id) {
+//     event.target.classList.add("selected", "selected-animation");
+//     event.target.classList.remove("clickable");
+//     setTimeout(function () {
+//       event.target.classList.remove("selected-animation");
+//     }, 700);
+//     if (difficulty.current !== "null") {
+//       document.getElementById(`${difficulty.current}`).classList.add("clickable");
+//       document.getElementById(`${difficulty.current}`).classList.remove("selected");
+//     }
+//     difficulty.current = event.target.id;
+//     difficulty.currentTitle = difficulty[difficulty.current].difficultyTitle;
+//     difficulty.currentMessage = difficulty[difficulty.current].difficultyMessage;
+//     playSound(selectSound);
+//     playSound(difficulty[difficulty.current].sound);
+//     difficultyButton.classList.remove("temp-hidden");
+//   }
+// }
 
-addEventListenersDifficulty();
+// addEventListenersDifficulty();
 
-// Location select
-const locations = {
-  "current": "null",
-  "defaultMessage": "Select Location",
-  "currentMessage": "Select Location",
-  "locationList": [
-    "sol-2",
-    "moa-therma",
-    "vineta-k",
-    "tech-de-ra",
-    "metropia",
-    "anulpha-pass",
-  ],
-  "sol-2": {
-    "locationMessage": "Sol 2",
-    "sound": document.getElementById("sol-2-voice"),
-  },
-  "moa-therma": {
-    "locationMessage": "Moa Therma",
-    "sound": document.getElementById("moa-therma-voice"),
-  },
-  "vineta-k": {
-    "locationMessage": "Vineta K",
-    "sound": document.getElementById("vineta-k-voice"),
-  },
-  "tech-de-ra": {
-    "locationMessage": "Tech De Ra",
-    "sound": document.getElementById("tech-de-ra-voice"),
-  },
-  "metropia": {
-    "locationMessage": "Metropia",
-    "sound": document.getElementById("metropia-voice"),
-  },
-  "anulpha-pass": {
-    "locationMessage": "Anulpha Pass",
-    "sound": document.getElementById("anulpha-pass-voice"),
-  },
-};
 
-function addEventListeners() {
-  for (let i = 0; i < locations.locationList.length; i++) {
-    let currentElement = document.getElementById(`${locations.locationList[i]}`);
-    currentElement.addEventListener('mouseover', handleMouseOver);
-    currentElement.addEventListener('mouseleave', handleMouseLeave);
-    currentElement.addEventListener('click', function(event) {
-      console.log("clicked", event.target.id);
-      handleClickLocation(event);
-    });
-  }
-  console.log("Added mouseover, mouseleave, click");
-}
+// const locations = {
+//   "current": "null",
+//   "defaultMessage": "Select Location",
+//   "currentMessage": "Select Location",
+//   "locationList": [
+//     "sol-2",
+//     "moa-therma",
+//     "vineta-k",
+//     "tech-de-ra",
+//     "metropia",
+//     "anulpha-pass",
+//   ],
+//   "sol-2": {
+//     "locationMessage": "Sol 2",
+//     "sound": document.getElementById("sol-2-voice"),
+//   },
+//   "moa-therma": {
+//     "locationMessage": "Moa Therma",
+//     "sound": document.getElementById("moa-therma-voice"),
+//   },
+//   "vineta-k": {
+//     "locationMessage": "Vineta K",
+//     "sound": document.getElementById("vineta-k-voice"),
+//   },
+//   "tech-de-ra": {
+//     "locationMessage": "Tech De Ra",
+//     "sound": document.getElementById("tech-de-ra-voice"),
+//   },
+//   "metropia": {
+//     "locationMessage": "Metropia",
+//     "sound": document.getElementById("metropia-voice"),
+//   },
+//   "anulpha-pass": {
+//     "locationMessage": "Anulpha Pass",
+//     "sound": document.getElementById("anulpha-pass-voice"),
+//   },
+// };
 
-function handleMouseOver(event) {
-  console.log(event.target.id);
-  document.getElementById("location-message").textContent = locations[event.target.id].locationMessage;
-}
+// function addEventListeners() {
+//   for (let i = 0; i < locations.locationList.length; i++) {
+//     let currentElement = document.getElementById(`${locations.locationList[i]}`);
+//     currentElement.addEventListener('mouseover', handleMouseOver);
+//     currentElement.addEventListener('mouseleave', handleMouseLeave);
+//     currentElement.addEventListener('click', function(event) {
+//       console.log("clicked", event.target.id);
+//       handleClickLocation(event);
+//     });
+//   }
+//   console.log("Added mouseover, mouseleave, click");
+// }
 
-function handleMouseLeave() {
-  console.log(event.target.classList[0]);
-  document.getElementById("location-message").textContent = locations.currentMessage;
-}
+// function handleMouseOver(event) {
+//   console.log(event.target.id);
+//   document.getElementById("location-message").textContent = locations[event.target.id].locationMessage;
+// }
 
-function handleClickLocation(event) {
-  if (locations.current !== event.target.id){
-    event.target.classList.add("selected", "selected-animation");
-    event.target.classList.remove("clickable");
-    if (locations.current !== "null") {
-      // document.body.classList.remove(locations.current);
-      document.getElementById(`${locations.current}`).classList.add("clickable");
-      document.getElementById(`${locations.current}`).classList.remove("selected");
-    }
-    locations.current = event.target.id;
-    // document.body.classList.add(locations.current);
-    locations.currentMessage = locations[locations.current].locationMessage;
-    setTimeout(function () {
-      event.target.classList.remove("selected-animation");
-    }, 700);
-    playSound(selectSound);
-    playSound(locations[locations.current].sound);
-    locationButton.classList.remove("temp-hidden");
-  }
-}
+// function handleMouseLeave() {
+//   console.log(event.target.classList[0]);
+//   document.getElementById("location-message").textContent = locations.currentMessage;
+// }
 
-addEventListeners();
+// function handleClickLocation(event) {
+//   if (locations.current !== event.target.id){
+//     event.target.classList.add("selected", "selected-animation");
+//     event.target.classList.remove("clickable");
+//     if (locations.current !== "null") {
+//       document.getElementById(`${locations.current}`).classList.add("clickable");
+//       document.getElementById(`${locations.current}`).classList.remove("selected");
+//     }
+//     locations.current = event.target.id;
+//     locations.currentMessage = locations[locations.current].locationMessage;
+//     setTimeout(function () {
+//       event.target.classList.remove("selected-animation");
+//     }, 700);
+//     playSound(selectSound);
+//     playSound(locations[locations.current].sound);
+//     locationButton.classList.remove("temp-hidden");
+//   }
+// }
+
+// addEventListeners();
+
+const modal = new Modal();
+modal.initializeModal();
 
 // General events
 
@@ -713,7 +714,11 @@ function startGame() {
   //   timeValue = 10;
   //   difficulty = "Hard";
   // }
-  document.body.classList.add(locations.current); // add body class manipulation to startGame
+  let mode = modal.mode;
+  let difficulty = modal.difficulty;
+  let location = modal.location;
+
+  document.body.classList.add(location.current); // add body class manipulation to startGame
   livesLeft = difficulty[difficulty.current].lives;
   timeLeft = difficulty[difficulty.current].time;
 
