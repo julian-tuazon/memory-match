@@ -272,7 +272,7 @@ function handleClick(event) {
       // Gets the logo name of card class and plays audio element with associated id
       // let endIndex = secondCardClasses.indexOf("-");
       let logoName = secondCardClasses.slice(11, secondCardClasses.indexOf("-logo"));
-      playSound(document.getElementById(`${logoName}`));
+      playSound(document.getElementById(`${logoName}-voice`));
       //
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
