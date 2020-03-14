@@ -118,20 +118,16 @@ function startGame() {
 }
 
 function handleClick(event) {
-  if (event.target.className.indexOf("card-back") === -1) {
-    return;
-  }
+  if (event.target.className.indexOf("card-back") === -1) return;
+  playSound(flipSound);
   if (!firstCardClicked) {
-    playSound(flipSound);
     firstCardClicked = event.target;
-    firstCardClicked.className += " hidden";
+    firstCardClicked.classList.add("hidden");
     firstCardClicked.previousElementSibling.classList.add("current");
     firstCardClasses = firstCardClicked.previousElementSibling.className;
-    console.log("firstCardClasses", firstCardClasses);
   } else {
-    playSound(flipSound);
     secondCardClicked = event.target;
-    secondCardClicked.className += " hidden";
+    secondCardClicked.classList.add("hidden");
     secondCardClicked.previousElementSibling.classList.add("current");
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
@@ -142,25 +138,21 @@ function handleClick(event) {
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("correct");
-      setTimeout(function() {
+      setTimeout(() => {
         firstCardClicked.previousElementSibling.classList.remove("current");
         secondCardClicked.previousElementSibling.classList.remove("current");
-        firstCardClicked = null;
-        secondCardClicked = null;
+        firstCardClicked = secondCardClicked = null;
         gameCards.classList.remove("correct");
         gameCards.addEventListener('click', handleClick);
       }, 500); //previous: 750
       if (matches === maxMatches) {
         playSound(endSound);
         clearInterval(timer);
-        if (mode.current === "time-attack") {
-          document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
-        } else if (mode.current === "survival") {
-          document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
-        }
+        if (mode.current === "time-attack") document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
+        else if (mode.current === "survival") document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
         document.getElementById("end-message").textContent = "V I C T O R Y";
         document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-        end.classList.remove("hidden");
+        endModal.classList.remove("hidden");
       }
     } else {
       playSound(incorrectSound);
@@ -168,28 +160,41 @@ function handleClick(event) {
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("incorrect");
       if (mode.current === "survival") {
-        livesLeft--;
-        timeDisplay.textContent = `Lives | ${livesLeft}`
+        timeDisplay.textContent = `Lives | ${--livesLeft}`
         if (livesLeft === 0) {
           playSound(endSound);
           document.getElementById("end-message").textContent = "D E F E A T";
           document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
           document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
-          end.classList.remove("hidden");
+          endModal.classList.remove("hidden");
         }
       }
-      setTimeout(function() {
+      setTimeout(() => {
         firstCardClicked.previousElementSibling.classList.remove("current");
         secondCardClicked.previousElementSibling.classList.remove("current");
         firstCardClicked.classList.remove("hidden");
         secondCardClicked.classList.remove("hidden");
-        firstCardClicked = null;
-        secondCardClicked = null;
+        firstCardClicked = secondCardClicked = null;
         gameCards.classList.remove("incorrect");
         gameCards.addEventListener('click', handleClick);
       }, 1000); //previous 1250
     }
   }
+}
+
+function countdown() {
+  if (timeLeft <= 0) {
+    playSound(endSound);
+    clearInterval(timer);
+    firstCardClicked = null;
+    secondCardClicked = null;
+    document.getElementById("end-message").textContent = "D E F E A T";
+    document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+    document.getElementById("end-time-lives").textContent = "System.time.nullError //";
+    endModal.classList.remove("hidden");
+  }
+  timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
+  timeLeft -= 0.1;
 }
 
 function shuffleCards() {
@@ -250,7 +255,6 @@ function resetGame() {
   document.getElementById(`${difficulty.current}`).classList.remove("selected", "selected-animation");
   difficulty.current = "null";
 
-
   // Resetting locations object
   locations.currentMessage = locations.defaultMessage;
   document.body.classList.remove(`${locations.current}`);
@@ -260,23 +264,8 @@ function resetGame() {
 
   // Unhide welcome and hide end modals
 
-  end.classList.add("hidden");
+  endModal.classList.add("hidden");
   welcomeModal.classList.remove("hidden");
-}
-
-function countdown() {
-  if (timeLeft <= 0) {
-    playSound(endSound);
-    clearInterval(timer);
-    firstCardClicked = null;
-    secondCardClicked = null;
-    document.getElementById("end-message").textContent = "D E F E A T";
-    document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-    document.getElementById("end-time-lives").textContent = "System.time.nullError //";
-    end.classList.remove("hidden");
-  }
-  timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
-  timeLeft -= 0.1;
 }
 
 function cheatCodes() {
@@ -294,5 +283,5 @@ function cheatCodes() {
   document.getElementById("end-message").textContent = "E X O D U S";
   document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
   document.getElementById("end-time-lives").textContent = "System.resolve //";
-  end.classList.remove("hidden");
+  endModal.classList.remove("hidden");
 }
