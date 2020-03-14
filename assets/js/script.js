@@ -50,6 +50,21 @@ const accuracyDisplay = document.getElementById("accuracy");
 const timeDisplay = document.getElementById("time");
 const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
 
+
+document.getElementById("sound-on-button").addEventListener('click', function () {
+  toggleMusic();
+  toggleVoice();
+  toggleSoundEffects();
+  // playSound(flipSound);
+  soundModal.classList.add("hidden");
+  welcomeModal.classList.remove("hidden");
+});
+
+document.getElementById("sound-off-button").addEventListener('click', function () {
+  soundModal.classList.add("hidden");
+  welcomeModal.classList.remove("hidden");
+});
+
 welcomeButton.addEventListener('click', function () {
   welcomeModal.classList.add("hidden");
   modeModal.classList.remove("hidden");
@@ -79,25 +94,11 @@ gameCards.addEventListener('click', handleClick);
 const modal = new Modal();
 modal.initializeModal();
 
-let mode = modal.mode;
-let difficulty = modal.difficulty;
-let locations = modal.location;
+const mode = modal.mode;
+const difficulty = modal.difficulty;
+const locations = modal.location;
 
 // General events
-
-document.getElementById("sound-on-button").addEventListener('click', function () {
-  toggleMusic();
-  toggleVoice();
-  toggleSoundEffects();
-  // playSound(flipSound);
-  soundModal.classList.add("hidden");
-  welcomeModal.classList.remove("hidden");
-});
-
-document.getElementById("sound-off-button").addEventListener('click', function () {
-  soundModal.classList.add("hidden");
-  welcomeModal.classList.remove("hidden");
-});
 
 function startGame() {
   document.body.classList.add(locations.current); // add body class manipulation to startGame
@@ -193,10 +194,8 @@ function handleClick(event) {
 }
 
 function shuffleCards() {
-  while (gameCards.firstElementChild) {
-    gameCards.removeChild(gameCards.firstElementChild);
-  }
-  const shuffleArray = Array.from(cardsArray);
+  while (gameCards.firstElementChild) gameCards.removeChild(gameCards.firstElementChild);
+  const shuffleArray = [...cardsArray];
   for (let i = 0; i < cardsArray.length; i++) {
     const randomIndex = Math.floor(Math.random() * shuffleArray.length);
     const cardContainer = document.createElement("div");
