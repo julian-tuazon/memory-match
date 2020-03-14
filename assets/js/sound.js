@@ -50,7 +50,7 @@ const voiceArray = [
   "anulpha-pass",
 ];
 
-let hoverableList = document.getElementsByClassName("card-back");
+// let hoverableList = document.getElementsByClassName("card-back");
 
 // Closure for the toggleMusic functionality attached to the musicButton
 let toggleMusic = (function () {
@@ -125,7 +125,8 @@ const voiceButton = document.getElementById("voice-toggle");
 voiceButton.addEventListener('click', toggleVoice);
 
 // Event listeners
-document.getElementsByClassName('clickable').forEach(elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
 
 // var clickableList = document.getElementsByClassName("clickable");
 // for (let x = 0; x < clickableList.length; x++) {
@@ -134,7 +135,7 @@ document.getElementsByClassName('clickable').forEach(elem => elem.addEventListen
 //   })
 // }
 
-document.getElementsByClassName('card-back').forEach(card => card.addEventListener('mouseover', () => hoverSound.play()));
+// document.getElementsByClassName('card-back').forEach(card => card.addEventListener('mouseover', () => hoverSound.play()));
 
 // function addHoverSounds() {
 //   for (let y = 0; y < hoverableList.length; y++) {
