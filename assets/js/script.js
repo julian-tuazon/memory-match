@@ -7,7 +7,26 @@ let maxMatches = 9;
 let matches = 0;
 let attempts = 0;
 let gamesPlayed = 0;
-let shuffleArray = [];
+let cardsArray = [
+  'ag',
+  'assegai',
+  'goteki',
+  'auricom',
+  'icaras',
+  'piranha',
+  'harimau',
+  'qirex',
+  'triakis',
+  'ag',
+  'assegai',
+  'goteki',
+  'auricom',
+  'icaras',
+  'piranha',
+  'harimau',
+  'qirex',
+  'triakis',
+];
 let timeLeft;
 let livesLeft;
 let timer;
@@ -329,7 +348,6 @@ function handleClick(event) {
 }
 
 function shuffleCards() {
-  // Can use appendChild to sort on the DOM?
   while (gameCards.firstElementChild) {
     shuffleArray.push(gameCards.firstElementChild.firstElementChild.classList[1]);
     gameCards.removeChild(gameCards.firstElementChild);
