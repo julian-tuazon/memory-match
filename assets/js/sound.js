@@ -1,6 +1,3 @@
-// Audio functionality
-
-// Assigning variables to the audio HTML elements
 const music = document.getElementById("bgm");
 const startSound = document.getElementById("start-sound");
 const endSound = document.getElementById("end-sound");
@@ -13,6 +10,9 @@ const resetSound = document.getElementById("reset-sound");
 const cheatSound = document.getElementById("cheat-sound");
 const hoverSound = document.getElementById("hover-sound");
 const selectSound = document.getElementById("select-sound");
+
+const musicArray = [music];
+
 const soundEffectsArray = [
   startSound,
   endSound,
@@ -26,6 +26,7 @@ const soundEffectsArray = [
   hoverSound,
   selectSound,
 ];
+
 const voiceArray = [
   "ag",
   "assegai",
@@ -48,13 +49,7 @@ const voiceArray = [
   "metropia",
   "anulpha-pass",
 ];
-// const modalObjects = [
-//   podOne,
-//   podTwo,
-//   nine_s,
-//   a_two,
-//   two_b,
-// ];
+
 let hoverableList = document.getElementsByClassName("card-back");
 
 // Closure for the toggleMusic functionality attached to the musicButton
@@ -130,21 +125,24 @@ const voiceButton = document.getElementById("voice-toggle");
 voiceButton.addEventListener('click', toggleVoice);
 
 // Event listeners
+document.getElementsByClassName('clickable').forEach(elem => elem.addEventListener('mouseover', () => hoverSound.play()));
 
-var clickableList = document.getElementsByClassName("clickable");
-for (let x = 0; x < clickableList.length; x++) {
-  clickableList[x].addEventListener('mouseover', function () {
-    hoverSound.play();
-  })
-}
+// var clickableList = document.getElementsByClassName("clickable");
+// for (let x = 0; x < clickableList.length; x++) {
+//   clickableList[x].addEventListener('mouseover', function () {
+//     hoverSound.play();
+//   })
+// }
 
-function addHoverSounds() {
-  for (let y = 0; y < hoverableList.length; y++) {
-    hoverableList[y].addEventListener('mouseover', function () {
-      hoverSound.play();
-    })
-  }
-}
+document.getElementsByClassName('card-back').forEach(card => card.addEventListener('mouseover', () => hoverSound.play()));
+
+// function addHoverSounds() {
+//   for (let y = 0; y < hoverableList.length; y++) {
+//     hoverableList[y].addEventListener('mouseover', function () {
+//       hoverSound.play();
+//     })
+//   }
+// }
 
 function playSound(sound) {
   sound.currentTime = 0;
