@@ -54,10 +54,7 @@ const voiceArray = [
   "anulpha-pass-voice",
 ];
 
-// let hoverableList = document.getElementsByClassName("card-back");
-
-// Closure for the toggleMusic functionality attached to the musicButton
-let toggleMusic = (function () {
+const toggleMusic = (function () {
   let toggle = true;
   return function () {
     if (toggle) {
@@ -77,10 +74,7 @@ let toggleMusic = (function () {
   }
 })();
 
-// Making music toggle button
-
-// Closure for the toggleSoundEffects functionality attached to the soundEffectsButton
-let toggleSoundEffects = (function () {
+const toggleSoundEffects = (function () {
   let toggle = true;
   return function () {
     if (toggle) {
@@ -99,10 +93,7 @@ let toggleSoundEffects = (function () {
   }
 })();
 
-// Making sound effects button
-
-// Closure for the toggleVoice functionality attached to the voiceButton
-let toggleVoice = (function () {
+const toggleVoice = (function () {
   let toggle = true;
   return function () {
     if (toggle) {
@@ -120,30 +111,10 @@ let toggleVoice = (function () {
   }
 })();
 
-// Making voice button
-
 musicButton.addEventListener('click', toggleMusic);
 soundEffectsButton.addEventListener('click', toggleSoundEffects);
 voiceButton.addEventListener('click', toggleVoice);
 Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
-// Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
-
-// var clickableList = document.getElementsByClassName("clickable");
-// for (let x = 0; x < clickableList.length; x++) {
-//   clickableList[x].addEventListener('mouseover', function () {
-//     hoverSound.play();
-//   })
-// }
-
-// document.getElementsByClassName('card-back').forEach(card => card.addEventListener('mouseover', () => hoverSound.play()));
-
-// function addHoverSounds() {
-//   for (let y = 0; y < hoverableList.length; y++) {
-//     hoverableList[y].addEventListener('mouseover', function () {
-//       hoverSound.play();
-//     })
-//   }
-// }
 
 function playSound(sound) {
   sound.currentTime = 0;
