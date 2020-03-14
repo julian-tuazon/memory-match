@@ -288,11 +288,7 @@ function handleClick(event) {
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses == secondCardClasses) {
       playSound(correctSound);
-      // Gets the logo name of card class and plays audio element with associated id
-      // let endIndex = secondCardClasses.indexOf("-");
-      let logoName = secondCardClasses.slice(11, secondCardClasses.indexOf("-logo"));
-      playSound(document.getElementById(`${logoName}-voice`));
-      //
+      playSound(document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
@@ -349,22 +345,21 @@ function handleClick(event) {
 
 function shuffleCards() {
   while (gameCards.firstElementChild) {
-    shuffleArray.push(gameCards.firstElementChild.firstElementChild.classList[1]);
     gameCards.removeChild(gameCards.firstElementChild);
   }
-  let counter = shuffleArray.length;
-  for (let k = 0; k < counter; k++) {
-    let randomIndex = Math.floor(Math.random() * shuffleArray.length);
-    let cardChild = document.createElement("div");
-    let frontChild = document.createElement("div");
-    let backChild = document.createElement("div");
-    cardChild.classList.add("col-2", "card");
-    frontChild.classList.add("card-front", `${shuffleArray[randomIndex]}`);
-    backChild.classList.add("card-back");
+  const shuffleArray = Array.from(cardsArray);
+  for (let i = 0; i < cardsArray.length; i++) {
+    const randomIndex = Math.floor(Math.random() * shuffleArray.length);
+    const cardContainer = document.createElement("div");
+    const cardFront = document.createElement("div");
+    const cardBack = document.createElement("div");
+    cardContainer.classList.add("col-2", "card");
+    cardFront.classList.add(`${shuffleArray[randomIndex]}`, "card-front");
+    cardBack.classList.add("card-back");
     shuffleArray.splice(randomIndex, 1); // Removes element from shuffleArray - no extra randomization
-    cardChild.appendChild(frontChild);
-    cardChild.appendChild(backChild);
-    gameCards.appendChild(cardChild);
+    cardContainer.appendChild(cardFront);
+    cardContainer.appendChild(cardBack);
+    gameCards.appendChild(cardContainer);
   }
 }
 
