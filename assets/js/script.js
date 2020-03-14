@@ -91,7 +91,7 @@ cheatButton.addEventListener('click', cheatCodes);
 gameCards.addEventListener('click', handleClick);
 
 const modal = new Modal();
-modal.initializeModal();
+modal.initializeModals();
 
 const mode = modal.mode;
 const difficulty = modal.difficulty;
@@ -218,6 +218,7 @@ function shuffleCards() {
 function resetGame() {
   playSound(resetSound);
   playSound(flipSound);
+  document.body.classList.remove(`${locations.current}`);
   matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
 
   accuracyDisplay.textContent = "0.0%";
@@ -230,38 +231,40 @@ function resetGame() {
   gameCards.addEventListener('click', handleClick);
   //
 
-  // Resets modal text:
-  document.getElementById("mode-title").textContent = mode.defaultTitle;
-  document.getElementById("mode-message").textContent = mode.defaultMessage;
-  document.getElementById("difficulty-title").textContent = difficulty.defaultTitle;
-  document.getElementById("difficulty-message").textContent = difficulty.defaultMessage;
-  document.getElementById("location-message").textContent = locations.defaultMessage;
-
-  // Resetting mode object
-  mode.currentTitle = mode.defaultTitle;
-  mode.currentMessage = mode.defaultMessage;
-  document.getElementById(`${mode.current}`).classList.add("clickable");
-  document.getElementById(`${mode.current}`).classList.remove("selected", "selected-animation");
-  mode.current = "null";
-
-  // Resetting difficulty object
-  difficulty.currentTitle = difficulty.defaultTitle;
-  difficulty.currentMessage = difficulty.defaultMessage;
-  document.getElementById(`${difficulty.current}`).classList.add("clickable");
-  document.getElementById(`${difficulty.current}`).classList.remove("selected", "selected-animation");
-  difficulty.current = "null";
-
-  // Resetting locations object
-  locations.currentMessage = locations.defaultMessage;
-  document.body.classList.remove(`${locations.current}`);
-  document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
-  document.querySelector(`.flex > .${locations.current}`).classList.remove("selected", "selected-animation");
-  locations.current = "null";
-
-  // Unhide welcome and hide end modals
+  modal.resetModals();
 
   endModal.classList.add("hidden");
   welcomeModal.classList.remove("hidden");
+
+  // Resets modal text:
+  // document.getElementById("mode-title").textContent = mode.defaultTitle;
+  // document.getElementById("mode-message").textContent = mode.defaultMessage;
+  // document.getElementById("difficulty-title").textContent = difficulty.defaultTitle;
+  // document.getElementById("difficulty-message").textContent = difficulty.defaultMessage;
+  // document.getElementById("location-message").textContent = locations.defaultMessage;
+
+  // // Resetting mode object
+  // mode.currentTitle = mode.defaultTitle;
+  // mode.currentMessage = mode.defaultMessage;
+  // document.getElementById(`${mode.current}`).classList.add("clickable");
+  // document.getElementById(`${mode.current}`).classList.remove("selected", "selected-animation");
+  // mode.current = "null";
+
+  // // Resetting difficulty object
+  // difficulty.currentTitle = difficulty.defaultTitle;
+  // difficulty.currentMessage = difficulty.defaultMessage;
+  // document.getElementById(`${difficulty.current}`).classList.add("clickable");
+  // document.getElementById(`${difficulty.current}`).classList.remove("selected", "selected-animation");
+  // difficulty.current = "null";
+
+  // // Resetting locations object
+  // locations.currentMessage = locations.defaultMessage;
+
+  // document.querySelector(`.flex > .${locations.current}`).classList.add("clickable");
+  // document.querySelector(`.flex > .${locations.current}`).classList.remove("selected", "selected-animation");
+  // locations.current = "null";
+
+  // Unhide welcome and hide end modals
 }
 
 function cheatCodes() {

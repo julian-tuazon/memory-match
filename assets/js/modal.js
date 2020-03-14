@@ -120,16 +120,16 @@ class Modal {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
-  initializeModal() {
+  initializeModals() {
     this.modalList.forEach(modal => this.addEventListeners(modal));
   }
 
   addEventListeners(modal) {
     for (let i = 0; i < modal.itemList.length; i++) {
       let currentElement = document.getElementById(`${modal.itemList[i]}`);
-      currentElement.addEventListener('mouseover', (event) => this.handleMouseOver(event, modal));
+      currentElement.addEventListener('mouseover', event => this.handleMouseOver(event, modal));
       currentElement.addEventListener('mouseleave', () => this.handleMouseLeave(modal));
-      currentElement.addEventListener('click', (event) => this.handleClick(event, modal));
+      currentElement.addEventListener('click', event => this.handleClick(event, modal));
     }
   }
 
@@ -147,9 +147,7 @@ class Modal {
     if (modal.current !== event.target.id) {
       event.target.classList.add("selected", "selected-animation");
       event.target.classList.remove("clickable");
-      setTimeout(function () {
-        event.target.classList.remove("selected-animation");
-      }, 700);
+      setTimeout(() => event.target.classList.remove("selected-animation"), 700);
       if (modal.current !== "null") {
         document.getElementById(`${modal.current}`).classList.add("clickable");
         document.getElementById(`${modal.current}`).classList.remove("selected");
@@ -161,5 +159,15 @@ class Modal {
       playSound(modal[modal.current].sound);
       modal.button.classList.remove("temp-hidden");
     }
+  }
+
+  resetModals() {
+    this.modalList.forEach(modal => {
+      document.getElementById(`${modal.name}-title`).textContent = modal.currentTitle = modal.defaultTitle;
+      document.getElementById(`${modal.name}-message`).textContent = modal.currentMessage = modal.defaultMessage;
+      document.getElementById(`${modal.current}`).classList.add("clickable");
+      document.getElementById(`${modal.current}`).classList.remove("selected", "selected-animation");
+      modal.current = "null";
+    });
   }
 }
