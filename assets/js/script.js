@@ -218,14 +218,10 @@ function shuffleCards() {
 function resetGame() {
   playSound(resetSound);
   playSound(flipSound);
-  matches = 0;
-  attempts = 0;
-  timeLeft = 0;
-  livesLeft = 0;
-  matchesDisplay.textContent = matches;
-  attemptsDisplay.textContent = attempts;
+  matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
+
   accuracyDisplay.textContent = "0.0%";
-  timeDisplay.textContent = "-";
+  // timeDisplay.textContent = "-";
   gamesPlayedDisplay.textContent = ++gamesPlayed;
 
   // Fixes bug in which a reset game still had red or green border glow and possibly could not click on cards
@@ -272,14 +268,9 @@ function cheatCodes() {
   clearInterval(timer);
   playSound(flipSound);
   playSound(cheatSound);
-  matches = 0;
-  attempts = 0;
-  accuracy = "0.0%";
-  gamesPlayed = -1;
-  matchesDisplay.textContent = matches;
-  attemptsDisplay.textContent = attempts;
-  gamesPlayedDisplay.textContent = gamesPlayed;
-  accuracyDisplay.textContent = accuracy;
+  matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
+  accuracy = accuracyDisplay.textContent = "0.0%";
+  gamesPlayedDisplay.textContent = gamesPlayed--;
   document.getElementById("end-message").textContent = "E X O D U S";
   document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
   document.getElementById("end-time-lives").textContent = "System.resolve //";
