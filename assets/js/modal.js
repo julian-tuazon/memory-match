@@ -17,13 +17,13 @@ class Modal {
         "title": "S U R V I V A L",
         "message": "Pod X-042",
         "display": "Survival",
-        "sound": document.getElementById("pod-one"),
+        "sound": document.getElementById("survival-voice"),
       },
       "time-attack": {
         "title": "T I M E - A T T A C K",
         "message": "Pod Y-153",
         "display": "Time-Attack",
-        "sound": document.getElementById("pod-two"),
+        "sound": document.getElementById("time-attack-voice"),
       },
     };
 
@@ -46,7 +46,7 @@ class Modal {
         "time": 99,
         "lives": 50,
         "display": "Easy",
-        "sound": document.getElementById("9s"),
+        "sound": document.getElementById("easy-voice"),
       },
       "medium": {
         "title": "M E D I U M",
@@ -54,7 +54,7 @@ class Modal {
         "time": 60,
         "lives": 35,
         "display": "Medium",
-        "sound": document.getElementById("a2"),
+        "sound": document.getElementById("medium-voice"),
       },
       "hard": {
         "title": "H A R D",
@@ -62,7 +62,7 @@ class Modal {
         "time": 30,
         "lives": 20,
         "display": "Hard",
-        "sound": document.getElementById("2b"),
+        "sound": document.getElementById("hard-voice"),
       },
     };
 
