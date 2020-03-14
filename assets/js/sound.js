@@ -79,8 +79,6 @@ let toggleMusic = (function () {
 
 // Making music toggle button
 
-
-
 // Closure for the toggleSoundEffects functionality attached to the soundEffectsButton
 let toggleSoundEffects = (function () {
   let toggle = true;
@@ -103,8 +101,6 @@ let toggleSoundEffects = (function () {
 
 // Making sound effects button
 
-
-
 // Closure for the toggleVoice functionality attached to the voiceButton
 let toggleVoice = (function () {
   let toggle = true;
@@ -126,14 +122,11 @@ let toggleVoice = (function () {
 
 // Making voice button
 
-
 musicButton.addEventListener('click', toggleMusic);
 soundEffectsButton.addEventListener('click', toggleSoundEffects);
 voiceButton.addEventListener('click', toggleVoice);
-
-// Event listeners
 Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
-Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+// Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
 
 // var clickableList = document.getElementsByClassName("clickable");
 // for (let x = 0; x < clickableList.length; x++) {

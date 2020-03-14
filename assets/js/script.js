@@ -245,7 +245,8 @@ function startGame() {
   locationButton.classList.add("temp-hidden");
   locationModal.classList.add("hidden");
   shuffleCards();
-  addHoverSounds(); // Adds hover sounds to newly created card-back elements
+  Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+  // addHoverSounds(); // Adds hover sounds to newly created card-back elements
 }
 
 function handleClick(event) {
@@ -450,7 +451,7 @@ function cheatCodes() {
   end.classList.remove("hidden");
 }
 
-function playSound(sound) {
-  sound.currentTime = 0;
-  sound.play();
-}
+// function playSound(sound) {
+//   sound.currentTime = 0;
+//   sound.play();
+// }
