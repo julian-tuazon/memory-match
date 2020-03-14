@@ -40,7 +40,7 @@ const modeButton = document.getElementById("mode-button"); // Mode select modal 
 const difficultyButton = document.getElementById("difficulty-button");
 const locationModal = document.getElementById("location-modal");
 const locationButton = document.getElementById("location-button");
-const end = document.getElementById("end");
+const endModal = document.getElementById("end-modal");
 const resetButton = document.getElementById("reset");
 const cheatButton = document.getElementById("cheat");
 const gamesPlayedDisplay = document.getElementById("games-played");
@@ -49,7 +49,6 @@ const matchesDisplay = document.getElementById("matches");
 const accuracyDisplay = document.getElementById("accuracy");
 const timeDisplay = document.getElementById("time");
 const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
-
 
 document.getElementById("sound-on-button").addEventListener('click', function () {
   toggleMusic();
@@ -155,12 +154,12 @@ function handleClick(event) {
         playSound(endSound);
         clearInterval(timer);
         if (mode.current === "time-attack") {
-          document.getElementById("final-time").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
+          document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
         } else if (mode.current === "survival") {
-          document.getElementById("final-time").textContent = `Lives Remaining: ${livesLeft}`;
+          document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
         }
         document.getElementById("end-message").textContent = "V I C T O R Y";
-        document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+        document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
         end.classList.remove("hidden");
       }
     } else {
@@ -174,8 +173,8 @@ function handleClick(event) {
         if (livesLeft === 0) {
           playSound(endSound);
           document.getElementById("end-message").textContent = "D E F E A T";
-          document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-          document.getElementById("final-time").textContent = "System.lives.nullError //";
+          document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+          document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
           end.classList.remove("hidden");
         }
       }
@@ -272,8 +271,8 @@ function countdown() {
     firstCardClicked = null;
     secondCardClicked = null;
     document.getElementById("end-message").textContent = "D E F E A T";
-    document.getElementById("final-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-    document.getElementById("final-time").textContent = "System.time.nullError //";
+    document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+    document.getElementById("end-time-lives").textContent = "System.time.nullError //";
     end.classList.remove("hidden");
   }
   timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
@@ -293,7 +292,7 @@ function cheatCodes() {
   gamesPlayedDisplay.textContent = gamesPlayed;
   accuracyDisplay.textContent = accuracy;
   document.getElementById("end-message").textContent = "E X O D U S";
-  document.getElementById("final-accuracy").textContent = "admin.System.bypass //";
-  document.getElementById("final-time").textContent = "System.resolve //";
+  document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
+  document.getElementById("end-time-lives").textContent = "System.resolve //";
   end.classList.remove("hidden");
 }
