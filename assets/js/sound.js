@@ -11,6 +11,10 @@ const cheatSound = document.getElementById("cheat-sound");
 const hoverSound = document.getElementById("hover-sound");
 const selectSound = document.getElementById("select-sound");
 
+const musicButton = document.getElementById("music-toggle");
+const soundEffectsButton = document.getElementById("sound-toggle");
+const voiceButton = document.getElementById("voice-toggle");
+
 const musicArray = [music];
 
 const soundEffectsArray = [
@@ -74,8 +78,8 @@ let toggleMusic = (function () {
 })();
 
 // Making music toggle button
-const musicButton = document.getElementById("music-toggle");
-musicButton.addEventListener('click', toggleMusic);
+
+
 
 // Closure for the toggleSoundEffects functionality attached to the soundEffectsButton
 let toggleSoundEffects = (function () {
@@ -98,8 +102,8 @@ let toggleSoundEffects = (function () {
 })();
 
 // Making sound effects button
-const soundEffectsButton = document.getElementById("sound-toggle");
-soundEffectsButton.addEventListener('click', toggleSoundEffects);
+
+
 
 // Closure for the toggleVoice functionality attached to the voiceButton
 let toggleVoice = (function () {
@@ -121,7 +125,10 @@ let toggleVoice = (function () {
 })();
 
 // Making voice button
-const voiceButton = document.getElementById("voice-toggle");
+
+
+musicButton.addEventListener('click', toggleMusic);
+soundEffectsButton.addEventListener('click', toggleSoundEffects);
 voiceButton.addEventListener('click', toggleVoice);
 
 // Event listeners
