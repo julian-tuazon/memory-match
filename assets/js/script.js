@@ -205,9 +205,9 @@ locationButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 cheatButton.addEventListener('click', cheatCodes);
 
-
 const modal = new Modal();
 modal.initializeModal();
+
 
 let mode = modal.mode;
 let difficulty = modal.difficulty;

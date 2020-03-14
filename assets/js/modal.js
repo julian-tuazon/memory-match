@@ -125,11 +125,8 @@ class Modal {
   }
 
   addEventListeners(modal) {
-    console.log('add EL modal', modal);
     for (let i = 0; i < modal.itemList.length; i++) {
       let currentElement = document.getElementById(`${modal.itemList[i]}`);
-      console.log('cur El', currentElement);
-      console.log('modal within for loop', modal);
       currentElement.addEventListener('mouseover', (event) => this.handleMouseOver(event, modal));
       currentElement.addEventListener('mouseleave', () => this.handleMouseLeave(modal));
       currentElement.addEventListener('click', (event) => this.handleClick(event, modal));
@@ -137,8 +134,6 @@ class Modal {
   }
 
   handleMouseOver(event, modal) {
-    console.log('modal', modal);
-    console.log('event.target.id', event.target.id);
     document.getElementById(`${modal.name}-title`).textContent = modal[event.target.id].title;
     document.getElementById(`${modal.name}-message`).textContent = modal[event.target.id].message;
   }
