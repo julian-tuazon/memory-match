@@ -67,7 +67,6 @@ class Sound {
 
   playSound(sounds) {
     const args = [...arguments];
-    console.log(args);
     args.forEach(sound => {
       sound.currentTime = 0;
       sound.play();
