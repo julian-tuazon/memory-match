@@ -51,7 +51,7 @@ const timeDisplay = document.getElementById("time");
 const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
 
 document.getElementById("sound-on-button").addEventListener('click', function () {
-  soundList.forEach(sound => sound.toggle());
+  sound.soundList.forEach(sound => sound.toggle());
 
   // playSound(flipSound);
   soundModal.classList.add("hidden");
@@ -66,21 +66,21 @@ document.getElementById("sound-off-button").addEventListener('click', function (
 welcomeButton.addEventListener('click', function () {
   welcomeModal.classList.add("hidden");
   modeModal.classList.remove("hidden");
-  playSound(flipSound);
+  playSound(sound.flipSound);
 });
 
 modeButton.addEventListener('click', function () {
     modeModal.classList.add("hidden");
     modeButton.classList.add("temp-hidden");
     difficultyModal.classList.remove("hidden");
-    playSound(flipSound);
+    playSound(sound.flipSound);
 });
 
 difficultyButton.addEventListener('click', function() {
   difficultyModal.classList.add("hidden");
   difficultyButton.classList.add("temp-hidden");
   locationModal.classList.remove("hidden");
-  playSound(flipSound);
+  playSound(sound.flipSound);
 });
 
 locationButton.addEventListener('click', startGame);
@@ -112,18 +112,18 @@ function startGame() {
   else if (mode.current === "survival") timeDisplay.textContent = `Lives | ${livesLeft}`;
 
   difficultyModeDisplay.textContent = `${difficulty[difficulty.current].display} | ${mode[mode.current].display}`;
-  playSound(startSound);
-  playSound(flipSound);
+  playSound(sound.startSound);
+  playSound(sound.flipSound);
   locationButton.classList.add("temp-hidden");
   locationModal.classList.add("hidden");
   shuffleCards();
-  Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+  Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => sound.hoverSound.play()));
   // addHoverSounds(); // Adds hover sounds to newly created card-back elements
 }
 
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) return;
-  playSound(flipSound);
+  playSound(sound.flipSound);
   if (!firstCardClicked) {
     firstCardClicked = event.target;
     firstCardClicked.classList.add("hidden");
@@ -136,7 +136,7 @@ function handleClick(event) {
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses == secondCardClasses) {
-      playSound(correctSound);
+      playSound(sound.correctSound);
       playSound(document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
@@ -150,7 +150,7 @@ function handleClick(event) {
         gameCards.addEventListener('click', handleClick);
       }, 500); //previous: 750
       if (matches === maxMatches) {
-        playSound(endSound);
+        playSound(sound.endSound);
         clearInterval(timer);
         if (mode.current === "time-attack") document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
         else if (mode.current === "survival") document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
@@ -159,14 +159,14 @@ function handleClick(event) {
         endModal.classList.remove("hidden");
       }
     } else {
-      playSound(incorrectSound);
+      playSound(sound.incorrectSound);
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("incorrect");
       if (mode.current === "survival") {
         timeDisplay.textContent = `Lives | ${--livesLeft}`
         if (livesLeft === 0) {
-          playSound(endSound);
+          playSound(sound.endSound);
           document.getElementById("end-message").textContent = "D E F E A T";
           document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
           document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
@@ -188,7 +188,7 @@ function handleClick(event) {
 
 function countdown() {
   if (timeLeft <= 0) {
-    playSound(endSound);
+    playSound(sound.endSound);
     clearInterval(timer);
     firstCardClicked = null;
     secondCardClicked = null;
@@ -220,8 +220,8 @@ function shuffleCards() {
 }
 
 function resetGame() {
-  playSound(resetSound);
-  playSound(flipSound);
+  playSound(sound.resetSound);
+  playSound(sound.flipSound);
   document.body.classList.remove(`${locations.current}`);
   matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
 
@@ -244,8 +244,8 @@ function resetGame() {
 
 function cheatCodes() {
   clearInterval(timer);
-  playSound(flipSound);
-  playSound(cheatSound);
+  playSound(sound.flipSound);
+  playSound(sound.cheatSound);
   matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
   accuracy = accuracyDisplay.textContent = "0.0%";
   gamesPlayedDisplay.textContent = gamesPlayed--;
