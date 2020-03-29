@@ -107,17 +107,16 @@ function startGame() {
   document.body.classList.add(locations.current); // add body class manipulation to startGame
   livesLeft = difficulty[difficulty.current].lives;
   timeLeft = difficulty[difficulty.current].time;
-
   if (mode.current === "time-attack") timer = setInterval(countdown, 100);
   else if (mode.current === "survival") timeDisplay.textContent = `Lives | ${livesLeft}`;
-
   difficultyModeDisplay.textContent = `${difficulty[difficulty.current].display} | ${mode[mode.current].display}`;
+  shuffleCards();
+
   // sound.playSound(sound.startSound);
   // sound.playSound(sound.flipSound);
   // locationButton.classList.add("temp-hidden");
   // locationModal.classList.add("hidden");
-  shuffleCards();
-  Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => sound.hoverSound.play()));
+
   // addHoverSounds(); // Adds hover sounds to newly created card-back elements
 }
 
@@ -221,6 +220,7 @@ function shuffleCards() {
     cardContainer.appendChild(cardBack);
     gameCards.appendChild(cardContainer);
   }
+  [...document.getElementsByClassName('card-back')].forEach(card => card.addEventListener('mouseover', () => sound.hoverSound.play()));
 }
 
 function resetGame() {
