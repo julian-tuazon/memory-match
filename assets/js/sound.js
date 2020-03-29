@@ -15,61 +15,61 @@ const musicButton = document.getElementById("music-toggle");
 const soundEffectsButton = document.getElementById("sound-toggle");
 const voiceButton = document.getElementById("voice-toggle");
 
-const musicArray = [gameMusic];
+// const musicArray = [gameMusic];
 
-const soundEffectsArray = [
-  startSound,
-  endSound,
-  flipSound,
-  correctSound,
-  incorrectSound,
-  onSound,
-  offSound,
-  resetSound,
-  cheatSound,
-  hoverSound,
-  selectSound,
-];
+// const soundEffectsArray = [
+//   startSound,
+//   endSound,
+//   flipSound,
+//   correctSound,
+//   incorrectSound,
+//   onSound,
+//   offSound,
+//   resetSound,
+//   cheatSound,
+//   hoverSound,
+//   selectSound,
+// ];
 
-const voiceArray = [
-  document.getElementById("ag-voice"),
-  document.getElementById("assegai-voice"),
-  document.getElementById("goteki-voice"),
-  document.getElementById("auricom-voice"),
-  document.getElementById("icaras-voice"),
-  document.getElementById("piranha-voice"),
-  document.getElementById("harimau-voice"),
-  document.getElementById("qirex-voice"),
-  document.getElementById("triakis-voice"),
-  document.getElementById("easy-voice"),
-  document.getElementById("medium-voice"),
-  document.getElementById("hard-voice"),
-  document.getElementById("survival-voice"),
-  document.getElementById("time-attack-voice"),
-  document.getElementById("sol-2-voice"),
-  document.getElementById("moa-therma-voice"),
-  document.getElementById("vineta-k-voice"),
-  document.getElementById("tech-de-ra-voice"),
-  document.getElementById("metropia-voice"),
-  document.getElementById("anulpha-pass-voice"),
-];
+// const voiceArray = [
+//   document.getElementById("ag-voice"),
+//   document.getElementById("assegai-voice"),
+//   document.getElementById("goteki-voice"),
+//   document.getElementById("auricom-voice"),
+//   document.getElementById("icaras-voice"),
+//   document.getElementById("piranha-voice"),
+//   document.getElementById("harimau-voice"),
+//   document.getElementById("qirex-voice"),
+//   document.getElementById("triakis-voice"),
+//   document.getElementById("easy-voice"),
+//   document.getElementById("medium-voice"),
+//   document.getElementById("hard-voice"),
+//   document.getElementById("survival-voice"),
+//   document.getElementById("time-attack-voice"),
+//   document.getElementById("sol-2-voice"),
+//   document.getElementById("moa-therma-voice"),
+//   document.getElementById("vineta-k-voice"),
+//   document.getElementById("tech-de-ra-voice"),
+//   document.getElementById("metropia-voice"),
+//   document.getElementById("anulpha-pass-voice"),
+// ];
 
 const music = {
   name: 'Music',
   button: musicButton,
-  itemList: musicArray,
+  itemList: [...document.getElementById('music').children],
 };
 
 const soundEffects = {
   name: 'SFX',
   button: soundEffectsButton,
-  itemList: soundEffectsArray,
+  itemList: [...document.getElementById('sound-effects').children],
 };
 
 const voice = {
   name: 'Voice',
   button: voiceButton,
-  itemList: voiceArray,
+  itemList: [...document.getElementById('voice').children],
 };
 
 const soundList = [music, soundEffects, voice];
