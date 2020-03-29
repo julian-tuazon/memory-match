@@ -57,26 +57,30 @@ const voiceArray = [
 const music = {
   name: 'Music',
   button: musicButton,
-  itemList: musicArray
-}
+  itemList: musicArray,
+};
 
 const soundEffects = {
   name: 'SFX',
   button: soundEffectsButton,
-  itemList: soundEffectsArray
-}
+  itemList: soundEffectsArray,
+};
 
 const voice = {
   name: 'Voice',
   button: voiceButton,
-  itemList: voiceArray
-}
+  itemList: voiceArray,
+};
 
 const soundList = [music, soundEffects, voice];
-soundList.forEach(sound => sound.button.addEventListener('click', toggleSound(sound)));
+soundList.forEach(sound => {
+  sound.toggle = toggleSound(sound);
+  sound.button.addEventListener('click', sound.toggle);
+});
 Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
 
 function toggleSound(sound) {
+  console.log('tog sound', sound);
   let toggle = true;
   return function () {
     toggle ? playSound(onSound) : playSound(offSound);
@@ -91,6 +95,16 @@ function playSound(sound) {
   sound.currentTime = 0;
   sound.play();
 }
+
+// const toggle = {
+//   music: toggleSound(music),
+//   soundEffects: toggleSound(soundEffects),
+//   voice: toggleSound(voice),
+// };
+
+// const toggleMusic = toggleSound(music);
+// const toggleSoundEffects = toggleSound(soundEffects);
+// const toggleVoice = toggleSound(voice);
 
 
 // const voiceArray = [
