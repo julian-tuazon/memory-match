@@ -129,13 +129,13 @@ function handleClick(event) {
     gameCards.removeEventListener('click', handleClick);
     console.log('fcc', firstCardClasses, 'scc', secondCardClasses);
     if (firstCardClasses == secondCardClasses) {
+      handleCorrect();
       // sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
-      updateStats(true);
+
       // matchesDisplay.textContent = ++matches;
       // attemptsDisplay.textContent = ++attempts;
       // accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
-      gameCards.classList.add("correct");
-      setDelay(500);
+
       // setTimeout(() => {
       //   firstCardClicked.previousElementSibling.classList.remove("current");
       //   secondCardClicked.previousElementSibling.classList.remove("current");
@@ -144,13 +144,14 @@ function handleClick(event) {
       //   gameCards.addEventListener('click', handleClick);
       // }, 500); //previous: 750
       if (matches === maxMatches) {
-        sound.playSound(sound.endSound);
-        clearInterval(timer);
-        if (mode.current === "time-attack") document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
-        else if (mode.current === "survival") document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
-        document.getElementById("end-message").textContent = "V I C T O R Y";
-        document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-        endModal.classList.remove("hidden");
+        handleEnd('win', mode.current);
+        // sound.playSound(sound.endSound);
+        // clearInterval(timer);
+        // if (mode.current === "time-attack") document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
+        // else if (mode.current === "survival") document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+        // document.getElementById("end-message").textContent = "V I C T O R Y";
+        // document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+        // endModal.classList.remove("hidden");
       }
     } else {
       sound.playSound(sound.incorrectSound);
@@ -198,6 +199,8 @@ function updateStats(isMatch) {
 function handleCorrect() {
   sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
   gameCards.classList.add("correct");
+  updateStats(true);
+  setDelay(500);
 }
 
 function setDelay(time) {
