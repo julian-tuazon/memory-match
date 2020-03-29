@@ -98,7 +98,8 @@ const difficulty = modal.difficulty;
 const locations = modal.location;
 
 // sound
-
+const sound = new Sound();
+sound.addEventListeners();
 
 // General events
 
