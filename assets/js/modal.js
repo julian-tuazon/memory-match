@@ -124,6 +124,16 @@ class Modal {
     this.modalList.forEach(modal => this.addEventListeners(modal));
   }
 
+  resetModals() {
+    this.modalList.forEach(modal => {
+      document.getElementById(`${modal.name}-title`).textContent = modal.currentTitle = modal.defaultTitle;
+      document.getElementById(`${modal.name}-message`).textContent = modal.currentMessage = modal.defaultMessage;
+      document.getElementById(`${modal.current}`).classList.add("clickable");
+      document.getElementById(`${modal.current}`).classList.remove("selected", "selected-animation");
+      modal.current = "null";
+    });
+  }
+
   addEventListeners(modal) {
     for (let i = 0; i < modal.itemList.length; i++) {
       let currentElement = document.getElementById(`${modal.itemList[i]}`);
@@ -159,15 +169,5 @@ class Modal {
       playSound(modal[modal.current].sound);
       modal.button.classList.remove("temp-hidden");
     }
-  }
-
-  resetModals() {
-    this.modalList.forEach(modal => {
-      document.getElementById(`${modal.name}-title`).textContent = modal.currentTitle = modal.defaultTitle;
-      document.getElementById(`${modal.name}-message`).textContent = modal.currentMessage = modal.defaultMessage;
-      document.getElementById(`${modal.current}`).classList.add("clickable");
-      document.getElementById(`${modal.current}`).classList.remove("selected", "selected-animation");
-      modal.current = "null";
-    });
   }
 }
