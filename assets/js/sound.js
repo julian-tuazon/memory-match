@@ -43,7 +43,15 @@ class Sound {
       sound.toggle = this.toggleSound(sound);
       sound.button.addEventListener('click', sound.toggle);
     });
+    document.getElementById("sound-on-button").addEventListener('click', event => configureSound);
+    document.getElementById("sound-off-button").addEventListener('click', event => configureSound);
     [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => this.hoverSound.play()));
+  }
+
+  configureSound(event) {
+    if (event.target.id === 'sound-on-button') sound.soundList.forEach(sound => sound.toggle());
+    soundModal.classList.add("hidden");
+    welcomeModal.classList.remove("hidden");
   }
 
   toggleSound(sound) {
