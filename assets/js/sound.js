@@ -43,13 +43,13 @@ class Sound {
       sound.toggle = this.toggleSound(sound);
       sound.button.addEventListener('click', sound.toggle);
     });
-    [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+    [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => this.hoverSound.play()));
   }
 
   toggleSound(sound) {
     let toggle = true;
-    return function () {
-      toggle ? this.playSound(onSound) : this.playSound(offSound);
+    return () => {
+      toggle ? this.playSound(this.onSound) : this.playSound(this.offSound);
       toggle ? sound.button.textContent = `${sound.name} | ON` : sound.button.textContent = `${sound.name} | OFF`;
       if (sound.name === 'Music') toggle ? this.gameMusic.play() : this.gameMusic.pause();
       toggle = !toggle;
