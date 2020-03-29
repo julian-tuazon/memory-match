@@ -1,4 +1,5 @@
 const gameCards = document.getElementById("game-cards");
+const gameModal = document.getElementById('game-modal');
 const difficultyModal = document.getElementById("difficulty-modal");
 const soundModal = document.getElementById("sound-modal");
 const welcomeModal = document.getElementById("welcome-modal"); // Opening modal
@@ -44,7 +45,7 @@ const locationView = {
 };
 
 const gameView = {
-  view: gameCards,
+  view: gameModal,
   button: null,
   sound: null
   // sound: () => sound.playSound(sound.endSound)
