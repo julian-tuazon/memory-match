@@ -57,9 +57,13 @@ class Sound {
     }
   }
 
-  playSound(sound) {
-    sound.currentTime = 0;
-    sound.play();
+  playSound(sounds) {
+    const args = [...arguments];
+    console.log(args);
+    args.forEach(sound => {
+      sound.currentTime = 0;
+      sound.play();
+    });
   }
 }
   // Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
