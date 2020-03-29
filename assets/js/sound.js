@@ -79,8 +79,10 @@ function addEventListeners() {
     sound.toggle = toggleSound(sound);
     sound.button.addEventListener('click', sound.toggle);
   });
-  Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+  // Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+  [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => hoverSound.play()));
 }
+addEventListeners();
 
 function toggleSound(sound) {
   console.log('tog sound', sound);
