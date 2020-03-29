@@ -30,25 +30,25 @@ let timeLeft;
 let livesLeft;
 let timer;
 
-const gameCards = document.getElementById("game-cards");
-const difficultyModal = document.getElementById("difficulty-modal");
-const soundModal = document.getElementById("sound-modal");
-const welcomeModal = document.getElementById("welcome-modal"); // Opening modal
-const welcomeButton = document.getElementById("welcome-button"); // Opening modal button to transition to mode select modal
-const modeModal = document.getElementById("mode-modal"); // Mode select modal
-const modeButton = document.getElementById("mode-button"); // Mode select modal button that transitions to difficulty select modal
-const difficultyButton = document.getElementById("difficulty-button");
-const locationModal = document.getElementById("location-modal");
-const locationButton = document.getElementById("location-button");
-const endModal = document.getElementById("end-modal");
-const resetButton = document.getElementById("reset");
-const cheatButton = document.getElementById("cheat");
-const gamesPlayedDisplay = document.getElementById("games-played");
-const attemptsDisplay = document.getElementById("attempts");
-const matchesDisplay = document.getElementById("matches");
-const accuracyDisplay = document.getElementById("accuracy");
-const timeDisplay = document.getElementById("time");
-const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
+// const gameCards = document.getElementById("game-cards");
+// const difficultyModal = document.getElementById("difficulty-modal");
+// const soundModal = document.getElementById("sound-modal");
+// const welcomeModal = document.getElementById("welcome-modal");
+// const welcomeButton = document.getElementById("welcome-button");
+// const modeModal = document.getElementById("mode-modal");
+// const modeButton = document.getElementById("mode-button");
+// const difficultyButton = document.getElementById("difficulty-button");
+// const locationModal = document.getElementById("location-modal");
+// const locationButton = document.getElementById("location-button");
+// const endModal = document.getElementById("end-modal");
+// const resetButton = document.getElementById("reset");
+// const cheatButton = document.getElementById("cheat");
+// const gamesPlayedDisplay = document.getElementById("games-played");
+// const attemptsDisplay = document.getElementById("attempts");
+// const matchesDisplay = document.getElementById("matches");
+// const accuracyDisplay = document.getElementById("accuracy");
+// const timeDisplay = document.getElementById("time");
+// const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
 
 document.getElementById("sound-on-button").addEventListener('click', function () {
   sound.soundList.forEach(sound => sound.toggle());
@@ -63,29 +63,29 @@ document.getElementById("sound-off-button").addEventListener('click', function (
   welcomeModal.classList.remove("hidden");
 });
 
-welcomeButton.addEventListener('click', function () {
-  welcomeModal.classList.add("hidden");
-  modeModal.classList.remove("hidden");
-  sound.playSound(sound.flipSound);
-});
+// welcomeButton.addEventListener('click', function () {
+//   welcomeModal.classList.add("hidden");
+//   modeModal.classList.remove("hidden");
+//   sound.playSound(sound.flipSound, sound.cheatSound);
+// });
 
-modeButton.addEventListener('click', function () {
-    modeModal.classList.add("hidden");
-    modeButton.classList.add("temp-hidden");
-    difficultyModal.classList.remove("hidden");
-    sound.playSound(sound.flipSound);
-});
+// modeButton.addEventListener('click', function () {
+//     modeModal.classList.add("hidden");
+//     modeButton.classList.add("temp-hidden");
+//     difficultyModal.classList.remove("hidden");
+//     sound.playSound(sound.flipSound);
+// });
 
-difficultyButton.addEventListener('click', function() {
-  difficultyModal.classList.add("hidden");
-  difficultyButton.classList.add("temp-hidden");
-  locationModal.classList.remove("hidden");
-  sound.playSound(sound.flipSound);
-});
+// difficultyButton.addEventListener('click', function() {
+//   difficultyModal.classList.add("hidden");
+//   difficultyButton.classList.add("temp-hidden");
+//   locationModal.classList.remove("hidden");
+//   sound.playSound(sound.flipSound);
+// });
 
-locationButton.addEventListener('click', startGame);
-resetButton.addEventListener('click', resetGame);
-cheatButton.addEventListener('click', cheatCodes);
+// locationButton.addEventListener('click', startGame);
+// resetButton.addEventListener('click', resetGame);
+// cheatButton.addEventListener('click', cheatCodes);
 
 gameCards.addEventListener('click', handleClick);
 
@@ -112,10 +112,10 @@ function startGame() {
   else if (mode.current === "survival") timeDisplay.textContent = `Lives | ${livesLeft}`;
 
   difficultyModeDisplay.textContent = `${difficulty[difficulty.current].display} | ${mode[mode.current].display}`;
-  sound.playSound(sound.startSound);
-  sound.playSound(sound.flipSound);
-  locationButton.classList.add("temp-hidden");
-  locationModal.classList.add("hidden");
+  // sound.playSound(sound.startSound);
+  // sound.playSound(sound.flipSound);
+  // locationButton.classList.add("temp-hidden");
+  // locationModal.classList.add("hidden");
   shuffleCards();
   Array.prototype.forEach.call(document.getElementsByClassName('card-back'), elem => elem.addEventListener('mouseover', () => sound.hoverSound.play()));
   // addHoverSounds(); // Adds hover sounds to newly created card-back elements
@@ -169,7 +169,8 @@ function handleClick(event) {
           sound.playSound(sound.endSound);
           document.getElementById("end-message").textContent = "D E F E A T";
           document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-          document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
+          // document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
+          document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
           endModal.classList.remove("hidden");
         }
       }
@@ -188,14 +189,17 @@ function handleClick(event) {
 
 function countdown() {
   if (timeLeft <= 0) {
-    sound.playSound(sound.endSound);
-    clearInterval(timer);
-    firstCardClicked = null;
-    secondCardClicked = null;
-    document.getElementById("end-message").textContent = "D E F E A T";
-    document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-    document.getElementById("end-time-lives").textContent = "System.time.nullError //";
-    endModal.classList.remove("hidden");
+    // sound.playSound(sound.endSound);
+    // clearInterval(timer);
+    handleEnd('loss', mode.current);
+    firstCardClicked = secondCardClicked = null;
+    console.log('first', firstCardClicked, 'second', secondCardClicked);
+    // secondCardClicked = null;
+    // document.getElementById("end-message").textContent = "D E F E A T";
+    // document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+    // document.getElementById("end-time-lives").textContent = "System.time.nullError //";
+    // document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
+    // endModal.classList.remove("hidden");
   }
   timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
   timeLeft -= 0.1;
@@ -220,8 +224,8 @@ function shuffleCards() {
 }
 
 function resetGame() {
-  sound.playSound(sound.resetSound);
-  sound.playSound(sound.flipSound);
+  // sound.playSound(sound.resetSound, sound.flipSound);
+  // sound.playSound(sound.flipSound);
   document.body.classList.remove(`${locations.current}`);
   matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
 
@@ -230,27 +234,63 @@ function resetGame() {
   gamesPlayedDisplay.textContent = ++gamesPlayed;
 
   // Fixes bug in which a reset game still had red or green border glow and possibly could not click on cards
-  gameCards.classList.remove("correct");
-  gameCards.classList.remove("incorrect");
+  gameCards.classList.remove('correct', 'incorrect');
+  // gameCards.classList.remove("incorrect");
   gameCards.addEventListener('click', handleClick);
   //
 
   modal.resetModals();
 
-  endModal.classList.add("hidden");
-  welcomeModal.classList.remove("hidden");
-
+  // endModal.classList.add("hidden");
+  // welcomeModal.classList.remove("hidden");
 }
 
-function cheatCodes() {
+// function cheatCodes() {
+//   clearInterval(timer);
+//   sound.playSound(sound.flipSound, sound.cheatSound);
+  // sound.playSound(sound.cheatSound);
+  // matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
+  // accuracy = accuracyDisplay.textContent = "0.0%";
+  // gamesPlayedDisplay.textContent = gamesPlayed--;
+//   document.getElementById("end-message").textContent = "E X O D U S";
+//   document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
+//   document.getElementById("end-time-lives").textContent = "System.resolve //";
+
+
+//   endModal.classList.remove("hidden");
+// }
+
+function handleEnd(outcome, mode) {
   clearInterval(timer);
-  sound.playSound(sound.flipSound);
-  sound.playSound(sound.cheatSound);
-  matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
-  accuracy = accuracyDisplay.textContent = "0.0%";
-  gamesPlayedDisplay.textContent = gamesPlayed--;
+  sound.playSound(sound.endSound);
+  document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+  if (outcome === 'win') document.getElementById("end-message").textContent = "V I C T O R Y";
+  if (outcome === 'loss') document.getElementById("end-message").textContent = "D E F E A T";
+  if (mode === 'time-attack') document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
+  if (mode === 'survival') document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+  setNextView();
+}
+
+function handleCheat() {
+  clearInterval(timer);
+  sound.playSound(sound.flipSound, sound.cheatSound);
   document.getElementById("end-message").textContent = "E X O D U S";
   document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
   document.getElementById("end-time-lives").textContent = "System.resolve //";
-  endModal.classList.remove("hidden");
+  setNextView();
 }
+// document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
+// document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+
+// function handleWin() {
+//   document.getElementById("end-message").textContent = "V I C T O R Y";
+//   document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+//   document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
+// }
+
+// function handleLoss() {
+//   document.getElementById("end-message").textContent = "D E F E A T";
+//   document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+
+//   document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
+// }
