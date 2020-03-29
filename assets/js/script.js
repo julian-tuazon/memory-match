@@ -123,20 +123,13 @@ function startGame() {
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) return;
   sound.playSound(sound.flipSound);
-  if (!firstCardClicked) {
-    firstCardClicked = event.target;
-    firstCardClicked.classList.add("hidden");
-    firstCardClicked.previousElementSibling.classList.add("current");
-    firstCardClasses = firstCardClicked.previousElementSibling.className;
-  } else {
-    secondCardClicked = event.target;
-    secondCardClicked.classList.add("hidden");
-    secondCardClicked.previousElementSibling.classList.add("current");
-    secondCardClasses = secondCardClicked.previousElementSibling.className;
+  if (!firstCardClicked) flipCard(firstCardClicked, firstCardClasses);
+  else {
+    flipCard(secondCardClicked, secondCardClasses);
     gameCards.removeEventListener('click', handleClick);
+    console.log('fcc', firstCardClasses, 'scc', secondCardClasses);
     if (firstCardClasses == secondCardClasses) {
-      sound.playSound(sound.correctSound);
-      sound.playSound(document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
+      sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
@@ -185,6 +178,79 @@ function handleClick(event) {
     }
   }
 }
+
+function flipCard(cardClicked, cardClasses) {
+  cardClicked = event.target;
+  cardClicked.classList.add("hidden");
+  cardClicked.previousElementSibling.classList.add("current");
+  cardClasses = cardClicked.previousElementSibling.className;
+}
+
+
+// function handleClick(event) {
+//   if (event.target.className.indexOf("card-back") === -1) return;
+//   sound.playSound(sound.flipSound);
+//   if (!firstCardClicked) {
+//     firstCardClicked = event.target;
+//     firstCardClicked.classList.add("hidden");
+//     firstCardClicked.previousElementSibling.classList.add("current");
+//     firstCardClasses = firstCardClicked.previousElementSibling.className;
+//   } else {
+//     secondCardClicked = event.target;
+//     secondCardClicked.classList.add("hidden");
+//     secondCardClicked.previousElementSibling.classList.add("current");
+//     secondCardClasses = secondCardClicked.previousElementSibling.className;
+//     gameCards.removeEventListener('click', handleClick);
+//     if (firstCardClasses == secondCardClasses) {
+//       sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
+//       matchesDisplay.textContent = ++matches;
+//       attemptsDisplay.textContent = ++attempts;
+//       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
+//       gameCards.classList.add("correct");
+//       setTimeout(() => {
+//         firstCardClicked.previousElementSibling.classList.remove("current");
+//         secondCardClicked.previousElementSibling.classList.remove("current");
+//         firstCardClicked = secondCardClicked = null;
+//         gameCards.classList.remove("correct");
+//         gameCards.addEventListener('click', handleClick);
+//       }, 500); //previous: 750
+//       if (matches === maxMatches) {
+//         sound.playSound(sound.endSound);
+//         clearInterval(timer);
+//         if (mode.current === "time-attack") document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
+//         else if (mode.current === "survival") document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+//         document.getElementById("end-message").textContent = "V I C T O R Y";
+//         document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+//         endModal.classList.remove("hidden");
+//       }
+//     } else {
+//       sound.playSound(sound.incorrectSound);
+//       attemptsDisplay.textContent = ++attempts;
+//       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
+//       gameCards.classList.add("incorrect");
+//       if (mode.current === "survival") {
+//         timeDisplay.textContent = `Lives | ${--livesLeft}`
+//         if (livesLeft === 0) {
+//           sound.playSound(sound.endSound);
+//           document.getElementById("end-message").textContent = "D E F E A T";
+//           document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+//           // document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
+//           document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+//           endModal.classList.remove("hidden");
+//         }
+//       }
+//       setTimeout(() => {
+//         firstCardClicked.previousElementSibling.classList.remove("current");
+//         secondCardClicked.previousElementSibling.classList.remove("current");
+//         firstCardClicked.classList.remove("hidden");
+//         secondCardClicked.classList.remove("hidden");
+//         firstCardClicked = secondCardClicked = null;
+//         gameCards.classList.remove("incorrect");
+//         gameCards.addEventListener('click', handleClick);
+//       }, 1000); //previous 1250
+//     }
+//   }
+// }
 
 function countdown() {
   if (timeLeft <= 0) return handleEnd('loss', mode.current);
