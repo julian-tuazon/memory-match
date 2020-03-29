@@ -165,8 +165,8 @@ class Modal {
       modal.current = event.target.id;
       modal.currentTitle = modal[modal.current].title;
       modal.currentMessage = modal[modal.current].message;
-      playSound(selectSound);
-      playSound(modal[modal.current].sound);
+      sound.playSound(sound.selectSound);
+      sound.playSound(modal[modal.current].sound);
       modal.button.classList.remove("temp-hidden");
     }
   }

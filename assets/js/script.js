@@ -66,21 +66,21 @@ document.getElementById("sound-off-button").addEventListener('click', function (
 welcomeButton.addEventListener('click', function () {
   welcomeModal.classList.add("hidden");
   modeModal.classList.remove("hidden");
-  playSound(sound.flipSound);
+  sound.playSound(sound.flipSound);
 });
 
 modeButton.addEventListener('click', function () {
     modeModal.classList.add("hidden");
     modeButton.classList.add("temp-hidden");
     difficultyModal.classList.remove("hidden");
-    playSound(sound.flipSound);
+    sound.playSound(sound.flipSound);
 });
 
 difficultyButton.addEventListener('click', function() {
   difficultyModal.classList.add("hidden");
   difficultyButton.classList.add("temp-hidden");
   locationModal.classList.remove("hidden");
-  playSound(sound.flipSound);
+  sound.playSound(sound.flipSound);
 });
 
 locationButton.addEventListener('click', startGame);
@@ -112,8 +112,8 @@ function startGame() {
   else if (mode.current === "survival") timeDisplay.textContent = `Lives | ${livesLeft}`;
 
   difficultyModeDisplay.textContent = `${difficulty[difficulty.current].display} | ${mode[mode.current].display}`;
-  playSound(sound.startSound);
-  playSound(sound.flipSound);
+  sound.playSound(sound.startSound);
+  sound.playSound(sound.flipSound);
   locationButton.classList.add("temp-hidden");
   locationModal.classList.add("hidden");
   shuffleCards();
@@ -123,7 +123,7 @@ function startGame() {
 
 function handleClick(event) {
   if (event.target.className.indexOf("card-back") === -1) return;
-  playSound(sound.flipSound);
+  sound.playSound(sound.flipSound);
   if (!firstCardClicked) {
     firstCardClicked = event.target;
     firstCardClicked.classList.add("hidden");
@@ -136,8 +136,8 @@ function handleClick(event) {
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses == secondCardClasses) {
-      playSound(sound.correctSound);
-      playSound(document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
+      sound.playSound(sound.correctSound);
+      sound.playSound(document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
       matchesDisplay.textContent = ++matches;
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
@@ -150,7 +150,7 @@ function handleClick(event) {
         gameCards.addEventListener('click', handleClick);
       }, 500); //previous: 750
       if (matches === maxMatches) {
-        playSound(sound.endSound);
+        sound.playSound(sound.endSound);
         clearInterval(timer);
         if (mode.current === "time-attack") document.getElementById("end-time-lives").textContent = `Time Remaining: ${timeLeft.toFixed(1)}`;
         else if (mode.current === "survival") document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
@@ -159,14 +159,14 @@ function handleClick(event) {
         endModal.classList.remove("hidden");
       }
     } else {
-      playSound(sound.incorrectSound);
+      sound.playSound(sound.incorrectSound);
       attemptsDisplay.textContent = ++attempts;
       accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("incorrect");
       if (mode.current === "survival") {
         timeDisplay.textContent = `Lives | ${--livesLeft}`
         if (livesLeft === 0) {
-          playSound(sound.endSound);
+          sound.playSound(sound.endSound);
           document.getElementById("end-message").textContent = "D E F E A T";
           document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
           document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
@@ -188,7 +188,7 @@ function handleClick(event) {
 
 function countdown() {
   if (timeLeft <= 0) {
-    playSound(sound.endSound);
+    sound.playSound(sound.endSound);
     clearInterval(timer);
     firstCardClicked = null;
     secondCardClicked = null;
@@ -220,8 +220,8 @@ function shuffleCards() {
 }
 
 function resetGame() {
-  playSound(sound.resetSound);
-  playSound(sound.flipSound);
+  sound.playSound(sound.resetSound);
+  sound.playSound(sound.flipSound);
   document.body.classList.remove(`${locations.current}`);
   matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
 
@@ -244,8 +244,8 @@ function resetGame() {
 
 function cheatCodes() {
   clearInterval(timer);
-  playSound(sound.flipSound);
-  playSound(sound.cheatSound);
+  sound.playSound(sound.flipSound);
+  sound.playSound(sound.cheatSound);
   matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
   accuracy = accuracyDisplay.textContent = "0.0%";
   gamesPlayedDisplay.textContent = gamesPlayed--;
