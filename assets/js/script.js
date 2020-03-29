@@ -51,9 +51,8 @@ const timeDisplay = document.getElementById("time");
 const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
 
 document.getElementById("sound-on-button").addEventListener('click', function () {
-  toggleMusic();
-  toggleVoice();
-  toggleSoundEffects();
+  soundList.forEach(sound => sound.toggle());
+
   // playSound(flipSound);
   soundModal.classList.add("hidden");
   welcomeModal.classList.remove("hidden");
@@ -90,12 +89,16 @@ cheatButton.addEventListener('click', cheatCodes);
 
 gameCards.addEventListener('click', handleClick);
 
+// modal
 const modal = new Modal();
 modal.initializeModals();
 
 const mode = modal.mode;
 const difficulty = modal.difficulty;
 const locations = modal.location;
+
+// sound
+
 
 // General events
 
