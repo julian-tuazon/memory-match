@@ -19,7 +19,7 @@ const timeDisplay = document.getElementById("time");
 const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
 
 
-const welcome = {
+const welcomeView = {
   view: welcomeModal,
   button: null,
   sound: () => sound.playSound(sound.flipSound)
@@ -43,20 +43,20 @@ const locationView = {
   sound: () => sound.playSound(sound.flipSound, sound.startSound)
 };
 
-const game = {
+const gameView = {
   view: gameCards,
   button: null,
   sound: null
   // sound: () => sound.playSound(sound.endSound)
 };
 
-const end = {
+const endView = {
   view: endModal,
   button: null,
   sound: () => sound.playSound(sound.flipSound, sound.resetSound)
 };
 
-const views = [welcome, modeView, difficultyView, locationView, game, end];
+const views = [welcomeView, modeView, difficultyView, locationView, gameView, endView];
 let index = 0;
 
 welcomeButton.addEventListener('click', setNextView);
