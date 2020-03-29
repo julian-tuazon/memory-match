@@ -1,4 +1,3 @@
-const gameCards = document.getElementById("game-cards");
 const gameModal = document.getElementById('game-modal');
 const difficultyModal = document.getElementById("difficulty-modal");
 const soundModal = document.getElementById("sound-modal");
@@ -12,13 +11,6 @@ const locationButton = document.getElementById("location-button");
 const endModal = document.getElementById("end-modal");
 const resetButton = document.getElementById("reset");
 const cheatButton = document.getElementById("cheat");
-const gamesPlayedDisplay = document.getElementById("games-played");
-const attemptsDisplay = document.getElementById("attempts");
-const matchesDisplay = document.getElementById("matches");
-const accuracyDisplay = document.getElementById("accuracy");
-const timeDisplay = document.getElementById("time");
-const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
-
 
 const welcomeView = {
   view: welcomeModal,
@@ -91,7 +83,14 @@ function setNextView() {
   if (current.sound) current.sound();
 }
 
-
+function handleCheat() {
+  clearInterval(timer);
+  sound.playSound(sound.flipSound, sound.cheatSound);
+  document.getElementById("end-message").textContent = "E X O D U S";
+  document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
+  document.getElementById("end-time-lives").textContent = "System.resolve //";
+  setNextView();
+}
 // gameCards.addEventListener('click', handleClick);
 
 // welcomeButton.addEventListener('click', function () {
