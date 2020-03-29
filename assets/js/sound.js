@@ -1,80 +1,81 @@
-const gameMusic = document.getElementById("bgm");
-const startSound = document.getElementById("start-sound");
-const endSound = document.getElementById("end-sound");
-const flipSound = document.getElementById("flip-sound");
-const correctSound = document.getElementById("correct-sound");
-const incorrectSound = document.getElementById("incorrect-sound");
-const onSound = document.getElementById("on-sound");
-const offSound = document.getElementById("off-sound");
-const resetSound = document.getElementById("reset-sound");
-const cheatSound = document.getElementById("cheat-sound");
-const hoverSound = document.getElementById("hover-sound");
-const selectSound = document.getElementById("select-sound");
+class Sound {
+  constructor() {
+    this.gameMusic = document.getElementById("bgm");
+    this.startSound = document.getElementById("start-sound");
+    this.endSound = document.getElementById("end-sound");
+    this.flipSound = document.getElementById("flip-sound");
+    this.correctSound = document.getElementById("correct-sound");
+    this.incorrectSound = document.getElementById("incorrect-sound");
+    this.onSound = document.getElementById("on-sound");
+    this.offSound = document.getElementById("off-sound");
+    this.resetSound = document.getElementById("reset-sound");
+    this.cheatSound = document.getElementById("cheat-sound");
+    this.hoverSound = document.getElementById("hover-sound");
+    this.selectSound = document.getElementById("select-sound");
 
-const musicButton = document.getElementById("music-toggle");
-const soundEffectsButton = document.getElementById("sound-toggle");
-const voiceButton = document.getElementById("voice-toggle");
+    this.musicButton = document.getElementById("music-toggle");
+    this.soundEffectsButton = document.getElementById("sound-toggle");
+    this.voiceButton = document.getElementById("voice-toggle");
 
-const music = {
-  name: 'Music',
-  button: musicButton,
-  itemList: [...document.getElementById('music').children],
-};
+    this.music = {
+      name: 'Music',
+      button: musicButton,
+      itemList: [...document.getElementById('music').children],
+    };
 
-const soundEffects = {
-  name: 'SFX',
-  button: soundEffectsButton,
-  itemList: [...document.getElementById('sound-effects').children],
-};
+    this.soundEffects = {
+      name: 'SFX',
+      button: soundEffectsButton,
+      itemList: [...document.getElementById('sound-effects').children],
+    };
 
-const voice = {
-  name: 'Voice',
-  button: voiceButton,
-  itemList: [...document.getElementById('voice').children],
-};
+    this.voice = {
+      name: 'Voice',
+      button: voiceButton,
+      itemList: [...document.getElementById('voice').children],
+    };
 
-const soundList = [music, soundEffects, voice];
+    this.soundList = [music, soundEffects, voice];
+  }
 
-function addEventListeners() {
-  soundList.forEach(sound => {
-    sound.toggle = toggleSound(sound);
-    sound.button.addEventListener('click', sound.toggle);
-  });
-  [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => hoverSound.play()));
-}
-addEventListeners();
+  addEventListeners() {
+    this.soundList.forEach(sound => {
+      sound.toggle = toggleSound(sound);
+      sound.button.addEventListener('click', sound.toggle);
+    });
+    [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+  }
 
-function toggleSound(sound) {
-  console.log('tog sound', sound);
-  let toggle = true;
-  return function () {
-    toggle ? playSound(onSound) : playSound(offSound);
-    toggle ? sound.button.textContent = `${sound.name} | ON` : sound.button.textContent = `${sound.name} | OFF`;
-    if (sound.name === 'Music') toggle ? gameMusic.play() : gameMusic.pause();
-    toggle = !toggle;
-    sound.itemList.forEach(sound => sound.muted = toggle);
+  toggleSound(sound) {
+    let toggle = true;
+    return function () {
+      toggle ? playSound(onSound) : playSound(offSound);
+      toggle ? sound.button.textContent = `${sound.name} | ON` : sound.button.textContent = `${sound.name} | OFF`;
+      if (sound.name === 'Music') toggle ? gameMusic.play() : gameMusic.pause();
+      toggle = !toggle;
+      sound.itemList.forEach(sound => sound.muted = toggle);
+    }
+  }
+
+  playSound(sound) {
+    sound.currentTime = 0;
+    sound.play();
   }
 }
-
-function playSound(sound) {
-  sound.currentTime = 0;
-  sound.play();
-}
-
   // Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
 
-// const toggle = {
+// this.toggle = {
 //   music: toggleSound(music),
 //   soundEffects: toggleSound(soundEffects),
 //   voice: toggleSound(voice),
 // };
 
-// const toggleMusic = toggleSound(music);
-// const toggleSoundEffects = toggleSound(soundEffects);
-// const toggleVoice = toggleSound(voice);
+// this.toggleMusic = toggleSound(music);
+// this.toggleSoundEffects = toggleSound(soundEffects);
+// this.toggleVoice = toggleSound(voice);
 
 
-// const voiceArray = [
+// this.voiceArray = [
 //   "ag-voice",
 //   "assegai-voice",
 //   "goteki-voice",
@@ -97,7 +98,7 @@ function playSound(sound) {
 //   "anulpha-pass-voice",
 // ];
 
-// const toggleMusic = (function () {
+// this.toggleMusic = (function () {
 //   let toggle = true;
 //   return function () {
 //     if (toggle) {
@@ -118,7 +119,7 @@ function playSound(sound) {
 // })();
 
 // Current bug - offSound will not play because sounds will be muted
-// const toggleSoundEffects = (function () {
+// this.toggleSoundEffects = (function () {
 //   let toggle = true;
 //   return function () {
 //     if (toggle) {
@@ -137,7 +138,7 @@ function playSound(sound) {
 //   }
 // })();
 
-// const toggleVoice = (function () {
+// this.toggleVoice = (function () {
 //   let toggle = true;
 //   return function () {
 //     if (toggle) {
@@ -157,9 +158,9 @@ function playSound(sound) {
 
 
 
-// const togMusic = toggleSound('music');
-// const togSoundEffects = toggleSound('sfx');
-// const togVoice = toggleSound('voice')
+// this.togMusic = toggleSound('music');
+// this.togSoundEffects = toggleSound('sfx');
+// this.togVoice = toggleSound('voice')
 
 
 
@@ -168,9 +169,9 @@ function playSound(sound) {
 // voiceButton.addEventListener('click', toggleVoice);
 
 
-// const musicArray = [gameMusic];
+// this.musicArray = [gameMusic];
 
-// const soundEffectsArray = [
+// this.soundEffectsArray = [
 //   startSound,
 //   endSound,
 //   flipSound,
@@ -184,7 +185,7 @@ function playSound(sound) {
 //   selectSound,
 // ];
 
-// const voiceArray = [
+// this.voiceArray = [
 //   document.getElementById("ag-voice"),
 //   document.getElementById("assegai-voice"),
 //   document.getElementById("goteki-voice"),
