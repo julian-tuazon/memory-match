@@ -73,11 +73,14 @@ const voice = {
 };
 
 const soundList = [music, soundEffects, voice];
-soundList.forEach(sound => {
-  sound.toggle = toggleSound(sound);
-  sound.button.addEventListener('click', sound.toggle);
-});
-Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+
+function addEventListeners() {
+  soundList.forEach(sound => {
+    sound.toggle = toggleSound(sound);
+    sound.button.addEventListener('click', sound.toggle);
+  });
+  Array.prototype.forEach.call(document.getElementsByClassName('clickable'), elem => elem.addEventListener('mouseover', () => hoverSound.play()));
+}
 
 function toggleSound(sound) {
   console.log('tog sound', sound);
