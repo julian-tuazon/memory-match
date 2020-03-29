@@ -129,10 +129,11 @@ function handleClick(event) {
     gameCards.removeEventListener('click', handleClick);
     console.log('fcc', firstCardClasses, 'scc', secondCardClasses);
     if (firstCardClasses == secondCardClasses) {
-      sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
-      matchesDisplay.textContent = ++matches;
-      attemptsDisplay.textContent = ++attempts;
-      accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
+      // sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
+      updateStats(true);
+      // matchesDisplay.textContent = ++matches;
+      // attemptsDisplay.textContent = ++attempts;
+      // accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("correct");
       setTimeout(() => {
         firstCardClicked.previousElementSibling.classList.remove("current");
@@ -186,7 +187,21 @@ function flipCard(cardClicked, cardClasses) {
   cardClasses = cardClicked.previousElementSibling.className;
 }
 
+function updateStats(isMatch) {
+  if (isMatch) matchesDisplay.textContent = ++matches;
+  attemptsDisplay.textContent = ++attempts;
+  accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
+  // gameCards.classList.add(`${result}`);
+}
 
+function handleCorrect() {
+  sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
+  gameCards.classList.add("correct");
+}
+
+function delay(time) {
+
+}
 // function handleClick(event) {
 //   if (event.target.className.indexOf("card-back") === -1) return;
 //   sound.playSound(sound.flipSound);
