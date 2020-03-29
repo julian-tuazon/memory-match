@@ -59,23 +59,37 @@ const endView = {
 const views = [welcomeView, modeView, difficultyView, locationView, gameView, endView];
 let index = 0;
 
-welcomeButton.addEventListener('click', setNextView);
+(function addEventListeners() {
+  welcomeButton.addEventListener('click', setNextView);
 
-modeButton.addEventListener('click', setNextView);
+  modeButton.addEventListener('click', setNextView);
 
-difficultyButton.addEventListener('click', setNextView);
+  difficultyButton.addEventListener('click', setNextView);
 
-locationButton.addEventListener('click', () => {
-  setNextView();
-  startGame();
-});
+  locationButton.addEventListener('click', () => {
+    setNextView();
+    startGame();
+  });
 
-resetButton.addEventListener('click', () => {
-  setNextView();
-  resetGame();
-});
+  resetButton.addEventListener('click', () => {
+    setNextView();
+    resetGame();
+  });
 
-cheatButton.addEventListener('click', handleCheat);
+  cheatButton.addEventListener('click', handleCheat);
+})();
+
+
+function setNextView() {
+  const current = views[index];
+  index = ++index % views.length;
+  const next = views[index];
+  current.view.classList.add('hidden');
+  if (current.button) current.button.classList.add('temp-hidden');
+  next.view.classList.remove('hidden');
+  if (current.sound) current.sound();
+}
+
 
 // gameCards.addEventListener('click', handleClick);
 
@@ -102,13 +116,3 @@ cheatButton.addEventListener('click', handleCheat);
 // locationButton.addEventListener('click', startGame);
 // resetButton.addEventListener('click', resetGame);
 // cheatButton.addEventListener('click', cheatCodes);
-
-function setNextView() {
-  const current = views[index];
-  index = ++index % views.length;
-  const next = views[index];
-  current.view.classList.add('hidden');
-  if (current.button) current.button.classList.add('temp-hidden');
-  next.view.classList.remove('hidden');
-  if (current.sound) current.sound();
-}
