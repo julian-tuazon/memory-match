@@ -135,13 +135,14 @@ function handleClick(event) {
       // attemptsDisplay.textContent = ++attempts;
       // accuracyDisplay.textContent = `${(matches / attempts * 100).toFixed(1)}%`;
       gameCards.classList.add("correct");
-      setTimeout(() => {
-        firstCardClicked.previousElementSibling.classList.remove("current");
-        secondCardClicked.previousElementSibling.classList.remove("current");
-        firstCardClicked = secondCardClicked = null;
-        gameCards.classList.remove("correct");
-        gameCards.addEventListener('click', handleClick);
-      }, 500); //previous: 750
+      setDelay(500);
+      // setTimeout(() => {
+      //   firstCardClicked.previousElementSibling.classList.remove("current");
+      //   secondCardClicked.previousElementSibling.classList.remove("current");
+      //   firstCardClicked = secondCardClicked = null;
+      //   gameCards.classList.remove("correct");
+      //   gameCards.addEventListener('click', handleClick);
+      // }, 500); //previous: 750
       if (matches === maxMatches) {
         sound.playSound(sound.endSound);
         clearInterval(timer);
@@ -199,8 +200,14 @@ function handleCorrect() {
   gameCards.classList.add("correct");
 }
 
-function delay(time) {
-
+function setDelay(time) {
+  setTimeout(() => {
+    firstCardClicked.previousElementSibling.classList.remove("current");
+    secondCardClicked.previousElementSibling.classList.remove("current");
+    firstCardClicked = secondCardClicked = null;
+    gameCards.classList.remove('correct', 'incorrect');
+    gameCards.addEventListener('click', handleClick);
+  }, time);
 }
 // function handleClick(event) {
 //   if (event.target.className.indexOf("card-back") === -1) return;
