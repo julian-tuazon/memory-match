@@ -25,22 +25,22 @@ const welcome = {
   sound: () => sound.playSound(sound.flipSound)
 };
 
-const mode = {
+const modeView = {
   view: modeModal,
   button: modeButton,
   sound: () => sound.playSound(sound.flipSound)
 };
 
-const difficulty = {
+const difficultyView = {
   view: difficultyModal,
   button: difficultyButton,
   sound: () => sound.playSound(sound.flipSound)
 };
 
-const location = {
+const locationView = {
   view: locationModal,
   button: locationButton,
-  sound: () => sound.playSound(sound.flipSound)
+  sound: () => sound.playSound(sound.flipSound, sound.startSound)
 };
 
 const game = {
@@ -53,10 +53,10 @@ const game = {
 const end = {
   view: endModal,
   button: null,
-  sound: () => sound.playSound(sound.flipSound)
+  sound: () => sound.playSound(sound.flipSound, sound.resetSound)
 };
 
-const views = [welcome, mode, difficulty, location, game, end];
+const views = [welcome, modeView, difficultyView, locationView, game, end];
 let index = 0;
 
 welcomeButton.addEventListener('click', setNextView);
@@ -75,13 +75,9 @@ resetButton.addEventListener('click', () => {
   resetGame();
 });
 
-cheatButton.addEventListener('click', () => {
-  setNextView();
-  handleCheat();
-  sound.playSound(sound.flipSound, sound.cheatSound);
-});
+cheatButton.addEventListener('click', handleCheat);
 
-gameCards.addEventListener('click', handleClick);
+// gameCards.addEventListener('click', handleClick);
 
 // welcomeButton.addEventListener('click', function () {
 //   welcomeModal.classList.add("hidden");
