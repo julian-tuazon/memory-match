@@ -187,21 +187,19 @@ function handleClick(event) {
 }
 
 function countdown() {
-  if (timeLeft <= 0) {
+  if (timeLeft <= 0) return handleEnd('loss', mode.current);
+  timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
+  timeLeft -= 0.1;
     // sound.playSound(sound.endSound);
     // clearInterval(timer);
-    handleEnd('loss', mode.current);
-    firstCardClicked = secondCardClicked = null;
-    console.log('first', firstCardClicked, 'second', secondCardClicked);
+
+    // console.log('first', firstCardClicked, 'second', secondCardClicked);
     // secondCardClicked = null;
     // document.getElementById("end-message").textContent = "D E F E A T";
     // document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
     // document.getElementById("end-time-lives").textContent = "System.time.nullError //";
     // document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
     // endModal.classList.remove("hidden");
-  }
-  timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
-  timeLeft -= 0.1;
 }
 
 function shuffleCards() {
@@ -224,22 +222,23 @@ function shuffleCards() {
 }
 
 function resetGame() {
-  // sound.playSound(sound.resetSound, sound.flipSound);
-  // sound.playSound(sound.flipSound);
   document.body.classList.remove(`${locations.current}`);
   matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
-
   accuracyDisplay.textContent = "0.0%";
-  // timeDisplay.textContent = "-";
   gamesPlayedDisplay.textContent = ++gamesPlayed;
+  firstCardClicked = secondCardClicked = null;
+  gameCards.classList.remove('correct', 'incorrect');
+  gameCards.addEventListener('click', handleClick);
+  modal.resetModals();
+
+  // sound.playSound(sound.resetSound, sound.flipSound);
+  // sound.playSound(sound.flipSound);
+  // timeDisplay.textContent = "-";
+
 
   // Fixes bug in which a reset game still had red or green border glow and possibly could not click on cards
-  gameCards.classList.remove('correct', 'incorrect');
-  // gameCards.classList.remove("incorrect");
-  gameCards.addEventListener('click', handleClick);
-  //
 
-  modal.resetModals();
+  // gameCards.classList.remove("incorrect");
 
   // endModal.classList.add("hidden");
   // welcomeModal.classList.remove("hidden");
