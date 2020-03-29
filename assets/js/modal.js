@@ -59,8 +59,8 @@ class Modal {
       "hard": {
         "title": "H A R D",
         "message": "YoRHa No. 2 Type B",
-        "time": 30,
-        "lives": 20,
+        "time": 3,
+        "lives": 2,
         "display": "Hard",
         "sound": document.getElementById("hard-voice"),
       },
@@ -165,8 +165,7 @@ class Modal {
       modal.current = event.target.id;
       modal.currentTitle = modal[modal.current].title;
       modal.currentMessage = modal[modal.current].message;
-      sound.playSound(sound.selectSound);
-      sound.playSound(modal[modal.current].sound);
+      sound.playSound(sound.selectSound, modal[modal.current].sound);
       modal.button.classList.remove("temp-hidden");
     }
   }
