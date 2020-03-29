@@ -22,62 +22,63 @@ const difficultyModeDisplay = document.getElementById("difficulty-mode-display")
 const welcome = {
   view: welcomeModal,
   button: null,
+  sound: () => sound.playSound(sound.flipSound)
 };
 
 const mode = {
   view: modeModal,
   button: modeButton,
+  sound: () => sound.playSound(sound.flipSound)
 };
 
 const difficulty = {
   view: difficultyModal,
   button: difficultyButton,
+  sound: () => sound.playSound(sound.flipSound)
 };
 
 const location = {
   view: locationModal,
   button: locationButton,
+  sound: () => sound.playSound(sound.flipSound)
 };
 
 const game = {
   view: gameCards,
   button: null,
+  sound: null
+  // sound: () => sound.playSound(sound.endSound)
 };
 
 const end = {
-  view: locationModal,
+  view: endModal,
   button: null,
+  sound: () => sound.playSound(sound.flipSound)
 };
 
 const views = [welcome, mode, difficulty, location, game, end];
 let index = 0;
 
-welcomeButton.addEventListener('click', () => {
-  setNextView();
-  sound.playSound(sound.flipSound);
-});
-modeButton.addEventListener('click', () => {
-  setNextView();
-  sound.playSound(sound.flipSound);
-});
-difficultyButton.addEventListener('click', () => {
-  setNextView();
-  sound.playSound(sound.flipSound);
-});
+welcomeButton.addEventListener('click', setNextView);
+
+modeButton.addEventListener('click', setNextView);
+
+difficultyButton.addEventListener('click', setNextView);
+
 locationButton.addEventListener('click', () => {
   setNextView();
   startGame();
-  sound.playSound(sound.flipSound);
 });
+
 resetButton.addEventListener('click', () => {
   setNextView();
   resetGame();
-  sound.playSound(sound.flipSound);
 });
+
 cheatButton.addEventListener('click', () => {
   setNextView();
-  cheatCodes();
-  sound.playSound(sound.flipSound);
+  handleCheat();
+  sound.playSound(sound.flipSound, sound.cheatSound);
 });
 
 gameCards.addEventListener('click', handleClick);
@@ -113,5 +114,5 @@ function setNextView() {
   current.view.classList.add('hidden');
   if (current.button) current.button.classList.add('temp-hidden');
   next.view.classList.remove('hidden');
-  // sound.playSound(sound.flipSound);
+  if (current.sound) current.sound();
 }
