@@ -19,28 +19,28 @@ class Sound {
 
     this.music = {
       name: 'Music',
-      button: musicButton,
+      button: this.musicButton,
       itemList: [...document.getElementById('music').children],
     };
 
     this.soundEffects = {
       name: 'SFX',
-      button: soundEffectsButton,
+      button: this.soundEffectsButton,
       itemList: [...document.getElementById('sound-effects').children],
     };
 
     this.voice = {
       name: 'Voice',
-      button: voiceButton,
+      button: this.voiceButton,
       itemList: [...document.getElementById('voice').children],
     };
 
-    this.soundList = [music, soundEffects, voice];
+    this.soundList = [this.music, this.soundEffects, this.voice];
   }
 
   addEventListeners() {
     this.soundList.forEach(sound => {
-      sound.toggle = toggleSound(sound);
+      sound.toggle = this.toggleSound(sound);
       sound.button.addEventListener('click', sound.toggle);
     });
     [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => hoverSound.play()));
@@ -49,9 +49,9 @@ class Sound {
   toggleSound(sound) {
     let toggle = true;
     return function () {
-      toggle ? playSound(onSound) : playSound(offSound);
+      toggle ? this.playSound(onSound) : this.playSound(offSound);
       toggle ? sound.button.textContent = `${sound.name} | ON` : sound.button.textContent = `${sound.name} | OFF`;
-      if (sound.name === 'Music') toggle ? gameMusic.play() : gameMusic.pause();
+      if (sound.name === 'Music') toggle ? this.gameMusic.play() : this.gameMusic.pause();
       toggle = !toggle;
       sound.itemList.forEach(sound => sound.muted = toggle);
     }
