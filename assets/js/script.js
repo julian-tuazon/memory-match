@@ -111,13 +111,16 @@ sound.addEventListeners();
 // General events
 
 function startGame() {
-  document.body.classList.add(locations.current); // add body class manipulation to startGame
-  livesLeft = difficulty[difficulty.current].lives;
-  timeLeft = difficulty[difficulty.current].time;
-  if (mode.current === "time-attack") timer = setInterval(countdown, 100);
-  else timeDisplay.textContent = `Lives | ${livesLeft}`;
+  document.body.classList.add(locations.current);
   difficultyModeDisplay.textContent = `${difficulty[difficulty.current].display} | ${mode[mode.current].display}`;
   shuffleCards();
+  if (mode.current === "time-attack") {
+    timeLeft = difficulty[difficulty.current].time;
+    timer = setInterval(countdown, 100);
+  } else {
+    livesLeft = difficulty[difficulty.current].lives;
+    timeDisplay.textContent = `Lives | ${livesLeft}`;
+  }
 
   // sound.playSound(sound.startSound);
   // sound.playSound(sound.flipSound);
