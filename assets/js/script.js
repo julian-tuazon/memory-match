@@ -151,8 +151,10 @@ function handleClick(event) {
   }
 }
 
-// function flipCard(target, cardClicked, cardClasses) {
-//   cardClicked = target;
+// function flipCard(cardClicked, cardClasses) {
+//   cardClicked = event.target;
+//   console.log('event target', event.target);
+//   console.log('cardClicked', firstCardClicked);
 //   cardClicked.classList.add("hidden");
 //   cardClicked.previousElementSibling.classList.add("current");
 //   cardClasses = cardClicked.previousElementSibling.className;
@@ -165,7 +167,8 @@ function updateStats(isMatch) {
 }
 
 function handleCorrect() {
-  sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
+  sound.playSound(sound.correctSound, document.getElementById(`${firstCardClasses.split(' ')[0]}-voice`));
+  // sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
   gameCards.classList.add("correct");
   updateStats(true);
   setDelay(true, 500);
