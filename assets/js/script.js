@@ -37,63 +37,6 @@ const accuracyDisplay = document.getElementById("accuracy");
 const timeDisplay = document.getElementById("time");
 const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
 
-// const gameCards = document.getElementById("game-cards");
-// const difficultyModal = document.getElementById("difficulty-modal");
-// const soundModal = document.getElementById("sound-modal");
-// const welcomeModal = document.getElementById("welcome-modal");
-// const welcomeButton = document.getElementById("welcome-button");
-// const modeModal = document.getElementById("mode-modal");
-// const modeButton = document.getElementById("mode-button");
-// const difficultyButton = document.getElementById("difficulty-button");
-// const locationModal = document.getElementById("location-modal");
-// const locationButton = document.getElementById("location-button");
-// const endModal = document.getElementById("end-modal");
-// const resetButton = document.getElementById("reset");
-// const cheatButton = document.getElementById("cheat");
-// const gamesPlayedDisplay = document.getElementById("games-played");
-// const attemptsDisplay = document.getElementById("attempts");
-// const matchesDisplay = document.getElementById("matches");
-// const accuracyDisplay = document.getElementById("accuracy");
-// const timeDisplay = document.getElementById("time");
-// const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
-
-// document.getElementById("sound-on-button").addEventListener('click', function () {
-//   sound.soundList.forEach(sound => sound.toggle());
-
-//   // playSound(flipSound);
-//   soundModal.classList.add("hidden");
-//   welcomeModal.classList.remove("hidden");
-// });
-
-// document.getElementById("sound-off-button").addEventListener('click', function () {
-//   soundModal.classList.add("hidden");
-//   welcomeModal.classList.remove("hidden");
-// });
-
-// welcomeButton.addEventListener('click', function () {
-//   welcomeModal.classList.add("hidden");
-//   modeModal.classList.remove("hidden");
-//   sound.playSound(sound.flipSound, sound.cheatSound);
-// });
-
-// modeButton.addEventListener('click', function () {
-//     modeModal.classList.add("hidden");
-//     modeButton.classList.add("temp-hidden");
-//     difficultyModal.classList.remove("hidden");
-//     sound.playSound(sound.flipSound);
-// });
-
-// difficultyButton.addEventListener('click', function() {
-//   difficultyModal.classList.add("hidden");
-//   difficultyButton.classList.add("temp-hidden");
-//   locationModal.classList.remove("hidden");
-//   sound.playSound(sound.flipSound);
-// });
-
-// locationButton.addEventListener('click', startGame);
-// resetButton.addEventListener('click', resetGame);
-// cheatButton.addEventListener('click', cheatCodes);
-
 gameCards.addEventListener('click', handleClick);
 
 // modal
@@ -168,7 +111,6 @@ function updateStats(isMatch) {
 
 function handleCorrect() {
   sound.playSound(sound.correctSound, document.getElementById(`${firstCardClasses.split(' ')[0]}-voice`));
-  // sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
   gameCards.classList.add("correct");
   updateStats(true);
   setDelay(true, 500);
@@ -198,6 +140,79 @@ function setDelay(isMatch, time) {
     gameCards.addEventListener('click', handleClick);
   }, time);
 }
+
+function countdown() {
+  if (timeLeft <= 0) return handleEnd('loss', mode.current);
+  timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
+  timeLeft -= 0.1;
+}
+
+function shuffleCards() {
+  while (gameCards.firstElementChild) gameCards.removeChild(gameCards.firstElementChild);
+  const shuffleArray = [...cardsArray];
+  for (let i = 0; i < cardsArray.length; i++) {
+    const randomIndex = Math.floor(Math.random() * shuffleArray.length);
+    const cardContainer = document.createElement("div");
+    const cardFront = document.createElement("div");
+    const cardBack = document.createElement("div");
+    cardContainer.classList.add("col-2", "card");
+    cardFront.classList.add(`${shuffleArray[randomIndex]}`, "card-front");
+    cardBack.classList.add("card-back");
+    shuffleArray.splice(randomIndex, 1);
+    cardContainer.appendChild(cardFront);
+    cardContainer.appendChild(cardBack);
+    gameCards.appendChild(cardContainer);
+  }
+  [...document.getElementsByClassName('card-back')].forEach(card => card.addEventListener('mouseover', () => sound.hoverSound.play()));
+}
+
+function resetGame() {
+  document.body.classList.remove(`${locations.current}`);
+  matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
+  accuracyDisplay.textContent = "0.0%";
+  gamesPlayedDisplay.textContent = ++gamesPlayed;
+  firstCardClicked = secondCardClicked = null;
+  gameCards.classList.remove('correct', 'incorrect');
+  gameCards.addEventListener('click', handleClick);
+  modal.resetModals();
+}
+
+function handleEnd(outcome, mode) {
+  clearInterval(timer);
+  sound.playSound(sound.endSound);
+  document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+  if (outcome === 'win') document.getElementById("end-message").textContent = "V I C T O R Y";
+  else document.getElementById("end-message").textContent = "D E F E A T";
+  if (mode === 'time-attack') document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
+  else document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+  setNextView();
+}
+
+function handleCheat() {
+  clearInterval(timer);
+  sound.playSound(sound.flipSound, sound.cheatSound);
+  document.getElementById("end-message").textContent = "E X O D U S";
+  document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
+  document.getElementById("end-time-lives").textContent = "System.resolve //";
+  setNextView();
+}
+// document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
+// document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+
+// function handleWin() {
+//   document.getElementById("end-message").textContent = "V I C T O R Y";
+//   document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+//   document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
+// }
+
+// function handleLoss() {
+//   document.getElementById("end-message").textContent = "D E F E A T";
+//   document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+
+//   document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
+// }
+
+
 // function handleClick(event) {
 //   if (event.target.className.indexOf("card-back") === -1) return;
 //   sound.playSound(sound.flipSound);
@@ -263,51 +278,8 @@ function setDelay(isMatch, time) {
 //   }
 // }
 
-function countdown() {
-  if (timeLeft <= 0) return handleEnd('loss', mode.current);
-  timeDisplay.textContent = `Time | ${timeLeft.toFixed(1)}`;
-  timeLeft -= 0.1;
-    // sound.playSound(sound.endSound);
-    // clearInterval(timer);
 
-    // console.log('first', firstCardClicked, 'second', secondCardClicked);
-    // secondCardClicked = null;
-    // document.getElementById("end-message").textContent = "D E F E A T";
-    // document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-    // document.getElementById("end-time-lives").textContent = "System.time.nullError //";
-    // document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
-    // endModal.classList.remove("hidden");
-}
-
-function shuffleCards() {
-  while (gameCards.firstElementChild) gameCards.removeChild(gameCards.firstElementChild);
-  const shuffleArray = [...cardsArray];
-  for (let i = 0; i < cardsArray.length; i++) {
-    const randomIndex = Math.floor(Math.random() * shuffleArray.length);
-    const cardContainer = document.createElement("div");
-    const cardFront = document.createElement("div");
-    const cardBack = document.createElement("div");
-    cardContainer.classList.add("col-2", "card");
-    cardFront.classList.add(`${shuffleArray[randomIndex]}`, "card-front");
-    cardBack.classList.add("card-back");
-    shuffleArray.splice(randomIndex, 1); // Removes element from shuffleArray - no extra randomization
-    cardContainer.appendChild(cardFront);
-    cardContainer.appendChild(cardBack);
-    gameCards.appendChild(cardContainer);
-  }
-  [...document.getElementsByClassName('card-back')].forEach(card => card.addEventListener('mouseover', () => sound.hoverSound.play()));
-}
-
-function resetGame() {
-  document.body.classList.remove(`${locations.current}`);
-  matches = attempts = matchesDisplay.textContent = attemptsDisplay.textContent = 0;
-  accuracyDisplay.textContent = "0.0%";
-  gamesPlayedDisplay.textContent = ++gamesPlayed;
-  firstCardClicked = secondCardClicked = null;
-  gameCards.classList.remove('correct', 'incorrect');
-  gameCards.addEventListener('click', handleClick);
-  modal.resetModals();
-
+// reset game
   // sound.playSound(sound.resetSound, sound.flipSound);
   // sound.playSound(sound.flipSound);
   // timeDisplay.textContent = "-";
@@ -319,7 +291,7 @@ function resetGame() {
 
   // endModal.classList.add("hidden");
   // welcomeModal.classList.remove("hidden");
-}
+
 
 // function cheatCodes() {
 //   clearInterval(timer);
@@ -336,37 +308,76 @@ function resetGame() {
 //   endModal.classList.remove("hidden");
 // }
 
-function handleEnd(outcome, mode) {
-  clearInterval(timer);
-  sound.playSound(sound.endSound);
-  document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-  if (outcome === 'win') document.getElementById("end-message").textContent = "V I C T O R Y";
-  else document.getElementById("end-message").textContent = "D E F E A T";
-  if (mode === 'time-attack') document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
-  else document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
-  setNextView();
-}
 
-function handleCheat() {
-  clearInterval(timer);
-  sound.playSound(sound.flipSound, sound.cheatSound);
-  document.getElementById("end-message").textContent = "E X O D U S";
-  document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
-  document.getElementById("end-time-lives").textContent = "System.resolve //";
-  setNextView();
-}
-// document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
-// document.getElementById("end-time-lives").textContent = `Lives Remaining: ${livesLeft}`;
+//countdown
+    // sound.playSound(sound.endSound);
+    // clearInterval(timer);
 
-// function handleWin() {
-//   document.getElementById("end-message").textContent = "V I C T O R Y";
-//   document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
-//   document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
-// }
+    // console.log('first', firstCardClicked, 'second', secondCardClicked);
+    // secondCardClicked = null;
+    // document.getElementById("end-message").textContent = "D E F E A T";
+    // document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+    // document.getElementById("end-time-lives").textContent = "System.time.nullError //";
+    // document.getElementById("end-time-lives").textContent = `Time Remaining: ${Math.abs(timeLeft).toFixed(1)}`;
+    // endModal.classList.remove("hidden");
 
-// function handleLoss() {
-//   document.getElementById("end-message").textContent = "D E F E A T";
-//   document.getElementById("end-accuracy").textContent = "Accuracy: " + accuracyDisplay.textContent;
+    //handleCorrect
+      // sound.playSound(sound.correctSound, document.getElementById(`${event.target.previousElementSibling.classList[0]}-voice`));
 
-//   document.getElementById("end-time-lives").textContent = "System.lives.nullError //";
-// }
+
+// const gameCards = document.getElementById("game-cards");
+// const difficultyModal = document.getElementById("difficulty-modal");
+// const soundModal = document.getElementById("sound-modal");
+// const welcomeModal = document.getElementById("welcome-modal");
+// const welcomeButton = document.getElementById("welcome-button");
+// const modeModal = document.getElementById("mode-modal");
+// const modeButton = document.getElementById("mode-button");
+// const difficultyButton = document.getElementById("difficulty-button");
+// const locationModal = document.getElementById("location-modal");
+// const locationButton = document.getElementById("location-button");
+// const endModal = document.getElementById("end-modal");
+// const resetButton = document.getElementById("reset");
+// const cheatButton = document.getElementById("cheat");
+// const gamesPlayedDisplay = document.getElementById("games-played");
+// const attemptsDisplay = document.getElementById("attempts");
+// const matchesDisplay = document.getElementById("matches");
+// const accuracyDisplay = document.getElementById("accuracy");
+// const timeDisplay = document.getElementById("time");
+// const difficultyModeDisplay = document.getElementById("difficulty-mode-display");
+
+// document.getElementById("sound-on-button").addEventListener('click', function () {
+//   sound.soundList.forEach(sound => sound.toggle());
+
+//   // playSound(flipSound);
+//   soundModal.classList.add("hidden");
+//   welcomeModal.classList.remove("hidden");
+// });
+
+// document.getElementById("sound-off-button").addEventListener('click', function () {
+//   soundModal.classList.add("hidden");
+//   welcomeModal.classList.remove("hidden");
+// });
+
+// welcomeButton.addEventListener('click', function () {
+//   welcomeModal.classList.add("hidden");
+//   modeModal.classList.remove("hidden");
+//   sound.playSound(sound.flipSound, sound.cheatSound);
+// });
+
+// modeButton.addEventListener('click', function () {
+//     modeModal.classList.add("hidden");
+//     modeButton.classList.add("temp-hidden");
+//     difficultyModal.classList.remove("hidden");
+//     sound.playSound(sound.flipSound);
+// });
+
+// difficultyButton.addEventListener('click', function() {
+//   difficultyModal.classList.add("hidden");
+//   difficultyButton.classList.add("temp-hidden");
+//   locationModal.classList.remove("hidden");
+//   sound.playSound(sound.flipSound);
+// });
+
+// locationButton.addEventListener('click', startGame);
+// resetButton.addEventListener('click', resetGame);
+// cheatButton.addEventListener('click', cheatCodes);
