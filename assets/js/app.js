@@ -72,7 +72,6 @@ let index = 0;
   cheatButton.addEventListener('click', handleCheat);
 })();
 
-
 function setNextView() {
   const current = views[index];
   index = ++index % views.length;
