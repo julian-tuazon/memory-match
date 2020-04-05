@@ -90,6 +90,28 @@ function handleCheat() {
   document.getElementById("end-time-lives").textContent = "System.resolve //";
   setNextView();
 }
+
+getGameSettings() {
+  document.body.classList.add(this.locations.current);
+  this.game.currentMode = this.mode.current;
+  this.game.modeDisplay = this.mode[this.mode.current].display;
+  this.game.difficultyDisplay = this.difficulty[this.difficulty.current].display;
+
+  this.difficultyModeDisplay.textContent = `${this.difficulty[this.difficulty.current].display} | ${this.mode[this.mode.current].display}`;
+  if (this.mode.current === "time-attack") {
+    this.game.timeLeft = this.difficulty[this.difficulty.current].time;
+    this.game.timer = setInterval(this.countdown, 100);
+  } else {
+    this.game.livesLeft = this.difficulty[this.difficulty.current].lives;
+    this.game.timeDisplay.textContent = `Lives | ${this.livesLeft}`;
+  }
+}
+
+resetApp() {
+  game.resetGame();
+  document.body.classList.remove(`${locations.current}`);
+  modal.resetModals();
+}
 // gameCards.addEventListener('click', handleClick);
 
 // welcomeButton.addEventListener('click', function () {
