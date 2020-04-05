@@ -119,7 +119,7 @@ class Modal {
     // };
     this.mode = myMode;
     this.difficulty = myDifficulty;
-    this.location = myLocation;
+    this.location = new Location();
     this.modalList = [this.mode, this.difficulty, this.location];
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
