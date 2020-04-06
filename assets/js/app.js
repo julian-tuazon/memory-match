@@ -1,139 +1,122 @@
-const gameModal = document.getElementById('game-modal');
-const difficultyModal = document.getElementById("difficulty-modal");
-const soundModal = document.getElementById("sound-modal");
-const welcomeModal = document.getElementById("welcome-modal"); // Opening modal
-const welcomeButton = document.getElementById("welcome-button"); // Opening modal button to transition to mode select modal
-const modeModal = document.getElementById("mode-modal"); // Mode select modal
-const modeButton = document.getElementById("mode-button"); // Mode select modal button that transitions to difficulty select modal
-const difficultyButton = document.getElementById("difficulty-button");
-const locationModal = document.getElementById("location-modal");
-const locationButton = document.getElementById("location-button");
-const endModal = document.getElementById("end-modal");
-const resetButton = document.getElementById("reset");
-const cheatButton = document.getElementById("cheat");
+class App {
+  constructor(sound, modal, game, end) {
+    this.sound = sound;
+    this.modal = modal;
+    this.mode = this.modal.mode;
+    this.difficulty = this.modal.difficulty;
+    this.location = this.modal.location;
+    this.game = game;
+    this.end = end;
 
-const welcomeView = {
-  view: welcomeModal,
-  button: null,
-  sound: () => sound.playSound(sound.flipSound)
-};
+    this.welcomeModal = document.getElementById("welcome-modal");
+    this.welcomeButton = document.getElementById("welcome-button");
+    this.modeModal = document.getElementById("mode-modal");
+    this.modeButton = document.getElementById("mode-button");
+    this.difficultyModal = document.getElementById("difficulty-modal");
+    this.difficultyButton = document.getElementById("difficulty-button");
+    this.locationModal = document.getElementById("location-modal");
+    this.locationButton = document.getElementById("location-button");
+    this.gameModal = document.getElementById('game-modal');
+    this.cheatButton = document.getElementById("cheat");
+    this.endModal = document.getElementById("end-modal");
+    this.resetButton = document.getElementById("reset");
 
-const modeView = {
-  view: modeModal,
-  button: modeButton,
-  sound: () => sound.playSound(sound.flipSound)
-};
+    this.welcomeView = {
+      view: this.welcomeModal,
+      button: null,
+      sound: () => sound.playSound(sound.flipSound)
+    };
 
-const difficultyView = {
-  view: difficultyModal,
-  button: difficultyButton,
-  sound: () => sound.playSound(sound.flipSound)
-};
+    this.modeView = {
+      view: this.modeModal,
+      button: this.modeButton,
+      sound: () => sound.playSound(sound.flipSound)
+    };
 
-const locationView = {
-  view: locationModal,
-  button: locationButton,
-  sound: () => sound.playSound(sound.flipSound, sound.startSound)
-};
+    this.difficultyView = {
+      view: this.difficultyModal,
+      button: this.difficultyButton,
+      sound: () => sound.playSound(sound.flipSound)
+    };
 
-const gameView = {
-  view: gameModal,
-  button: null,
-  sound: null
-  // sound: () => sound.playSound(sound.endSound)
-};
+    this.locationView = {
+      view: this.locationModal,
+      button: this.locationButton,
+      sound: () => sound.playSound(sound.flipSound, sound.startSound)
+    };
 
-const endView = {
-  view: endModal,
-  button: null,
-  sound: () => sound.playSound(sound.flipSound, sound.resetSound)
-};
+    this.gameView = {
+      view: this.gameModal,
+      button: null,
+      sound: null
+    };
 
-const views = [welcomeView, modeView, difficultyView, locationView, gameView, endView];
-let index = 0;
+    this.endView = {
+      view: this.endModal,
+      button: null,
+      sound: () => sound.playSound(sound.flipSound, sound.resetSound)
+    };
 
-(function addEventListeners() {
-  welcomeButton.addEventListener('click', setNextView);
+    this.views = [this.welcomeView, this.modeView, this.difficultyView, this.locationView, this.gameView, this.endView];
+    this.index = 0;
 
-  modeButton.addEventListener('click', setNextView);
+    this.setNextView = this.setNextView.bind(this);
+    this.endGame = this.endGame.bind(this);
+  }
 
-  difficultyButton.addEventListener('click', setNextView);
+  initializeApp() {
+    this.sound.addEventListeners();
+    this.modal.initializeModals();
+    this.addEventListeners();
+  }
 
-  locationButton.addEventListener('click', () => {
-    setNextView();
-    startGame();
-  });
+  addEventListeners() {
+    this.welcomeButton.addEventListener('click', this.setNextView);
+    this.modeButton.addEventListener('click', this.setNextView);
+    this.difficultyButton.addEventListener('click', this.setNextView);
+    this.locationButton.addEventListener('click', () => {
+      this.setNextView();
+      this.setGameSettings();
+      this.game.startGame();
+    });
+    this.resetButton.addEventListener('click', () => {
+      this.setNextView();
+      this.resetApp();
+    });
+    this.cheatButton.addEventListener('click', this.game.handleCheat);
+  }
 
-  resetButton.addEventListener('click', () => {
-    setNextView();
-    resetGame();
-  });
+  setNextView() {
+    const current = this.views[this.index];
+    this.index = ++this.index % this.views.length;
+    const next = this.views[this.index];
+    current.view.classList.add('hidden');
+    if (current.button) current.button.classList.add('temp-hidden');
+    next.view.classList.remove('hidden');
+    if (current.sound) current.sound();
+  }
 
-  cheatButton.addEventListener('click', handleCheat);
-})();
+  setGameSettings() {
+    document.body.classList.add(`${this.location.current}`);
+    const gameSettings = {
+      currentMode: this.mode.current,
+      modeDisplay: this.mode[this.mode.current].display,
+      difficultyDisplay: this.difficulty[this.difficulty.current].display,
+      timeLeft: this.difficulty[this.difficulty.current].time,
+      livesLeft: this.difficulty[this.difficulty.current].lives,
+      endGame: this.endGame,
+    };
+    this.game.getGameSettings(gameSettings);
+  }
 
-function setNextView() {
-  const current = views[index];
-  index = ++index % views.length;
-  const next = views[index];
-  current.view.classList.add('hidden');
-  if (current.button) current.button.classList.add('temp-hidden');
-  next.view.classList.remove('hidden');
-  if (current.sound) current.sound();
-}
+  endGame(message, accuracy, timeLives) {
+    this.setNextView();
+    this.end.setDisplay(message, accuracy, timeLives);
+  }
 
-function handleCheat() {
-  clearInterval(timer);
-  sound.playSound(sound.flipSound, sound.cheatSound);
-  document.getElementById("end-message").textContent = "E X O D U S";
-  document.getElementById("end-accuracy").textContent = "admin.System.bypass //";
-  document.getElementById("end-time-lives").textContent = "System.resolve //";
-  setNextView();
-}
-
-getGameSettings() {
-  document.body.classList.add(this.locations.current);
-  this.game.currentMode = this.mode.current;
-  this.game.modeDisplay = this.mode[this.mode.current].display;
-  this.game.difficultyDisplay = this.difficulty[this.difficulty.current].display;
-
-  this.difficultyModeDisplay.textContent = `${this.difficulty[this.difficulty.current].display} | ${this.mode[this.mode.current].display}`;
-  if (this.mode.current === "time-attack") {
-    this.game.timeLeft = this.difficulty[this.difficulty.current].time;
-    this.game.timer = setInterval(this.countdown, 100);
-  } else {
-    this.game.livesLeft = this.difficulty[this.difficulty.current].lives;
-    this.game.timeDisplay.textContent = `Lives | ${this.livesLeft}`;
+  resetApp() {
+    document.body.classList.remove(`${this.location.current}`);
+    this.game.resetGame();
+    this.modal.resetModals();
   }
 }
-
-resetApp() {
-  game.resetGame();
-  document.body.classList.remove(`${locations.current}`);
-  modal.resetModals();
-}
-// gameCards.addEventListener('click', handleClick);
-
-// welcomeButton.addEventListener('click', function () {
-//   welcomeModal.classList.add("hidden");
-//   modeModal.classList.remove("hidden");
-//   sound.playSound(sound.flipSound);
-// });
-
-// modeButton.addEventListener('click', function () {
-//   modeModal.classList.add("hidden");
-//   modeButton.classList.add("temp-hidden");
-//   difficultyModal.classList.remove("hidden");
-//   sound.playSound(sound.flipSound);
-// });
-
-// difficultyButton.addEventListener('click', function () {
-//   difficultyModal.classList.add("hidden");
-//   difficultyButton.classList.add("temp-hidden");
-//   locationModal.classList.remove("hidden");
-//   sound.playSound(sound.flipSound);
-// });
-
-// locationButton.addEventListener('click', startGame);
-// resetButton.addEventListener('click', resetGame);
-// cheatButton.addEventListener('click', cheatCodes);
