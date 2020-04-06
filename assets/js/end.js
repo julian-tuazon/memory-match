@@ -1,6 +1,5 @@
 class End {
-  constructor() {
-  }
+  constructor() {}
 
   setDisplay(message, accuracy, timeLives) {
     document.getElementById("end-message").textContent = message;
