@@ -173,39 +173,39 @@ aside#controls div:first-child {
   transform: scale(1.01);
 }
 
-.ag-logo {
+.ag {
   background-image: url(../images/wipeout_logos/ag.jpg);
 }
 
-.assegai-logo {
+.assegai {
   background-image: url(../images/wipeout_logos/assegai.jpg);
 }
 
-.goteki-logo {
+.goteki {
   background-image: url(../images/wipeout_logos/goteki.jpg);
 }
 
-.auricom-logo {
+.auricom {
   background-image: url(../images/wipeout_logos/auricom.jpg);
 }
 
-.icaras-logo {
+.icaras {
   background-image: url(../images/wipeout_logos/icaras.jpg);
 }
 
-.piranha-logo {
+.piranha {
   background-image: url(../images/wipeout_logos/piranha.jpg);
 }
 
-.harimau-logo {
+.harimau {
   background-image: url(../images/wipeout_logos/harimau.jpg);
 }
 
-.qirex-logo {
+.qirex {
   background-image: url(../images/wipeout_logos/qirex.jpg);
 }
 
-.triakis-logo {
+.triakis {
   background-image: url(../images/wipeout_logos/triakis.jpg);
 }
 
@@ -349,6 +349,36 @@ footer > div {
   align-items: flex-end;
 }
 
+#survival {
+  background-image: url(../images/extra/pod3.png);
+  background-size: 80%;
+  background-position: 52% 80%;
+}
+
+#timeattack {
+  background-image: url(../images/extra/pod4.png);
+  background-size: 60%;
+  background-position: 55% 80%;
+}
+
+#easy {
+  background-image: url(../images/extra/9s.png);
+  background-size: 137%;
+  background-position: 40% -10%;
+}
+
+#medium {
+  background-image: url(../images/extra/a2.png);
+  background-size: 250%;
+  background-position: 60% 6.5%;
+}
+
+#hard {
+  background-image: url(../images/extra/2b_hi_res.png);
+  background-size: 300%;
+  background-position: 75% -14%;
+}
+
 .flex > div > div {
   width: 100%;
   height: 70%;
@@ -362,22 +392,22 @@ footer > div {
 }
 
 /* Location / background modal */
-.sol-2 {
+.sol {
   background-image: url(../images/geo/gray.jpg);
 }
-.moa-therma {
+.moa {
   background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
 }
-.vineta-k {
+.vineta {
   background-image: url(../images/backgrounds/311328.jpg);
 }
-.tech-de-ra {
+.tech {
   background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
 }
 .metropia {
   background-image: url(../images/backgrounds/wallpaper-660072.jpg);
 }
-.anulpha-pass {
+.anulpha {
   background-image: url(../images/backgrounds/wallhaven-732202.jpg);
 }
 
@@ -845,8 +875,8 @@ input {
 
   .flex > div {
     margin: 0 2%;
-    height: 20vh;
-    max-height: 125px;
+    height: 16vh; /* 20vh */
+    max-height: 110px; /* 125px */
     width: 25%;
     border: 1.5px solid white;
   }
