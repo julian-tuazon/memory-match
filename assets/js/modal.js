@@ -1,125 +1,121 @@
-// import { mode } from './mode';
-// import { difficulty } from './difficulty';
-// import { location } from './location';
-
 class Modal {
 
   constructor() {
-    // this.mode = {
-    //   "name": "mode",
-    //   "button": document.getElementById('mode-button'),
-    //   "current": "null",
-    //   "defaultTitle": "M O D E",
-    //   "currentTitle": "M O D E",
-    //   "defaultMessage": "Deploy Pod",
-    //   "currentMessage": "Deploy Pod",
-    //   "itemList": [
-    //     "survival",
-    //     "time-attack",
-    //   ],
-    //   "survival": {
-    //     "title": "S U R V I V A L",
-    //     "message": "Pod X-042",
-    //     "display": "Survival",
-    //     "sound": document.getElementById("survival-voice"),
-    //   },
-    //   "time-attack": {
-    //     "title": "T I M E - A T T A C K",
-    //     "message": "Pod Y-153",
-    //     "display": "Time-Attack",
-    //     "sound": document.getElementById("time-attack-voice"),
-    //   },
-    // };
+    this.mode = {
+      "name": "mode",
+      "button": document.getElementById('mode-button'),
+      "current": "null",
+      "defaultTitle": "M O D E",
+      "currentTitle": "M O D E",
+      "defaultMessage": "Deploy Pod",
+      "currentMessage": "Deploy Pod",
+      "itemList": [
+        "survival",
+        "time-attack",
+      ],
+      "survival": {
+        "title": "S U R V I V A L",
+        "message": "Pod X-042",
+        "display": "Survival",
+        "sound": document.getElementById("survival-voice"),
+      },
+      "time-attack": {
+        "title": "T I M E - A T T A C K",
+        "message": "Pod Y-153",
+        "display": "Time-Attack",
+        "sound": document.getElementById("time-attack-voice"),
+      },
+    };
 
-    // this.difficulty = {
-    //   "name": "difficulty",
-    //   "button": document.getElementById('difficulty-button'),
-    //   "current": "null",
-    //   "defaultTitle": "D I F F I C U L T Y",
-    //   "currentTitle": "D I F F I C U L T Y",
-    //   "defaultMessage": "Deploy YoRHa Unit",
-    //   "currentMessage": "Deploy YoRHa Unit",
-    //   "itemList": [
-    //     "easy",
-    //     "medium",
-    //     "hard",
-    //   ],
-    //   "easy": {
-    //     "title": "E A S Y",
-    //     "message": "YoRHa No. 9 Type S",
-    //     "time": 99,
-    //     "lives": 50,
-    //     "display": "Easy",
-    //     "sound": document.getElementById("easy-voice"),
-    //   },
-    //   "medium": {
-    //     "title": "M E D I U M",
-    //     "message": "YoRHa Type A No. 2",
-    //     "time": 60,
-    //     "lives": 35,
-    //     "display": "Medium",
-    //     "sound": document.getElementById("medium-voice"),
-    //   },
-    //   "hard": {
-    //     "title": "H A R D",
-    //     "message": "YoRHa No. 2 Type B",
-    //     "time": 3,
-    //     "lives": 2,
-    //     "display": "Hard",
-    //     "sound": document.getElementById("hard-voice"),
-    //   },
-    // };
+    this.difficulty = {
+      "name": "difficulty",
+      "button": document.getElementById('difficulty-button'),
+      "current": "null",
+      "defaultTitle": "D I F F I C U L T Y",
+      "currentTitle": "D I F F I C U L T Y",
+      "defaultMessage": "Deploy YoRHa Unit",
+      "currentMessage": "Deploy YoRHa Unit",
+      "itemList": [
+        "easy",
+        "medium",
+        "hard",
+      ],
+      "easy": {
+        "title": "E A S Y",
+        "message": "YoRHa No. 9 Type S",
+        "time": 99,
+        "lives": 50,
+        "display": "Easy",
+        "sound": document.getElementById("easy-voice"),
+      },
+      "medium": {
+        "title": "M E D I U M",
+        "message": "YoRHa Type A No. 2",
+        "time": 60,
+        "lives": 35,
+        "display": "Medium",
+        "sound": document.getElementById("medium-voice"),
+      },
+      "hard": {
+        "title": "H A R D",
+        "message": "YoRHa No. 2 Type B",
+        "time": 3,
+        "lives": 2,
+        "display": "Hard",
+        "sound": document.getElementById("hard-voice"),
+      },
+    };
 
-    // this.location = {
-    //   "name": "location",
-    //   "button": document.getElementById('location-button'),
-    //   "current": "null",
-    //   "defaultTitle": "L O C A T I O N",
-    //   "currentTitle": "L O C A T I O N",
-    //   "defaultMessage": "Select Location",
-    //   "currentMessage": "Select Location",
-    //   "itemList": [
-    //     "sol-2",
-    //     "moa-therma",
-    //     "vineta-k",
-    //     "tech-de-ra",
-    //     "metropia",
-    //     "anulpha-pass",
-    //   ],
-    //   "sol-2": {
-    //     "title": "L O C A T I O N",
-    //     "message": "Sol 2",
-    //     "sound": document.getElementById("sol-2-voice"),
-    //   },
-    //   "moa-therma": {
-    //     "title": "L O C A T I O N",
-    //     "message": "Moa Therma",
-    //     "sound": document.getElementById("moa-therma-voice"),
-    //   },
-    //   "vineta-k": {
-    //     "title": "L O C A T I O N",
-    //     "message": "Vineta K",
-    //     "sound": document.getElementById("vineta-k-voice"),
-    //   },
-    //   "tech-de-ra": {
-    //     "title": "L O C A T I O N",
-    //     "message": "Tech De Ra",
-    //     "sound": document.getElementById("tech-de-ra-voice"),
-    //   },
-    //   "metropia": {
-    //     "title": "L O C A T I O N",
-    //     "message": "Metropia",
-    //     "sound": document.getElementById("metropia-voice"),
-    //   },
-    //   "anulpha-pass": {
-    //     "title": "L O C A T I O N",
-    //     "message": "Anulpha Pass",
-    //     "sound": document.getElementById("anulpha-pass-voice"),
-    //   },
-    // };
-    this.mode = myMode;
-    this.difficulty = myDifficulty;
-    this.location = new Location();
+    this.location = {
+      "name": "location",
+      "button": document.getElementById('location-button'),
+      "current": "null",
+      "defaultTitle": "L O C A T I O N",
+      "currentTitle": "L O C A T I O N",
+      "defaultMessage": "Select Location",
+      "currentMessage": "Select Location",
+      "itemList": [
+        "sol-2",
+        "moa-therma",
+        "vineta-k",
+        "tech-de-ra",
+        "metropia",
+        "anulpha-pass",
+      ],
+      "sol-2": {
+        "title": "L O C A T I O N",
+        "message": "Sol 2",
+        "sound": document.getElementById("sol-2-voice"),
+      },
+      "moa-therma": {
+        "title": "L O C A T I O N",
+        "message": "Moa Therma",
+        "sound": document.getElementById("moa-therma-voice"),
+      },
+      "vineta-k": {
+        "title": "L O C A T I O N",
+        "message": "Vineta K",
+        "sound": document.getElementById("vineta-k-voice"),
+      },
+      "tech-de-ra": {
+        "title": "L O C A T I O N",
+        "message": "Tech De Ra",
+        "sound": document.getElementById("tech-de-ra-voice"),
+      },
+      "metropia": {
+        "title": "L O C A T I O N",
+        "message": "Metropia",
+        "sound": document.getElementById("metropia-voice"),
+      },
+      "anulpha-pass": {
+        "title": "L O C A T I O N",
+        "message": "Anulpha Pass",
+        "sound": document.getElementById("anulpha-pass-voice"),
+      },
+    };
+    // this.mode = myMode;
+    // this.difficulty = myDifficulty;
+    // this.location = new Location();
     this.modalList = [this.mode, this.difficulty, this.location];
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
