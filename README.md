@@ -10,7 +10,7 @@ Users can toggle music, sound effects, and voice effects, select different mode 
 - CSS3
 
 ## Live Demo
-https://https://memory-match.juliantuazon.com/
+https://memory-match.juliantuazon.com/
 
 ## Features
 - User can flip cards
@@ -25,3 +25,5 @@ https://https://memory-match.juliantuazon.com/
 - User can toggle sound effects
 - User can toggle voice effects
 - User can utilize cheat button to win game
+
+## Screenshot
