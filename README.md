@@ -27,3 +27,6 @@ https://memory-match.juliantuazon.com/
 - User can utilize cheat button to win game
 
 ## Screenshot
+![memory-match-difficulty](https://user-images.githubusercontent.com/57813827/78608602-124ef700-7816-11ea-904f-4480fa10bfd1.png)
+![memory-match-location](https://user-images.githubusercontent.com/57813827/78608594-0fec9d00-7816-11ea-88bd-1e1ffe68105a.png)
+![memory-match-game](https://user-images.githubusercontent.com/57813827/78608586-0cf1ac80-7816-11ea-81d6-db0bcbee520e.png)
