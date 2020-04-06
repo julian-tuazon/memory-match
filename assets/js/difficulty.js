@@ -2,7 +2,7 @@ class Difficulty {
   constructor() {
     this.name = "difficulty";
     this.button = document.getElementById('difficulty-button');
-    this.current = "null";
+    this.current = null;
     this.defaultTitle = "D I F F I C U L T Y";
     this.currentTitle = "D I F F I C U L T Y";
     this.defaultMessage = "Deploy YoRHa Unit";

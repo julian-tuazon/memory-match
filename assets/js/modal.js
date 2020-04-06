@@ -19,7 +19,7 @@ class Modal {
       document.getElementById(`${modal.name}-message`).textContent = modal.currentMessage = modal.defaultMessage;
       document.getElementById(`${modal.current}`).classList.add("clickable");
       document.getElementById(`${modal.current}`).classList.remove("selected", "selected-animation");
-      modal.current = "null";
+      modal.current = null;
     });
   }
 
@@ -47,7 +47,7 @@ class Modal {
       event.target.classList.add("selected", "selected-animation");
       event.target.classList.remove("clickable");
       setTimeout(() => event.target.classList.remove("selected-animation"), 700);
-      if (modal.current !== "null") {
+      if (modal.current) {
         document.getElementById(`${modal.current}`).classList.add("clickable");
         document.getElementById(`${modal.current}`).classList.remove("selected");
       }

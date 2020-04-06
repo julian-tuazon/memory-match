@@ -2,7 +2,7 @@ class Location {
   constructor() {
     this.name = "location";
     this.button = document.getElementById('location-button');
-    this.current = 'null';
+    this.current = null;
     this.defaultTitle = "L O C A T I O N";
     this.currentTitle = "L O C A T I O N";
     this.defaultMessage = "Select Location";

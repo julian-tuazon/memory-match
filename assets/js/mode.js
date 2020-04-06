@@ -2,7 +2,7 @@ class Mode {
   constructor() {
     this.name = "mode";
     this.button = document.getElementById('mode-button');
-    this.current = "null";
+    this.current = null;
     this.defaultTitle = "M O D E";
     this.currentTitle = "M O D E";
     this.defaultMessage = "Deploy Pod";

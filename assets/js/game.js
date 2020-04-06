@@ -21,10 +21,10 @@ class Game {
       'qirex',
       'triakis',
     ];
-    this.firstCardClicked;
-    this.secondCardClicked;
-    this.firstCardClasses;
-    this.secondCardClasses;
+    this.firstCardClicked = null;
+    this.secondCardClicked = null;
+    this.firstCardClasses = null;
+    this.secondCardClasses = null;
     this.maxMatches = 9;
     this.matches = 0;
     this.attempts = 0;
@@ -49,7 +49,6 @@ class Game {
     this.handleEnd = this.handleEnd.bind(this);
     this.handleCheat = this.handleCheat.bind(this);
     this.countdown = this.countdown.bind(this);
-    // this.needs = [locations.current, mode display, difficulty display, mode current, time, lives, sounds, ];
   }
 
   startGame() {
