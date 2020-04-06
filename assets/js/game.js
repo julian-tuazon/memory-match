@@ -56,7 +56,7 @@ class Game {
     this.shuffleCards();
     this.addEventListeners();
     this.difficultyModeDisplay.textContent = `${this.difficultyDisplay} | ${this.modeDisplay}`;
-    if (this.currentMode === "time-attack") this.timer = setInterval(this.countdown, 100);
+    if (this.currentMode === "timeattack") this.timer = setInterval(this.countdown, 100);
     else this.timeDisplay.textContent = `Lives | ${this.livesLeft}`;
   }
 
@@ -164,7 +164,7 @@ class Game {
     let message;
     outcome === 'win' ? message = "V I C T O R Y" : message = "D E F E A T";
     let timeLives;
-    mode === 'time-attack' ? timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}` : timeLives = `Lives Remaining: ${this.livesLeft}`;
+    mode === 'timeattack' ? timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}` : timeLives = `Lives Remaining: ${this.livesLeft}`;
     this.endGame(message, accuracy, timeLives);
   }
 
