@@ -163,7 +163,6 @@ class Game {
     const accuracy = "Accuracy: " + this.accuracyDisplay.textContent;
     let message;
     outcome === 'win' ? message = "V I C T O R Y" : message = "D E F E A T";
-    console.log(message);
     let timeLives;
     mode === 'time-attack' ? timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}` : timeLives = `Lives Remaining: ${this.livesLeft}`;
     this.endGame(message, accuracy, timeLives);
