@@ -1,5 +1,5 @@
 class Game {
-  constructor(mode, difficulty, location, sound) {
+  constructor() {
     this.gameCards = document.getElementById("game-cards");
     this.cardsArray = [
       'ag',
@@ -29,44 +29,44 @@ class Game {
     this.matches = 0;
     this.attempts = 0;
     this.gamesPlayed = 0;
-    this.timer;
-    this.timeLeft;
-    this.livesLeft;
+    this.timer = null;
+    this.timeLeft = null;
+    this.livesLeft = null;
     this.gamesPlayedDisplay = document.getElementById("games-played");
     this.attemptsDisplay = document.getElementById("attempts");
     this.matchesDisplay = document.getElementById("matches");
     this.accuracyDisplay = document.getElementById("accuracy");
     this.timeDisplay = document.getElementById("time");
     this.difficultyModeDisplay = document.getElementById("difficulty-mode-display");
-    this.currentMode = currentMode;
-    this.modeDisplay = modeDisplay;
-    this.difficultyDisplay = difficultyDisplay;
-    this.location = location;
-    this.sound = sound;
-    this.end = end;
-    this.needs = [locations.current, mode display, difficulty display, mode current, time, lives, sounds, ];
+    this.difficultyDisplay = null;
+    this.modeDisplay = null;
+    this.currentMode = null;
+    this.endGame = null;
+
+    this.handleClick = this.handleClick.bind(this);
+    this.handleCorrect = this.handleCorrect.bind(this);
+    this.handleIncorrect = this.handleIncorrect.bind(this);
+    this.handleEnd = this.handleEnd.bind(this);
+    this.handleCheat = this.handleCheat.bind(this);
+    this.countdown = this.countdown.bind(this);
+    // this.needs = [locations.current, mode display, difficulty display, mode current, time, lives, sounds, ];
   }
 
   startGame() {
-    this.difficultyModeDisplay.textContent = `${this.difficultyDisplay} | ${this.modeDisplay}`;
     this.shuffleCards();
     this.addEventListeners();
-    if (this.mode.current === "time-attack") {
-      this.timeLeft = this.difficulty[this.difficulty.current].time;
-      this.timer = setInterval(this.countdown, 100);
-    } else {
-      this.livesLeft = this.difficulty[this.difficulty.current].lives;
-      this.timeDisplay.textContent = `Lives | ${this.livesLeft}`;
-    }
+    this.difficultyModeDisplay.textContent = `${this.difficultyDisplay} | ${this.modeDisplay}`;
+    if (this.currentMode === "time-attack") this.timer = setInterval(this.countdown, 100);
+    else this.timeDisplay.textContent = `Lives | ${this.livesLeft}`;
   }
 
-  onStartGame(getGameSettings) {
-    this.getGameSettings = getGameSettings;
-  }
-
-  addEventListeners() {
-    this.gameCards.addEventListener('click', this.handleClick);
-    [...document.getElementsByClassName('card-back')].forEach(card => card.addEventListener('mouseover', () => sound.hoverSound.play()));
+  getGameSettings(gameSettings) {
+    this.currentMode = gameSettings.currentMode;
+    this.modeDisplay  = gameSettings.modeDisplay;
+    this.difficultyDisplay = gameSettings.difficultyDisplay;
+    this.timeLeft = gameSettings.timeLeft;
+    this.livesLeft = gameSettings.livesLeft;
+    this.endGame = gameSettings.endGame;
   }
 
   shuffleCards() {
@@ -87,6 +87,11 @@ class Game {
     }
   }
 
+  addEventListeners() {
+    this.gameCards.addEventListener('click', this.handleClick);
+    [...document.getElementsByClassName('card-back')].forEach(card => card.addEventListener('mouseover', () => sound.hoverSound.play()));
+  }
+
   handleClick(event) {
     if (event.target.className.indexOf("card-back") === -1) return;
     sound.playSound(sound.flipSound);
@@ -103,7 +108,7 @@ class Game {
       this.gameCards.removeEventListener('click', this.handleClick);
       if (this.firstCardClasses === this.secondCardClasses) {
         this.handleCorrect();
-        if (this.matches === this.maxMatches) this.handleEnd('win', this.mode.current);
+        if (this.matches === this.maxMatches) this.handleEnd('win', this.currentMode);
       } else this.handleIncorrect();
     }
   }
@@ -119,11 +124,11 @@ class Game {
     sound.playSound(sound.incorrectSound);
     this.gameCards.classList.add("incorrect");
     this.updateStats(false);
-    if (this.mode.current === "survival") {
+    if (this.currentMode === "survival") {
       this.timeDisplay.textContent = `Lives | ${--this.livesLeft}`
-      if (!this.livesLeft) this.handleEnd('lose', this.mode.current);
+      if (!this.livesLeft) this.handleEnd('lose', this.currentMode);
     }
-    setDelay(false, 1000);
+    this.setDelay(false, 1000);
   }
 
   updateStats(isMatch) {
@@ -147,7 +152,7 @@ class Game {
   }
 
   countdown() {
-    if (this.timeLeft <= 0) return this.handleEnd('loss', this.mode.current);
+    if (this.timeLeft <= 0) return this.handleEnd('loss', this.currentMode);
     this.timeDisplay.textContent = `Time | ${this.timeLeft.toFixed(1)}`;
     this.timeLeft -= 0.1;
   }
@@ -157,29 +162,25 @@ class Game {
     sound.playSound(sound.endSound);
     const accuracy = "Accuracy: " + this.accuracyDisplay.textContent;
     let message;
-    outcome === 'win' ? message = "V I C T O R Y" : "D E F E A T";
+    outcome === 'win' ? message = "V I C T O R Y" : message = "D E F E A T";
+    console.log(message);
     let timeLives;
     mode === 'time-attack' ? timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}` : timeLives = `Lives Remaining: ${this.livesLeft}`;
-    end.setDisplay(accuracy, message, timeLives);
-    setNextView();
+    this.endGame(message, accuracy, timeLives);
   }
 
   handleCheat() {
     clearInterval(this.timer);
     sound.playSound(sound.flipSound, sound.cheatSound);
-    end.setDisplay("E X O D U S", "admin.System.bypass //", "System.resolve //");
-    setNextView();
+    this.endGame("E X O D U S", "admin.System.bypass //", "System.resolve //");
   }
 
   resetGame() {
     this.matches = this.attempts = this.matchesDisplay.textContent = this.attemptsDisplay.textContent = 0;
     this.accuracyDisplay.textContent = "0.0%";
-    this.gamesPlayedDisplay.textContent = ++gamesPlayed;
+    this.gamesPlayedDisplay.textContent = ++this.gamesPlayed;
     this.firstCardClicked = this.secondCardClicked = null;
     this.gameCards.classList.remove('correct', 'incorrect');
     this.gameCards.addEventListener('click', this.handleClick);
-    document.body.classList.remove(`${locations.current}`);
-    modal.resetModals();
   }
-
 }
