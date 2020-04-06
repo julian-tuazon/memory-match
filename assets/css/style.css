@@ -355,7 +355,7 @@ footer > div {
   background-position: 52% 80%;
 }
 
-#time-attack {
+#timeattack {
   background-image: url(../images/extra/pod4.png);
   background-size: 60%;
   background-position: 55% 80%;
@@ -392,22 +392,22 @@ footer > div {
 }
 
 /* Location / background modal */
-.sol-2 {
+.sol {
   background-image: url(../images/geo/gray.jpg);
 }
-.moa-therma {
+.moa {
   background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
 }
-.vineta-k {
+.vineta {
   background-image: url(../images/backgrounds/311328.jpg);
 }
-.tech-de-ra {
+.tech {
   background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
 }
 .metropia {
   background-image: url(../images/backgrounds/wallpaper-660072.jpg);
 }
-.anulpha-pass {
+.anulpha {
   background-image: url(../images/backgrounds/wallhaven-732202.jpg);
 }
 
