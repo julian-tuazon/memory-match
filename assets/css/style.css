@@ -19,11 +19,13 @@ header {
   width: 100%;
 
   /* Makes whole header bar a gif */
-  background-color: black;
-  background: linear-gradient(
+  /* background-color: black; */
+
+
+  background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     /* url(../images/extra/header.gif); */;
+                     url(../images/extra/header_static.jpg);
   background-position: center;
   background-size: 50%; /* Original: 300% */
   font-size: 1.5vmax;
@@ -70,8 +72,11 @@ aside > div {
 
 /* background with gear */
 
-  /* background-image: url(../images/extra/button3.gif); */
-  background-color: black;
+  background-image: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url(../images/extra/button3_static.jpg);
+  /* background-color: black; */
   background-position: 30%;
   background-size: 200%;
 
@@ -85,22 +90,22 @@ aside > div {
 }
 
 aside > div:nth-child(odd) {
-  background-color: black;
-  background: linear-gradient(
+  /* background-color: black; */
+  background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     /* url(../images/extra/button2.gif); */;
+                     url(../images/extra/button2_static.jpg);
   background-position: bottom 75%;
   background-size: cover;
   /* background-position: 50% 60%; */
 }
 
 aside div:first-child {
-  background-color: black;
-  background: linear-gradient(
+  /* background-color: black; */
+  background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     /* url(../images/extra/button4.gif); */;
+                     url(../images/extra/button4_static.jpg);
   background-position: center;
   background-size: 500%;
   font-weight: bold;
@@ -117,11 +122,11 @@ aside#controls > div:not(:first-child) {
 }
 
 aside#controls > div:nth-child(even):not(:first-child) {
-  background-color: black;
-  background: linear-gradient(
+  /* background-color: black; */
+  background-image: linear-gradient(
                      rgba(20,20,20, .6),
                      rgba(20,20,20, .6)),
-                     /* url(../images/extra/button1.gif); */;
+                     url(../images/extra/button1_static.jpg);
   background-position: center;
   background-size: 180%;
 }
@@ -156,8 +161,7 @@ aside#controls div:first-child {
 }
 
 .card-back {
-  background-color: black;
-  /* background-image: url(../images/cards/card_back.gif); */
+  background-image: url(../images/cards/card_back_static.jpg);
   background-size: cover;
   background-position: center;
   /* border-radius: 15px; */
@@ -235,7 +239,7 @@ footer {
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     /* url(../images/extra/button3.gif); */;
+                     url(../images/extra/button3_static.jpg);
   background-position: center;
   background-size: 50%; /* Original: 300% */
   font-size: 1.5vmax;
@@ -526,6 +530,34 @@ input {
 
 @media (hover: hover) and (pointer: fine) { /* Keeps hover effects only on non-touch screen devices */
 
+  header {
+    background-image: linear-gradient(
+                      rgba(20,20,20, .4),
+                      rgba(20,20,20, .4)),
+                      url(../images/extra/header.gif);
+  }
+
+  aside > div {
+    background-image: linear-gradient(
+                      rgba(20,20,20, .4),
+                      rgba(20,20,20, .4)),
+                      url(../images/extra/button3.gif);
+  }
+
+  aside > div:nth-child(odd) {
+    background-image: linear-gradient(
+                      rgba(20,20,20, .4),
+                      rgba(20,20,20, .4)),
+                      url(../images/extra/button2.gif);
+  }
+
+  aside div:first-child {
+    background-image: linear-gradient(
+                      rgba(20,20,20, .4),
+                      rgba(20,20,20, .4)),
+                      url(../images/extra/button4.gif);
+  }
+
   aside#controls div.clickable:not(:first-child):hover {
     /* cursor: pointer; */
     /* box-shadow: 0px 0px 10px 2px cyan; */
@@ -534,10 +566,21 @@ input {
     background-size: 200%;
   }
 
+  aside#controls > div:nth-child(even):not(:first-child) {
+    background-image: linear-gradient(
+                      rgba(20,20,20, .6),
+                      rgba(20,20,20, .6)),
+                      url(../images/extra/button1.gif);
+  }
+
   .clickable:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px cyan;
     transform: scale(1.01);
+  }
+
+  .card-back {
+    background-image: url(../images/cards/card_back.gif);
   }
 
   .card-back:hover {
