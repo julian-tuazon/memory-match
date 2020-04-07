@@ -19,10 +19,11 @@ header {
   width: 100%;
 
   /* Makes whole header bar a gif */
+  background-color: black;
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/globe-optimize.gif);
+                     /* url(../images/extra/header.gif); */;
   background-position: center;
   background-size: 50%; /* Original: 300% */
   font-size: 1.5vmax;
@@ -69,7 +70,8 @@ aside > div {
 
 /* background with gear */
 
-  background-image: url(../images/extra/gear.gif);
+  /* background-image: url(../images/extra/button3.gif); */
+  background-color: black;
   background-position: 30%;
   background-size: 200%;
 
@@ -83,20 +85,22 @@ aside > div {
 }
 
 aside > div:nth-child(odd) {
+  background-color: black;
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/bounce.gif);
+                     /* url(../images/extra/button2.gif); */;
   background-position: bottom 75%;
   background-size: cover;
   /* background-position: 50% 60%; */
 }
 
 aside div:first-child {
+  background-color: black;
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/geo/earth.gif);
+                     /* url(../images/extra/button4.gif); */;
   background-position: center;
   background-size: 500%;
   font-weight: bold;
@@ -113,10 +117,11 @@ aside#controls > div:not(:first-child) {
 }
 
 aside#controls > div:nth-child(even):not(:first-child) {
+  background-color: black;
   background: linear-gradient(
                      rgba(20,20,20, .6),
                      rgba(20,20,20, .6)),
-                     url(../images/extra/ai.gif);
+                     /* url(../images/extra/button1.gif); */;
   background-position: center;
   background-size: 180%;
 }
@@ -151,7 +156,8 @@ aside#controls div:first-child {
 }
 
 .card-back {
-  background-image: url(../images/geo/glitch.gif);
+  background-color: black;
+  /* background-image: url(../images/cards/card_back.gif); */
   background-size: cover;
   background-position: center;
   /* border-radius: 15px; */
@@ -174,39 +180,39 @@ aside#controls div:first-child {
 }
 
 .ag {
-  background-image: url(../images/wipeout_logos/ag.jpg);
+  background-image: url(../images/cards/ag.jpg);
 }
 
 .assegai {
-  background-image: url(../images/wipeout_logos/assegai.jpg);
+  background-image: url(../images/cards/assegai.jpg);
 }
 
 .goteki {
-  background-image: url(../images/wipeout_logos/goteki.jpg);
+  background-image: url(../images/cards/goteki.jpg);
 }
 
 .auricom {
-  background-image: url(../images/wipeout_logos/auricom.jpg);
+  background-image: url(../images/cards/auricom.jpg);
 }
 
 .icaras {
-  background-image: url(../images/wipeout_logos/icaras.jpg);
+  background-image: url(../images/cards/icaras.jpg);
 }
 
 .piranha {
-  background-image: url(../images/wipeout_logos/piranha.jpg);
+  background-image: url(../images/cards/piranha.jpg);
 }
 
 .harimau {
-  background-image: url(../images/wipeout_logos/harimau.jpg);
+  background-image: url(../images/cards/harimau.jpg);
 }
 
 .qirex {
-  background-image: url(../images/wipeout_logos/qirex.jpg);
+  background-image: url(../images/cards/qirex.jpg);
 }
 
 .triakis {
-  background-image: url(../images/wipeout_logos/triakis.jpg);
+  background-image: url(../images/cards/triakis.jpg);
 }
 
 /* Footer -------------------------------- */
@@ -225,10 +231,11 @@ footer {
   width: 100%;
 
   /* Makes whole header bar a gif */
+  background-color: black;
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/gear.gif);
+                     /* url(../images/extra/button3.gif); */;
   background-position: center;
   background-size: 50%; /* Original: 300% */
   font-size: 1.5vmax;
@@ -350,31 +357,31 @@ footer > div {
 }
 
 #survival {
-  background-image: url(../images/extra/pod3.png);
+  background-image: url(../images/extra/survival.png);
   background-size: 80%;
   background-position: 52% 80%;
 }
 
 #timeattack {
-  background-image: url(../images/extra/pod4.png);
+  background-image: url(../images/extra/time_attack.png);
   background-size: 60%;
   background-position: 55% 80%;
 }
 
 #easy {
-  background-image: url(../images/extra/9s.png);
+  background-image: url(../images/extra/easy.png);
   background-size: 137%;
   background-position: 40% -10%;
 }
 
 #medium {
-  background-image: url(../images/extra/a2.png);
+  background-image: url(../images/extra/medium.png);
   background-size: 250%;
   background-position: 60% 6.5%;
 }
 
 #hard {
-  background-image: url(../images/extra/2b_hi_res.png);
+  background-image: url(../images/extra/hard.png);
   background-size: 300%;
   background-position: 75% -14%;
 }
@@ -411,10 +418,10 @@ footer > div {
   background-image: url(../images/backgrounds/anulpha_pass.jpg);
 }
 
-/* Mode modal pod styling */
+/* Mode modal pod styling ---- OUTDATED */
 
 .flex > div > div.pod-one {
-  background-image: url(../images/extra/pod3.png);
+  background-image: url(../images/extra/survival.png);
   background-size: 80%;
   background-position: 52% 0%;
   /* background: linear-gradient(
@@ -424,7 +431,7 @@ footer > div {
 }
 
 .flex > div > div.pod-two {
-  background-image: url(../images/extra/pod4.png);
+  background-image: url(../images/extra/time_attack.png);
   background-size: 60%;
   background-position: 55% 0%;
   /* background: linear-gradient(
@@ -497,7 +504,7 @@ input {
   background: linear-gradient(
                      rgba(20,20,20, .6),
                      rgba(20,20,20, .6)),
-                     url(../images/extra/ai.gif);
+                     url(../images/extra/button1.gif);
   background-position: center;
   background-size: cover;
   border-radius: 15px;
@@ -523,7 +530,7 @@ input {
     /* cursor: pointer; */
     /* box-shadow: 0px 0px 10px 2px cyan; */
     /* transform: scale(1.03); */
-    background-image: url(../images/extra/gear.gif);
+    background-image: url(../images/extra/button3.gif);
     background-size: 200%;
   }
 
@@ -537,14 +544,14 @@ input {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px red;
     transform: scale(1.01);
-    background-image: url(../images/extra/BetaMon.gif);
+    background-image: url(../images/cards/card_hover.gif);
   }
 
   input:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px cyan;
     transform: scale(1.03);
-    background-image: url(../images/extra/gear.gif);
+    background-image: url(../images/extra/button3.gif);
     background-position: center;
     background-size: cover;
     color: white;
