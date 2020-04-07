@@ -393,22 +393,22 @@ footer > div {
 
 /* Location / background modal */
 .sol {
-  background-image: url(../images/geo/gray.jpg);
+  background-image: url(../images/backgrounds/sol2.jpg);
 }
 .moa {
-  background-image: url(../images/backgrounds/wallpaper-2827593.jpg);
+  background-image: url(../images/backgrounds/moa_therma.jpg);
 }
 .vineta {
-  background-image: url(../images/backgrounds/311328.jpg);
+  background-image: url(../images/backgrounds/vineta_k.jpg);
 }
 .tech {
-  background-image: url(../images/backgrounds/futuristic-city-wallpaper-18.jpg);
+  background-image: url(../images/backgrounds/tech_de_ra.jpg);
 }
 .metropia {
-  background-image: url(../images/backgrounds/wallpaper-660072.jpg);
+  background-image: url(../images/backgrounds/metropia.jpg);
 }
 .anulpha {
-  background-image: url(../images/backgrounds/wallhaven-732202.jpg);
+  background-image: url(../images/backgrounds/anulpha_pass.jpg);
 }
 
 /* Mode modal pod styling */
