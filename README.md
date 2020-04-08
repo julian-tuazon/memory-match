@@ -2,7 +2,7 @@
 
 A memory match game with a futuristic UI. 
 
-Users can toggle music, sound effects, and voice effects, select different mode and difficulty settings, and track their game statistics.   
+Users can toggle music, sound effects, and voice effects, select different mode and difficulty settings, and track statistics.   
 
 ## Technologies Used
 - JavaScript
@@ -17,7 +17,7 @@ https://memory-match.juliantuazon.com/
 - User can match cards
 - User can view visual feedback upon a correct/incorrect match
 - User can reset game
-- User can track statistics (games played, attempts, matches, accuracy)
+- User can track statistics (wins, attempts, matches, accuracy)
 - User can select game mode (survival, time-attack)
 - User can select game difficulty (easy, medium, hard)
 - User can select game location (background)
