@@ -25,7 +25,7 @@ header {
   background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/header_static.jpg);
+                     url(../images/buttons/header_static.jpg);
   background-position: center;
   background-size: 50%; /* Original: 300% */
   font-size: 1.5vmax;
@@ -58,7 +58,7 @@ header > div {
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/Goo.gif);
+                     url(../images/buttons/Goo.gif);
   background-size: 100%;
   background-position: 50%;
 } */
@@ -75,7 +75,7 @@ aside > div {
   background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/button3_static.jpg);
+                     url(../images/buttons/button3_static.jpg);
   /* background-color: black; */
   background-position: 30%;
   background-size: 200%;
@@ -94,7 +94,7 @@ aside > div:nth-child(odd) {
   background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/button2_static.jpg);
+                     url(../images/buttons/button2_static.jpg);
   background-position: bottom 75%;
   background-size: cover;
   /* background-position: 50% 60%; */
@@ -105,7 +105,7 @@ aside div:first-child {
   background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/button4_static.jpg);
+                     url(../images/buttons/button4_static.jpg);
   background-position: center;
   background-size: 500%;
   font-weight: bold;
@@ -126,7 +126,7 @@ aside#controls > div:nth-child(even):not(:first-child) {
   background-image: linear-gradient(
                      rgba(20,20,20, .6),
                      rgba(20,20,20, .6)),
-                     url(../images/extra/button1_static.jpg);
+                     url(../images/buttons/button1_static.jpg);
   background-position: center;
   background-size: 180%;
 }
@@ -239,7 +239,7 @@ footer {
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/button3_static.jpg);
+                     url(../images/buttons/button3_static.jpg);
   background-position: center;
   background-size: 50%; /* Original: 300% */
   font-size: 1.5vmax;
@@ -361,31 +361,31 @@ footer > div {
 }
 
 #survival {
-  background-image: url(../images/extra/survival.png);
+  background-image: url(../images/buttons/survival.png);
   background-size: 80%;
   background-position: 52% 80%;
 }
 
 #timeattack {
-  background-image: url(../images/extra/time_attack.png);
+  background-image: url(../images/buttons/time_attack.png);
   background-size: 60%;
   background-position: 55% 80%;
 }
 
 #easy {
-  background-image: url(../images/extra/easy.png);
+  background-image: url(../images/buttons/easy.png);
   background-size: 137%;
   background-position: 40% -10%;
 }
 
 #medium {
-  background-image: url(../images/extra/medium.png);
+  background-image: url(../images/buttons/medium.png);
   background-size: 250%;
   background-position: 60% 6.5%;
 }
 
 #hard {
-  background-image: url(../images/extra/hard.png);
+  background-image: url(../images/buttons/hard.png);
   background-size: 300%;
   background-position: 75% -14%;
 }
@@ -425,55 +425,55 @@ footer > div {
 /* Mode modal pod styling ---- OUTDATED */
 
 .flex > div > div.pod-one {
-  background-image: url(../images/extra/survival.png);
+  background-image: url(../images/buttons/survival.png);
   background-size: 80%;
   background-position: 52% 0%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/9s.png); */
+                     url(../images/buttons/9s.png); */
 }
 
 .flex > div > div.pod-two {
-  background-image: url(../images/extra/time_attack.png);
+  background-image: url(../images/buttons/time_attack.png);
   background-size: 60%;
   background-position: 55% 0%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/2b_hi_res.png); */
+                     url(../images/buttons/2b_hi_res.png); */
 }
 
 /* Difficulty modal character styling */
 
 .flex > div > div.nine-s {
-  background-image: url(../images/extra/9s.png);
+  background-image: url(../images/buttons/9s.png);
   background-size: 137%;
   background-position: 40% 1%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/9s.png); */
+                     url(../images/buttons/9s.png); */
 }
 
 .flex > div > div.two-b {
-  background-image: url(../images/extra/2b_hi_res.png);
+  background-image: url(../images/buttons/2b_hi_res.png);
   background-size: 300%;
   background-position: 75% -1%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/2b_hi_res.png); */
+                     url(../images/buttons/2b_hi_res.png); */
 }
 
 .flex > div > div.a-two {
-  background-image: url(../images/extra/a2.png);
+  background-image: url(../images/buttons/a2.png);
   background-size: 250%;
   background-position: 60% 17%;
   /* background: linear-gradient(
                      rgba(175, 175, 175, 0.2),
                      rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/a2.png); */
+                     url(../images/buttons/a2.png); */
 }
 
 .selected {
@@ -508,7 +508,7 @@ input {
   background: linear-gradient(
                      rgba(20,20,20, .6),
                      rgba(20,20,20, .6)),
-                     url(../images/extra/button1.gif);
+                     url(../images/buttons/button1.gif);
   background-position: center;
   background-size: cover;
   border-radius: 15px;
@@ -534,35 +534,35 @@ input {
     background-image: linear-gradient(
                       rgba(20,20,20, .4),
                       rgba(20,20,20, .4)),
-                      url(../images/extra/header.gif);
+                      url(../images/buttons/header.gif);
   }
 
   aside > div {
     background-image: linear-gradient(
                       rgba(20,20,20, .4),
                       rgba(20,20,20, .4)),
-                      url(../images/extra/button3.gif);
+                      url(../images/buttons/button3.gif);
   }
 
   aside > div:nth-child(odd) {
     background-image: linear-gradient(
                       rgba(20,20,20, .4),
                       rgba(20,20,20, .4)),
-                      url(../images/extra/button2.gif);
+                      url(../images/buttons/button2.gif);
   }
 
   aside div:first-child {
     background-image: linear-gradient(
                       rgba(20,20,20, .4),
                       rgba(20,20,20, .4)),
-                      url(../images/extra/button4.gif);
+                      url(../images/buttons/button4.gif);
   }
 
   aside#controls div.clickable:not(:first-child):hover {
     /* cursor: pointer; */
     /* box-shadow: 0px 0px 10px 2px cyan; */
     /* transform: scale(1.03); */
-    background-image: url(../images/extra/button3.gif);
+    background-image: url(../images/buttons/button3.gif);
     background-size: 200%;
   }
 
@@ -570,7 +570,7 @@ input {
     background-image: linear-gradient(
                       rgba(20,20,20, .6),
                       rgba(20,20,20, .6)),
-                      url(../images/extra/button1.gif);
+                      url(../images/buttons/button1.gif);
   }
 
   .clickable:hover {
@@ -594,7 +594,7 @@ input {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px cyan;
     transform: scale(1.03);
-    background-image: url(../images/extra/button3.gif);
+    background-image: url(../images/buttons/button3.gif);
     background-position: center;
     background-size: cover;
     color: white;
@@ -970,7 +970,7 @@ input {
   background: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
-                     url(../images/extra/ai.gif);
+                     url(../images/buttons/ai.gif);
   background-position: center;
   background-size: cover;
   border: none;
