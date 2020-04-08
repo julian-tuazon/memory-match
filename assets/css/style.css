@@ -686,15 +686,8 @@ input {
   }
 
   .card-front, .card-back {
-    border: 0.5px white solid;
     border-radius: 10px;
     background-size: 100%;
-    background-color: white;
-  }
-
-  .card-back {
-    background-size: cover;
-    border-radius: 10px;
   }
 
   aside#controls {
@@ -706,17 +699,17 @@ input {
     font-size: 1vmax;
   }
 
-   aside#controls > div:not(:first-child) {
+  aside#controls > div:not(:first-child) {
     height: 90%;
-   }
+  }
 
-   #welcome-message {
-     font-size: 1.4vmax;
-   }
+  #welcome-message {
+    font-size: 1.4vmax;
+  }
 
-   .modal-container > div {
-     padding: 5%;
-   }
+  .modal-container > div {
+    padding: 5%;
+  }
 
   .option-container > div {
     margin: 0 2%;
@@ -726,8 +719,8 @@ input {
     border: 1.5px solid white;
   }
 
-  .option-container > .selected-animation {
-  box-shadow: 0px 0px 10px 0.3rem orange;
+  .selected-animation {
+    box-shadow: 0px 0px 10px 0.3rem orange;
   }
 
   input {
