@@ -9,8 +9,9 @@ body {
 }
 
 header {
-  font-size: 2.5vmax;
-  font-weight: bold;
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white;
   text-align: center;
   margin: auto;
   height: 80%;
@@ -21,9 +22,6 @@ header {
                     url(../images/buttons/header_static.jpg);
   background-position: center;
   background-size: 50%;
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white;
   border-radius: 0.8rem;
 }
 
@@ -41,9 +39,9 @@ aside > div {
   font-size: 1.1vmax;
   color: white;
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/buttons/button3_static.jpg);
+                    rgba(20,20,20, .4),
+                    rgba(20,20,20, .4)),
+                    url(../images/buttons/button3_static.jpg);
   background-position: 30%;
   background-size: 200%;
   margin: 2% auto;
