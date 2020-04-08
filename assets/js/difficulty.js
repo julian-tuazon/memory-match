@@ -31,8 +31,8 @@ class Difficulty {
     this.hard = {
       'title': 'H A R D',
       'message': 'YoRHa No. 2 Type B',
-      'time': 3,
-      'lives': 2,
+      'time': 30,
+      'lives': 20,
       'display': 'Hard',
       'sound': document.getElementById('hard-voice'),
     };
