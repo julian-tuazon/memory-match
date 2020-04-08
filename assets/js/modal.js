@@ -25,7 +25,7 @@ class Modal {
 
   addEventListeners(modal) {
     for (let i = 0; i < modal.itemList.length; i++) {
-      let currentElement = document.getElementById(`${modal.itemList[i]}`);
+      const currentElement = document.getElementById(`${modal.itemList[i]}`);
       currentElement.addEventListener('mouseover', event => this.handleMouseOver(event, modal));
       currentElement.addEventListener('mouseleave', () => this.handleMouseLeave(modal));
       currentElement.addEventListener('click', event => this.handleClick(event, modal));
