@@ -1,8 +1,7 @@
 body {
   height: 95vh;
-  /* background-image: url(../images/backgrounds/alien_planet-1920x1080.jpg); */
   background-size: 110%;
-  background-repeat: repeat; /* repeat */
+  background-repeat: repeat;
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
@@ -10,24 +9,18 @@ body {
 }
 
 header {
-  /* font-family: 'Orbitron', sans-serif; */
   font-size: 2.5vmax;
   font-weight: bold;
   text-align: center;
   margin: auto;
   height: 80%;
   width: 100%;
-
-  /* Makes whole header bar a gif */
-  /* background-color: black; */
-
-
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/buttons/header_static.jpg);
+                    rgba(20,20,20, .4),
+                    rgba(20,20,20, .4)),
+                    url(../images/buttons/header_static.jpg);
   background-position: center;
-  background-size: 50%; /* Original: 300% */
+  background-size: 50%;
   font-size: 1.5vmax;
   font-weight: normal;
   color: white;
@@ -35,16 +28,6 @@ header {
 }
 
 header > div {
-  /* background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 300%;
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white; */
-
   margin: 0 2%;
   border-radius: 15px;
   display: flex;
@@ -54,32 +37,15 @@ header > div {
   transition: all ease-in-out 0.2s;
 }
 
-/* header > #title {
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/buttons/Goo.gif);
-  background-size: 100%;
-  background-position: 50%;
-} */
-
 aside > div {
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 1.1vmax;
   color: white;
-
-
-
-/* background with gear */
-
   background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
                      url(../images/buttons/button3_static.jpg);
-  /* background-color: black; */
   background-position: 30%;
   background-size: 200%;
-
   margin: 2% auto;
   border-radius: 15px;
   display: flex;
@@ -90,18 +56,15 @@ aside > div {
 }
 
 aside > div:nth-child(odd) {
-  /* background-color: black; */
   background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
                      url(../images/buttons/button2_static.jpg);
   background-position: bottom 75%;
   background-size: cover;
-  /* background-position: 50% 60%; */
 }
 
 aside div:first-child {
-  /* background-color: black; */
   background-image: linear-gradient(
                      rgba(20,20,20, .4),
                      rgba(20,20,20, .4)),
@@ -122,7 +85,6 @@ aside#controls > div:not(:first-child) {
 }
 
 aside#controls > div:nth-child(even):not(:first-child) {
-  /* background-color: black; */
   background-image: linear-gradient(
                      rgba(20,20,20, .6),
                      rgba(20,20,20, .6)),
@@ -164,7 +126,6 @@ aside#controls div:first-child {
   background-image: url(../images/cards/card_back_static.jpg);
   background-size: cover;
   background-position: center;
-  /* border-radius: 15px; */
 }
 
 .current {
@@ -219,66 +180,6 @@ aside#controls div:first-child {
   background-image: url(../images/cards/triakis.jpg);
 }
 
-/* Footer -------------------------------- */
-
-.footer-row {
-  display: flex;
-  align-items: center;
-}
-
-footer {
-  font-size: 2.5vmax;
-  font-weight: bold;
-  text-align: center;
-  margin: auto;
-  height: 80%;
-  width: 100%;
-
-  /* Makes whole header bar a gif */
-  background-color: black;
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/buttons/button3_static.jpg);
-  background-position: center;
-  background-size: 50%; /* Original: 300% */
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white;
-  border-radius: 15px;
-  transition: all 0.2s ease-in-out;
-}
-
-footer > div {
-  /* background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 300%;
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white; */
-
-  margin: 0 2%;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: all ease-in-out 0.2s;
-}
-
-.progress {
-  box-shadow: 0px 0px 10px 2px orange;
-  /* transform: scale(1.05); */
-  /* transform: translateY(-2%); */
-}
-
-.progress-animation {
-  box-shadow: 0px 0px 10px 10px orange;
-}
-
 /* Modal -------------------------------- */
 
 .modal {
@@ -291,10 +192,6 @@ footer > div {
   top: 0;
   left: 0;
   text-align: center;
-  /* background: linear-gradient(
-                     rgba(20,20,20, .5),
-                     rgba(20,20,20, .5)),
-                     url(../images/geo/diamond.jpg); */
   background-image: url(../images/backgrounds/menu.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -320,15 +217,7 @@ footer > div {
   font-weight: normal;
 }
 
-/* #welcome-message, #welcome-message2 {
-  transition: all ease-in-out 0.1s;
-} */
-
-/* #welcome-message2 {
-  padding-top: 0;
-} */
-
-#mode-title, #difficulty-title {
+#mode-title, #difficulty-title, #location-title {
   padding: 0;
 }
 
@@ -345,15 +234,14 @@ footer > div {
 }
 
 .flex > div {
-  width: 15%; /* Originally 20% */
-  height: 17vmax; /* Originally 25vmax */
+  width: 15%;
+  height: 17vmax;
   margin: 0 15px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-color: lightgray;
   border: 0.2vmax solid white;
-  /* border-radius: 15px; */
   transition: all ease-in-out 0.2s;
   display: flex;
   justify-content: center;
@@ -402,7 +290,6 @@ footer > div {
   background-size: cover;
 }
 
-/* Location / background modal */
 .sol {
   background-image: url(../images/backgrounds/sol2.jpg);
 }
@@ -422,64 +309,8 @@ footer > div {
   background-image: url(../images/backgrounds/anulpha_pass.jpg);
 }
 
-/* Mode modal pod styling ---- OUTDATED */
-
-.flex > div > div.pod-one {
-  background-image: url(../images/buttons/survival.png);
-  background-size: 80%;
-  background-position: 52% 0%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/buttons/9s.png); */
-}
-
-.flex > div > div.pod-two {
-  background-image: url(../images/buttons/time_attack.png);
-  background-size: 60%;
-  background-position: 55% 0%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/buttons/2b_hi_res.png); */
-}
-
-/* Difficulty modal character styling */
-
-.flex > div > div.nine-s {
-  background-image: url(../images/buttons/9s.png);
-  background-size: 137%;
-  background-position: 40% 1%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/buttons/9s.png); */
-}
-
-.flex > div > div.two-b {
-  background-image: url(../images/buttons/2b_hi_res.png);
-  background-size: 300%;
-  background-position: 75% -1%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/buttons/2b_hi_res.png); */
-}
-
-.flex > div > div.a-two {
-  background-image: url(../images/buttons/a2.png);
-  background-size: 250%;
-  background-position: 60% 17%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/buttons/a2.png); */
-}
-
 .selected {
   box-shadow: 0px 0px 10px 2px orange;
-  /* transform: scale(1.05); */
-  /* transform: translateY(-2%); */
 }
 
 .flex > .selected-animation {
@@ -559,9 +390,6 @@ input {
   }
 
   aside#controls div.clickable:not(:first-child):hover {
-    /* cursor: pointer; */
-    /* box-shadow: 0px 0px 10px 2px cyan; */
-    /* transform: scale(1.03); */
     background-image: url(../images/buttons/button3.gif);
     background-size: 200%;
   }
@@ -874,10 +702,6 @@ input {
     font-size: 0.8vmax;
   }
 
-  /* aside > div:first-child {
-    background-size: 500%;
-  } */
-
   #game-cards {
     height: 90%;
     width: 100%;
@@ -887,13 +711,12 @@ input {
   .card {
     height: 15%;
     width: 30%;
-    /* margin: 1%; */
   }
 
   .card-front, .card-back {
     border: 0.5px white solid;
     border-radius: 10px;
-    background-size: 100%; /* can use this for regular sized game too */
+    background-size: 100%;
     background-color: white;
   }
 
@@ -925,8 +748,8 @@ input {
 
   .flex > div {
     margin: 0 2%;
-    height: 16vh; /* 20vh */
-    max-height: 110px; /* 125px */
+    height: 16vh;
+    max-height: 110px;
     width: 25%;
     border: 1.5px solid white;
   }
@@ -942,60 +765,3 @@ input {
     border-radius: 10px;
   }
 }
-
-
-
-/*_____________________________________________*/
-
-/* Animated keyframe for glowing */
-
-/* @keyframes glowing {
-  0% { box-shadow: 0 0 10px 2px orange; }
-  40% { box-shadow: 0 0 10px 10px orange; }
-  60% { box-shadow: 0 0 10px 10px orange; }
-  100% { box-shadow: 0 0 10px 2px orange; }
-} */
-
-/* .button-glow {
-  animation: glowing 2000ms infinite;
-} */
-
-/*_____________________________________________*/
-
-/* Backup input + input:hover */
-
-/* input {
-  padding: 20px 0;
-  width: 20vw;
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/buttons/ai.gif);
-  background-position: center;
-  background-size: cover;
-  border: none;
-  border-radius: 15px;
-  font-size: 2vmax;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  color: white;
-  transition: all ease-in-out 0.2s;
-}
-
-input:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 10px 2px cyan;
-  transform: scale(1.01);
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 350%;
-} */
-
-/*
-
-CSS Glow Trick
-
-*/
