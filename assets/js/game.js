@@ -28,16 +28,16 @@ class Game {
     this.maxMatches = 9;
     this.matches = 0;
     this.attempts = 0;
-    this.gamesPlayed = 0;
+    this.wins = 0;
     this.timer = null;
     this.timeLeft = null;
     this.livesLeft = null;
-    this.gamesPlayedDisplay = document.getElementById('games-played');
+    this.winsDisplay = document.getElementById('wins');
     this.attemptsDisplay = document.getElementById('attempts');
     this.matchesDisplay = document.getElementById('matches');
     this.accuracyDisplay = document.getElementById('accuracy');
     this.timeDisplay = document.getElementById('time');
-    this.difficultyModeDisplay = document.getElementById('difficulty-mode-display');
+    this.difficultyModeDisplay = document.getElementById('difficulty-mode');
     this.difficultyDisplay = null;
     this.modeDisplay = null;
     this.currentMode = null;
@@ -160,10 +160,11 @@ class Game {
     clearInterval(this.timer);
     sound.playSound(sound.endSound);
     const accuracy = 'Accuracy: ' + this.accuracyDisplay.textContent;
+    if (outcome === 'win') this.winsDisplay.textContent = ++this.wins;
     let message;
     outcome === 'win' ? message = 'V I C T O R Y' : message = 'D E F E A T';
     let timeLives;
-    mode === 'timeattack' ? timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}` : timeLives = `Lives Remaining: ${this.livesLeft}`;
+    mode === 'survival' ? timeLives = `Lives Remaining: ${this.livesLeft}` : timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}`;
     this.endGame(message, accuracy, timeLives);
   }
 
@@ -176,7 +177,6 @@ class Game {
   resetGame() {
     this.matches = this.attempts = this.matchesDisplay.textContent = this.attemptsDisplay.textContent = 0;
     this.accuracyDisplay.textContent = '0.0%';
-    this.gamesPlayedDisplay.textContent = ++this.gamesPlayed;
     this.firstCardClicked = this.secondCardClicked = null;
     this.gameCards.classList.remove('correct', 'incorrect');
     this.gameCards.addEventListener('click', this.handleClick);
