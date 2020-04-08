@@ -18,10 +18,10 @@ class Mode {
         sound: document.getElementById('survival-voice'),
     };
     this.timeattack = {
-        'title': 'T I M E - A T T A C K',
-        'message': 'Pod Y-153',
-        'display': 'Time-Attack',
-        'sound': document.getElementById('time-attack-voice'),
+        title: 'T I M E - A T T A C K',
+        message: 'Pod Y-153',
+        display: 'Time-Attack',
+        sound: document.getElementById('time-attack-voice'),
     };
   }
 }
