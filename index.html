@@ -11,8 +11,8 @@
 </head>
 <body>
 
-  <div id="sound-modal" class="modal center-xy">
-    <div class="modal-container">
+  <div id="sound-screen" class="screen center-xy">
+    <div class="screen-container">
       <div id="sound-header">Enable sound?</div>
       <div id="sound-message"></div>
       <div id="sound-button-container" class="center-xy">
@@ -22,8 +22,8 @@
     </div>
   </div>
 
-  <div id="welcome-modal" class="modal center-xy hidden">
-    <div class="modal-container">
+  <div id="welcome-screen" class="screen center-xy hidden">
+    <div class="screen-container">
       <div id="welcome-header">m e m o r y . e x e</div>
       <div id="welcome-message">
         “So man is an individual only because of his intangible memory.<br>Memory cannot be defined, yet it defines mankind.”
@@ -32,8 +32,8 @@
     </div>
   </div>
 
-  <div id="mode-modal" class="modal center-xy hidden">
-    <div class="modal-container">
+  <div id="mode-screen" class="screen center-xy hidden">
+    <div class="screen-container">
       <div id="mode-title">M O D E</div>
       <div id="mode-message">Deploy Pod</div>
       <div class="option-container center-xy">
@@ -44,8 +44,8 @@
     </div>
   </div>
 
-  <div id="difficulty-modal" class="modal center-xy hidden">
-    <div class="modal-container">
+  <div id="difficulty-screen" class="screen center-xy hidden">
+    <div class="screen-container">
       <div id="difficulty-title">D I F F I C U L T Y</div>
       <div id="difficulty-message">Deploy YoRHa Unit</div>
       <div class="option-container center-xy">
@@ -57,8 +57,8 @@
     </div>
   </div>
 
-  <div id="location-modal" class="modal center-xy hidden">
-    <div class="modal-container">
+  <div id="location-screen" class="screen center-xy hidden">
+    <div class="screen-container">
       <div id="location-title">L O C A T I O N</div>
       <div id="location-message">Select Location</div>
       <div class="option-container center-xy">
@@ -73,7 +73,7 @@
     </div>
   </div>
 
-  <div id="game-modal" class="container hidden">
+  <div id="game-screen" class="container hidden">
     <div class="row header-row">
       <header>
         <div id="title" class="col-3 center-xy">m e m o r y . e x e</div>
@@ -103,8 +103,8 @@
     </div>
   </div>
 
-  <div id="end-modal" class="modal center-xy hidden">
-    <div class="modal-container">
+  <div id="end-screen" class="screen center-xy hidden">
+    <div class="screen-container">
       <div id="end-message"></div>
       <div id="end-accuracy"></div>
       <div id="end-time-lives"></div>
@@ -114,11 +114,9 @@
   </div>
 
   <div class="audio">
-
     <div id="music">
       <audio src="assets/audio/music/bgm.mp3" id="bgm" loop muted></audio>
     </div>
-
     <div id="sound-effects">
       <audio src="assets/audio/sound_effects/start.wav" id="start-sound" muted></audio>
       <audio src="assets/audio/sound_effects/end.wav" id="end-sound" muted></audio>
@@ -132,7 +130,6 @@
       <audio src="assets/audio/sound_effects/hover.wav" id="hover-sound" muted></audio>
       <audio src="assets/audio/sound_effects/select.wav" id="select-sound" muted></audio>
     </div>
-
     <div id="voice">
       <audio src="assets/audio/voice/qirex.wav" id="qirex-voice" muted></audio>
       <audio src="assets/audio/voice/ag.wav" id="ag-voice" muted></audio>
@@ -155,7 +152,6 @@
       <audio src="assets/audio/voice/metropia.wav" id="metropia-voice" muted></audio>
       <audio src="assets/audio/voice/anulpha_pass.wav" id="anulpha-pass-voice" muted></audio>
     </div>
-
   </div>
 
   <script src="assets/js/sound.js"></script>

@@ -1,7 +1,7 @@
 class Sound {
   constructor() {
-    this.soundModal = document.getElementById('sound-modal');
-    this.welcomeModal = document.getElementById('welcome-modal');
+    this.soundScreen = document.getElementById('sound-screen');
+    this.welcomeScreen = document.getElementById('welcome-screen');
 
     this.gameMusic = document.getElementById('bgm');
     this.startSound = document.getElementById('start-sound');
@@ -56,8 +56,8 @@ class Sound {
 
   configureSound(event) {
     if (event.target.id === 'sound-on-button') sound.soundList.forEach(sound => sound.toggle());
-    this.soundModal.classList.add('hidden');
-    this.welcomeModal.classList.remove('hidden');
+    this.soundScreen.classList.add('hidden');
+    this.welcomeScreen.classList.remove('hidden');
   }
 
   toggleSound(sound) {

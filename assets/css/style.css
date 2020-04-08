@@ -160,7 +160,7 @@ aside#controls div:first-child {
   background-image: url(../images/cards/triakis.jpg);
 }
 
-.modal {
+.screen {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -175,15 +175,15 @@ aside#controls div:first-child {
   background-size: cover;
 }
 
-.modal-container {
+.screen-container {
   width: 100%;
 }
 
-.modal-container > div {
+.screen-container > div {
   padding: 2%;
 }
 
-.modal-container > div:not(:first-child) {
+.screen-container > div:not(:first-child) {
   font-size: 2vmax;
 }
 
@@ -208,7 +208,7 @@ aside#controls div:first-child {
   transition: all ease-in-out 0.2s;
 }
 
-#location-modal .option-container > div {
+#location-screen .option-container > div {
   background-size: cover;
 }
 
@@ -384,7 +384,7 @@ input {
     transform: translateY(-2%);
   }
 
-  .modal-container > :first-child {
+  .screen-container > :first-child {
     font-weight: bold;
   }
 }
@@ -407,15 +407,15 @@ input {
     border-radius: 10px;
   }
 
-  .modal {
+  .screen {
     font-size: 1.5vmax;
   }
 
-  .modal-container > div {
+  .screen-container > div {
 	  padding: 1%;
   }
 
-  .modal-container > div:not(:first-child) {
+  .screen-container > div:not(:first-child) {
     font-size: 1vmax;
   }
 
@@ -555,7 +555,7 @@ input {
     height: 70%;
   }
 
-  .modal-container > div {
+  .screen-container > div {
     padding: 3%;
   }
 
@@ -574,7 +574,7 @@ input {
     height: 45%;
   }
 
-  .modal-container > div {
+  .screen-container > div {
     padding: 5%;
   }
 
@@ -685,7 +685,7 @@ input {
     font-size: 1.4vmax;
   }
 
-  .modal-container > div {
+  .screen-container > div {
     padding: 5%;
   }
 

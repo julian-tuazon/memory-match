@@ -8,51 +8,51 @@ class App {
     this.game = game;
     this.end = end;
 
-    this.welcomeModal = document.getElementById('welcome-modal');
+    this.welcomeScreen = document.getElementById('welcome-screen');
     this.welcomeButton = document.getElementById('welcome-button');
-    this.modeModal = document.getElementById('mode-modal');
+    this.modeScreen = document.getElementById('mode-screen');
     this.modeButton = document.getElementById('mode-button');
-    this.difficultyModal = document.getElementById('difficulty-modal');
+    this.difficultyScreen = document.getElementById('difficulty-screen');
     this.difficultyButton = document.getElementById('difficulty-button');
-    this.locationModal = document.getElementById('location-modal');
+    this.locationScreen = document.getElementById('location-screen');
     this.locationButton = document.getElementById('location-button');
-    this.gameModal = document.getElementById('game-modal');
+    this.gameScreen = document.getElementById('game-screen');
     this.cheatButton = document.getElementById('cheat');
-    this.endModal = document.getElementById('end-modal');
+    this.endScreen = document.getElementById('end-screen');
     this.resetButton = document.getElementById('reset');
 
     this.welcomeView = {
-      view: this.welcomeModal,
+      view: this.welcomeScreen,
       button: null,
       sound: () => sound.playSound(sound.flipSound)
     };
 
     this.modeView = {
-      view: this.modeModal,
+      view: this.modeScreen,
       button: this.modeButton,
       sound: () => sound.playSound(sound.flipSound)
     };
 
     this.difficultyView = {
-      view: this.difficultyModal,
+      view: this.difficultyScreen,
       button: this.difficultyButton,
       sound: () => sound.playSound(sound.flipSound)
     };
 
     this.locationView = {
-      view: this.locationModal,
+      view: this.locationScreen,
       button: this.locationButton,
       sound: () => sound.playSound(sound.flipSound, sound.startSound)
     };
 
     this.gameView = {
-      view: this.gameModal,
+      view: this.gameScreen,
       button: null,
       sound: null
     };
 
     this.endView = {
-      view: this.endModal,
+      view: this.endScreen,
       button: null,
       sound: () => sound.playSound(sound.flipSound, sound.resetSound)
     };
