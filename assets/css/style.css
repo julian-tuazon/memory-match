@@ -171,20 +171,19 @@ aside#controls div:first-child {
 /* Modal -------------------------------- */
 
 .modal {
-  font-size: 3vmax;
-  font-weight: normal;
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 2;
   top: 0;
   left: 0;
   text-align: center;
+  font-size: 3vmax;
+  font-weight: normal;
+  color: black;
   background-image: url(../images/backgrounds/menu.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: black;
   /* Added modal container to center modal content vertically */
   display: flex;
   align-items: center;
@@ -195,14 +194,12 @@ aside#controls div:first-child {
   width: 100%;
 }
 
-/* Adding modal container makes rules nested in another div */
-.modal > div > div {
+.modal-container > div {
   padding: 2%;
 }
 
-.modal > div > div:not(:first-child) {
+.modal-container > div:not(:first-child) {
   font-size: 2vmax;
-  font-weight: normal;
 }
 
 #mode-title, #difficulty-title, #location-title {
@@ -448,11 +445,11 @@ input {
     font-size: 1.5vmax;
   }
 
-  .modal > div > div {
+  .modal-container > div {
 	  padding: 1%;
   }
 
-  .modal > div > div:not(:first-child) {
+  .modal-container > div:not(:first-child) {
     font-size: 1vmax;
   }
 
