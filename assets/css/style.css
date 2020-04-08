@@ -32,7 +32,6 @@ header > div {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all ease-in-out 0.2s;
 }
 
 aside > div {
@@ -73,16 +72,8 @@ aside div:first-child {
   font-size: 1vw;
 }
 
-aside#controls {
-  display: flex;
-  justify-content: flex-start;
-}
-
 aside#controls > div:not(:first-child) {
   height: 25%;
-}
-
-aside#controls > div:nth-child(even):not(:first-child) {
   background-image: linear-gradient(
                      rgba(20,20,20, .6),
                      rgba(20,20,20, .6)),
@@ -392,7 +383,7 @@ input {
     background-size: 200%;
   }
 
-  aside#controls > div:nth-child(even):not(:first-child) {
+  aside#controls > div:not(:first-child) {
     background-image: linear-gradient(
                       rgba(20,20,20, .6),
                       rgba(20,20,20, .6)),
