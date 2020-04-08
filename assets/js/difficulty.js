@@ -13,28 +13,28 @@ class Difficulty {
       'hard',
     ];
     this.easy = {
-      'title': 'E A S Y',
-      'message': 'YoRHa No. 9 Type S',
-      'time': 99,
-      'lives': 50,
-      'display': 'Easy',
-      'sound': document.getElementById('easy-voice'),
+      title: 'E A S Y',
+      message: 'YoRHa No. 9 Type S',
+      time: 99,
+      lives: 50,
+      display: 'Easy',
+      sound: document.getElementById('easy-voice'),
     };
     this.medium = {
-      'title': 'M E D I U M',
-      'message': 'YoRHa Type A No. 2',
-      'time': 60,
-      'lives': 35,
-      'display': 'Medium',
-      'sound': document.getElementById('medium-voice'),
+      title: 'M E D I U M',
+      message: 'YoRHa Type A No. 2',
+      time: 60,
+      lives: 35,
+      display: 'Medium',
+      sound: document.getElementById('medium-voice'),
     };
     this.hard = {
-      'title': 'H A R D',
-      'message': 'YoRHa No. 2 Type B',
-      'time': 30,
-      'lives': 20,
-      'display': 'Hard',
-      'sound': document.getElementById('hard-voice'),
+      title: 'H A R D',
+      message: 'YoRHa No. 2 Type B',
+      time: 30,
+      lives: 20,
+      display: 'Hard',
+      sound: document.getElementById('hard-voice'),
     };
   }
 }
