@@ -355,16 +355,11 @@ input {
                       url(../images/buttons/button2.gif);
   }
 
-  aside div:first-child {
+  aside > div:first-child {
     background-image: linear-gradient(
                       rgba(20,20,20, .4),
                       rgba(20,20,20, .4)),
                       url(../images/buttons/button4.gif);
-  }
-
-  aside#controls div:not(:first-child):hover {
-    background-image: url(../images/buttons/button3.gif);
-    background-size: 200%;
   }
 
   aside#controls > div:not(:first-child) {
@@ -372,6 +367,11 @@ input {
                       rgba(20,20,20, .6),
                       rgba(20,20,20, .6)),
                       url(../images/buttons/button1.gif);
+  }
+
+  aside#controls > div:not(:first-child):hover {
+    background-image: url(../images/buttons/button3.gif);
+    background-size: 200%;
   }
 
   .clickable:hover {
@@ -398,7 +398,6 @@ input {
     background-image: url(../images/buttons/button3.gif);
     background-position: center;
     background-size: cover;
-    color: white;
   }
 
   .option-container > div:hover {
