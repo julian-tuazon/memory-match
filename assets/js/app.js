@@ -1,10 +1,10 @@
 class App {
-  constructor(sound, modal, game, end) {
+  constructor(sound, options, game, end) {
     this.sound = sound;
-    this.modal = modal;
-    this.mode = this.modal.mode;
-    this.difficulty = this.modal.difficulty;
-    this.location = this.modal.location;
+    this.options = options;
+    this.mode = this.options.mode;
+    this.difficulty = this.options.difficulty;
+    this.location = this.options.location;
     this.game = game;
     this.end = end;
 
@@ -66,7 +66,7 @@ class App {
 
   initializeApp() {
     this.sound.addEventListeners();
-    this.modal.initializeModals();
+    this.options.initializeOptions();
     this.addEventListeners();
   }
 
@@ -117,6 +117,6 @@ class App {
   resetApp() {
     document.body.classList.remove(`${this.location.current}`);
     this.game.resetGame();
-    this.modal.resetModals();
+    this.options.resetOptions();
   }
 }
