@@ -54,18 +54,18 @@ aside > div {
 
 aside > div:nth-child(odd) {
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/buttons/button2_static.jpg);
+                    rgba(20,20,20, .4),
+                    rgba(20,20,20, .4)),
+                    url(../images/buttons/button2_static.jpg);
   background-position: bottom 75%;
   background-size: cover;
 }
 
 aside div:first-child {
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/buttons/button4_static.jpg);
+                    rgba(20,20,20, .4),
+                    rgba(20,20,20, .4)),
+                    url(../images/buttons/button4_static.jpg);
   background-position: center;
   background-size: 500%;
   font-weight: bold;
@@ -75,9 +75,9 @@ aside div:first-child {
 aside#controls > div:not(:first-child) {
   height: 25%;
   background-image: linear-gradient(
-                     rgba(20,20,20, .6),
-                     rgba(20,20,20, .6)),
-                     url(../images/buttons/button1_static.jpg);
+                    rgba(20,20,20, .6),
+                    rgba(20,20,20, .6)),
+                    url(../images/buttons/button1_static.jpg);
   background-position: center;
   background-size: 180%;
 }
@@ -559,7 +559,7 @@ input {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1366px) /* iPad/iPad Pro portrait and landscape */ {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1366px) {
 
   body {
     background-size: 300%;
@@ -602,7 +602,6 @@ input {
   .option-container > div {
     margin: 0 2%;
     height: 22vh;
-    max-height: 500px;
     width: 25%;
     border: 1.5px solid white;
   }
