@@ -1,24 +1,24 @@
 class Sound {
   constructor() {
-    this.soundModal = document.getElementById("sound-modal");
-    this.welcomeModal = document.getElementById("welcome-modal");
+    this.soundModal = document.getElementById('sound-modal');
+    this.welcomeModal = document.getElementById('welcome-modal');
 
-    this.gameMusic = document.getElementById("bgm");
-    this.startSound = document.getElementById("start-sound");
-    this.endSound = document.getElementById("end-sound");
-    this.flipSound = document.getElementById("flip-sound");
-    this.correctSound = document.getElementById("correct-sound");
-    this.incorrectSound = document.getElementById("incorrect-sound");
-    this.onSound = document.getElementById("on-sound");
-    this.offSound = document.getElementById("off-sound");
-    this.resetSound = document.getElementById("reset-sound");
-    this.cheatSound = document.getElementById("cheat-sound");
-    this.hoverSound = document.getElementById("hover-sound");
-    this.selectSound = document.getElementById("select-sound");
+    this.gameMusic = document.getElementById('bgm');
+    this.startSound = document.getElementById('start-sound');
+    this.endSound = document.getElementById('end-sound');
+    this.flipSound = document.getElementById('flip-sound');
+    this.correctSound = document.getElementById('correct-sound');
+    this.incorrectSound = document.getElementById('incorrect-sound');
+    this.onSound = document.getElementById('on-sound');
+    this.offSound = document.getElementById('off-sound');
+    this.resetSound = document.getElementById('reset-sound');
+    this.cheatSound = document.getElementById('cheat-sound');
+    this.hoverSound = document.getElementById('hover-sound');
+    this.selectSound = document.getElementById('select-sound');
 
-    this.musicButton = document.getElementById("music-toggle");
-    this.soundEffectsButton = document.getElementById("sound-toggle");
-    this.voiceButton = document.getElementById("voice-toggle");
+    this.musicButton = document.getElementById('music-toggle');
+    this.soundEffectsButton = document.getElementById('sound-toggle');
+    this.voiceButton = document.getElementById('voice-toggle');
 
     this.music = {
       name: 'Music',
@@ -49,15 +49,15 @@ class Sound {
       sound.toggle = this.toggleSound(sound);
       sound.button.addEventListener('click', sound.toggle);
     });
-    document.getElementById("sound-on-button").addEventListener('click', event => this.configureSound(event));
-    document.getElementById("sound-off-button").addEventListener('click', event => this.configureSound(event));
+    document.getElementById('sound-on-button').addEventListener('click', event => this.configureSound(event));
+    document.getElementById('sound-off-button').addEventListener('click', event => this.configureSound(event));
     [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => this.hoverSound.play()));
   }
 
   configureSound(event) {
     if (event.target.id === 'sound-on-button') sound.soundList.forEach(sound => sound.toggle());
-    this.soundModal.classList.add("hidden");
-    this.welcomeModal.classList.remove("hidden");
+    this.soundModal.classList.add('hidden');
+    this.welcomeModal.classList.remove('hidden');
   }
 
   toggleSound(sound) {

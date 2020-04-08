@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.gameCards = document.getElementById("game-cards");
+    this.gameCards = document.getElementById('game-cards');
     this.cardsArray = [
       'ag',
       'assegai',
@@ -32,12 +32,12 @@ class Game {
     this.timer = null;
     this.timeLeft = null;
     this.livesLeft = null;
-    this.gamesPlayedDisplay = document.getElementById("games-played");
-    this.attemptsDisplay = document.getElementById("attempts");
-    this.matchesDisplay = document.getElementById("matches");
-    this.accuracyDisplay = document.getElementById("accuracy");
-    this.timeDisplay = document.getElementById("time");
-    this.difficultyModeDisplay = document.getElementById("difficulty-mode-display");
+    this.gamesPlayedDisplay = document.getElementById('games-played');
+    this.attemptsDisplay = document.getElementById('attempts');
+    this.matchesDisplay = document.getElementById('matches');
+    this.accuracyDisplay = document.getElementById('accuracy');
+    this.timeDisplay = document.getElementById('time');
+    this.difficultyModeDisplay = document.getElementById('difficulty-mode-display');
     this.difficultyDisplay = null;
     this.modeDisplay = null;
     this.currentMode = null;
@@ -55,7 +55,7 @@ class Game {
     this.shuffleCards();
     this.addEventListeners();
     this.difficultyModeDisplay.textContent = `${this.difficultyDisplay} | ${this.modeDisplay}`;
-    if (this.currentMode === "timeattack") this.timer = setInterval(this.countdown, 100);
+    if (this.currentMode === 'timeattack') this.timer = setInterval(this.countdown, 100);
     else this.timeDisplay.textContent = `Lives | ${this.livesLeft}`;
   }
 
@@ -73,12 +73,12 @@ class Game {
     const shuffleArray = [...this.cardsArray];
     for (let i = 0; i < this.cardsArray.length; i++) {
       const randomIndex = Math.floor(Math.random() * shuffleArray.length);
-      const cardContainer = document.createElement("div");
-      const cardFront = document.createElement("div");
-      const cardBack = document.createElement("div");
-      cardContainer.classList.add("col-2", "card");
-      cardFront.classList.add(`${shuffleArray[randomIndex]}`, "card-front");
-      cardBack.classList.add("card-back");
+      const cardContainer = document.createElement('div');
+      const cardFront = document.createElement('div');
+      const cardBack = document.createElement('div');
+      cardContainer.classList.add('col-2', 'card');
+      cardFront.classList.add(`${shuffleArray[randomIndex]}`, 'card-front');
+      cardBack.classList.add('card-back');
       shuffleArray.splice(randomIndex, 1);
       cardContainer.appendChild(cardFront);
       cardContainer.appendChild(cardBack);
@@ -92,17 +92,17 @@ class Game {
   }
 
   handleClick(event) {
-    if (event.target.className.indexOf("card-back") === -1) return;
+    if (event.target.className.indexOf('card-back') === -1) return;
     sound.playSound(sound.flipSound);
     if (!this.firstCardClicked) {
       this.firstCardClicked = event.target;
-      this.firstCardClicked.classList.add("hidden");
-      this.firstCardClicked.previousElementSibling.classList.add("current");
+      this.firstCardClicked.classList.add('hidden');
+      this.firstCardClicked.previousElementSibling.classList.add('current');
       this.firstCardClasses = this.firstCardClicked.previousElementSibling.className;
     } else {
       this.secondCardClicked = event.target;
-      this.secondCardClicked.classList.add("hidden");
-      this.secondCardClicked.previousElementSibling.classList.add("current");
+      this.secondCardClicked.classList.add('hidden');
+      this.secondCardClicked.previousElementSibling.classList.add('current');
       this.secondCardClasses = this.secondCardClicked.previousElementSibling.className;
       this.gameCards.removeEventListener('click', this.handleClick);
       if (this.firstCardClasses === this.secondCardClasses) {
@@ -114,16 +114,16 @@ class Game {
 
   handleCorrect() {
     sound.playSound(sound.correctSound, document.getElementById(`${this.firstCardClasses.split(' ')[0]}-voice`));
-    this.gameCards.classList.add("correct");
+    this.gameCards.classList.add('correct');
     this.updateStats(true);
     this.setDelay(true, 500);
   }
 
   handleIncorrect() {
     sound.playSound(sound.incorrectSound);
-    this.gameCards.classList.add("incorrect");
+    this.gameCards.classList.add('incorrect');
     this.updateStats(false);
-    if (this.currentMode === "survival") {
+    if (this.currentMode === 'survival') {
       this.timeDisplay.textContent = `Lives | ${--this.livesLeft}`
       if (!this.livesLeft) this.handleEnd('lose', this.currentMode);
     }
@@ -139,11 +139,11 @@ class Game {
   setDelay(isMatch, time) {
     setTimeout(() => {
       if (!isMatch) {
-        this.firstCardClicked.classList.remove("hidden");
-        this.secondCardClicked.classList.remove("hidden");
+        this.firstCardClicked.classList.remove('hidden');
+        this.secondCardClicked.classList.remove('hidden');
       }
-      this.firstCardClicked.previousElementSibling.classList.remove("current");
-      this.secondCardClicked.previousElementSibling.classList.remove("current");
+      this.firstCardClicked.previousElementSibling.classList.remove('current');
+      this.secondCardClicked.previousElementSibling.classList.remove('current');
       this.firstCardClicked = this.secondCardClicked = null;
       this.gameCards.classList.remove('correct', 'incorrect');
       this.gameCards.addEventListener('click', this.handleClick);
@@ -159,9 +159,9 @@ class Game {
   handleEnd(outcome, mode) {
     clearInterval(this.timer);
     sound.playSound(sound.endSound);
-    const accuracy = "Accuracy: " + this.accuracyDisplay.textContent;
+    const accuracy = 'Accuracy: ' + this.accuracyDisplay.textContent;
     let message;
-    outcome === 'win' ? message = "V I C T O R Y" : message = "D E F E A T";
+    outcome === 'win' ? message = 'V I C T O R Y' : message = 'D E F E A T';
     let timeLives;
     mode === 'timeattack' ? timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}` : timeLives = `Lives Remaining: ${this.livesLeft}`;
     this.endGame(message, accuracy, timeLives);
@@ -170,12 +170,12 @@ class Game {
   handleCheat() {
     clearInterval(this.timer);
     sound.playSound(sound.flipSound, sound.cheatSound);
-    this.endGame("E X O D U S", "admin.System.bypass //", "System.resolve //");
+    this.endGame('E X O D U S', 'admin.System.bypass //', 'System.resolve //');
   }
 
   resetGame() {
     this.matches = this.attempts = this.matchesDisplay.textContent = this.attemptsDisplay.textContent = 0;
-    this.accuracyDisplay.textContent = "0.0%";
+    this.accuracyDisplay.textContent = '0.0%';
     this.gamesPlayedDisplay.textContent = ++this.gamesPlayed;
     this.firstCardClicked = this.secondCardClicked = null;
     this.gameCards.classList.remove('correct', 'incorrect');

@@ -8,18 +8,18 @@ class App {
     this.game = game;
     this.end = end;
 
-    this.welcomeModal = document.getElementById("welcome-modal");
-    this.welcomeButton = document.getElementById("welcome-button");
-    this.modeModal = document.getElementById("mode-modal");
-    this.modeButton = document.getElementById("mode-button");
-    this.difficultyModal = document.getElementById("difficulty-modal");
-    this.difficultyButton = document.getElementById("difficulty-button");
-    this.locationModal = document.getElementById("location-modal");
-    this.locationButton = document.getElementById("location-button");
+    this.welcomeModal = document.getElementById('welcome-modal');
+    this.welcomeButton = document.getElementById('welcome-button');
+    this.modeModal = document.getElementById('mode-modal');
+    this.modeButton = document.getElementById('mode-button');
+    this.difficultyModal = document.getElementById('difficulty-modal');
+    this.difficultyButton = document.getElementById('difficulty-button');
+    this.locationModal = document.getElementById('location-modal');
+    this.locationButton = document.getElementById('location-button');
     this.gameModal = document.getElementById('game-modal');
-    this.cheatButton = document.getElementById("cheat");
-    this.endModal = document.getElementById("end-modal");
-    this.resetButton = document.getElementById("reset");
+    this.cheatButton = document.getElementById('cheat');
+    this.endModal = document.getElementById('end-modal');
+    this.resetButton = document.getElementById('reset');
 
     this.welcomeView = {
       view: this.welcomeModal,

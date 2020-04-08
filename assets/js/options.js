@@ -17,8 +17,8 @@ class Options {
     this.optionList.forEach(option => {
       document.getElementById(`${option.name}-title`).textContent = option.currentTitle = option.defaultTitle;
       document.getElementById(`${option.name}-message`).textContent = option.currentMessage = option.defaultMessage;
-      document.getElementById(`${option.current}`).classList.add("clickable");
-      document.getElementById(`${option.current}`).classList.remove("selected", "selected-animation");
+      document.getElementById(`${option.current}`).classList.add('clickable');
+      document.getElementById(`${option.current}`).classList.remove('selected', 'selected-animation');
       option.current = null;
     });
   }
@@ -44,18 +44,18 @@ class Options {
 
   handleClick(event, option) {
     if (option.current !== event.target.id) {
-      event.target.classList.add("selected", "selected-animation");
-      event.target.classList.remove("clickable");
-      setTimeout(() => event.target.classList.remove("selected-animation"), 700);
+      event.target.classList.add('selected', 'selected-animation');
+      event.target.classList.remove('clickable');
+      setTimeout(() => event.target.classList.remove('selected-animation'), 700);
       if (option.current) {
-        document.getElementById(`${option.current}`).classList.add("clickable");
-        document.getElementById(`${option.current}`).classList.remove("selected");
+        document.getElementById(`${option.current}`).classList.add('clickable');
+        document.getElementById(`${option.current}`).classList.remove('selected');
       }
       option.current = event.target.id;
       option.currentTitle = option[option.current].title;
       option.currentMessage = option[option.current].message;
       sound.playSound(sound.selectSound, option[option.current].sound);
-      option.button.classList.remove("invisible");
+      option.button.classList.remove('invisible');
     }
   }
 }
