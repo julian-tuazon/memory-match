@@ -1,58 +1,58 @@
 class App {
-  constructor(sound, modal, game, end) {
+  constructor(sound, options, game, end) {
     this.sound = sound;
-    this.modal = modal;
-    this.mode = this.modal.mode;
-    this.difficulty = this.modal.difficulty;
-    this.location = this.modal.location;
+    this.options = options;
+    this.mode = this.options.mode;
+    this.difficulty = this.options.difficulty;
+    this.location = this.options.location;
     this.game = game;
     this.end = end;
 
-    this.welcomeModal = document.getElementById("welcome-modal");
-    this.welcomeButton = document.getElementById("welcome-button");
-    this.modeModal = document.getElementById("mode-modal");
-    this.modeButton = document.getElementById("mode-button");
-    this.difficultyModal = document.getElementById("difficulty-modal");
-    this.difficultyButton = document.getElementById("difficulty-button");
-    this.locationModal = document.getElementById("location-modal");
-    this.locationButton = document.getElementById("location-button");
-    this.gameModal = document.getElementById('game-modal');
-    this.cheatButton = document.getElementById("cheat");
-    this.endModal = document.getElementById("end-modal");
-    this.resetButton = document.getElementById("reset");
+    this.welcomeScreen = document.getElementById('welcome-screen');
+    this.welcomeButton = document.getElementById('welcome-button');
+    this.modeScreen = document.getElementById('mode-screen');
+    this.modeButton = document.getElementById('mode-button');
+    this.difficultyScreen = document.getElementById('difficulty-screen');
+    this.difficultyButton = document.getElementById('difficulty-button');
+    this.locationScreen = document.getElementById('location-screen');
+    this.locationButton = document.getElementById('location-button');
+    this.gameScreen = document.getElementById('game-screen');
+    this.cheatButton = document.getElementById('cheat');
+    this.endScreen = document.getElementById('end-screen');
+    this.resetButton = document.getElementById('reset');
 
     this.welcomeView = {
-      view: this.welcomeModal,
+      view: this.welcomeScreen,
       button: null,
       sound: () => sound.playSound(sound.flipSound)
     };
 
     this.modeView = {
-      view: this.modeModal,
+      view: this.modeScreen,
       button: this.modeButton,
       sound: () => sound.playSound(sound.flipSound)
     };
 
     this.difficultyView = {
-      view: this.difficultyModal,
+      view: this.difficultyScreen,
       button: this.difficultyButton,
       sound: () => sound.playSound(sound.flipSound)
     };
 
     this.locationView = {
-      view: this.locationModal,
+      view: this.locationScreen,
       button: this.locationButton,
       sound: () => sound.playSound(sound.flipSound, sound.startSound)
     };
 
     this.gameView = {
-      view: this.gameModal,
+      view: this.gameScreen,
       button: null,
       sound: null
     };
 
     this.endView = {
-      view: this.endModal,
+      view: this.endScreen,
       button: null,
       sound: () => sound.playSound(sound.flipSound, sound.resetSound)
     };
@@ -66,7 +66,7 @@ class App {
 
   initializeApp() {
     this.sound.addEventListeners();
-    this.modal.initializeModals();
+    this.options.initializeOptions();
     this.addEventListeners();
   }
 
@@ -91,7 +91,7 @@ class App {
     this.index = ++this.index % this.views.length;
     const next = this.views[this.index];
     current.view.classList.add('hidden');
-    if (current.button) current.button.classList.add('temp-hidden');
+    if (current.button) current.button.classList.add('invisible');
     next.view.classList.remove('hidden');
     if (current.sound) current.sound();
   }
@@ -117,6 +117,6 @@ class App {
   resetApp() {
     document.body.classList.remove(`${this.location.current}`);
     this.game.resetGame();
-    this.modal.resetModals();
+    this.options.resetOptions();
   }
 }

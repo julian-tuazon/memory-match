@@ -1,8 +1,7 @@
 body {
   height: 95vh;
-  /* background-image: url(../images/backgrounds/alien_planet-1920x1080.jpg); */
   background-size: 110%;
-  background-repeat: repeat; /* repeat */
+  background-repeat: repeat;
   background-position: center;
   background-color: white;
   font-family: 'Avenir', Arial, Helvetica, sans-serif;
@@ -10,123 +9,67 @@ body {
 }
 
 header {
-  /* font-family: 'Orbitron', sans-serif; */
-  font-size: 2.5vmax;
-  font-weight: bold;
+  font-size: 1.5vmax;
+  font-weight: normal;
+  color: white;
   text-align: center;
   margin: auto;
   height: 80%;
   width: 100%;
-
-  /* Makes whole header bar a gif */
-  /* background-color: black; */
-
-
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/extra/header_static.jpg);
+                    rgba(20, 20, 20, .4),
+                    rgba(20, 20, 20, .4)),
+                    url(../images/buttons/header_static.jpg);
   background-position: center;
-  background-size: 50%; /* Original: 300% */
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white;
+  background-size: 50%;
   border-radius: 0.8rem;
 }
 
 header > div {
-  /* background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 300%;
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white; */
-
   margin: 0 2%;
   border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: all ease-in-out 0.2s;
 }
 
-/* header > #title {
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/extra/Goo.gif);
-  background-size: 100%;
-  background-position: 50%;
-} */
-
 aside > div {
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 1.1vmax;
   color: white;
-
-
-
-/* background with gear */
-
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/extra/button3_static.jpg);
-  /* background-color: black; */
+                    rgba(20, 20, 20, .4),
+                    rgba(20, 20, 20, .4)),
+                    url(../images/buttons/button3_static.jpg);
   background-position: 30%;
   background-size: 200%;
-
   margin: 2% auto;
   border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   transition: all ease-in-out 0.2s;
 }
 
 aside > div:nth-child(odd) {
-  /* background-color: black; */
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/extra/button2_static.jpg);
+                    rgba(20, 20, 20, .4),
+                    rgba(20, 20, 20, .4)),
+                    url(../images/buttons/button2_static.jpg);
   background-position: bottom 75%;
   background-size: cover;
-  /* background-position: 50% 60%; */
 }
 
 aside div:first-child {
-  /* background-color: black; */
   background-image: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/extra/button4_static.jpg);
+                    rgba(20, 20, 20, .4),
+                    rgba(20, 20, 20, .4)),
+                    url(../images/buttons/button4_static.jpg);
   background-position: center;
   background-size: 500%;
   font-weight: bold;
   font-size: 1vw;
 }
 
-aside#controls {
-  display: flex;
-  justify-content: flex-start;
-}
-
 aside#controls > div:not(:first-child) {
   height: 25%;
-}
-
-aside#controls > div:nth-child(even):not(:first-child) {
-  /* background-color: black; */
   background-image: linear-gradient(
-                     rgba(20,20,20, .6),
-                     rgba(20,20,20, .6)),
-                     url(../images/extra/button1_static.jpg);
+                    rgba(20, 20, 20, .6),
+                    rgba(20, 20, 20, .6)),
+                    url(../images/buttons/button1_static.jpg);
   background-position: center;
   background-size: 180%;
 }
@@ -137,7 +80,6 @@ aside#controls div:first-child {
 
 #game-cards {
   transition: all ease-in-out 0.2s;
-  align-items: center;
 }
 
 .card {
@@ -164,7 +106,6 @@ aside#controls div:first-child {
   background-image: url(../images/cards/card_back_static.jpg);
   background-size: cover;
   background-position: center;
-  /* border-radius: 15px; */
 }
 
 .current {
@@ -219,296 +160,131 @@ aside#controls div:first-child {
   background-image: url(../images/cards/triakis.jpg);
 }
 
-/* Footer -------------------------------- */
-
-.footer-row {
-  display: flex;
-  align-items: center;
-}
-
-footer {
-  font-size: 2.5vmax;
-  font-weight: bold;
-  text-align: center;
-  margin: auto;
-  height: 80%;
-  width: 100%;
-
-  /* Makes whole header bar a gif */
-  background-color: black;
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/extra/button3_static.jpg);
-  background-position: center;
-  background-size: 50%; /* Original: 300% */
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white;
-  border-radius: 15px;
-  transition: all 0.2s ease-in-out;
-}
-
-footer > div {
-  /* background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 300%;
-  font-size: 1.5vmax;
-  font-weight: normal;
-  color: white; */
-
-  margin: 0 2%;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: all ease-in-out 0.2s;
-}
-
-.progress {
-  box-shadow: 0px 0px 10px 2px orange;
-  /* transform: scale(1.05); */
-  /* transform: translateY(-2%); */
-}
-
-.progress-animation {
-  box-shadow: 0px 0px 10px 10px orange;
-}
-
-/* Modal -------------------------------- */
-
-.modal {
-  font-size: 3vmax;
-  font-weight: normal;
+.screen {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 2;
   top: 0;
   left: 0;
-  text-align: center;
-  /* background: linear-gradient(
-                     rgba(20,20,20, .5),
-                     rgba(20,20,20, .5)),
-                     url(../images/geo/diamond.jpg); */
+  font-size: 3vmax;
+  font-weight: normal;
+  color: black;
   background-image: url(../images/backgrounds/menu.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: black;
-  /* Added modal container to center modal content vertically */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.modal-container {
+.screen-container {
   width: 100%;
 }
 
-/* Adding modal container makes rules nested in another div */
-.modal > div > div {
+.screen-container > div {
   padding: 2%;
 }
 
-.modal > div > div:not(:first-child) {
+.screen-container > div:not(:first-child) {
   font-size: 2vmax;
-  font-weight: normal;
 }
 
-/* #welcome-message, #welcome-message2 {
-  transition: all ease-in-out 0.1s;
-} */
-
-/* #welcome-message2 {
-  padding-top: 0;
-} */
-
-#mode-title, #difficulty-title {
+#mode-title, #difficulty-title, #location-title {
   padding: 0;
 }
 
-.flex {
+.option-container {
   width: 90vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: auto;
 }
 
-.wrap {
-  flex-wrap: wrap;
-}
-
-.flex > div {
-  width: 15%; /* Originally 20% */
-  height: 17vmax; /* Originally 25vmax */
+.option-container > div {
+  width: 15%;
+  height: 17vmax;
   margin: 0 15px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-color: lightgray;
   border: 0.2vmax solid white;
-  /* border-radius: 15px; */
   transition: all ease-in-out 0.2s;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+}
+
+#location-screen .option-container > div {
+  background-size: cover;
 }
 
 #survival {
-  background-image: url(../images/extra/survival.png);
+  background-image: url(../images/buttons/survival.png);
   background-size: 80%;
   background-position: 52% 80%;
 }
 
 #timeattack {
-  background-image: url(../images/extra/time_attack.png);
+  background-image: url(../images/buttons/time_attack.png);
   background-size: 60%;
   background-position: 55% 80%;
 }
 
 #easy {
-  background-image: url(../images/extra/easy.png);
+  background-image: url(../images/buttons/easy.png);
   background-size: 137%;
   background-position: 40% -10%;
 }
 
 #medium {
-  background-image: url(../images/extra/medium.png);
+  background-image: url(../images/buttons/medium.png);
   background-size: 250%;
   background-position: 60% 6.5%;
 }
 
 #hard {
-  background-image: url(../images/extra/hard.png);
+  background-image: url(../images/buttons/hard.png);
   background-size: 300%;
   background-position: 75% -14%;
 }
 
-.flex > div > div {
-  width: 100%;
-  height: 70%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#location-modal .flex > div {
-  background-size: cover;
-}
-
-/* Location / background modal */
 .sol {
   background-image: url(../images/backgrounds/sol2.jpg);
 }
+
 .moa {
   background-image: url(../images/backgrounds/moa_therma.jpg);
 }
+
 .vineta {
   background-image: url(../images/backgrounds/vineta_k.jpg);
 }
+
 .tech {
   background-image: url(../images/backgrounds/tech_de_ra.jpg);
 }
+
 .metropia {
   background-image: url(../images/backgrounds/metropia.jpg);
 }
+
 .anulpha {
   background-image: url(../images/backgrounds/anulpha_pass.jpg);
 }
 
-/* Mode modal pod styling ---- OUTDATED */
-
-.flex > div > div.pod-one {
-  background-image: url(../images/extra/survival.png);
-  background-size: 80%;
-  background-position: 52% 0%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/9s.png); */
-}
-
-.flex > div > div.pod-two {
-  background-image: url(../images/extra/time_attack.png);
-  background-size: 60%;
-  background-position: 55% 0%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/2b_hi_res.png); */
-}
-
-/* Difficulty modal character styling */
-
-.flex > div > div.nine-s {
-  background-image: url(../images/extra/9s.png);
-  background-size: 137%;
-  background-position: 40% 1%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/9s.png); */
-}
-
-.flex > div > div.two-b {
-  background-image: url(../images/extra/2b_hi_res.png);
-  background-size: 300%;
-  background-position: 75% -1%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/2b_hi_res.png); */
-}
-
-.flex > div > div.a-two {
-  background-image: url(../images/extra/a2.png);
-  background-size: 250%;
-  background-position: 60% 17%;
-  /* background: linear-gradient(
-                     rgba(175, 175, 175, 0.2),
-                     rgba(175, 175, 175, 0.2)),
-                     url(../images/extra/a2.png); */
-}
-
 .selected {
   box-shadow: 0px 0px 10px 2px orange;
-  /* transform: scale(1.05); */
-  /* transform: translateY(-2%); */
 }
 
-.flex > .selected-animation {
+.selected-animation {
   box-shadow: 0px 0px 10px 0.5rem orange;
-}
-
-#sound-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #sound-button-container > div {
   margin: 0 1vw;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
 input {
   padding: 20px 0;
   width: 20vw;
   background: linear-gradient(
-                     rgba(20,20,20, .6),
-                     rgba(20,20,20, .6)),
-                     url(../images/extra/button1.gif);
+              rgba(20, 20, 20, .6),
+              rgba(20, 20, 20, .6)),
+              url(../images/buttons/button1.gif);
   background-position: center;
   background-size: cover;
   border-radius: 15px;
@@ -520,57 +296,61 @@ input {
   transition: all ease-in-out 0.2s;
 }
 
+.center-xy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .hidden {
   display: none;
 }
 
-.temp-hidden {
+.invisible {
   visibility: hidden;
 }
 
-@media (hover: hover) and (pointer: fine) { /* Keeps hover effects only on non-touch screen devices */
+@media (hover: hover) and (pointer: fine) {
 
   header {
     background-image: linear-gradient(
-                      rgba(20,20,20, .4),
-                      rgba(20,20,20, .4)),
-                      url(../images/extra/header.gif);
+                      rgba(20, 20, 20, .4),
+                      rgba(20, 20, 20, .4)),
+                      url(../images/buttons/header.gif);
   }
 
   aside > div {
     background-image: linear-gradient(
-                      rgba(20,20,20, .4),
-                      rgba(20,20,20, .4)),
-                      url(../images/extra/button3.gif);
+                      rgba(20, 20, 20, .4),
+                      rgba(20, 20, 20, .4)),
+                      url(../images/buttons/button3.gif);
   }
 
   aside > div:nth-child(odd) {
     background-image: linear-gradient(
-                      rgba(20,20,20, .4),
-                      rgba(20,20,20, .4)),
-                      url(../images/extra/button2.gif);
+                      rgba(20, 20, 20, .4),
+                      rgba(20, 20, 20, .4)),
+                      url(../images/buttons/button2.gif);
   }
 
-  aside div:first-child {
+  aside > div:first-child {
     background-image: linear-gradient(
-                      rgba(20,20,20, .4),
-                      rgba(20,20,20, .4)),
-                      url(../images/extra/button4.gif);
+                      rgba(20, 20, 20, .4),
+                      rgba(20, 20, 20, .4)),
+                      url(../images/buttons/button4.gif);
   }
 
-  aside#controls div.clickable:not(:first-child):hover {
-    /* cursor: pointer; */
-    /* box-shadow: 0px 0px 10px 2px cyan; */
-    /* transform: scale(1.03); */
-    background-image: url(../images/extra/button3.gif);
+  aside#controls > div:not(:first-child) {
+    background-image: linear-gradient(
+                      rgba(20, 20, 20, .6),
+                      rgba(20, 20, 20, .6)),
+                      url(../images/buttons/button1.gif);
+  }
+
+  aside#controls > div:not(:first-child):hover {
+    background-image: url(../images/buttons/button3.gif);
     background-size: 200%;
-  }
-
-  aside#controls > div:nth-child(even):not(:first-child) {
-    background-image: linear-gradient(
-                      rgba(20,20,20, .6),
-                      rgba(20,20,20, .6)),
-                      url(../images/extra/button1.gif);
   }
 
   .clickable:hover {
@@ -594,18 +374,17 @@ input {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px cyan;
     transform: scale(1.03);
-    background-image: url(../images/extra/button3.gif);
+    background-image: url(../images/buttons/button3.gif);
     background-position: center;
     background-size: cover;
-    color: white;
   }
 
-  .flex > div:hover {
+  .option-container > div:hover {
     transform: scale(1.05);
     transform: translateY(-2%);
   }
 
-  .modal-container > :first-child {
+  .screen-container > :first-child {
     font-weight: bold;
   }
 }
@@ -628,19 +407,19 @@ input {
     border-radius: 10px;
   }
 
-  .modal {
+  .screen {
     font-size: 1.5vmax;
   }
 
-  .modal > div > div {
+  .screen-container > div {
 	  padding: 1%;
   }
 
-  .modal > div > div:not(:first-child) {
+  .screen-container > div:not(:first-child) {
     font-size: 1vmax;
   }
 
-  .flex > div {
+  .option-container > div {
 	  width: 8%;
 	  height: 10vmax;
   }
@@ -676,7 +455,7 @@ input {
     border-radius: 7px;
   }
 
-  .flex > div {
+  .option-container > div {
     max-height: 90px;
   }
 }
@@ -759,7 +538,7 @@ input {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1366px) /* iPad/iPad Pro portrait and landscape */ {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1366px) {
 
   body {
     background-size: 300%;
@@ -776,11 +555,11 @@ input {
     height: 70%;
   }
 
-  .modal > div > div {
+  .screen-container > div {
     padding: 3%;
   }
 
-  .flex > div {
+  .option-container > div {
     margin: 0 1.5%;
   }
 }
@@ -795,14 +574,13 @@ input {
     height: 45%;
   }
 
-  .modal > div > div {
+  .screen-container > div {
     padding: 5%;
   }
 
-  .flex > div {
+  .option-container > div {
     margin: 0 2%;
     height: 22vh;
-    max-height: 500px;
     width: 25%;
     border: 1.5px solid white;
   }
@@ -823,7 +601,7 @@ input {
     border-radius: 7px;
   }
 
-  .flex > div {
+  .option-container > div {
     margin: 0 1.5%;
   }
 
@@ -849,7 +627,7 @@ input {
     border-radius: 7px;
   }
 
-  #title, #difficulty-mode-display {
+  #title, #difficulty-mode {
     width: 32%;
   }
 
@@ -874,10 +652,6 @@ input {
     font-size: 0.8vmax;
   }
 
-  /* aside > div:first-child {
-    background-size: 500%;
-  } */
-
   #game-cards {
     height: 90%;
     width: 100%;
@@ -887,19 +661,11 @@ input {
   .card {
     height: 15%;
     width: 30%;
-    /* margin: 1%; */
   }
 
   .card-front, .card-back {
-    border: 0.5px white solid;
     border-radius: 10px;
-    background-size: 100%; /* can use this for regular sized game too */
-    background-color: white;
-  }
-
-  .card-back {
-    background-size: cover;
-    border-radius: 10px;
+    background-size: 100%;
   }
 
   aside#controls {
@@ -911,28 +677,28 @@ input {
     font-size: 1vmax;
   }
 
-   aside#controls > div:not(:first-child) {
+  aside#controls > div:not(:first-child) {
     height: 90%;
-   }
+  }
 
-   #welcome-message {
-     font-size: 1.4vmax;
-   }
+  #welcome-message {
+    font-size: 1.4vmax;
+  }
 
-   .modal > div > div {
-     padding: 5%;
-   }
+  .screen-container > div {
+    padding: 5%;
+  }
 
-  .flex > div {
+  .option-container > div {
     margin: 0 2%;
-    height: 16vh; /* 20vh */
-    max-height: 110px; /* 125px */
+    height: 16vh;
+    max-height: 110px;
     width: 25%;
     border: 1.5px solid white;
   }
 
-  .flex > .selected-animation {
-  box-shadow: 0px 0px 10px 0.3rem orange;
+  .selected-animation {
+    box-shadow: 0px 0px 10px 0.3rem orange;
   }
 
   input {
@@ -942,60 +708,3 @@ input {
     border-radius: 10px;
   }
 }
-
-
-
-/*_____________________________________________*/
-
-/* Animated keyframe for glowing */
-
-/* @keyframes glowing {
-  0% { box-shadow: 0 0 10px 2px orange; }
-  40% { box-shadow: 0 0 10px 10px orange; }
-  60% { box-shadow: 0 0 10px 10px orange; }
-  100% { box-shadow: 0 0 10px 2px orange; }
-} */
-
-/* .button-glow {
-  animation: glowing 2000ms infinite;
-} */
-
-/*_____________________________________________*/
-
-/* Backup input + input:hover */
-
-/* input {
-  padding: 20px 0;
-  width: 20vw;
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/extra/ai.gif);
-  background-position: center;
-  background-size: cover;
-  border: none;
-  border-radius: 15px;
-  font-size: 2vmax;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  color: white;
-  transition: all ease-in-out 0.2s;
-}
-
-input:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 10px 2px cyan;
-  transform: scale(1.01);
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url(../images/geo/earth.gif);
-  background-position: center;
-  background-size: 350%;
-} */
-
-/*
-
-CSS Glow Trick
-
-*/

@@ -1,6 +1,6 @@
 const sound = new Sound();
-const modal = new Modal();
+const options = new Options();
 const game = new Game();
 const end = new End();
-const app = new App(sound, modal, game, end);
+const app = new App(sound, options, game, end);
 app.initializeApp();
