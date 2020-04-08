@@ -55,7 +55,7 @@ class Modal {
       modal.currentTitle = modal[modal.current].title;
       modal.currentMessage = modal[modal.current].message;
       sound.playSound(sound.selectSound, modal[modal.current].sound);
-      modal.button.classList.remove("temp-hidden");
+      modal.button.classList.remove("invisible");
     }
   }
 }

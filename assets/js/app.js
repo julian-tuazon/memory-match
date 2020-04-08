@@ -91,7 +91,7 @@ class App {
     this.index = ++this.index % this.views.length;
     const next = this.views[this.index];
     current.view.classList.add('hidden');
-    if (current.button) current.button.classList.add('temp-hidden');
+    if (current.button) current.button.classList.add('invisible');
     next.view.classList.remove('hidden');
     if (current.sound) current.sound();
   }
