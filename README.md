@@ -26,6 +26,11 @@ https://memory-match.juliantuazon.com/
 - User can toggle voice effects
 - User can utilize cheat button to win game
 
+## Preview
+![memory-match-difficulty](https://user-images.githubusercontent.com/57813827/78608602-124ef700-7816-11ea-904f-4480fa10bfd1.png)
+![memory-match-location](https://user-images.githubusercontent.com/57813827/78783508-96a99300-7958-11ea-9366-caf293ab4b0f.png)
+![memory-match-game](https://user-images.githubusercontent.com/57813827/78783465-8691b380-7958-11ea-80ae-e1cadbbe22e4.png)
+
 ## Development
 
 #### System Requirements
@@ -41,8 +46,3 @@ https://memory-match.juliantuazon.com/
   cd memory-match
   ```
 3. View the application by opening ```index.html``` in your browser.
-
-## Screenshot
-![memory-match-difficulty](https://user-images.githubusercontent.com/57813827/78608602-124ef700-7816-11ea-904f-4480fa10bfd1.png)
-![memory-match-location](https://user-images.githubusercontent.com/57813827/78783508-96a99300-7958-11ea-9366-caf293ab4b0f.png)
-![memory-match-game](https://user-images.githubusercontent.com/57813827/78783465-8691b380-7958-11ea-80ae-e1cadbbe22e4.png)
