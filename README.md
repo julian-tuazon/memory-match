@@ -41,7 +41,7 @@ https://memory-match.juliantuazon.com/
   ```shell
   git clone https://github.com/julian-tuazon/memory-match.git
   ```
-2. Change working directory to the location of the newly cloned directory.
+2. Change working directory to the location of the newly cloned repository.
   ```shell
   cd memory-match
   ```
