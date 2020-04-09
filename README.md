@@ -34,7 +34,7 @@ https://memory-match.juliantuazon.com/
 ## Development
 
 #### System Requirements
-- Web browser
+- None
 
 #### Getting Started
 1. Clone the repository.
