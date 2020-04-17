@@ -2,7 +2,7 @@
 
 A memory match game with a futuristic UI. 
 
-Users can toggle music, sound effects, and voice effects, select different mode and difficulty settings, and track statistics.   
+Users can toggle music, sound effects, and voice effects, select mode, difficulty, and location, and track statistics.   
 
 ## Technologies Used
 - JavaScript
