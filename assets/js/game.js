@@ -162,7 +162,7 @@ class Game {
     const accuracy = 'Accuracy: ' + this.accuracyDisplay.textContent;
     if (outcome === 'win') this.winsDisplay.textContent = ++this.wins;
     const message = outcome === 'win' ? 'V I C T O R Y' : 'D E F E A T';
-    const timeLives = mode === 'survival' ? `Lives Remaining: ${this.livesLeft}` : `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}`;
+    const timeLives = mode === 'survival' ? `Lives Remaining: ${this.livesLeft}` : `Time Remaining: ${Math.max(0, this.timeLeft).toFixed(1)}`;
     this.endGame(message, accuracy, timeLives);
   }
 
