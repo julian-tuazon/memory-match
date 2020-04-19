@@ -51,11 +51,11 @@ class Sound {
     });
     document.getElementById('sound-on-button').addEventListener('click', event => this.configureSound(event));
     document.getElementById('sound-off-button').addEventListener('click', event => this.configureSound(event));
-    [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => this.hoverSound.play()));
   }
 
   configureSound(event) {
     if (event.target.id === 'sound-on-button') sound.soundList.forEach(sound => sound.toggle());
+    [...document.getElementsByClassName('clickable')].forEach(elem => elem.addEventListener('mouseover', () => this.hoverSound.play()));
     this.soundScreen.classList.add('hidden');
     this.welcomeScreen.classList.remove('hidden');
   }
