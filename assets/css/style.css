@@ -226,20 +226,20 @@ aside#controls div:first-child {
 
 #easy {
   background-image: url(../images/buttons/easy.png);
-  background-size: 137%;
-  background-position: 40% -10%;
+  background-size: 150%;
+  background-position: 45% -25%;
 }
 
 #medium {
   background-image: url(../images/buttons/medium.png);
-  background-size: 250%;
-  background-position: 60% 6.5%;
+  background-size: 140%;
+  background-position: 46% -43%;
 }
 
 #hard {
   background-image: url(../images/buttons/hard.png);
-  background-size: 300%;
-  background-position: 75% -14%;
+  background-size: 135%;
+  background-position: 45% -53%;
 }
 
 .sol {
