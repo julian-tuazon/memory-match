@@ -161,10 +161,8 @@ class Game {
     sound.playSound(sound.endSound);
     const accuracy = 'Accuracy: ' + this.accuracyDisplay.textContent;
     if (outcome === 'win') this.winsDisplay.textContent = ++this.wins;
-    let message;
-    outcome === 'win' ? message = 'V I C T O R Y' : message = 'D E F E A T';
-    let timeLives;
-    mode === 'survival' ? timeLives = `Lives Remaining: ${this.livesLeft}` : timeLives = `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}`;
+    const message = outcome === 'win' ? 'V I C T O R Y' : 'D E F E A T';
+    const timeLives = mode === 'survival' ? `Lives Remaining: ${this.livesLeft}` : `Time Remaining: ${Math.abs(this.timeLeft).toFixed(1)}`;
     this.endGame(message, accuracy, timeLives);
   }
 
