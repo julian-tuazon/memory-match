@@ -59,7 +59,7 @@ aside div:first-child {
                     rgba(20, 20, 20, .4)),
                     url(../images/buttons/button4_static.jpg);
   background-position: center;
-  background-size: 500%;
+  background-size: 300%;
   font-weight: bold;
   font-size: 1vw;
 }
@@ -308,7 +308,7 @@ input {
   background: linear-gradient(
               rgba(20, 20, 20, .6),
               rgba(20, 20, 20, .6)),
-              url(../images/buttons/button1.gif);
+              url(../images/buttons/button1_op.gif);
   background-position: center;
   background-size: cover;
   border-radius: 15px;
@@ -341,39 +341,39 @@ input {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/header.gif);
+                      url(../images/buttons/header_op.gif);
   }
 
   aside > div {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/button3.gif);
+                      url(../images/buttons/button3_op.gif);
   }
 
   aside > div:nth-child(odd) {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/button2.gif);
+                      url(../images/buttons/button2_op.gif);
   }
 
   aside > div:first-child {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/button4.gif);
+                      url(../images/buttons/button4_op.gif);
   }
 
   aside#controls > div:not(:first-child) {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .6),
                       rgba(20, 20, 20, .6)),
-                      url(../images/buttons/button1.gif);
+                      url(../images/buttons/button1_op.gif);
   }
 
   aside#controls > div:not(:first-child):hover {
-    background-image: url(../images/buttons/button3.gif);
+    background-image: url(../images/buttons/button3_op.gif);
     background-size: 200%;
   }
 
@@ -384,7 +384,7 @@ input {
   }
 
   .card-back {
-    background-image: url(../images/cards/card_back_op3.gif);
+    background-image: url(../images/cards/card_back_op2.gif);
   }
 
   .card-back:hover {
@@ -398,7 +398,7 @@ input {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px cyan;
     transform: scale(1.03);
-    background-image: url(../images/buttons/button3.gif);
+    background-image: url(../images/buttons/button3_op.gif);
     background-position: center;
     background-size: cover;
   }
