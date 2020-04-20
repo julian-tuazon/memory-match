@@ -384,14 +384,14 @@ input {
   }
 
   .card-back {
-    background-image: url(../images/cards/card_back.gif);
+    background-image: url(../images/cards/card_back_op3.gif);
   }
 
   .card-back:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px red;
     transform: scale(1.01);
-    background-image: url(../images/cards/card_hover.gif);
+    background-image: url(../images/cards/card_hover_op.gif);
   }
 
   input:hover {
