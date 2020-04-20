@@ -28,8 +28,6 @@ function preloadImagePromise(src) {
 Promise.all([
   preloadImagePromise("assets/images/buttons/button1.gif"),
   preloadImagePromise("assets/images/buttons/button3.gif"),
-  preloadImagePromise("assets/images/buttons/survival.png"),
-  preloadImagePromise("assets/images/buttons/time_attack.png"),
 ])
   .then((values) => {
     console.log('the deed is done!', 'values', values);
@@ -46,6 +44,8 @@ Promise.all([
 
 const loadGameImages = () => {
   preloadImages([
+    "assets/images/buttons/survival.png",
+    "assets/images/buttons/time_attack.png",
     "assets/images/buttons/easy.png",
     "assets/images/buttons/medium.png",
     "assets/images/buttons/hard.png",
