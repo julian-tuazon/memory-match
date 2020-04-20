@@ -13,37 +13,39 @@ function preloadImages(arr) {
   }
 }
 
-function preloadImagePromise(src) {
-  return new Promise((resolve, reject) => {
-    try {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => resolve(img.src);
-    } catch(err) {
-      reject(err);
-    }
-  });
-}
+// function preloadImagePromise(src) {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       const img = new Image();
+//       img.src = src;
+//       img.onload = () => resolve(img.src);
+//     } catch(err) {
+//       reject(err);
+//     }
+//   });
+// }
 
-Promise.all([
-  preloadImagePromise("assets/images/buttons/button1.gif"),
-  preloadImagePromise("assets/images/buttons/button3.gif"),
-])
-  .then((values) => {
-    console.log('the deed is done!', 'values', values);
-    document.getElementById('load-screen').classList.add('hidden');
-    document.getElementById('sound-screen').classList.remove('hidden');
-    loadGameImages();
-  })
-  .catch((err) => {
-    console.error(err);
-    document.getElementById('load-screen').classList.add('hidden');
-    document.getElementById('sound-screen').classList.remove('hidden');
-    loadGameImages();
-  });
+// Promise.all([
+//   preloadImagePromise("assets/images/buttons/button1.gif"),
+//   preloadImagePromise("assets/images/buttons/button3.gif"),
+// ])
+//   .then((values) => {
+//     console.log('the deed is done!', 'values', values);
+//     document.getElementById('load-screen').classList.add('hidden');
+//     document.getElementById('sound-screen').classList.remove('hidden');
+//     loadGameImages();
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     document.getElementById('load-screen').classList.add('hidden');
+//     document.getElementById('sound-screen').classList.remove('hidden');
+//     loadGameImages();
+//   });
 
 const loadGameImages = () => {
   preloadImages([
+    "assets/images/buttons/button1.gif",
+    "assets/images/buttons/button3.gif"
     "assets/images/buttons/survival.png",
     "assets/images/buttons/time_attack.png",
     "assets/images/buttons/easy.png",
