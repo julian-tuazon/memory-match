@@ -308,7 +308,7 @@ input {
   background: linear-gradient(
               rgba(20, 20, 20, .6),
               rgba(20, 20, 20, .6)),
-              url(../images/buttons/button1_op.gif);
+              url(../images/buttons/button1.gif);
   background-position: center;
   background-size: cover;
   border-radius: 15px;
@@ -341,39 +341,39 @@ input {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/header_op.gif);
+                      url(../images/buttons/header.gif);
   }
 
   aside > div {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/button3_op.gif);
+                      url(../images/buttons/button3.gif);
   }
 
   aside > div:nth-child(odd) {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/button2_op.gif);
+                      url(../images/buttons/button2.gif);
   }
 
   aside > div:first-child {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .4),
                       rgba(20, 20, 20, .4)),
-                      url(../images/buttons/button4_op.gif);
+                      url(../images/buttons/button4.gif);
   }
 
   aside#controls > div:not(:first-child) {
     background-image: linear-gradient(
                       rgba(20, 20, 20, .6),
                       rgba(20, 20, 20, .6)),
-                      url(../images/buttons/button1_op.gif);
+                      url(../images/buttons/button1.gif);
   }
 
   aside#controls > div:not(:first-child):hover {
-    background-image: url(../images/buttons/button3_op.gif);
+    background-image: url(../images/buttons/button3.gif);
     background-size: 200%;
   }
 
@@ -384,21 +384,21 @@ input {
   }
 
   .card-back {
-    background-image: url(../images/cards/card_back_op2.gif);
+    background-image: url(../images/cards/card_back.gif);
   }
 
   .card-back:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px red;
     transform: scale(1.01);
-    background-image: url(../images/cards/card_hover_op.gif);
+    background-image: url(../images/cards/card_hover.gif);
   }
 
   input:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px cyan;
     transform: scale(1.03);
-    background-image: url(../images/buttons/button3_op.gif);
+    background-image: url(../images/buttons/button3.gif);
     background-position: center;
     background-size: cover;
   }
