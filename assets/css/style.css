@@ -59,7 +59,7 @@ aside div:first-child {
                     rgba(20, 20, 20, .4)),
                     url(../images/buttons/button4_static.jpg);
   background-position: center;
-  background-size: 500%;
+  background-size: 300%;
   font-weight: bold;
   font-size: 1vw;
 }
