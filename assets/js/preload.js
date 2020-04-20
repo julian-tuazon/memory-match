@@ -42,7 +42,7 @@ function preloadImages(arr) {
 //     loadGameImages();
 //   });
 
-const loadGameImages = () => {
+// const loadGameImages = () => {
   preloadImages([
     "assets/images/buttons/button1.gif",
     "assets/images/buttons/button3.gif"
@@ -75,4 +75,4 @@ const loadGameImages = () => {
     "assets/images/buttons/button2.gif",
     "assets/images/buttons/button4.gif",
   ]);
-}
+// }
