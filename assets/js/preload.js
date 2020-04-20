@@ -45,7 +45,7 @@ function preloadImages(arr) {
 // const loadGameImages = () => {
   preloadImages([
     "assets/images/buttons/button1.gif",
-    "assets/images/buttons/button3.gif"
+    "assets/images/buttons/button3.gif",
     "assets/images/buttons/survival.png",
     "assets/images/buttons/time_attack.png",
     "assets/images/buttons/easy.png",
